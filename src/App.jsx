@@ -25,7 +25,8 @@ function App() {
         bulbCount: 0,
         bulbStatus: "off",
         language: localStorage.getItem("language") === null ? defaultLang() : localStorage.getItem("language"),
-        theme: parseInt(localStorage.getItem("theme")) || 0
+        theme: parseInt(localStorage.getItem("theme")) || 0,
+        invertTheme: false
     });
     const [savedList, setSavedList] = useState([]);
 
@@ -61,7 +62,8 @@ function App() {
                     bulbCount: response.data.bulbCount || 0,
                     bulbStatus: response.data.bulbStatus || "off",
                     language: response.data.language === null ? settings.language : response.data.language,
-                    theme: response.data.theme === null ? settings.theme : response.data.theme
+                    theme: response.data.theme === null ? settings.theme : response.data.theme,
+                    invertTheme: response.data.invertTheme || false
                 });
                 setLoadApp(false);
                 themes[response.data.theme === null ? settings.theme : response.data.theme]();
@@ -81,7 +83,8 @@ function App() {
             bulbCount: 0,
             bulbStatus: "off",
             language: localStorage.getItem("language") === null ? defaultLang() : parseInt(localStorage.getItem("language")),
-            theme: parseInt(localStorage.getItem("theme")) || 0
+            theme: parseInt(localStorage.getItem("theme")) || 0,
+            invertTheme: false
         });
         setSavedList([]);
         localStorage.removeItem("accessToken");

@@ -16,8 +16,6 @@ function Settings({ settings, setSettings }) {
 
     const [loadLang, setLoadLang] = useState(false);
     const [loadTheme, setLoadTheme] = useState(false);
-
-    const [themeInverted, setThemeInverted] = useState(false);
     
     const [width, setWidth] = useState(window.innerWidth);
     
@@ -118,8 +116,25 @@ function Settings({ settings, setSettings }) {
         }
     }
 
-    function invertTheme() {
-        setThemeInverted(!themeInverted);
+    function toggleInvertTheme() {
+        const invert = !settings.invertTheme
+        if (!authState.status) {
+            localStorage.setItem("invertTheme", invert);
+            setSettings(
+                { ...settings, invertTheme: invert }
+            );
+        }
+        else {
+            axios.put(
+                `${import.meta.env.VITE_API_KEY}/users/invertTheme`,
+                { invertTheme: invert, id: authState.id },
+                { headers: { accessToken: localStorage.getItem("accessToken") } }
+            ).then(response => {
+                setSettings(
+                    { ...settings, invertTheme: response.data || invert }
+                );
+            });
+        }
     }
 
     return (
@@ -169,7 +184,7 @@ function Settings({ settings, setSettings }) {
                     {text[settings.language].invertTheme}
                 </label>
                 <div className="toggle">
-                    <input type="checkbox" id="switch" checked={themeInverted} onChange={invertTheme} />
+                    <input type="checkbox" id="switch" checked={settings.invertTheme} onChange={toggleInvertTheme} />
                     <label htmlFor="switch" />
                 </div>
             </div>
