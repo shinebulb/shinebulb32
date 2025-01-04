@@ -124,7 +124,19 @@ function Settings({ settings, setSettings }) {
             exit={{opacity: 0}}
             transition={{duration: 0.5}}
         >
+            <div style={{ height: "3rem" }} />
             <h2>{text[settings.language].headings[1]}</h2>
+            <div className="container">
+                <label>{text[settings.language].settings[1]}</label>
+                <div>
+                    {loadLang && <span className="loader" style={loaderStyles} />}
+                    <select onChange={languageChange} value={languages[settings.language]}>
+                        <option value="en">english</option>
+                        <option value="ru">русский</option>
+                    </select>
+                </div>
+            </div>
+            <div style={{ height: "3rem" }} />
             <div className="container">
                 <label className="settingName">{text[settings.language].settings[0]}</label>
                 <div>
@@ -140,6 +152,23 @@ function Settings({ settings, setSettings }) {
                     </select>
                 </div>
             </div>
+            <div style={{ height: "3rem" }} />
+            <div className="container">
+                <label style={{
+                    fontStyle: "italic",
+                    fontSize: "1.1rem",
+                    width: "18ch",
+                    textAlign: "left"
+                }}>
+                    {text[settings.language].invertTheme}
+                </label>
+                <div className="toggle">
+                    <input type="checkbox" id="switch" />
+                    <label htmlFor="switch" />
+                </div>
+            </div>
+            <div style={{ height: "4rem" }} />
+            <a onClick={() => navigate("/")}>{text[settings.language].back}</a>
             <ThemeConstructor
                 constructor={constructorRef}
                 settings={settings}
@@ -147,19 +176,6 @@ function Settings({ settings, setSettings }) {
                 width={width}
             />
             <More more={moreRef} settings={settings} />
-            <div style={{ height: "3rem" }} />
-            <div className="container">
-                <label>{text[settings.language].settings[1]}</label>
-                <div>
-                    {loadLang && <span className="loader" style={loaderStyles} />}
-                    <select onChange={languageChange} value={languages[settings.language]}>
-                        <option value="en">english</option>
-                        <option value="ru">русский</option>
-                    </select>
-                </div>
-            </div>
-            <div style={{ height: "5rem" }} />
-            <a onClick={() => navigate("/")}>{text[settings.language].back}</a>
         </motion.div>
     );
 }

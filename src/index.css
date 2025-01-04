@@ -554,6 +554,43 @@ h2 {
     cursor: pointer;
 }
 
+.container .toggle input[type=checkbox]{
+    height: 0;
+    width: 0;
+    visibility: hidden;
+}
+  
+.container .toggle label {
+    cursor: pointer;
+    width: 75px;
+    height: 37.5px;
+    background: var(--intermediate-red);
+    display: block;
+    border-radius: 37.5px;
+    position: relative;
+}
+  
+.container .toggle label:after {
+    content: '';
+    position: absolute;
+    top: 1.875px;
+    left: 1.875px;
+    width: 33.75px;
+    height: 33.75px;
+    background: white;
+    border-radius: 33.75px;
+    transition: 0.3s;
+}
+  
+.container .toggle input:checked + label {
+    background: var(--intermediate-green);
+}
+  
+.container .toggle input:checked + label:after {
+    left: calc(100% - 1.875px);
+    transform: translateX(-100%);
+}
+
 .signup-form button:hover,
 .login-form button:hover,
 .container select:hover,
