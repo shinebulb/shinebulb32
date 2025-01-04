@@ -16,6 +16,8 @@ function Settings({ settings, setSettings }) {
 
     const [loadLang, setLoadLang] = useState(false);
     const [loadTheme, setLoadTheme] = useState(false);
+
+    const [themeInverted, setThemeInverted] = useState(false);
     
     const [width, setWidth] = useState(window.innerWidth);
     
@@ -116,6 +118,10 @@ function Settings({ settings, setSettings }) {
         }
     }
 
+    function invertTheme() {
+        setThemeInverted(!themeInverted);
+    }
+
     return (
         <motion.div
             className='settings'
@@ -163,7 +169,7 @@ function Settings({ settings, setSettings }) {
                     {text[settings.language].invertTheme}
                 </label>
                 <div className="toggle">
-                    <input type="checkbox" id="switch" />
+                    <input type="checkbox" id="switch" checked={themeInverted} onChange={invertTheme} />
                     <label htmlFor="switch" />
                 </div>
             </div>
