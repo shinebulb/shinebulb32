@@ -119,7 +119,7 @@ function Settings({ settings, setSettings }) {
     function toggleInvertTheme() {
         const invert = !settings.invertTheme
         if (!authState.status) {
-            localStorage.setItem("invertTheme", invert);
+            localStorage.setItem("invertTheme", Number(invert));
             setSettings(
                 { ...settings, invertTheme: invert }
             );

@@ -26,7 +26,7 @@ function App() {
         bulbStatus: "off",
         language: localStorage.getItem("language") === null ? defaultLang() : localStorage.getItem("language"),
         theme: parseInt(localStorage.getItem("theme")) || 0,
-        invertTheme: false
+        invertTheme: parseInt(localStorage.getItem("invertTheme")) || 0
     });
     const [savedList, setSavedList] = useState([]);
 
@@ -84,7 +84,7 @@ function App() {
             bulbStatus: "off",
             language: localStorage.getItem("language") === null ? defaultLang() : parseInt(localStorage.getItem("language")),
             theme: parseInt(localStorage.getItem("theme")) || 0,
-            invertTheme: false
+            invertTheme: parseInt(localStorage.getItem("invertTheme")) || 0
         });
         setSavedList([]);
         localStorage.removeItem("accessToken");

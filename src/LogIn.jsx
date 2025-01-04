@@ -84,7 +84,7 @@ function LogIn({ bulb, settings, setSettings, setSavedList }) {
                     bulbStatus: "off",
                     language: localStorage.getItem("language") === null ? defaultLang() : parseInt(localStorage.getItem("language")),
                     theme: parseInt(localStorage.getItem("theme")) || 0,
-                    invertTheme: false
+                    invertTheme: parseInt(localStorage.getItem("invertTheme")) || 0
                 });
             }
         }).then(response => {
