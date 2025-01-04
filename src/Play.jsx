@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from './assets/AuthContext';
 import axios from 'axios';
+import themes from './assets/themes';
 import paths from './assets/json/svg-paths.json';
 import text from './assets/json/text.json';
 import { motion } from 'framer-motion';
@@ -47,6 +48,7 @@ function Play({ bulb, settings, setSettings }) {
                     bulbStatus: status.data
                 });
                 if (!bulbMuted) new Audio(`audio/${status.data}.mp3`).play();
+                if (settings.invertTheme) themes[settings.theme]();
                 bulb.current.classList.toggle("on");
                 setLoadSwitch(false);
             }));
@@ -83,6 +85,7 @@ function Play({ bulb, settings, setSettings }) {
                     bulbStatus: status.data
                 });
                 if (!bulbMuted) new Audio("audio/off.mp3").play();
+                if (settings.invertTheme) themes[settings.theme]();
                 bulb.current.classList.remove("on");
                 modal.current.close();
                 setLoadReset(false);

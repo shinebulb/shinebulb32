@@ -133,6 +133,7 @@ function Settings({ settings, setSettings }) {
                 setSettings(
                     { ...settings, invertTheme: response.data || invert }
                 );
+                themes[settings.theme]();
             });
         }
     }

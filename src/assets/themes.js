@@ -7,13 +7,35 @@ const systemTheme = () => {
 }
 
 const lightTheme = () => {
-    document.body.classList.remove("dark");
-    document.body.classList.add("light");
+    axios.get(
+        `${import.meta.env.VITE_API_KEY}/users/changeTheme`,
+        { headers: { accessToken: localStorage.getItem("accessToken") } }
+    ).then(response => {
+        if (response.data.invertTheme && response.data.bulbStatus == "on") {
+            document.body.classList.remove("light");
+            document.body.classList.add("dark");
+        }
+        else {
+            document.body.classList.remove("dark");
+            document.body.classList.add("light");
+        }
+    });
 }
 
 const darkTheme = () => {
-    document.body.classList.remove("light");
-    document.body.classList.add("dark");
+    axios.get(
+        `${import.meta.env.VITE_API_KEY}/users/changeTheme`,
+        { headers: { accessToken: localStorage.getItem("accessToken") } }
+    ).then(response => {
+        if (response.data.invertTheme && response.data.bulbStatus == "on") {
+            document.body.classList.remove("dark");
+            document.body.classList.add("light");
+        }
+        else {
+            document.body.classList.remove("light");
+            document.body.classList.add("dark");
+        }
+    });
 }
 
 const customTheme = () => {
@@ -22,13 +44,23 @@ const customTheme = () => {
         { headers: { accessToken: localStorage.getItem("accessToken") } }
     ).then(response => {
 
+        let bg;
+        let font;
+
         document.body.classList.remove("dark");
         document.body.classList.remove("light");
         document.body.classList.add('theme-transition');
         setTimeout(() => document.body.classList.remove('theme-transition'), 500);
 
-        const bg = response.data.lastBg;
-        const font = response.data.lastFont;
+        if (response.data.invertTheme && response.data.bulbStatus == "on") {
+            bg = response.data.lastFont;
+            font = response.data.lastBg;
+        }
+        else {
+            bg = response.data.lastBg;
+            font = response.data.lastFont;
+        }
+
         const customProperties = [bg, font, bg, bg, bg, bg, `${font} 3px solid`, `${font} 1px solid`, bg, font, font, font]
         for (let i = 0; i < customProperties.length; i++) {
             document.documentElement.style.setProperty(custom[i], customProperties[i]);
