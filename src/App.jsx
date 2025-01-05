@@ -77,7 +77,6 @@ function App() {
     function logout() {
         document.body.classList.add('theme-transition');
         setTimeout(() => document.body.classList.remove('theme-transition'), 500);
-        themes[parseInt(localStorage.getItem("theme")) || 0]();
         setAuthState({ username: "", id: 0, status: false });
         setSettings({
             bulbCount: parseInt(localStorage.getItem("bulbCount")) || 0,
@@ -88,6 +87,7 @@ function App() {
         });
         setSavedList([]);
         localStorage.removeItem("accessToken");
+        themes[parseInt(localStorage.getItem("theme")) || 0]();
     }
 
     return (
