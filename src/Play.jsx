@@ -14,7 +14,7 @@ function Play({ bulb, settings, setSettings }) {
     const [loadSwitch, setLoadSwitch] = useState(false);
     const [loadReset, setLoadReset] = useState(false);
 
-    const [bulbMuted, setBulbMuted] = useState(false);
+    const [bulbMuted, setBulbMuted] = useState(parseInt(localStorage.getItem("bulbMuted")) || 0);
 
     useEffect(() => {
         document.title = text[settings.language].links[0].toLowerCase();
@@ -143,8 +143,8 @@ function Play({ bulb, settings, setSettings }) {
             <div className="play-heading">
                 <svg viewBox="-0.5 0 25 25" fill="none" />
                 <h2>{text[settings.language].headings[0]}</h2>
-                {bulbMuted ? <svg onClick={() => setBulbMuted(false)} viewBox="-0.5 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg"><title>{text[settings.language].bulbMuteUnmute[1]}</title><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"/><g id="SVGRepo_iconCarrier"><path d={paths.soundOff[0]} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/><path d={paths.soundOff[1]} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/><path d={paths.soundOff[2]} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></g></svg>
-                : <svg onClick={() => setBulbMuted(true)} viewBox="-0.5 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg"><title>{text[settings.language].bulbMuteUnmute[0]}</title><g id="SVGRepo_bgCarrier" strokeWidth="0"/><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"/><g id="SVGRepo_iconCarrier"><path d={paths.soundOn[0]} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/><path d={paths.soundOn[1]} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/><path d={paths.soundOn[2]} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></g></svg>}
+                {bulbMuted ? <svg onClick={() => {setBulbMuted(0); localStorage.setItem("bulbMuted", 0)}} viewBox="-0.5 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg"><title>{text[settings.language].bulbMuteUnmute[1]}</title><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"/><g id="SVGRepo_iconCarrier"><path d={paths.soundOff[0]} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/><path d={paths.soundOff[1]} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/><path d={paths.soundOff[2]} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></g></svg>
+                : <svg onClick={() => {setBulbMuted(1); localStorage.setItem("bulbMuted", 1)}} viewBox="-0.5 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg"><title>{text[settings.language].bulbMuteUnmute[0]}</title><g id="SVGRepo_bgCarrier" strokeWidth="0"/><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"/><g id="SVGRepo_iconCarrier"><path d={paths.soundOn[0]} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/><path d={paths.soundOn[1]} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/><path d={paths.soundOn[2]} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></g></svg>}
             </div>
             <p className="p1" id="text">{text[settings.language].text[bulbStates.indexOf(settings.bulbStatus)]}</p>
             <label htmlFor="switch">
