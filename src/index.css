@@ -559,7 +559,7 @@ h2 {
     width: 0;
     visibility: hidden;
 }
-  
+
 .container .toggle label {
     cursor: pointer;
     width: 75px;
@@ -571,7 +571,7 @@ h2 {
 }
   
 .container .toggle label:after {
-    content: '';
+    content: "×";
     position: absolute;
     top: 1.875px;
     left: 1.875px;
@@ -587,6 +587,7 @@ h2 {
 }
   
 .container .toggle input:checked + label:after {
+    content: "✓";
     left: calc(100% - 1.875px);
     transform: translateX(-100%);
 }
