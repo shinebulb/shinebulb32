@@ -54,8 +54,8 @@ function Play({ bulb, settings, setSettings }) {
                         document.body.classList.remove('theme-transition');
                     }, 200);
                     themes[settings.theme]();
-                    bulb.current.classList.toggle("on");
                 }
+                bulb.current.classList.toggle("on");
                 setLoadSwitch(false);
             }));
         }
@@ -65,6 +65,7 @@ function Play({ bulb, settings, setSettings }) {
                 bulbCount: settings.bulbStatus === "off" ? settings.bulbCount + 1 : settings.bulbCount,
                 bulbStatus: settings.bulbStatus === "off" ? "on" : "off"
             });
+            bulb.current.classList.toggle("on");
             localStorage.setItem("bulbCount", settings.bulbStatus === "off" ? settings.bulbCount + 1 : settings.bulbCount);
             localStorage.setItem("bulbStatus", settings.bulbStatus === "off" ? "on" : "off");
             if (!bulbMuted) new Audio(`audio/${settings.bulbStatus === "off" ? "on" : "off"}.mp3`).play();
@@ -74,7 +75,6 @@ function Play({ bulb, settings, setSettings }) {
                     document.body.classList.remove('theme-transition');
                 }, 200);
                 themes[settings.theme]();
-                bulb.current.classList.toggle("on");
             }
         }
     }

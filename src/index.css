@@ -564,7 +564,7 @@ h2 {
     cursor: pointer;
     width: 75px;
     height: 37.5px;
-    background: var(--intermediate-red);
+    background: var(--font);
     display: block;
     border-radius: 37.5px;
     position: relative;
@@ -577,13 +577,13 @@ h2 {
     left: 1.875px;
     width: 33.75px;
     height: 33.75px;
-    background: white;
+    background: var(--bg);
     border-radius: 33.75px;
     transition: 0.3s;
 }
   
 .container .toggle input:checked + label {
-    background: var(--intermediate-green);
+    background: var(--font);
 }
   
 .container .toggle input:checked + label:after {
