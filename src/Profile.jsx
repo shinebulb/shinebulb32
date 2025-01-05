@@ -35,6 +35,9 @@ function Profile({ settings, bulb }) {
         });
     }, [username]);
 
+    const bg = Number(user.invertTheme) || 0;
+    const font = Number(!user.invertTheme) || 0;
+
     const userTheme = [
         ["transparent", "#f4f0e8", "#171717", user?.lastBg],
         ["var(--font)", "#232323", "#dcdcdc", user?.lastFont]
@@ -45,7 +48,7 @@ function Profile({ settings, bulb }) {
     return (
         <motion.div
             className='profile'
-            style={{backgroundColor: (!loadUser && userTheme[0][user?.theme || 0]), border: (!loadUser && `${userTheme[1][user?.theme || 0]} 3px solid`)}}
+            style={{backgroundColor: (!loadUser && userTheme[bg][user?.theme || 0]), border: (!loadUser && `${userTheme[font][user?.theme || 0]} 3px solid`)}}
             initial={{opacity: 0}}
             animate={{opacity: 1}}
             exit={{opacity: 0}}
@@ -55,13 +58,13 @@ function Profile({ settings, bulb }) {
             : <>{
                 user === null ? navigate("/page-not-found")
                 : <>
-                    {user?.theme == 3 && <svg onClick={() => copyModal.current.showModal()} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><title>{text[settings.language].copyColors}</title><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"><path d={paths.copy[0]} fill={userTheme[1][user?.theme || 0]}></path><path d={paths.copy[1]} fill={userTheme[1][user?.theme || 0]}></path></g></svg>}
+                    {user?.theme == 3 && <svg onClick={() => copyModal.current.showModal()} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><title>{text[settings.language].copyColors}</title><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"><path d={paths.copy[0]} fill={userTheme[font][user?.theme || 0]}></path><path d={paths.copy[1]} fill={userTheme[font][user?.theme || 0]}></path></g></svg>}
                     <div className="play">
                         <img ref={bulb} className={user.bulbStatus} src={user.bulbStatus == "on" ? on : off} />
                     </div>
                     <div className="user-info">
-                        <h1 style={{color: userTheme[1][user?.theme || 0]}}>{username}</h1>
-                        <h2 className="joined" style={{color: userTheme[1][user?.theme || 0]}}>{
+                        <h1 style={{color: userTheme[font][user?.theme || 0]}}>{username}</h1>
+                        <h2 className="joined" style={{color: userTheme[font][user?.theme || 0]}}>{
                             `${text[settings.language].joined} ${
                             new Date(user.createdAt)
                             .toLocaleDateString(locales[settings.language], {
@@ -71,7 +74,7 @@ function Profile({ settings, bulb }) {
                             })
                             .toLowerCase()
                         }`}</h2>
-                        <h2 id="counter" style={{color: userTheme[1][user?.theme || 0]}}>
+                        <h2 id="counter" style={{color: userTheme[font][user?.theme || 0]}}>
                             <span style={{fontWeight: "normal"}}>{text[settings.language].bulbCount}: </span>
                             <span style={{fontStyle: "italic"}}>{user.bulbCount || 0}</span>
                         </h2>
@@ -87,34 +90,34 @@ function Profile({ settings, bulb }) {
                 <hr />
                 <div
                     className="copy-section"
-                    style={{color: userTheme[1][user?.theme || 0]}}
+                    style={{color: userTheme[font][user?.theme || 0]}}
                     onClick={() => {
-                        navigator.clipboard.writeText(userTheme[0][user?.theme || 0])
+                        navigator.clipboard.writeText(userTheme[bg][user?.theme || 0])
                         .then(() => setBgCopied(true));
                     }}
                 >
-                    <div className="color-display" style={{backgroundColor: userTheme[0][user?.theme || 0]}}>
+                    <div className="color-display" style={{backgroundColor: userTheme[bg][user?.theme || 0]}}>
                         <span>{bgCopied ? "✓" : ""}</span>
                     </div>
                     <div>
-                        <p style={{fontWeight: "bold"}}>{userTheme[0][user?.theme || 0]}</p>
+                        <p style={{fontWeight: "bold"}}>{userTheme[bg][user?.theme || 0]}</p>
                         <p style={{fontStyle: "italic"}}>{text[settings.language].pickCopyColors[1]}</p>
                     </div>
                 </div>
                 <hr />
                 <div
                     className="copy-section"
-                    style={{color: userTheme[0][user?.theme || 0]}}
+                    style={{color: userTheme[bg][user?.theme || 0]}}
                     onClick={() => {
-                        navigator.clipboard.writeText(userTheme[1][user?.theme || 0])
+                        navigator.clipboard.writeText(userTheme[font][user?.theme || 0])
                         .then(() => setFontCopied(true));
                     }}
                 >
-                    <div className="color-display" style={{backgroundColor: userTheme[1][user?.theme || 0]}}>
+                    <div className="color-display" style={{backgroundColor: userTheme[font][user?.theme || 0]}}>
                         <span>{fontCopied ? "✓" : ""}</span>
                     </div>
                     <div>
-                        <p style={{fontWeight: "bold"}}>{userTheme[1][user?.theme || 0]}</p>
+                        <p style={{fontWeight: "bold"}}>{userTheme[font][user?.theme || 0]}</p>
                         <p style={{fontStyle: "italic"}}>{text[settings.language].pickCopyColors[2]}</p>
                     </div>
                 </div>
