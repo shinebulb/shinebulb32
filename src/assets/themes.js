@@ -11,7 +11,7 @@ const lightTheme = () => {
         `${import.meta.env.VITE_API_KEY}/users/changeTheme`,
         { headers: { accessToken: localStorage.getItem("accessToken") } }
     ).then(response => {
-        if ((response.data.error && parseInt(localStorage.getItem("invertTheme")))
+        if ((response.data.error && parseInt(localStorage.getItem("invertTheme")) && localStorage.getItem("bulbStatus") == "on")
         || (response.data.invertTheme && response.data.bulbStatus == "on")) {
             document.body.classList.remove("light");
             document.body.classList.add("dark");
@@ -28,7 +28,7 @@ const darkTheme = () => {
         `${import.meta.env.VITE_API_KEY}/users/changeTheme`,
         { headers: { accessToken: localStorage.getItem("accessToken") } }
     ).then(response => {
-        if ((response.data.error && parseInt(localStorage.getItem("invertTheme")))
+        if ((response.data.error && parseInt(localStorage.getItem("invertTheme")) && localStorage.getItem("bulbStatus") == "on")
         || (response.data.invertTheme && response.data.bulbStatus == "on")) {
             document.body.classList.remove("dark");
             document.body.classList.add("light");

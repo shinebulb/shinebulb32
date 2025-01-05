@@ -48,8 +48,14 @@ function Play({ bulb, settings, setSettings }) {
                     bulbStatus: status.data
                 });
                 if (!bulbMuted) new Audio(`audio/${status.data}.mp3`).play();
-                if (settings.invertTheme) themes[settings.theme]();
-                bulb.current.classList.toggle("on");
+                if (settings.invertTheme) {
+                    document.body.classList.add('theme-transition');
+                    setTimeout(() => {
+                        document.body.classList.remove('theme-transition');
+                    }, 200);
+                    themes[settings.theme]();
+                    bulb.current.classList.toggle("on");
+                }
                 setLoadSwitch(false);
             }));
         }
@@ -59,8 +65,17 @@ function Play({ bulb, settings, setSettings }) {
                 bulbCount: settings.bulbStatus === "off" ? settings.bulbCount + 1 : settings.bulbCount,
                 bulbStatus: settings.bulbStatus === "off" ? "on" : "off"
             });
+            localStorage.setItem("bulbCount", settings.bulbStatus === "off" ? settings.bulbCount + 1 : settings.bulbCount);
+            localStorage.setItem("bulbStatus", settings.bulbStatus === "off" ? "on" : "off");
             if (!bulbMuted) new Audio(`audio/${settings.bulbStatus === "off" ? "on" : "off"}.mp3`).play();
-            bulb.current.classList.toggle("on");
+            if (settings.invertTheme) {
+                document.body.classList.add('theme-transition');
+                setTimeout(() => {
+                    document.body.classList.remove('theme-transition');
+                }, 200);
+                themes[settings.theme]();
+                bulb.current.classList.toggle("on");
+            }
         }
     }
 
@@ -84,11 +99,6 @@ function Play({ bulb, settings, setSettings }) {
                     bulbCount: count.data,
                     bulbStatus: status.data
                 });
-                if (!bulbMuted) new Audio("audio/off.mp3").play();
-                if (settings.invertTheme) themes[settings.theme]();
-                bulb.current.classList.remove("on");
-                modal.current.close();
-                setLoadReset(false);
             }));
         }
         else {
@@ -97,10 +107,13 @@ function Play({ bulb, settings, setSettings }) {
                 bulbCount: 0,
                 bulbStatus: "off"
             });
-            if (!bulbMuted) new Audio(`audio/off.mp3`).play();
-            bulb.current.classList.remove("on");
-            modal.current.close();
+            localStorage.removeItem("bulbCount");
+            localStorage.removeItem("bulbStatus");
         }
+        if (!bulbMuted) new Audio(`audio/off.mp3`).play();
+        if (settings.invertTheme) themes[settings.theme]();
+        bulb.current.classList.remove("on");
+        modal.current.close();
     }
 
     return (

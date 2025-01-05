@@ -22,8 +22,8 @@ function App() {
 
     const [authState, setAuthState] = useState({ username: "", id: 0, status: false });
     const [settings, setSettings] = useState({
-        bulbCount: 0,
-        bulbStatus: "off",
+        bulbCount: parseInt(localStorage.getItem("bulbCount")) || 0,
+        bulbStatus: localStorage.getItem("bulbStatus") || "off",
         language: localStorage.getItem("language") === null ? defaultLang() : localStorage.getItem("language"),
         theme: parseInt(localStorage.getItem("theme")) || 0,
         invertTheme: parseInt(localStorage.getItem("invertTheme")) || 0
@@ -80,8 +80,8 @@ function App() {
         themes[parseInt(localStorage.getItem("theme")) || 0]();
         setAuthState({ username: "", id: 0, status: false });
         setSettings({
-            bulbCount: 0,
-            bulbStatus: "off",
+            bulbCount: parseInt(localStorage.getItem("bulbCount")) || 0,
+            bulbStatus: localStorage.getItem("bulbStatus") || "off",
             language: localStorage.getItem("language") === null ? defaultLang() : parseInt(localStorage.getItem("language")),
             theme: parseInt(localStorage.getItem("theme")) || 0,
             invertTheme: parseInt(localStorage.getItem("invertTheme")) || 0

@@ -123,6 +123,11 @@ function Settings({ settings, setSettings }) {
             setSettings(
                 { ...settings, invertTheme: invert }
             );
+            document.body.classList.add('theme-transition');
+            setTimeout(() => {
+                document.body.classList.remove('theme-transition');
+            }, 500);
+            themes[settings.theme]();
         }
         else {
             axios.put(
@@ -133,6 +138,10 @@ function Settings({ settings, setSettings }) {
                 setSettings(
                     { ...settings, invertTheme: response.data || invert }
                 );
+                document.body.classList.add('theme-transition');
+                setTimeout(() => {
+                    document.body.classList.remove('theme-transition');
+                }, 500);
                 themes[settings.theme]();
             });
         }
