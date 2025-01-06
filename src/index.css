@@ -921,7 +921,6 @@ a:hover {
     border: none;
     border-radius: 15px;
     padding: 0.5rem 1rem;
-    margin-top: 36.5rem;
 }
 
 .save-alert::backdrop {
@@ -1348,7 +1347,6 @@ hr {
     .save-alert {
         border-radius: 12px;
         padding: 0.3rem 0.7rem;
-        margin-top: 34.2rem;
     }
     .save-alert div {
         width: calc(300px - 1.4rem);

@@ -14,7 +14,10 @@
         "generateRandom": "generate a random theme",
         "sample": "this is a sample of your theme",
         "themeControls": ["apply", "cancel", "save"],
-        "savedStatus": ["this theme is already saved!", "theme saved successfully!"],
+        "savedStatus": [
+            ["theme is already in ", "saved"],
+            ["theme added to ", "saved"]
+        ],
         "savedThemes": ["saved themes", "in the collection"],
         "themeCard": ["theme", "rename theme", "apply theme", "delete theme"],
         "savedDialogs": ["enter theme name...", "delete theme permanently?"],
@@ -87,7 +90,10 @@
         "generateRandom": "сгенерировать случайную",
         "sample": "так будет выглядеть ваша тема",
         "themeControls": ["применить", "отменить", "сохранить"],
-        "savedStatus": ["эта тема уже сохранена!", "тема успешно сохранена!"],
+        "savedStatus": [
+            ["тема уже в ", "сохранённых"],
+            ["добавлено в ", "сохранённые"]
+        ],
         "savedThemes": ["сохранённые темы", "в коллекции"],
         "themeCard": ["тема", "переименовать тему", "применить тему", "удалить тему"],
         "savedDialogs": ["название темы...", "безвозвратно удалить тему?"],

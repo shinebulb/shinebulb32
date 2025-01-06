@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from './assets/AuthContext';
 import checkColor from './assets/checkColor';
 import axios from 'axios';
@@ -7,6 +8,8 @@ import paths from './assets/json/svg-paths.json';
 import custom from './assets/json/custom.json';
 
 function ThemeConstructor({ constructor, settings, setSettings, width }) {
+
+    const navigate = useNavigate();
 
     const [saveStatus, setSaveStatus] = useState(0);
 
@@ -125,7 +128,7 @@ function ThemeConstructor({ constructor, settings, setSettings, width }) {
             setLoadSave(false);
             setSaveStatus(Number(response.data.status));
             alertRef.current.showModal();
-            setTimeout(() => alertRef.current.close(), 1500);
+            setTimeout(() => alertRef.current.close(), 3000);
         });
     }
 
@@ -214,10 +217,18 @@ function ThemeConstructor({ constructor, settings, setSettings, width }) {
                 ref={alertRef}
                 style={{
                     backgroundColor: `var(--light-${saveStatus ? "green" : "red"})`,
-                    color: `var(--dark-${saveStatus ? "green" : "red"})`
+                    color: `var(--dark-${saveStatus ? "green" : "red"})`,
+                    marginTop: width >= 600
+                    ? (settings.invertTheme ? "37.3rem" : "36.5rem")
+                    : (settings.invertTheme ? "34.9rem" : "34.2rem")
                 }}>
                 <div>
-                    <p>{text[settings.language].savedStatus[saveStatus]}</p>
+                    <p>
+                        {text[settings.language].savedStatus[saveStatus][0]}
+                        <span onClick={() => navigate("/saved")} style={{textDecoration: "underline", color: "blue", cursor: "pointer"}}>
+                            {text[settings.language].savedStatus[saveStatus][1]}
+                        </span>!
+                    </p>
                     <button onClick={() => alertRef.current.close()}>
                         <svg viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"><g id="Page-1" stroke="none" strokeWidth="1" fill={`var(--dark-${saveStatus ? "green" : "red"})`} fillRule="evenodd"><g id="work-case" transform="translate(91.520000, 91.520000)"><polygon id="Close" points={paths.cancel} /></g></g></svg>
                     </button>
