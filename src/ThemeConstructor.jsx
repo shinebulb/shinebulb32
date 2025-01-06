@@ -167,6 +167,10 @@ function ThemeConstructor({ constructor, settings, setSettings, width }) {
                         setFontText(event.target.value);
                     }} />
                 </div>
+                {settings.invertTheme &&
+                <div style={{fontStyle: "italic", margin: "-0.2rem 0 0.5rem 0", justifyContent: "center"}}>
+                    ({text[settings.language].themeCurrentlyInverted})
+                </div>}
             </div>
             <hr/>
             <button className="modal-options" onClick={generateTheme}>
@@ -174,33 +178,33 @@ function ThemeConstructor({ constructor, settings, setSettings, width }) {
                 {text[settings.language].generateRandom + (width >= 600 ? " (r)" : "")}
             </button>
             <hr/>
-            <div className="sample" style={{ backgroundColor: localBg, color: localFont }}>
+            <div className="sample" style={{ backgroundColor: settings.invertTheme ? localFont : localBg, color: settings.invertTheme ? localBg : localFont }}>
                 <p>{text[settings.language].sample}</p>
                 <div>
                     <button
                         onClick={applyTheme}
                         disabled={loadApply}
-                        style={{backgroundColor: "transparent", border: `${localFont} 3px solid`}}
+                        style={{backgroundColor: "transparent", border: `${settings.invertTheme ? localBg : localFont} 3px solid`}}
                         title={text[settings.language].themeControls[0]}
                     >
                         {loadApply ? <span className="loader" style={loaderStyles} />
-                        : <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d={paths.apply} stroke={localFont} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>}
+                        : <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d={paths.apply} stroke={settings.invertTheme ? localBg : localFont} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>}
                     </button>
                     <button
                         onClick={() => constructor.current.close()}
-                        style={{backgroundColor: "transparent", border: `${localFont} 3px solid`}}
+                        style={{backgroundColor: "transparent", border: `${settings.invertTheme ? localBg : localFont} 3px solid`}}
                         title={text[settings.language].themeControls[1] + (width >= 600 ? " (c)" : "")}
                     >
-                        <svg viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"><g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd"><g id="work-case" fill={localFont} transform="translate(91.520000, 91.520000)"><polygon id="Close" points={paths.cancel} /></g></g></svg>
+                        <svg viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"><g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd"><g id="work-case" fill={settings.invertTheme ? localBg : localFont} transform="translate(91.520000, 91.520000)"><polygon id="Close" points={paths.cancel} /></g></g></svg>
                     </button>
                     <button
                         onClick={saveTheme}
                         disabled={loadSave}
-                        style={{backgroundColor: "transparent", border: `${localFont} 3px solid`}}
+                        style={{backgroundColor: "transparent", border: `${settings.invertTheme ? localBg : localFont} 3px solid`}}
                         title={text[settings.language].themeControls[2]}
                     >
                         {loadSave ? <span className="loader" style={loaderStyles} />
-                        : <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d={paths.save} stroke={localFont} strokeWidth="2" strokeLinejoin="round"/></svg>}
+                        : <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d={paths.save} stroke={settings.invertTheme ? localBg : localFont} strokeWidth="2" strokeLinejoin="round"/></svg>}
                     </button>
                 </div>
             </div>
