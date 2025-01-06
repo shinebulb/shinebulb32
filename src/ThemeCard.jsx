@@ -56,6 +56,9 @@ function ThemeCard({ id, index, bg, font, title, savedList, setSavedList, settin
             )
         }).then(response => {
 
+            let bg;
+            let font;
+
             setLoadApply(false);
 
             document.body.classList.remove("dark");
@@ -63,8 +66,15 @@ function ThemeCard({ id, index, bg, font, title, savedList, setSavedList, settin
             document.body.classList.add('theme-transition');
             setTimeout(() => document.body.classList.remove('theme-transition'), 500);
 
-            const bg = response.data.lastBg;
-            const font = response.data.lastFont;
+            if (settings.invertTheme && settings.bulbStatus == "on") {
+                bg = response.data.lastFont;
+                font = response.data.lastBg;
+            }
+            else {
+                bg = response.data.lastBg;
+                font = response.data.lastFont;
+            }
+
             const customProperties = [bg, font, bg, bg, bg, bg, `${font} 3px solid`, `${font} 1px solid`, bg, font, font, font]
             for (let i = 0; i < customProperties.length; i++) {
                 document.documentElement.style.setProperty(custom[i], customProperties[i]);
