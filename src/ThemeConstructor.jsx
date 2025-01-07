@@ -171,7 +171,7 @@ function ThemeConstructor({ constructor, settings, setSettings, width }) {
                     }} />
                 </div>
                 {settings.invertTheme &&
-                <div style={{fontStyle: "italic", margin: "-0.2rem 0 0.5rem 0", justifyContent: "center"}}>
+                <div style={{color: "red", fontStyle: "italic", margin: "-0.2rem 0 0.5rem 0", justifyContent: "center"}}>
                     ({text[settings.language].themeCurrentlyInverted})
                 </div>}
             </div>
