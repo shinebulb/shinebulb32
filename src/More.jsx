@@ -1,12 +1,8 @@
-import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from './assets/AuthContext';
 import paths from './assets/json/svg-paths.json';
 import text from './assets/json/text.json';
 
 function More({ more, settings }) {
-
-    const { authState } = useContext(AuthContext);
 
     const navigate = useNavigate();
 
