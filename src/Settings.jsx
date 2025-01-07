@@ -4,6 +4,7 @@ import { AuthContext } from './assets/AuthContext';
 import axios from 'axios';
 import ThemeConstructor from './ThemeConstructor';
 import More from './More';
+import ToggleInfo from './ToggleInfo';
 import themes from './assets/themes';
 import text from './assets/json/text.json';
 import modes from './assets/json/modes.json';
@@ -33,6 +34,7 @@ function Settings({ settings, setSettings }) {
 
     const constructorRef = useRef(null);
     const moreRef = useRef(null);
+    const infoRef = useRef(null);
 
     const loaderStyles = {
         width: "1.5rem",
@@ -187,7 +189,7 @@ function Settings({ settings, setSettings }) {
             <div className="container">
                 <label style={{fontStyle: "italic", fontSize: "1.1rem", width: "18ch", textAlign: "left"}}>
                     {text[settings.language].invertTheme}
-                    <button id="toggle-info">i</button>
+                    <button id="toggle-info" onClick={() => infoRef.current.showModal()}>i</button>
                 </label>
                 <div className="toggle">
                     <input type="checkbox" id="switch" checked={settings.invertTheme} onChange={toggleInvertTheme} />
@@ -203,6 +205,7 @@ function Settings({ settings, setSettings }) {
                 width={width}
             />
             <More more={moreRef} settings={settings} />
+            <ToggleInfo info={infoRef} settings={settings} />
         </motion.div>
     );
 }

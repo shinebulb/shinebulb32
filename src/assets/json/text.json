@@ -71,8 +71,13 @@
             "change password", "change your password!", "old password",
             "enter old password...", "new password", "enter new password..."
         ],
-        "invertTheme": "invert theme colors on bulb toggle",
-        "themeCurrentlyInverted": "your theme is currently inverted!"
+        "invertTheme": "invert theme colors on bulb switch",
+        "themeCurrentlyInverted": "your theme is currently inverted!",
+        "toggleInfo": [
+            "with this setting on, your theme colors will exchange places once you switch the bulb on.",
+            "for default themes, not the theme colors switch, but the theme itself. so dark theme becomes light and vise versa.",
+            "for custom themes, since there are only two colors, the colors switch places directly."
+        ]
     },
 
     {
@@ -148,6 +153,11 @@
             "введите старый пароль...", "новый пароль", "введите новый пароль..."
         ],
         "invertTheme": "менять цвета темы местами по щелчку лампочки",
-        "themeCurrentlyInverted": "сейчас у вас обратная тема!"
+        "themeCurrentlyInverted": "сейчас у вас обратная тема!",
+        "toggleInfo": [
+            "если эта настройка включена, цвета вашей темы будут меняться местами по щелчку лампочки.",
+            "у базовых тем меняются не цвета темы, а сама тема. то есть, тёмная тема становится светлой и наоборот.",
+            "у пользовательских тем, так цветов всего два, цвета меняются местами напрямую."
+        ]
     }
 ]
