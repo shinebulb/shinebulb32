@@ -45,7 +45,7 @@ function Settings({ settings, setSettings }) {
     };
 
     function openConstructor(key) {
-        if (key == "c" || key == "с") {
+        if (constructorRef.current && (key == "c" || key == "с")) {
             if (constructorClosed) {
                 constructorRef.current.showModal();
                 constructorClosed = false;
