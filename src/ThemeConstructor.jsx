@@ -128,7 +128,7 @@ function ThemeConstructor({ constructor, settings, setSettings, width }) {
             setLoadSave(false);
             setSaveStatus(Number(response.data.status));
             alertRef.current.showModal();
-            setTimeout(() => alertRef.current.close(), 3000);
+            setTimeout(() => alertRef.current.close(), 2000);
         });
     }
 
@@ -139,7 +139,7 @@ function ThemeConstructor({ constructor, settings, setSettings, width }) {
                 <svg onClick={() => {localStorage.setItem("themeInstructionsDisplay", "none"); setThemeInstructionsDisplay("none")}} viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"><g id="Page-1" stroke="none" strokeWidth="1" fillRule="evenodd"><g id="work-case" transform="translate(91.520000, 91.520000)"><polygon id="Close" points={paths.cancel} /></g></g></svg>
             </div>
             <hr style={{display: themeInstructionsDisplay}}/>
-            <div className="themeHeader">
+            <div className="theme-header">
                 <div>
                     <label>
                         {text[settings.language].customTheme[0]}<br />

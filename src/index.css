@@ -830,7 +830,7 @@ a:hover {
     cursor: pointer;
 }
 
-.themeHeader div {
+.theme-header div {
     display: flex;
     justify-content: space-between;
     text-align: left;
@@ -838,16 +838,16 @@ a:hover {
     margin: 14px;
 }
 
-.themeHeader label {
+.theme-header label {
     font-size: 1.4rem;
     color: var(--font);
 }
 
-.themeHeader span {
+.theme-header span {
     font-size: 1.1rem;
 }
 
-.themeHeader span input {
+.theme-header span input {
     font-family: "Roboto Slab";
     width: 8ch;
     height: auto;
@@ -1315,16 +1315,16 @@ hr {
         width: 6rem;
         height: 2.5rem;
     }
-    .themeHeader div {
+    .theme-header div {
         margin: 12px;
     }
-    .themeHeader label {
+    .theme-header label {
         font-size: 1.15rem;
     }
-    .themeHeader span {
+    .theme-header span {
         font-size: 0.95rem;
     }
-    .themeHeader span input {
+    .theme-header span input {
         font-size: 0.9rem;
         border: var(--border-thin);
         border-radius: 8px;
