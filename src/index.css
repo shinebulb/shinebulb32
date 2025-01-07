@@ -574,13 +574,13 @@ h2 {
 }
 
 .container .toggle label {
-    cursor: pointer;
     width: 75px;
     height: 37.5px;
     background: var(--font);
     display: block;
     border-radius: 37.5px;
     position: relative;
+    cursor: pointer;
 }
   
 .container .toggle label:after {
@@ -593,10 +593,6 @@ h2 {
     background: var(--bg);
     border-radius: 33.75px;
     transition: 0.3s;
-}
-  
-.container .toggle input:checked + label {
-    background: var(--font);
 }
   
 .container .toggle input:checked + label:after {
