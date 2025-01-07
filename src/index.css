@@ -554,6 +554,19 @@ h2 {
     cursor: pointer;
 }
 
+#toggle-info {
+    font-family: "Roboto Slab";
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: var(--button-bg);
+    color: var(--button-font);
+    border: var(--border-thin);
+    border-radius: 50%;
+    margin-left: 0.5rem;
+    transition: background-color 0.1s ease;
+    cursor: pointer;
+}
+
 .container .toggle input[type=checkbox]{
     height: 0;
     width: 0;
@@ -596,7 +609,8 @@ h2 {
 .login-form button:hover,
 .container select:hover,
 .controls button:hover,
-.change-password:hover {
+.change-password:hover,
+#toggle-info {
     background-color: var(--select-hover);
 }
 
