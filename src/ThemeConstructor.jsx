@@ -11,6 +11,8 @@ function ThemeConstructor({ constructor, settings, setSettings, width }) {
 
     const navigate = useNavigate();
 
+    const inverted = settings.invertTheme && settings.bulbStatus == "on"
+
     const [saveStatus, setSaveStatus] = useState(0);
 
     const [localBg, setLocalBg] = useState("#2e5a97");
@@ -25,6 +27,8 @@ function ThemeConstructor({ constructor, settings, setSettings, width }) {
     const [loadApply, setLoadApply] = useState(false);
     const [loadSave, setLoadSave] = useState(false);
 
+    const [seeInverted, setSeeInverted] = useState(false);
+
     const [themeInstructionsDisplay, setThemeInstructionsDisplay] = useState(localStorage.getItem("themeInstructionsDisplay") || "flex");
 
     const alertRef = useRef(null);
@@ -37,8 +41,6 @@ function ThemeConstructor({ constructor, settings, setSettings, width }) {
         borderColor: localFont,
         borderBottomColor: "transparent"
     }
-
-    const bulbOn = settings.bulbStatus == "on"
 
     useEffect(() => {
         document.addEventListener("keydown", event => {
@@ -104,7 +106,7 @@ function ThemeConstructor({ constructor, settings, setSettings, width }) {
             document.body.classList.add('theme-transition');
             setTimeout(() => document.body.classList.remove('theme-transition'), 500);
 
-            if (settings.invertTheme && settings.bulbStatus == "on") {
+            if (inverted) {
                 bg = response.data.lastFont;
                 font = response.data.lastBg;
             }
@@ -172,10 +174,17 @@ function ThemeConstructor({ constructor, settings, setSettings, width }) {
                         setFontText(event.target.value);
                     }} />
                 </div>
-                {settings.invertTheme && bulbOn &&
-                <div style={{color: "var(--font)", fontStyle: "italic", margin: "-0.2rem 0 0.5rem 0", justifyContent: "center"}}>
-                    ({text[settings.language].themeCurrentlyInverted})
-                </div>}
+                <div onClick={() => {if (!inverted) setSeeInverted(!seeInverted)}} style={{
+                    color: "var(--font)",
+                    fontStyle: "italic",
+                    textDecoration: inverted ? "none" : "underline",
+                    margin: "-0.2rem 0 0.5rem 0",
+                    justifyContent: "center",
+                    cursor: inverted ? "default" : "pointer"
+                }}>
+                    {inverted ? `(${text[settings.language].themeCurrentlyInverted})`
+                    : text[settings.language].seeInverted[Number(!seeInverted)]}
+                </div>
             </div>
             <hr/>
             <button className="modal-options" onClick={generateTheme}>
@@ -183,33 +192,33 @@ function ThemeConstructor({ constructor, settings, setSettings, width }) {
                 {text[settings.language].generateRandom + (width >= 600 ? " (r)" : "")}
             </button>
             <hr/>
-            <div className="sample" style={{ backgroundColor: settings.invertTheme && bulbOn ? localFont : localBg, color: settings.invertTheme && bulbOn ? localBg : localFont }}>
+            <div className="sample" style={{ backgroundColor: inverted || seeInverted ? localFont : localBg, color: inverted || seeInverted ? localBg : localFont }}>
                 <p>{text[settings.language].sample}</p>
                 <div>
                     <button
                         onClick={applyTheme}
                         disabled={loadApply}
-                        style={{backgroundColor: "transparent", border: `${settings.invertTheme && bulbOn ? localBg : localFont} 3px solid`}}
+                        style={{backgroundColor: "transparent", border: `${inverted || seeInverted ? localBg : localFont} 3px solid`}}
                         title={text[settings.language].themeControls[0]}
                     >
                         {loadApply ? <span className="loader" style={loaderStyles} />
-                        : <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d={paths.apply} stroke={settings.invertTheme && bulbOn ? localBg : localFont} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>}
+                        : <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d={paths.apply} stroke={inverted || seeInverted ? localBg : localFont} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>}
                     </button>
                     <button
                         onClick={() => constructor.current.close()}
-                        style={{backgroundColor: "transparent", border: `${settings.invertTheme && bulbOn ? localBg : localFont} 3px solid`}}
+                        style={{backgroundColor: "transparent", border: `${inverted || seeInverted ? localBg : localFont} 3px solid`}}
                         title={text[settings.language].themeControls[1] + (width >= 600 ? " (c)" : "")}
                     >
-                        <svg viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"><g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd"><g id="work-case" fill={settings.invertTheme && bulbOn ? localBg : localFont} transform="translate(91.520000, 91.520000)"><polygon id="Close" points={paths.cancel} /></g></g></svg>
+                        <svg viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"><g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd"><g id="work-case" fill={inverted || seeInverted ? localBg : localFont} transform="translate(91.520000, 91.520000)"><polygon id="Close" points={paths.cancel} /></g></g></svg>
                     </button>
                     <button
                         onClick={saveTheme}
                         disabled={loadSave}
-                        style={{backgroundColor: "transparent", border: `${settings.invertTheme && bulbOn ? localBg : localFont} 3px solid`}}
+                        style={{backgroundColor: "transparent", border: `${inverted || seeInverted ? localBg : localFont} 3px solid`}}
                         title={text[settings.language].themeControls[2]}
                     >
                         {loadSave ? <span className="loader" style={loaderStyles} />
-                        : <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d={paths.save} stroke={settings.invertTheme && bulbOn ? localBg : localFont} strokeWidth="2" strokeLinejoin="round"/></svg>}
+                        : <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d={paths.save} stroke={inverted || seeInverted ? localBg : localFont} strokeWidth="2" strokeLinejoin="round"/></svg>}
                     </button>
                 </div>
             </div>
@@ -220,9 +229,7 @@ function ThemeConstructor({ constructor, settings, setSettings, width }) {
                 style={{
                     backgroundColor: `var(--light-${saveStatus ? "green" : "red"})`,
                     color: `var(--dark-${saveStatus ? "green" : "red"})`,
-                    marginTop: width >= 600
-                    ? (settings.invertTheme ? "37.3rem" : "36.5rem")
-                    : (settings.invertTheme ? "34.9rem" : "34.2rem")
+                    marginTop: width >= 600 ? "37.3rem" : "34.9rem"
                 }}>
                 <div>
                     <p>

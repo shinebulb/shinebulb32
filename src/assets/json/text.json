@@ -73,6 +73,7 @@
         ],
         "invertTheme": "invert theme colors on bulb switch",
         "themeCurrentlyInverted": "your theme is currently inverted!",
+        "seeInverted": ["click to see regular colors", "click to see inverted colors"],
         "toggleInfo": [
             "with this setting on, your theme colors will exchange places once you switch the bulb on.",
             "for default themes, not the theme colors switch, but the theme itself. so dark theme becomes light and vise versa.",
@@ -154,6 +155,7 @@
         ],
         "invertTheme": "менять цвета темы местами по щелчку лампочки",
         "themeCurrentlyInverted": "сейчас у вас обратная тема!",
+        "seeInverted": ["посмотреть стандартные цвета", "посмотреть обратные цвета"],
         "toggleInfo": [
             "если эта настройка включена, цвета вашей темы будут меняться местами по щелчку лампочки.",
             "у базовых тем меняются не цвета темы, а сама тема. то есть, тёмная тема становится светлой и наоборот.",
