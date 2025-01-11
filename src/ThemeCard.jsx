@@ -16,12 +16,19 @@ function ThemeCard({ id, index, bg, font, title, savedList, setSavedList, settin
     const renameRef = useRef(null);
     const inputRef = useRef(null);
     const deleteRef = useRef(null);
+
+    const inverted = settings.invertTheme && settings.bulbStatus == "on"
     
     const loaderStyles = {
         width: "1.1rem",
         height: "1.1rem",
         borderColor: font,
         borderBottomColor: "transparent"
+    }
+
+    const buttonStyles = {
+        backgroundColor: inverted ? font : bg,
+        border: `${inverted ? bg : font} 3px solid`
     }
 
     function renameTheme() {
@@ -95,40 +102,31 @@ function ThemeCard({ id, index, bg, font, title, savedList, setSavedList, settin
     }
 
     return (
-        <div className="theme-card" style={{backgroundColor: bg}}>
-            <p style={{color: font}}>{title || `${text[settings.language].themeCard[0]} #${index + 1}`}</p>
+        <div className="theme-card" style={{backgroundColor: inverted ? font : bg}}>
+            <p style={{color: inverted ? bg : font}}>{title || `${text[settings.language].themeCard[0]} #${index + 1}`}</p>
             <div className="saved-controls">
                 <button
                     title={text[settings.language].themeCard[1]}
-                    style={{
-                        backgroundColor: bg,
-                        border: `${font} 3px solid`
-                    }}
+                    style={buttonStyles}
                     onClick={() => renameRef.current.showModal()}
                 >
-                    <svg fill={font} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d={paths.rename[0]}/><path fillRule="evenodd" clipRule="evenodd" d={paths.rename[1]}/></svg>
+                    <svg fill={inverted ? bg : font} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d={paths.rename[0]}/><path fillRule="evenodd" clipRule="evenodd" d={paths.rename[1]}/></svg>
                 </button>
                 <button
                     title={text[settings.language].themeCard[2]}
-                    style={{
-                        backgroundColor: bg,
-                        border: `${font} 3px solid`
-                    }}
+                    style={buttonStyles}
                     onClick={applyTheme}
                     disabled={loadApply}
                 >
                     {loadApply ? <span className="loader" style={loaderStyles} />
-                    : <svg fill={font} version="1.1" id="Uploaded to svgrepo.com" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32" xmlSpace="preserve"><path className="bentblocks_een" d={paths.paint}/></svg>}
+                    : <svg fill={inverted ? bg : font} version="1.1" id="Uploaded to svgrepo.com" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32" xmlSpace="preserve"><path className="bentblocks_een" d={paths.paint}/></svg>}
                 </button>
                 <button
                     title={text[settings.language].themeCard[3]}
-                    style={{
-                        backgroundColor: bg,
-                        border: `${font} 3px solid`
-                    }}
+                    style={buttonStyles}
                     onClick={() => deleteRef.current.showModal()}
                 >
-                    <svg fill={font} version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 482.428 482.429" xmlSpace="preserve"><g><g><path d={paths.delete[0]}/><path d={paths.delete[1]}/><path d={paths.delete[2]}/><path d={paths.delete[3]}/></g></g></svg>
+                    <svg fill={inverted ? bg : font} version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 482.428 482.429" xmlSpace="preserve"><g><g><path d={paths.delete[0]}/><path d={paths.delete[1]}/><path d={paths.delete[2]}/><path d={paths.delete[3]}/></g></g></svg>
                 </button>
                 
                 <dialog ref={renameRef} className="confirm">

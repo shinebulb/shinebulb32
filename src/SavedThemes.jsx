@@ -21,6 +21,8 @@ function SavedThemes({ settings, setSettings, savedList, setSavedList }) {
     }, []);
 
     const navigate = useNavigate();
+
+    const inverted = settings.invertTheme && settings.bulbStatus == "on"
     
     return (
         <motion.div
@@ -31,12 +33,14 @@ function SavedThemes({ settings, setSettings, savedList, setSavedList }) {
             transition={{duration: 0.5}}
         >{!authState.status ? <LogInToView settings={settings} />
             : <>
-                
                 <h2 style={{fontSize: "1.7rem", marginTop: "6rem"}}>{text[settings.language].savedThemes[0]}</h2>
                 <h3 style={{color: "var(--font)", fontStyle: "italic"}}>
                     {savedList.length} {text[settings.language].savedThemes[1]}
                 </h3>
-                <div style={{height: "0.1rem"}}/>
+                {inverted &&
+                <div style={{color: "var(--font)", fontStyle: "italic", margin: "-0.2rem 0 1.7rem 0", justifyContent: "center"}}>
+                    ({text[settings.language].themeCurrentlyInverted})
+                </div>}
                 {savedList.length > 0
                 ? <div className="saved-display">{
                     savedList.map((theme, index) => 
