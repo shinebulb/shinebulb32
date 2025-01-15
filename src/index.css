@@ -1461,6 +1461,7 @@ hr {
     }
     .collection-actions {
         flex-direction: column;
+        margin-left: 0;
     }
     .collection-actions button {
         font-size: 1.2rem;
