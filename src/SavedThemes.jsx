@@ -22,7 +22,7 @@ function SavedThemes({ settings, setSettings, savedList, setSavedList }) {
 
     const navigate = useNavigate();
 
-    const inverted = settings.invertTheme && settings.bulbStatus == "on"
+    const inverted = settings.invertTheme && settings.bulbStatus == "on";
     
     return (
         <motion.div
@@ -34,7 +34,7 @@ function SavedThemes({ settings, setSettings, savedList, setSavedList }) {
         >{!authState.status ? <LogInToView settings={settings} />
             : <>
                 <h2 style={{fontSize: "1.7rem", marginTop: "6rem"}}>{text[settings.language].savedThemes[0]}</h2>
-                <h3 style={{color: "var(--font)", fontStyle: "italic"}}>
+                <h3 style={{color: "var(--font)", fontStyle: "italic", marginBottom: "2rem"}}>
                     {savedList.length} {text[settings.language].savedThemes[1]}
                 </h3>
                 {inverted &&
