@@ -601,6 +601,7 @@ h2 {
     transform: translateX(-100%);
 }
 
+.collection-actions button:hover,
 .signup-form button:hover,
 .login-form button:hover,
 .container select:hover,
@@ -1077,6 +1078,31 @@ hr {
     margin: 0.2rem 0.2rem 0.6rem;
 }
 
+.collection-actions {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.collection-actions button {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-family: "Roboto Slab";
+    font-size: 1.6rem;
+    background-color: var(--button-bg);
+    color: var(--button-font);
+    border: var(--border-thick);
+    width: 45%;
+    border-radius: 12px;
+    padding: 0.5rem 0;
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+}
+
+.collection-actions svg {
+    height: 3rem;
+}
+
 .no-page-text {
     display: grid;
     grid-template-columns: 60% 40%;
@@ -1429,6 +1455,14 @@ hr {
     }
     .saved-controls svg {
         height: 2rem;
+    }
+    .collection-actions {
+        flex-direction: column;
+    }
+    .collection-actions button {
+        width: 90%;
+        align-items: center;
+        margin: 0.5rem auto;
     }
     .theme-info {
         width: 300px;
