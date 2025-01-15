@@ -71,7 +71,7 @@ function SavedThemes({ settings, setSettings, savedList, setSavedList }) {
                     </button>
                 </div>
                 <div style={{height: "1.5rem"}}/>
-                <a onClick={() => navigate("/settings")}>{text[settings.language].back}</a>
+                <a onClick={() => navigate("/settings")} id="saved-back-link">{text[settings.language].back}</a>
                 <div style={{height: "2rem"}} />
             </>
         }</motion.div>

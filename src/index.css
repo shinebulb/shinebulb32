@@ -1081,7 +1081,8 @@ hr {
 .collection-actions {
     display: flex;
     justify-content: center;
-    gap: 1rem;
+    gap: 1.2rem;
+    margin-left: 1.2rem;
 }
 
 .collection-actions button {
@@ -1102,6 +1103,10 @@ hr {
 .collection-actions svg {
     height: 2.1rem;
     margin: 0 1rem;
+}
+
+#saved-back-link {
+    margin-left: 1.2rem;
 }
 
 .no-page-text {
@@ -1465,6 +1470,9 @@ hr {
     .collection-actions svg {
         height: 2rem;
         margin: 0 0.9rem;
+    }
+    #saved-back-link {
+        margin-left: 0;
     }
     .theme-info {
         width: 300px;
