@@ -735,6 +735,7 @@ a:hover {
 }
 
 .toggle-info-modal button:hover,
+.theme-preview button:hover,
 .confirm button:hover,
 .confirm button:hover,
 .options button:hover,
@@ -742,7 +743,7 @@ a:hover {
     background-color: var(--modal-button-bg-hover);
 }
 
-.theme, .more, .toggle-info-modal {
+.theme, .more, .toggle-info-modal, .export-modal {
     width: 420px;
     padding: 0;
     background-color: var(--modal-bg);
@@ -1020,6 +1021,58 @@ hr {
     color: var(--font);
     font-size: 1.4rem;
     padding: 0 10%;
+}
+
+.export-title {
+    font-size: 1.5rem;
+    color: var(--font);
+    font-weight: bold;
+    white-space: "nowrap";
+    overflow: "hidden";
+    text-overflow: "ellipsis";
+    margin: 0.7rem 0;
+}
+
+.theme-preview {
+    display: flex;
+    align-items: center;
+}
+
+.theme-preview p {
+    font-size: 1.2rem;
+    width: 90%;
+    border-radius: 12px;
+    padding: 0.5rem 0;
+    margin: 0.3rem 0.25rem 0.3rem 1rem;
+}
+
+.theme-preview button {
+    width: 2.6rem;
+    height: 2.6rem;
+    background-color: var(--button-bg);
+    color: var(--button-font);
+    border: var(--border-thick);
+    border-radius: 50%;
+    margin: 0.3rem 1rem 0.3rem 0.25rem;
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+}
+
+.theme-preview svg {
+    stroke: var(--button-font)
+}
+
+.export-options button, #close-export-modal {
+    font-family: "Roboto Slab";
+    font-size: 1.2rem;
+    background-color: var(--button-bg);
+    color: var(--button-font);
+    border: var(--border-thick);
+    border-radius: 15px;
+    padding: 0.3rem 2rem;
+    margin: 0.5rem 0.2rem;
+    transition: background-color 0.2s ease;
+    cursor: pointer;
 }
 
 .no-themes {
