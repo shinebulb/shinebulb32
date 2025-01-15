@@ -103,7 +103,14 @@ function ThemeCard({ id, index, bg, font, title, savedList, setSavedList, settin
 
     return (
         <div className="theme-card" style={{backgroundColor: inverted ? font : bg}}>
-            <p title={title} style={{color: inverted ? bg : font, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis"}}>{title || `${text[settings.language].themeCard[0]} #${index + 1}`}</p>
+            <p title={title} style={{
+                color: inverted ? bg : font,
+                whiteSpace: "nowrap",
+                overflow: "hidden",
+                textOverflow: "ellipsis"
+            }}>
+                {title || `${text[settings.language].themeCard[0]} #${index + 1}`}
+            </p>
             <div className="saved-controls">
                 <button
                     title={text[settings.language].themeCard[1]}
