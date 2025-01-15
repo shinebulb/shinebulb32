@@ -805,6 +805,11 @@ a:hover {
     height: 2rem;
 }
 
+#font-icon {
+    height: 1.9rem;
+    margin-right: 0.8rem;
+}
+
 #explore-icon {
     height: 2.5rem;
 }
@@ -1312,6 +1317,9 @@ hr {
     }
     #saved-icon {
         height: 1.75rem;
+    }
+    #font-icon {
+        height: 1.6rem;
     }
     #explore-icon {
         height: 2rem;

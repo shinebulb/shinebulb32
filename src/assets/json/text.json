@@ -24,7 +24,8 @@
         "noThemes": "your themes will be listed here!",
         "saved": "saved themes",
         "optionDescriptions": [
-            "a place for any theme that you came up with or generated in the constructor"
+            "a place for any theme that you came up with or generated in the constructor",
+            "advanced settings section for adjusting font family and size across the website"
         ],
         "about": [
             "shinebulb is a fun little project by nurgali ernist and andrew aldor.",
@@ -78,7 +79,8 @@
             "with this setting on, your theme colors will exchange places once you switch the bulb on.",
             "for default themes, not the theme colors switch, but the theme itself. so dark theme becomes light and vise versa.",
             "for custom themes, since there are only two colors, the colors switch places directly."
-        ]
+        ],
+        "fontSettings": "font settings"
     },
 
     {
@@ -106,7 +108,8 @@
         "noThemes": "ваши темы будут размещены здесь!",
         "saved": "сохранённые темы",
         "optionDescriptions": [
-            "место для всех тем, которые вы придумали или сгенерировали в конструкторе"
+            "место для всех тем, которые вы придумали или сгенерировали в конструкторе",
+            "раздел расширенных настроек для изменения шрифта и размера текста на всём сайте"
         ],
         "about": [
             "shinebulb — небольшой проект нургали эрниста и андрея альдора.",
@@ -160,6 +163,7 @@
             "если эта настройка включена, цвета вашей темы будут меняться местами по щелчку лампочки.",
             "у базовых тем меняются не цвета темы, а сама тема. то есть, тёмная тема становится светлой и наоборот.",
             "у пользовательских тем, так цветов всего два, цвета меняются местами напрямую."
-        ]
+        ],
+        "fontSettings": "настройки шрифта"
     }
 ]
