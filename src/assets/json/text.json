@@ -23,6 +23,7 @@
         "savedDialogs": ["enter theme name...", "delete theme permanently?"],
         "noThemes": "your themes will be listed here!",
         "saved": "saved themes",
+        "collectionActions": ["export themes", "import themes"],
         "optionDescriptions": [
             "a place for any theme that you came up with or generated in the constructor",
             "advanced settings section for adjusting font family and size across the website"
@@ -107,6 +108,7 @@
         "savedDialogs": ["название темы...", "безвозвратно удалить тему?"],
         "noThemes": "ваши темы будут размещены здесь!",
         "saved": "сохранённые темы",
+        "collectionActions": ["экспорт тем", "импорт тем"],
         "optionDescriptions": [
             "место для всех тем, которые вы придумали или сгенерировали в конструкторе",
             "раздел расширенных настроек для изменения шрифта и размера текста на всём сайте"
