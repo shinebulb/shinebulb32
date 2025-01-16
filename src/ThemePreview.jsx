@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import text from './assets/json/text.json';
 import paths from './assets/json/svg-paths.json';
 
-function ThemePreview({ theme, savedList, settings }) {
+function ThemePreview({ theme, savedList, settings, themeExport, setThemeExport }) {
 
     const [selected, setSelected] = useState(parseInt(localStorage.getItem(`selected${savedList.indexOf(theme)}`)) || 0);
 
@@ -10,12 +10,17 @@ function ThemePreview({ theme, savedList, settings }) {
         if (selected) {
             setSelected(false);
             localStorage.removeItem(`selected${savedList.indexOf(theme)}`);
+            setThemeExport(themeExport.filter(item => item.bg !== theme.bg && item.font !== theme.font));
         }
         else {
             setSelected(true);
             localStorage.setItem(`selected${savedList.indexOf(theme)}`, 1);
+            setThemeExport([
+                ...themeExport,
+                { title: theme.title, bg: theme.bg, font: theme.font }
+            ]);
         }
-    }
+    }     
 
     return (
         <div className="theme-preview">

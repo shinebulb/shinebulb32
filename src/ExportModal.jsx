@@ -6,9 +6,22 @@ import paths from './assets/json/svg-paths.json';
 function ExportModal({ exportModal, settings, savedList }) {
 
     const [current, setCurrent] = useState(0);
+    const [themeExport, setThemeExport] = useState([]);
+
     const itemDisplay = 4;
 
     const displayedThemes = savedList.slice(current, current + itemDisplay);
+
+    function downloadThemes() {
+        const themesJSON = JSON.stringify(themeExport, null, 2);
+        const blob = new Blob([themesJSON], { type: "application/json" });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = "shinebulb-themes.json";
+        link.click();
+        URL.revokeObjectURL(url);
+    }; 
 
     return (
         <dialog ref={exportModal} className="export-modal">
@@ -16,7 +29,7 @@ function ExportModal({ exportModal, settings, savedList }) {
             <hr style={{marginBottom: "0.8rem"}} />
             <div className="export-container">
                 {displayedThemes.map(theme =>
-                    <ThemePreview key={savedList.indexOf(theme) + 1} theme={theme} savedList={savedList} settings={settings} />
+                    <ThemePreview key={savedList.indexOf(theme) + 1} theme={theme} savedList={savedList} settings={settings} themeExport={themeExport} setThemeExport={setThemeExport} />
                 )}
             </div>
             <div className="theme-slider">
@@ -42,7 +55,7 @@ function ExportModal({ exportModal, settings, savedList }) {
                 >⟫</button>
             </div>
             <div className="export-options">
-                <button>
+                <button onClick={downloadThemes}>
                     <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="var(--button-font)" strokeWidth="4.48"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round" strokeWidth="5.376"><polyline points="16 32 32 48 48 32"></polyline><line x1="56" y1="56" x2="8" y2="56"></line><line x1="32" y1="8" x2="32" y2="48"></line></g><g id="SVGRepo_iconCarrier"><polyline points="16 32 32 48 48 32"></polyline><line x1="56" y1="56" x2="8" y2="56"></line><line x1="32" y1="8" x2="32" y2="48"></line></g></svg>
                     {text[settings.language].exportModal[1]}
                 </button>
