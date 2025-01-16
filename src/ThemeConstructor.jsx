@@ -132,7 +132,9 @@ function ThemeConstructor({ constructor, settings, setSettings, width }) {
             setLoadSave(false);
             setSaveStatus(Number(response.data.status));
             alertRef.current.showModal();
-            setTimeout(() => alertRef.current.close(), 2000);
+            setTimeout(() => {
+                if (alertRef.current) alertRef.current.close();
+            }, 2000);
         });
     }
 
