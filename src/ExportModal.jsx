@@ -20,7 +20,7 @@ function ExportModal({ exportModal, settings, savedList }) {
                 {displayedThemes.map((theme, index) => 
                     <div className="theme-preview" key={index}>
                         <p style={{backgroundColor: theme.bg, color: theme.font}}>
-                            {theme.title}
+                            {theme.title || `${text[settings.language].themeCard[0]} #${savedList.indexOf(theme) + 1}`}
                         </p>
                         <button>
                             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d={paths.apply} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
@@ -31,7 +31,7 @@ function ExportModal({ exportModal, settings, savedList }) {
             <div className="theme-slider">
                 <button
                     disabled={current === 0}
-                    onClick={() => {}}
+                    onClick={() => setCurrent(0)}
                 >⟪</button>
                 <button
                     disabled={current === 0}
@@ -43,7 +43,7 @@ function ExportModal({ exportModal, settings, savedList }) {
                 >⟩</button>
                 <button
                     disabled={current + itemDisplay >= savedList.length}
-                    onClick={() => {}}
+                    onClick={() => setCurrent(Math.max(0, savedList.length - (savedList.length % itemDisplay == 0 ? itemDisplay : savedList.length % itemDisplay)))}
                 >⟫</button>
             </div>
             <div className="export-options">
