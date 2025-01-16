@@ -1035,6 +1035,10 @@ hr {
     margin: 0.7rem 0;
 }
 
+.export-container {
+    min-height: 12.8rem;
+}
+
 .theme-preview {
     display: flex;
     align-items: center;
@@ -1062,6 +1066,21 @@ hr {
 
 .theme-preview svg {
     stroke: var(--button-font)
+}
+
+.theme-slider button {
+    font-size: 1.5rem;
+    transform: scaleX(2);
+    background-color: transparent;
+    color: var(--font);
+    border: none;
+    margin: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.theme-slider button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
 }
 
 .export-options {
