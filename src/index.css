@@ -1043,11 +1043,11 @@ hr {
 .theme-preview p {
     font-size: 1.2rem;
     width: 90%;
-    white-space: "nowrap";
-    overflow: "hidden";
-    text-overflow: "ellipsis";
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     border-radius: 12px;
-    padding: 0.5rem 0;
+    padding: 0.5rem 1.2rem;
     margin: 0.3rem 0.25rem 0.3rem 1rem;
 }
 
@@ -1527,7 +1527,7 @@ hr {
     .theme-preview p {
         font-size: 1.1rem;
         border-radius: 10px;
-        padding: 0.4rem 0;
+        padding: 0.4rem 1rem;
         margin: 0.2rem 0.15rem 0.2rem 0.8rem;
     }
     .theme-preview button {
