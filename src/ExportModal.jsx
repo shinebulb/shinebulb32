@@ -13,7 +13,7 @@ function ExportModal({ exportModal, settings, savedList }) {
     return (
         <dialog ref={exportModal} className="export-modal">
             <p className="export-title">{text[settings.language].exportModal[0]}</p>
-            <hr style={{marginBottom: "1rem"}} />
+            <hr style={{marginBottom: "0.8rem"}} />
             <div className="export-container">
                 {displayedThemes.map(theme =>
                     <ThemePreview key={savedList.indexOf(theme) + 1} theme={theme} savedList={savedList} settings={settings} />

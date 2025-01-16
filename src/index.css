@@ -1028,9 +1028,6 @@ hr {
     font-size: 1.5rem;
     color: var(--font);
     font-weight: bold;
-    white-space: "nowrap";
-    overflow: "hidden";
-    text-overflow: "ellipsis";
     margin: 0.7rem 0;
 }
 
@@ -1046,6 +1043,9 @@ hr {
 .theme-preview p {
     font-size: 1.2rem;
     width: 90%;
+    white-space: "nowrap";
+    overflow: "hidden";
+    text-overflow: "ellipsis";
     border-radius: 12px;
     padding: 0.5rem 0;
     margin: 0.3rem 0.25rem 0.3rem 1rem;
@@ -1413,7 +1413,7 @@ hr {
         border-radius: 8px;
         padding: 0.3rem;
     }
-    .theme, .more, .toggle-info-modal {
+    .theme, .more, .toggle-info-modal, .export-modal {
         width: 300px;
     }
     .options div {
@@ -1435,7 +1435,7 @@ hr {
         font-size: 0.9rem;
         margin: 0.5rem 0;
     }
-    .options button, .toggle-info-modal button {
+    .options button, .toggle-info-modal button, #close-export-modal {
         height: 2.3rem;
         font-size: 1.1rem;
     }
@@ -1516,6 +1516,43 @@ hr {
     .theme-card p {
         font-size: 1.4rem;
         margin: 0.6rem 0;
+    }
+    .export-title {
+        font-size: 1.2rem;
+        margin: 0.5rem 0;
+    }
+    .export-container {
+        min-height: 10.9rem;
+    }
+    .theme-preview p {
+        font-size: 1.1rem;
+        border-radius: 10px;
+        padding: 0.4rem 0;
+        margin: 0.2rem 0.15rem 0.2rem 0.8rem;
+    }
+    .theme-preview button {
+        width: 2.3rem;
+        height: 2.3rem;
+        border-radius: 10px;
+        margin: 0.2rem 0.8rem 0.2rem 0.15rem;
+    }
+    .theme-slider button {
+        font-size: 1.3rem;
+        margin: 0.4rem 1rem;
+    }
+    .export-options button {
+        font-size: 0.9rem;
+        background-color: var(--button-bg);
+        color: var(--button-font);
+        border: var(--border-thick);
+        width: 8.5rem;
+        border-radius: 12px;
+        padding: 0.3rem 0;
+        margin: 0.5rem 0.2rem 0.8rem;
+    }
+    .export-options svg {
+        height: 1.5rem;
+        margin-right: 0.4rem;
     }
     .no-themes {
         width: 80vw;
