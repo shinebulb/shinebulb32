@@ -1071,6 +1071,11 @@ hr {
     cursor: pointer;
 }
 
+.export-options button:disabled {
+    background-color: var(--modal-button-bg);
+}
+
+.export-options button:disabled,
 .theme-slider button:disabled {
     cursor: not-allowed;
     opacity: 0.5;
@@ -1087,7 +1092,7 @@ hr {
     justify-content: center;
     align-items: center;
     font-size: 1.2rem;
-    background-color: var(--button-bg);
+    background-color: var(--modal-button-bg);
     color: var(--button-font);
     border: var(--border-thick);
     width: 11rem;
