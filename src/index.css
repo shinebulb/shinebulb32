@@ -735,7 +735,9 @@ a:hover {
 }
 
 .toggle-info-modal button:hover,
+.export-options button:hover,
 .theme-preview button:hover,
+#close-export-modal:hover,
 .confirm button:hover,
 .confirm button:hover,
 .options button:hover,
@@ -785,7 +787,7 @@ a:hover {
     margin: 0.5rem 0;
 }
 
-.options button, .toggle-info-modal button {
+.options button, .toggle-info-modal button, #close-export-modal {
     font-family: "Roboto Slab";
     background-color: transparent;
     width: 100%;
@@ -1062,17 +1064,31 @@ hr {
     stroke: var(--button-font)
 }
 
-.export-options button, #close-export-modal {
+.export-options {
+    display: flex;
+    justify-content: center;
+}
+
+.export-options button {
     font-family: "Roboto Slab";
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 1.2rem;
     background-color: var(--button-bg);
     color: var(--button-font);
     border: var(--border-thick);
+    width: 11rem;
     border-radius: 15px;
-    padding: 0.3rem 2rem;
-    margin: 0.5rem 0.2rem;
-    transition: background-color 0.2s ease;
+    padding: 0.4rem 0;
+    margin: 0.7rem 0.3rem 1rem;
+    transition: background-color 0.3s ease;
     cursor: pointer;
+}
+
+.export-options svg {
+    height: 1.8rem;
+    margin-right: 0.5rem;
 }
 
 .no-themes {
