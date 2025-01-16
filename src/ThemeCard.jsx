@@ -96,6 +96,7 @@ function ThemeCard({ id, index, bg, font, title, savedList, setSavedList, settin
             { headers: { accessToken: localStorage.getItem("accessToken") } }
         ).then(response => {
             setSavedList(savedList.filter(theme => theme.id !== Number(response.data)));
+            localStorage.removeItem(`selected${index}`);
             deleteRef.current.close();
             setLoadDelete(false);
         });

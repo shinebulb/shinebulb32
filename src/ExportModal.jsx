@@ -16,7 +16,7 @@ function ExportModal({ exportModal, settings, savedList }) {
             <hr style={{marginBottom: "1rem"}} />
             <div className="export-container">
                 {displayedThemes.map(theme =>
-                    <ThemePreview key={savedList.indexOf(theme) + 1} theme={theme} savedList={savedList} />
+                    <ThemePreview key={savedList.indexOf(theme) + 1} theme={theme} savedList={savedList} settings={settings} />
                 )}
             </div>
             <div className="theme-slider">
