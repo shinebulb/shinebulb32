@@ -81,7 +81,9 @@
             "for default themes, not the theme colors switch, but the theme itself. so dark theme becomes light and vise versa.",
             "for custom themes, since there are only two colors, the colors switch places directly."
         ],
-        "fontSettings": "font settings"
+        "fontSettings": "font settings",
+        "exportModal": ["choose themes to export:", "download", "copy"],
+        "navigationButtons": ["to the start", "previous", "next", "to the end"]
     },
 
     {
@@ -166,6 +168,8 @@
             "у базовых тем меняются не цвета темы, а сама тема. то есть, тёмная тема становится светлой и наоборот.",
             "у пользовательских тем, так цветов всего два, цвета меняются местами напрямую."
         ],
-        "fontSettings": "настройки шрифта"
+        "fontSettings": "настройки шрифта",
+        "exportModal": ["выберите темы для экспорта:", "скачать", "копировать"],
+        "navigationButtons": ["в начало", "назад", "вперёд", "в конец"]
     }
 ]
