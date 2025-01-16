@@ -9,11 +9,31 @@ function ExportModal({ exportModal, settings, savedList }) {
 
     const [themeExport, setThemeExport] = useState([]);
 
+    const [allSelected, setAllSelected] = useState(false);
     const [copied, setCopied] = useState(false);
 
     const itemDisplay = 4;
 
     const displayedThemes = savedList.slice(current, current + itemDisplay);
+
+    function selectAll() {
+        if (allSelected) {
+            setAllSelected(false);
+            setThemeExport([]);
+            for (let i = 0; i < savedList; i++) {
+                localStorage.removeItem(`selected${i}`);
+            }
+        }
+        else {
+            setAllSelected(true);
+            setThemeExport(savedList.map(theme => {
+                return { title: theme.title, bg: theme.bg, font: theme.font }
+            }));
+            for (let i = 0; i < savedList; i++) {
+                localStorage.setItem(`selected${i}`, 1);
+            }
+        }
+    }
 
     function downloadThemes() {
         const themesJSON = JSON.stringify(themeExport, null, 2);
@@ -35,7 +55,7 @@ function ExportModal({ exportModal, settings, savedList }) {
         <dialog ref={exportModal} className="export-modal">
             <p className="export-title">{text[settings.language].exportModal[0]}</p>
             <hr style={{marginBottom: "0.7rem"}} />
-            <button style={{marginBottom: "0.5rem"}} className="select-all">select all</button>
+            <button onClick={selectAll} style={{marginBottom: "0.5rem"}} className="select-all">{text[settings.language].selectAll[Number(allSelected)]}</button>
             <div className="export-container">
                 {displayedThemes.map(theme =>
                     <ThemePreview
@@ -46,6 +66,7 @@ function ExportModal({ exportModal, settings, savedList }) {
                         themeExport={themeExport}
                         setThemeExport={setThemeExport}
                         setCopied={setCopied}
+                        allSelected={allSelected}
                     />
                 )}
             </div>
