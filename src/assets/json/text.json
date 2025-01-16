@@ -83,7 +83,8 @@
         ],
         "fontSettings": "font settings",
         "exportModal": ["choose themes to export:", "download", "copy"],
-        "navigationButtons": ["to the start", "previous", "next", "to the end"]
+        "navigationButtons": ["to the start", "previous", "next", "to the end"],
+        "themes": "themes"
     },
 
     {
@@ -170,6 +171,7 @@
         ],
         "fontSettings": "настройки шрифта",
         "exportModal": ["выберите темы для экспорта:", "скачать", "копировать"],
-        "navigationButtons": ["в начало", "назад", "вперёд", "в конец"]
+        "navigationButtons": ["в начало", "назад", "вперёд", "в конец"],
+        "themes": "темы"
     }
 ]

@@ -18,7 +18,7 @@ function ExportModal({ exportModal, settings, savedList }) {
         const url = URL.createObjectURL(blob);
         const link = document.createElement("a");
         link.href = url;
-        link.download = "shinebulb-themes.json";
+        link.download = `${text[settings.language].themes}_${Date.now()}.json`;
         link.click();
         URL.revokeObjectURL(url);
     }
