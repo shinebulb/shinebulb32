@@ -101,7 +101,7 @@ function SavedThemes({ settings, setSettings, savedList, setSavedList }) {
                         </button>
                     </div>
                     <hr />
-                    <button id="close-export-modal">close</button>
+                    <button id="close-export-modal" onClick={() => exportModal.current.close()}>{text[settings.language].close}</button>
                 </dialog>
             </>
         }</motion.div>
