@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ThemePreview from './ThemePreview';
 import text from './assets/json/text.json';
 import paths from './assets/json/svg-paths.json';
 
@@ -7,25 +8,15 @@ function ExportModal({ exportModal, settings, savedList }) {
     const [current, setCurrent] = useState(0);
     const itemDisplay = 4;
 
-    const displayedThemes = savedList.slice(
-        current,
-        current + itemDisplay
-    );
+    const displayedThemes = savedList.slice(current, current + itemDisplay);
 
     return (
         <dialog ref={exportModal} className="export-modal">
             <p className="export-title">{text[settings.language].exportModal[0]}</p>
             <hr style={{marginBottom: "1rem"}} />
             <div className="export-container">
-                {displayedThemes.map((theme, index) => 
-                    <div className="theme-preview" key={index}>
-                        <p style={{backgroundColor: theme.bg, color: theme.font}}>
-                            {theme.title || `${text[settings.language].themeCard[0]} #${savedList.indexOf(theme) + 1}`}
-                        </p>
-                        <button>
-                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d={paths.apply} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                        </button>
-                    </div>
+                {displayedThemes.map(theme =>
+                    <ThemePreview key={savedList.indexOf(theme) + 1} theme={theme} savedList={savedList} />
                 )}
             </div>
             <div className="theme-slider">

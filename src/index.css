@@ -736,7 +736,6 @@ a:hover {
 
 .toggle-info-modal button:hover,
 .export-options button:hover,
-.theme-preview button:hover,
 #close-export-modal:hover,
 .confirm button:hover,
 .confirm button:hover,
@@ -1055,17 +1054,11 @@ hr {
 .theme-preview button {
     width: 2.6rem;
     height: 2.6rem;
-    background-color: var(--button-bg);
-    color: var(--button-font);
     border: var(--border-thick);
-    border-radius: 50%;
+    border-radius: 12px;
     margin: 0.3rem 1rem 0.3rem 0.25rem;
     transition: background-color 0.2s ease;
     cursor: pointer;
-}
-
-.theme-preview svg {
-    stroke: var(--button-font)
 }
 
 .theme-slider button {
