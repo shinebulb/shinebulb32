@@ -740,7 +740,8 @@ a:hover {
 .confirm button:hover,
 .confirm button:hover,
 .options button:hover,
-.modal-options:hover {
+.modal-options:hover,
+.select-all:hover {
     background-color: var(--modal-button-bg-hover);
 }
 
@@ -1029,6 +1030,19 @@ hr {
     color: var(--font);
     font-weight: bold;
     margin: 0.7rem 0;
+}
+
+.select-all {
+    font-family: "Roboto Slab";
+    font-size: 1.1rem;
+    background-color: var(--modal-button-bg);
+    color: var(--button-font);
+    border: var(--border-thick);
+    width: 24rem;
+    border-radius: 12px;
+    padding: 0.2rem 0;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
 }
 
 .export-container {
@@ -1525,6 +1539,12 @@ hr {
     .export-title {
         font-size: 1.2rem;
         margin: 0.5rem 0;
+    }
+    .select-all {
+        font-size: 1rem;
+        width: 17rem;
+        border-radius: 10px;
+        padding: 0.1rem 0;
     }
     .export-container {
         min-height: 10.9rem;

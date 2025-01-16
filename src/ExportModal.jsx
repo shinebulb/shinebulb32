@@ -34,7 +34,8 @@ function ExportModal({ exportModal, settings, savedList }) {
     return (
         <dialog ref={exportModal} className="export-modal">
             <p className="export-title">{text[settings.language].exportModal[0]}</p>
-            <hr style={{marginBottom: "0.8rem"}} />
+            <hr style={{marginBottom: "0.7rem"}} />
+            <button style={{marginBottom: "0.5rem"}} className="select-all">select all</button>
             <div className="export-container">
                 {displayedThemes.map(theme =>
                     <ThemePreview
