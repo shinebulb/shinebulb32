@@ -7,8 +7,14 @@ function ThemePreview({ theme, savedList, settings }) {
     const [selected, setSelected] = useState(parseInt(localStorage.getItem(`selected${savedList.indexOf(theme)}`)) || 0);
 
     function selectTheme() {
-        setSelected(!selected);
-        localStorage.setItem(`selected${savedList.indexOf(theme)}`, Number(!selected));
+        if (selected) {
+            setSelected(false);
+            localStorage.removeItem(`selected${savedList.indexOf(theme)}`);
+        }
+        else {
+            setSelected(true);
+            localStorage.setItem(`selected${savedList.indexOf(theme)}`, 1);
+        }
     }
 
     return (
