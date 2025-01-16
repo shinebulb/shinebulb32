@@ -6,7 +6,10 @@ import paths from './assets/json/svg-paths.json';
 function ExportModal({ exportModal, settings, savedList }) {
 
     const [current, setCurrent] = useState(0);
+
     const [themeExport, setThemeExport] = useState([]);
+
+    const [copied, setCopied] = useState(false);
 
     const itemDisplay = 4;
 
@@ -24,7 +27,8 @@ function ExportModal({ exportModal, settings, savedList }) {
     }
 
     function copyThemes() {
-
+        navigator.clipboard.writeText(JSON.stringify(themeExport, null, 2))
+        .then(() => setCopied(true));
     }
 
     return (
@@ -33,7 +37,15 @@ function ExportModal({ exportModal, settings, savedList }) {
             <hr style={{marginBottom: "0.8rem"}} />
             <div className="export-container">
                 {displayedThemes.map(theme =>
-                    <ThemePreview key={savedList.indexOf(theme) + 1} theme={theme} savedList={savedList} settings={settings} themeExport={themeExport} setThemeExport={setThemeExport} />
+                    <ThemePreview
+                        key={savedList.indexOf(theme) + 1}
+                        theme={theme}
+                        savedList={savedList}
+                        settings={settings}
+                        themeExport={themeExport}
+                        setThemeExport={setThemeExport}
+                        setCopied={setCopied}
+                    />
                 )}
             </div>
             <div className="theme-slider">
@@ -65,7 +77,7 @@ function ExportModal({ exportModal, settings, savedList }) {
                 </button>
                 <button onClick={copyThemes} disabled={themeExport.length == 0}>
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"><path d={paths.copy[0]} fill="var(--button-font)"></path><path d={paths.copy[1]} fill="var(--button-font)"></path></g></svg>
-                    {text[settings.language].exportModal[2]}
+                    {text[settings.language].exportModal[Number(copied) + 2]}
                 </button>
             </div>
             <hr />
