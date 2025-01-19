@@ -1119,7 +1119,7 @@ hr {
 }
 
 .export-options svg,
-.upload-themes svg {
+.import-options svg {
     height: 1.8rem;
     margin-right: 0.5rem;
 }
@@ -1127,8 +1127,9 @@ hr {
 .export-instructions {
     font-size: 1.2rem;
     color: var(--font);
+    text-align: left;
     font-style: italic;
-    margin: 1rem 1rem 1.2rem;
+    margin: 1rem 0.3rem 1.2rem 1.5rem;
 }
 
 .export-modal textarea {
@@ -1145,9 +1146,39 @@ hr {
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+.import-options {
+    display: flex;
+    align-items: center;
+}
+
 .upload-themes {
     width: 13rem;
-    margin: 0.5rem auto 1.2rem;
+    height: 3rem;
+    font-size: 1.1rem;
+    border-radius: 12px;
+    padding: 0;
+    margin: 0 1.5rem 0 0;
+}
+
+.complete-import {
+    display: flex;
+    align-items: center;
+}
+
+.complete-import svg {
+    width: 7.5rem;
+    height: 6rem;
+    margin: 0 0 -1rem 0.8rem;
+}
+
+.complete-import span {
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+    font-size: 1.3rem;
+    color: var(--font);
+    font-weight: bold;
+    text-decoration: underline;
+    margin-left: 1rem;
+    cursor: pointer;
 }
 
 .no-themes {
