@@ -85,7 +85,13 @@
         "exportModal": ["choose themes to export:", "download", "copy", "copied!"],
         "navigationButtons": ["to the start", "previous", "next", "to the end"],
         "themes": "themes",
-        "selectAll": ["select all", "cancel all"]
+        "selectAll": ["select all", "cancel all"],
+        "importText": [
+            "paste the code containing themes you want to import here:",
+            "or upload it from a .json file:",
+            "upload themes",
+            "click to complete import"
+        ]
     },
 
     {
@@ -174,6 +180,12 @@
         "exportModal": ["выберите темы для экспорта:", "скачать", "копировать", "скопировано!"],
         "navigationButtons": ["в начало", "назад", "вперёд", "в конец"],
         "themes": "темы",
-        "selectAll": ["выбрать все", "отменить все"]
+        "selectAll": ["выбрать все", "отменить все"],
+        "importText": [
+            "вставьте код с темами для импорта сюда:",
+            "или загрузите .json-файл:",
+            "загрузить",
+            "завершить импорт"
+        ]
     }
 ]

@@ -1645,7 +1645,7 @@ hr {
         width: 240px;
         height: 60px;
         padding: 8px;
-        font-size: 1rem;
+        font-size: 0.85rem;
         border-radius: 12px;
     }
     #upload-json {
@@ -1666,7 +1666,7 @@ hr {
     }
     .complete-import span {
         font-size: 1rem;
-        margin-left: 0.2rem;
+        margin-left: 0.3rem;
     }
     .no-themes {
         width: 80vw;
