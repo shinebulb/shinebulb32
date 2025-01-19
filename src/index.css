@@ -1143,7 +1143,6 @@ hr {
     border: var(--border-thick);
     border-radius: 15px;
     resize: none;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .import-options {
@@ -1624,7 +1623,7 @@ hr {
         font-size: 1.3rem;
         margin: 0.4rem 1rem;
     }
-    .export-options button {
+    .export-options button, .upload-themes {
         font-size: 0.9rem;
         background-color: var(--button-bg);
         color: var(--button-font);
@@ -1634,9 +1633,40 @@ hr {
         padding: 0.3rem 0;
         margin: 0.5rem 0.2rem 0.8rem;
     }
-    .export-options svg {
-        height: 1.5rem;
+    .export-options svg, .import-options svg {
+        height: 1.4rem;
         margin-right: 0.4rem;
+    }
+    .export-instructions {
+        font-size: 1rem;
+        margin: 0.8rem 0.3rem 1rem 1.3rem;
+    }
+    .export-modal textarea {
+        width: 240px;
+        height: 60px;
+        padding: 8px;
+        font-size: 1rem;
+        border-radius: 12px;
+    }
+    #upload-json {
+        font-size: 0.9rem;
+    }
+    .upload-themes {
+        width: 9.3rem;
+        height: 2.5rem;
+        font-size: 0.8rem;
+        border-radius: 12px;
+        padding: 0;
+        margin: 0 1.3rem 0 0;
+    }
+    .complete-import svg {
+        width: 5rem;
+        height: 4.5rem;
+        margin: 0 0 -0.8rem 0.8rem;
+    }
+    .complete-import span {
+        font-size: 1rem;
+        margin-left: 0.2rem;
     }
     .no-themes {
         width: 80vw;

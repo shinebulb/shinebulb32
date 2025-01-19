@@ -11,7 +11,7 @@ function ImportModal({ importModal, settings, savedList, setSavedList }) {
             <p className="export-instructions">paste the code containing themes you want to import here:</p>
             <textarea />
             <div className="import-options">
-                <p className="export-instructions" style={{width: "40%"}}>or upload it from a .json file:</p>
+                <p id="upload-json" className="export-instructions" style={{width: "40%"}}>or upload it from a .json file:</p>
                 <button className="upload-themes">
                     <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="var(--button-font)" strokeWidth="4.48"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round" strokeWidth="5.376"><polyline points="48 24 32 8 16 24"></polyline><line x1="56" y1="56" x2="8" y2="56"></line><line x1="32" y1="48" x2="32" y2="8"></line></g><g id="SVGRepo_iconCarrier"><polyline points="48 24 32 8 16 24"></polyline><line x1="56" y1="56" x2="8" y2="56"></line><line x1="32" y1="48" x2="32" y2="8"></line></g></svg>
                     upload themes
