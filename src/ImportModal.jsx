@@ -5,9 +5,26 @@ import paths from './assets/json/svg-paths.json';
 function ImportModal({ importModal, settings, savedList, setSavedList }) {
 
     const codeSpace = useRef(null);
+    const uploadRef = useRef(null);
+
+    function uploadThemes(event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = e => {
+                try {
+                    codeSpace.current.value = e.target.result;
+                }
+                catch (error) {
+                    console.error(error);
+                }
+            };
+            reader.readAsText(file);
+        }
+    };
 
     function importThemes() {
-        const themes = JSON.parse(JSON.stringify(codeSpace.current.value));
+        const themes = JSON.parse(codeSpace.current.value);
     }
 
     return (
@@ -18,7 +35,8 @@ function ImportModal({ importModal, settings, savedList, setSavedList }) {
             <textarea ref={codeSpace} />
             <div className="import-options">
                 <p id="upload-json" className="export-instructions" style={{width: "40%"}}>{text[settings.language].importText[1]}</p>
-                <button className="upload-themes" onClick={() => codeSpace.current.value = "yay"}>
+                <button className="upload-themes" onClick={() => uploadRef.current.click()}>
+                    <input ref={uploadRef} type="file" accept=".json" onChange={uploadThemes} style={{display: "none"}} />
                     <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="var(--button-font)" strokeWidth="4.48"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round" strokeWidth="5.376"><polyline points="48 24 32 8 16 24"></polyline><line x1="56" y1="56" x2="8" y2="56"></line><line x1="32" y1="48" x2="32" y2="8"></line></g><g id="SVGRepo_iconCarrier"><polyline points="48 24 32 8 16 24"></polyline><line x1="56" y1="56" x2="8" y2="56"></line><line x1="32" y1="48" x2="32" y2="8"></line></g></svg>
                     {text[settings.language].importText[2]}
                 </button>
