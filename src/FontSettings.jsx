@@ -6,13 +6,23 @@ import { motion } from 'framer-motion';
 function FontSettings({ settings, setSettings }) {
     return (
         <motion.div
-            className='fonts'
+            className='settings'
             initial={{opacity: 0}}
             animate={{opacity: 1}}
             exit={{opacity: 0}}
             transition={{duration: 0.5}}
         >
-            <p className="p1">this section is in progress!</p>
+            <div style={{ height: "3rem" }} />
+            <h2>font settings</h2>
+            <div className="container">
+                <label>font family</label>
+                <div>
+                    <select style={{fontFamily: "var(--font-family)"}}>
+                        <option style={{fontFamily: "Roboto Slab"}} value="roboto slab">roboto slab</option>
+                        <option style={{fontFamily: "consolas"}} value="consolas">consolas</option>
+                    </select>
+                </div>
+            </div>
         </motion.div>
     )
 }
