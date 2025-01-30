@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400&display=swap');
 
 :root {
+    --font-family: "Roboto Slab";
     --light-red: hsl(0, 97%, 80%);
     --intermediate-red: hsl(0, 100%, 40%);
     --dark-red: hsl(0, 100%, 15%);
@@ -123,7 +124,7 @@
 }
 
 html, body {
-    font-family: "Roboto Slab";
+    font-family: var(--font-family);
     min-height: 100vh;
 }
   
@@ -194,7 +195,7 @@ body {
 }
 
 .signup-input, .login-form input {
-    font-family: "Roboto Slab";
+    font-family: var(--font-family);
     background-color: var(--modal-bg);
     color: var(--font);
     border: var(--border-thick);
@@ -206,7 +207,7 @@ body {
 }
 
 .signup-form button, .login-form button {
-    font-family: "Roboto Slab";
+    font-family: var(--font-family);
     display: flex;
     min-width: 7rem;
     justify-content: center;
@@ -260,7 +261,7 @@ body {
 }
 
 .login-warning button {
-    font-family: "Roboto Slab";
+    font-family: var(--font-family);
     width: 48%;
     min-height: 2.7rem;
     background-color: var(--light-yellow);
@@ -312,7 +313,7 @@ body {
 }
 
 .log-in-to-view button {
-    font-family: "Roboto Slab";
+    font-family: var(--font-family);
     font-size: 1.4rem;
     width: 48%;
     background-color: var(--light-yellow);
@@ -379,7 +380,7 @@ body {
 }
 
 .change-password {
-    font-family: "Roboto Slab";
+    font-family: var(--font-family);
     position: absolute;
     top: calc(50% + 146px);
     left: 0;
@@ -454,7 +455,7 @@ body {
 }
 
 .controls button {
-    font-family: "Roboto Slab";
+    font-family: var(--font-family);
     background-color: var(--button-bg);
     color: var(--button-font);
     border: var(--border-thick);
@@ -525,7 +526,7 @@ h2 {
 }
 
 .container {
-    font-family: "Roboto Slab";
+    font-family: var(--font-family);
     width: 420px;
     display: flex;
     align-items: center;
@@ -555,7 +556,7 @@ h2 {
 }
 
 #toggle-info {
-    font-family: "Roboto Slab";
+    font-family: var(--font-family);
     width: 1.5rem;
     height: 1.5rem;
     background-color: var(--button-bg);
@@ -692,7 +693,7 @@ a:hover {
 }
 
 .confirm input {
-    font-family: "Roboto Slab";
+    font-family: var(--font-family);
     background-color: var(--modal-button-bg);
     color: var(--button-font);
     width: 90%;
@@ -715,7 +716,7 @@ a:hover {
 }
 
 .confirm button {
-    font-family: "Roboto Slab";
+    font-family: var(--font-family);
     background-color: var(--button-bg);
     color: var(--button-font);
     font-size: 1.4rem;
@@ -789,7 +790,7 @@ a:hover {
 }
 
 .options button, .toggle-info-modal button, #close-export-modal {
-    font-family: "Roboto Slab";
+    font-family: var(--font-family);
     background-color: transparent;
     width: 100%;
     height: 2.5rem;
@@ -874,7 +875,7 @@ a:hover {
 }
 
 .theme-header span input {
-    font-family: "Roboto Slab";
+    font-family: var(--font-family);
     width: 8ch;
     height: auto;
     background-color: var(--select-hover);
@@ -903,7 +904,7 @@ a:hover {
 }
 
 .sample button {
-    font-family: "Roboto Slab";
+    font-family: var(--font-family);
     width: 25%;
     height: 3rem;
     color: var(--button-font);
@@ -925,7 +926,7 @@ a:hover {
     align-items: center;
     width: 100%;
     font-style: italic;
-    font-family: "Roboto Slab";
+    font-family: var(--font-family);
     font-size: 1.3rem;
     background-color: var(--modal-button-bg);
     color: var(--button-font);
@@ -1034,7 +1035,7 @@ hr {
 }
 
 .select-all {
-    font-family: "Roboto Slab";
+    font-family: var(--font-family);
     font-size: 1.1rem;
     background-color: var(--modal-button-bg);
     color: var(--button-font);
@@ -1102,7 +1103,7 @@ hr {
 }
 
 .export-options button, .upload-themes {
-    font-family: "Roboto Slab";
+    font-family: var(--font-family);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1242,7 +1243,7 @@ hr {
 }
 
 .collection-actions button {
-    font-family: "Roboto Slab";
+    font-family: var(--font-family);
     display: flex;
     align-items: center;
     font-size: 1.4rem;
@@ -1304,7 +1305,7 @@ hr {
 
 #info-button {
     font-weight: bold;
-    font-family: "Roboto Slab";
+    font-family: var(--font-family);
     background-color: transparent;
     font-size: 1.5rem;
     width: 90%;

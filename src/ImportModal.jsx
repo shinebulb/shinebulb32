@@ -15,8 +15,8 @@ function ImportModal({ importModal, settings, savedList, setSavedList }) {
                 try {
                     codeSpace.current.value = e.target.result;
                 }
-                catch (error) {
-                    console.error(error);
+                catch (e) {
+                    console.error(e);
                 }
             };
             reader.readAsText(file);
