@@ -1176,7 +1176,6 @@ hr {
     font-size: 1.3rem;
     color: var(--font);
     font-weight: bold;
-    text-decoration: underline;
     margin-left: 1rem;
     cursor: pointer;
 }
