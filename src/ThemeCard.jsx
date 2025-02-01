@@ -112,7 +112,7 @@ function ThemeCard({ id, index, bg, font, title, savedList, setSavedList, settin
             }}>
                 {title || `${text[settings.language].themeCard[0]} #${index + 1}`}
             </p>
-            <div className="saved-controls">
+            {id ? <div className="saved-controls">
                 <button
                     title={text[settings.language].themeCard[1]}
                     style={buttonStyles}
@@ -153,7 +153,7 @@ function ThemeCard({ id, index, bg, font, title, savedList, setSavedList, settin
                     }</button>
                     <button onClick={() => deleteRef.current.close()}>{text[settings.language].confirm[2]}</button>
                 </dialog>
-            </div>
+            </div> : <div>reload page to access themes</div>}
         </div>
     )
 }

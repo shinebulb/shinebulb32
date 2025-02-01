@@ -8,7 +8,6 @@ function ImportModal({ importModal, settings, savedList, setSavedList }) {
     const defaultStatus = text[settings.language].importText[3];
 
     const [importStatus, setImportStatus] = useState(defaultStatus);
-    const [successCount, setSuccessCount] = useState(0);
 
     const [themeField, setThemeField] = useState("");
 
@@ -19,8 +18,7 @@ function ImportModal({ importModal, settings, savedList, setSavedList }) {
             (Object.keys(theme).length > 3) ||
             (typeof theme.bg !== 'string') ||
             (typeof theme.font !== 'string') ||
-            (theme.title && typeof theme.title !== 'string') ||
-            (theme.title && theme.title !== null)
+            (theme.title && typeof theme.title !== 'string')
         );
     };
 
