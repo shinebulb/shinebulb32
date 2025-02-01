@@ -15,16 +15,13 @@ function ImportModal({ importModal, settings, savedList, setSavedList }) {
     const uploadRef = useRef(null);
 
     function themeValid(theme) {
-        if (
+        return !(
             (Object.keys(theme).length > 3) ||
-            (Object.keys(theme).length == 3 && !theme.title) ||
             (typeof theme.bg !== 'string') ||
             (typeof theme.font !== 'string') ||
-            (theme.title && typeof theme.title !== 'string')
-        ) {
-            return false;
-        }
-        return true
+            (theme.title && typeof theme.title !== 'string') ||
+            (theme.title && theme.title !== null)
+        );
     };
 
     function inputThemes(event) {
