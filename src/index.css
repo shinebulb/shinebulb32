@@ -1234,6 +1234,7 @@ hr {
     border-radius: 15px;
     padding: 0 0.2rem;
     margin: auto;
+    cursor: default;
 }
 
 .saved-controls dialog {
