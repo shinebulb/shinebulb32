@@ -1220,6 +1220,22 @@ hr {
     height: 2rem;
 }
 
+.reload-to-access {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    height: 2.6rem;
+    font-style: italic;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 1.2rem;
+    border-radius: 15px;
+    padding: 0 0.2rem;
+    margin: auto;
+}
+
 .saved-controls dialog {
     border-radius: 12px;
     padding: 0.2rem;
@@ -1594,6 +1610,10 @@ hr {
     .theme-card p {
         font-size: 1.4rem;
         margin: 0.6rem 0;
+    }
+    .reload-to-access {
+        height: 2.4rem;
+        font-size: 1rem;
     }
     .export-title {
         font-size: 1.2rem;

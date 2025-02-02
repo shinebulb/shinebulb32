@@ -103,7 +103,7 @@ function ThemeCard({ id, index, bg, font, title, savedList, setSavedList, settin
     }
 
     return (
-        <div className="theme-card" style={{backgroundColor: inverted ? font : bg}}>
+        <div className="theme-card" style={{backgroundColor: inverted ? font : bg, paddingBottom: id ? "0" : "0.8rem"}}>
             <p title={title} style={{
                 color: inverted ? bg : font,
                 whiteSpace: "nowrap",
@@ -153,7 +153,10 @@ function ThemeCard({ id, index, bg, font, title, savedList, setSavedList, settin
                     }</button>
                     <button onClick={() => deleteRef.current.close()}>{text[settings.language].confirm[2]}</button>
                 </dialog>
-            </div> : <div>reload page to access themes</div>}
+            </div> :
+            <div className="reload-to-access" style={{...buttonStyles, color: inverted ? bg : font}}>
+                <span>reload page to perform theme actions</span>
+            </div>}
         </div>
     )
 }
