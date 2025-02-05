@@ -1171,6 +1171,40 @@ hr {
     margin: 0 0 -1rem 0.8rem;
 }
 
+.import-status {
+    display: "flex";
+    flex-direction: "column";
+    justify-content: "center";
+    max-width: calc(100% - 8.3rem);
+}
+
+.import-status p {
+    width: 16rem;
+    /* color: hsl(212, 100%, 60%); */
+    color: var(--font);
+    font-size: 1.2rem;
+    text-decoration: underline;
+    margin: 0.3rem auto 0;
+    cursor: pointer;
+}
+
+.import-progress {
+    width: 11rem;
+    height: 0.6rem;
+    background-color: var(--modal-button-bg);
+    border: var(--border-thick);
+    border-radius: 10px;
+    margin: 0.5rem auto 0;
+}
+
+::-webkit-progress-value {
+    background-color: var(--button-font);
+}
+  
+::-moz-progress-bar {
+    background-color: var(--button-font);
+}
+
 .complete-import span {
     font-family: 'Trebuchet MS', Arial, sans-serif;
     font-size: 1.3rem;
@@ -1689,6 +1723,20 @@ hr {
     .complete-import span {
         font-size: 1rem;
         margin-left: 0.3rem;
+    }
+    .import-status {
+        max-width: calc(100% - 5.8rem);
+    }
+    .import-progress {
+        width: 9rem;
+        height: 0.3rem;
+        border-radius: 8px;
+        margin: 0 auto 0.1rem;
+    }
+    .import-status p {
+        width: 11.5rem;
+        margin: 0.2rem auto 0.1rem;
+        font-size: 0.9rem;
     }
     .no-themes {
         width: 80vw;
