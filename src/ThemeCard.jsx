@@ -155,7 +155,7 @@ function ThemeCard({ id, index, bg, font, title, savedList, setSavedList, settin
                 </dialog>
             </div> :
             <div className="reload-to-access" style={{...buttonStyles, color: inverted ? bg : font}}>
-                <span>reload page to perform theme actions</span>
+                <span>{text[settings.language].reloadToAccess}</span>
             </div>}
         </div>
     )

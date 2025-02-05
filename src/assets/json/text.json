@@ -20,6 +20,7 @@
         ],
         "savedThemes": ["saved themes", "in the collection"],
         "themeCard": ["theme", "rename theme", "apply theme", "delete theme"],
+        "reloadToAccess": "reload page to perform theme actions",
         "savedDialogs": ["enter theme name...", "delete theme permanently?"],
         "noThemes": "your themes will be listed here!",
         "saved": "saved themes",
@@ -90,7 +91,11 @@
             "paste the code containing themes you want to import here:",
             "or upload it from a .json file:",
             "upload themes",
-            "click to complete import"
+            "click to complete import",
+            "wrong input structure!",
+            "imported",
+            "import completed!",
+            "see import log"
         ]
     },
 
@@ -115,6 +120,7 @@
         ],
         "savedThemes": ["сохранённые темы", "в коллекции"],
         "themeCard": ["тема", "переименовать тему", "применить тему", "удалить тему"],
+        "reloadToAccess": "перезагрузите для действий с темой",
         "savedDialogs": ["название темы...", "безвозвратно удалить тему?"],
         "noThemes": "ваши темы будут размещены здесь!",
         "saved": "сохранённые темы",
@@ -185,7 +191,11 @@
             "вставьте код с темами для импорта сюда:",
             "или загрузите .json-файл:",
             "загрузить",
-            "завершить импорт"
+            "завершить импорт",
+            "ошибка в структуре ввода!",
+            "импортировано",
+            "импорт завершён!",
+            "посмотреть детали"
         ]
     }
 ]

@@ -62,7 +62,7 @@ function ImportModal({ importModal, settings, savedList, setSavedList }) {
             let imported = 0;
 
             if (!Array.isArray(themes)) {
-                setImportStatus("wrong input structure!");
+                setImportStatus(text[settings.language].importText[6]);
                 setProgressDisplay("hidden");
             }
             else {
@@ -75,18 +75,18 @@ function ImportModal({ importModal, settings, savedList, setSavedList }) {
                         { headers: { accessToken: localStorage.getItem("accessToken") } }
                     ).then(response => {
                         imported += Number(response.data.status);
-                        setImportStatus(`${imported}/${themes.length} imported`);
+                        setImportStatus(`${imported}/${themes.length} ${text[settings.language].importText[5]}`);
                         if (Number(response.data.status)) validThemes.push(theme);
                         setProgressValue(index + 1 / themes.length);
                     });
                 }
                 setSavedList([...savedList, ...validThemes]);
-                setImportStatus("import completed!");
+                setImportStatus(text[settings.language].importText[6]);
                 setProgressDisplay("hidden");
             }
         }
         catch (e) {
-            setImportStatus("wrong input structure!");
+            setImportStatus(text[settings.language].importText[4]);
             setProgressDisplay("hidden");
         }
     }
@@ -111,8 +111,8 @@ function ImportModal({ importModal, settings, savedList, setSavedList }) {
                     <span onClick={importThemes} style={{textDecoration: importStatus == defaultStatus ? "underline" : "none", margin: "auto"}}>
                         {importStatus}
                     </span>
-                    {importStatus != "import completed!" ? <progress className="import-progress" value={progressValue} style={{visibility: progressVisibility}} />
-                    : <p>see import log</p>}
+                    {importStatus != text[settings.language].importText[6] ? <progress className="import-progress" value={progressValue} style={{visibility: progressVisibility}} />
+                    : <p>{text[settings.language].importText[7]}</p>}
                 </div>
             </div>
             <hr />
