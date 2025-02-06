@@ -76,11 +76,13 @@ function LogIn({ bulb, settings, setSettings, setSavedList }) {
                     font: response.data.font || "Roboto Slab"
                 });
                 themes[response.data.theme === null ? settings.theme : response.data.theme]();
+                document.documentElement.style.setProperty("--font-family", response.data.font || "Roboto Slab");
                 if ((response.data.bulbStatus === "on") && (bulb.current)) bulb.current.classList.add("on");
                 return axios.get(`${import.meta.env.VITE_API_KEY}/savedthemes/byUser/${response.data.id}`);
             }
             else {
                 themes[parseInt(localStorage.getItem("theme")) || 0]();
+                document.documentElement.style.setProperty("--font-family", localStorage.getItem("font") || "Roboto Slab");
                 setSettings({
                     bulbCount: 0,
                     bulbStatus: "off",

@@ -36,6 +36,7 @@ function App() {
 
     useEffect(() => {
         themes[parseInt(localStorage.getItem("theme")) || 0]();
+        document.documentElement.style.setProperty("--font-family", localStorage.getItem("font") || "Roboto Slab");
         let id = 0;
         axios.get(
             `${import.meta.env.VITE_API_KEY}/users/auth`,
@@ -70,6 +71,7 @@ function App() {
                 });
                 setLoadApp(false);
                 themes[response.data.theme === null ? settings.theme : response.data.theme]();
+                document.documentElement.style.setProperty("--font-family", response.data.font);
                 if ((response.data.bulbStatus === "on") && (bulb.current)) bulb.current.classList.add("on");
             }
         });
@@ -92,6 +94,7 @@ function App() {
         setSavedList([]);
         localStorage.removeItem("accessToken");
         themes[parseInt(localStorage.getItem("theme")) || 0]();
+        document.documentElement.style.setProperty("--font-family", localStorage.getItem("font") || "Roboto Slab");
     }
 
     return (
