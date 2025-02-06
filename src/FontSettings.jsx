@@ -9,6 +9,8 @@ function FontSettings({ settings, setSettings }) {
 
     const { authState } = useContext(AuthContext);
 
+    const navigate = useNavigate();
+
     function fontChange(event) {
         axios.put(
             `${import.meta.env.VITE_API_KEY}/users/changeFont`,
@@ -31,7 +33,7 @@ function FontSettings({ settings, setSettings }) {
             <div style={{ height: "3rem" }} />
             <h2>font settings</h2>
             <div className="container">
-                <label>font family</label>
+                <label className="settingName" style={{textAlign: "left"}}>font family</label>
                 <div>
                     <select style={{fontFamily: "var(--font-family)"}} value={settings.font} onChange={fontChange}>
                         <option style={{fontFamily: "Roboto Slab"}} value="Roboto Slab">roboto slab</option>
@@ -39,6 +41,8 @@ function FontSettings({ settings, setSettings }) {
                     </select>
                 </div>
             </div>
+            <div style={{ height: "4rem" }} />
+            <a onClick={() => navigate("/settings")}>{text[settings.language].back}</a>
         </motion.div>
     )
 }

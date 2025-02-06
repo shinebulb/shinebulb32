@@ -10,10 +10,7 @@ function More({ more, settings }) {
     return (
         <dialog className="more" ref={more}>
             <div className="options">
-                <div onClick={() => {
-                    closeModal(more);
-                    navigate("/fonts");
-                }}>
+                <div onClick={() => navigate("/fonts")}>
                     <p>
                     <svg id="font-icon" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" strokeWidth="1.7"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round" strokeWidth="0.256"></g><g id="SVGRepo_iconCarrier"><path d={paths.font}></path></g></svg>
                         {text[settings.language].fontSettings}
@@ -21,10 +18,7 @@ function More({ more, settings }) {
                     <span>{text[settings.language].optionDescriptions[1]}</span>
                 </div>
                 <hr />
-                <div onClick={() => {
-                    closeModal(more);
-                    navigate("/saved");
-                }}>
+                <div onClick={() => navigate("/saved")}>
                     <p>
                         <svg id="saved-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d={paths.save} strokeWidth="2" strokeLinejoin="round"/></svg>
                         {text[settings.language].saved}
