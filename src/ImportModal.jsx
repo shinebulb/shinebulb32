@@ -1,6 +1,5 @@
 import React, { useState, useRef } from 'react';
 import axios from 'axios';
-import closeModal from './assets/closeModal';
 import text from './assets/json/text.json';
 import paths from './assets/json/svg-paths.json';
 
@@ -117,7 +116,7 @@ function ImportModal({ importModal, settings, savedList, setSavedList }) {
                 </div>
             </div>
             <hr />
-            <button id="close-export-modal" onClick={importModal => closeModal(importModal)}>{text[settings.language].close}</button>
+            <button id="close-export-modal" onClick={() => importModal.current.close()}>{text[settings.language].close}</button>
         </dialog>
     )
 }

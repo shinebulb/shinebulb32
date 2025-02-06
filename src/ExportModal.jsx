@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import ThemePreview from './ThemePreview';
-import closeModal from './assets/closeModal';
 import text from './assets/json/text.json';
 import paths from './assets/json/svg-paths.json';
 

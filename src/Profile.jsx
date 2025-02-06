@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef, useContext } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { AuthContext } from './assets/AuthContext';
-import closeModal from './assets/closeModal';
 import axios from 'axios';
 import text from './assets/json/text.json';
 import paths from './assets/json/svg-paths.json';

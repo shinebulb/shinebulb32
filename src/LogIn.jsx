@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext } from './assets/AuthContext';
 import axios from 'axios';
 import themes from './assets/themes';
-import closeModal from './assets/closeModal';
 import defaultLang from './assets/defaultLang';
 import text from './assets/json/text.json';
 import paths from './assets/json/svg-paths.json';
