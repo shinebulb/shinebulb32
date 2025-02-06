@@ -12,7 +12,7 @@ function More({ more, settings }) {
             <div className="options">
                 <div onClick={() => navigate("/fonts")}>
                     <p>
-                    <svg id="font-icon" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" strokeWidth="1.7"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round" strokeWidth="0.256"></g><g id="SVGRepo_iconCarrier"><path d={paths.font}></path></g></svg>
+                        <svg id="font-icon" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" strokeWidth="1.7"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round" strokeWidth="0.256"></g><g id="SVGRepo_iconCarrier"><path d={paths.font}></path></g></svg>
                         {text[settings.language].fontSettings}
                     </p>
                     <span>{text[settings.language].optionDescriptions[1]}</span>

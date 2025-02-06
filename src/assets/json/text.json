@@ -26,8 +26,8 @@
         "saved": "saved themes",
         "collectionActions": ["export themes", "import themes"],
         "optionDescriptions": [
-            "a place for any theme that you came up with or generated in the constructor",
-            "advanced settings section for adjusting font family and size across the website"
+            "the space for any theme that you came up with or generated in the constructor",
+            "advanced options for font customization across the entire website"
         ],
         "about": [
             "shinebulb is a fun little project by nurgali ernist and andrew aldor.",
@@ -128,7 +128,7 @@
         "collectionActions": ["экспорт тем", "импорт тем"],
         "optionDescriptions": [
             "место для всех тем, которые вы придумали или сгенерировали в конструкторе",
-            "раздел расширенных настроек для изменения шрифта и размера текста на всём сайте"
+            "расширенные настройки выбора вашего любимого шрифта для всего сайта"
         ],
         "about": [
             "shinebulb — небольшой проект нургали эрниста и андрея альдора.",
