@@ -70,6 +70,9 @@ dialog {
     &.closing {
         opacity: 0;
         transform: translateY(20px);
+        &::backdrop {
+            opacity: 0;
+        }
     }
 
     @starting-style {
