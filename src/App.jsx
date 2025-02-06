@@ -27,7 +27,8 @@ function App() {
         bulbStatus: localStorage.getItem("bulbStatus") || "off",
         language: localStorage.getItem("language") === null ? defaultLang() : localStorage.getItem("language"),
         theme: parseInt(localStorage.getItem("theme")) || 0,
-        invertTheme: parseInt(localStorage.getItem("invertTheme")) || 0
+        invertTheme: parseInt(localStorage.getItem("invertTheme")) || 0,
+        font: localStorage.getItem("font") || "Roboto Slab"
     });
     const [savedList, setSavedList] = useState([]);
 
@@ -64,7 +65,8 @@ function App() {
                     bulbStatus: response.data.bulbStatus || "off",
                     language: response.data.language === null ? settings.language : response.data.language,
                     theme: response.data.theme === null ? settings.theme : response.data.theme,
-                    invertTheme: response.data.invertTheme || false
+                    invertTheme: response.data.invertTheme || false,
+                    font: response.data.font || "Roboto Slab"
                 });
                 setLoadApp(false);
                 themes[response.data.theme === null ? settings.theme : response.data.theme]();
@@ -84,7 +86,8 @@ function App() {
             bulbStatus: localStorage.getItem("bulbStatus") || "off",
             language: localStorage.getItem("language") === null ? defaultLang() : parseInt(localStorage.getItem("language")),
             theme: parseInt(localStorage.getItem("theme")) || 0,
-            invertTheme: parseInt(localStorage.getItem("invertTheme")) || 0
+            invertTheme: parseInt(localStorage.getItem("invertTheme")) || 0,
+            font: localStorage.getItem("font") || "Roboto Slab"
         });
         setSavedList([]);
         localStorage.removeItem("accessToken");

@@ -72,7 +72,8 @@ function LogIn({ bulb, settings, setSettings, setSavedList }) {
                     bulbStatus: response.data.bulbStatus || "off",
                     language: response.data.language === null ? settings.language : response.data.language,
                     theme: response.data.theme === null ? settings.theme : response.data.theme,
-                    invertTheme: response.data.invertTheme || false
+                    invertTheme: response.data.invertTheme || false,
+                    font: response.data.font || "Roboto Slab"
                 });
                 themes[response.data.theme === null ? settings.theme : response.data.theme]();
                 if ((response.data.bulbStatus === "on") && (bulb.current)) bulb.current.classList.add("on");
@@ -85,7 +86,8 @@ function LogIn({ bulb, settings, setSettings, setSavedList }) {
                     bulbStatus: "off",
                     language: localStorage.getItem("language") === null ? defaultLang() : parseInt(localStorage.getItem("language")),
                     theme: parseInt(localStorage.getItem("theme")) || 0,
-                    invertTheme: parseInt(localStorage.getItem("invertTheme")) || 0
+                    invertTheme: parseInt(localStorage.getItem("invertTheme")) || 0,
+                    font: localStorage.getItem("font") || "Roboto Slab"
                 });
             }
         }).then(response => {
