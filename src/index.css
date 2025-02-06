@@ -45,6 +45,45 @@
     --source-code: rgb(160, 160, 160);
 }
 
+dialog {
+    transform: translateY(-20px);
+  
+    &, &::backdrop {
+      transition:
+        display 0.3s allow-discrete,
+        overlay 0.3s allow-discrete,
+        opacity 0.3s ease,
+        transform 0.3s ease;
+
+        opacity: 0;
+    }
+
+    &[open] {
+        opacity: 1;
+        transform: translateY(0px);
+  
+        &::backdrop {
+            opacity: 0.8;
+        }
+    }
+
+    &.closing {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    @starting-style {
+        &[open],
+        &[open]::backdrop {
+            opacity: 0;
+        }
+    
+        &[open] {
+            transform: translateY(20px);
+        }
+    }
+}
+
 .app-loader {
     box-sizing: border-box;
     display: inline-block;

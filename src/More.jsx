@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import closeModal from './assets/closeModal';
 import paths from './assets/json/svg-paths.json';
 import text from './assets/json/text.json';
 

@@ -1,6 +1,7 @@
 import React, { useState, useRef, useContext } from 'react';
 import { AuthContext } from './assets/AuthContext';
 import axios from 'axios';
+import closeModal from './assets/closeModal';
 import paths from './assets/json/svg-paths.json';
 import text from './assets/json/text.json';
 import custom from './assets/json/custom.json';

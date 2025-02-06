@@ -1,4 +1,5 @@
 import paths from './assets/json/svg-paths.json';
+import closeModal from './assets/closeModal';
 import text from './assets/json/text.json';
 
 function ToggleInfo({ info, settings }) {
