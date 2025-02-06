@@ -9,7 +9,7 @@ function ToggleInfo({ info, settings }) {
             <p>{text[settings.language].toggleInfo[1]}</p>
             <p>{text[settings.language].toggleInfo[2]}</p>
             <hr />
-            <button onClick={() => info.current.close()}>{text[settings.language].close}</button>
+            <button onClick={() => closeModal(info)}>{text[settings.language].close}</button>
         </dialog>
     )
 }

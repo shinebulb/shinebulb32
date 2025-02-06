@@ -104,7 +104,7 @@ function ExportModal({ exportModal, settings, savedList }) {
                 </button>
             </div>
             <hr />
-            <button id="close-export-modal" onClick={() => exportModal.current.close()}>{text[settings.language].close}</button>
+            <button id="close-export-modal" onClick={() => closeModal(exportModal)}>{text[settings.language].close}</button>
         </dialog>
     )
 }

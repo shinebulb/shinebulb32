@@ -49,7 +49,7 @@ function LogIn({ bulb, settings, setSettings, setSavedList }) {
                 setLoadLogIn(false);
                 setErrorText(Number(response.data.error));
                 alertRef.current.showModal();
-                setTimeout(() => alertRef.current.close(), 1500);
+                setTimeout(() => closeModal(alertRef), 1500);
             }
             else {
                 localStorage.setItem("accessToken", response.data.token);
@@ -147,7 +147,7 @@ function LogIn({ bulb, settings, setSettings, setSavedList }) {
                 >
                     <div>
                         <p>{text[settings.language].authNotifications[errorText]}</p>
-                        <button onClick={() => alertRef.current.close()}>
+                        <button onClick={() => closeModal(alertRef)}>
                             <svg viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"><g id="Page-1" stroke="none" strokeWidth="1" fill="var(--dark-red)" fillRule="evenodd"><g id="work-case" transform="translate(91.520000, 91.520000)"><polygon id="Close" points={paths.cancel} /></g></g></svg>
                         </button>
                     </div>

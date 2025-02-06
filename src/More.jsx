@@ -11,7 +11,7 @@ function More({ more, settings }) {
         <dialog className="more" ref={more}>
             <div className="options">
                 <div onClick={() => {
-                    more.current.close();
+                    closeModal(more);
                     navigate("/fonts");
                 }}>
                     <p>
@@ -22,7 +22,7 @@ function More({ more, settings }) {
                 </div>
                 <hr />
                 <div onClick={() => {
-                    more.current.close();
+                    closeModal(more);
                     navigate("/saved");
                 }}>
                     <p>
@@ -32,7 +32,7 @@ function More({ more, settings }) {
                     <span>{text[settings.language].optionDescriptions[0]}</span>
                 </div>
                 <hr />
-                <button onClick={() => more.current.close()}>{text[settings.language].back}</button>
+                <button onClick={() => closeModal(more)}>{text[settings.language].back}</button>
             </div>
         </dialog>
     )

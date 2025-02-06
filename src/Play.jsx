@@ -102,7 +102,7 @@ function Play({ bulb, settings, setSettings }) {
                 });
                 if (!bulbMuted) new Audio(`audio/off.mp3`).play();
                 bulb.current.classList.remove("on");
-                modal.current.close();
+                closeModal(modal);
                 if (settings.invertTheme) {
                     document.body.classList.add('theme-transition');
                     setTimeout(() => {
@@ -122,7 +122,7 @@ function Play({ bulb, settings, setSettings }) {
             localStorage.removeItem("bulbStatus");
             if (!bulbMuted) new Audio(`audio/off.mp3`).play();
             bulb.current.classList.remove("on");
-            modal.current.close();
+            closeModal(modal);
             if (settings.invertTheme) {
                 document.body.classList.add('theme-transition');
                 setTimeout(() => {
@@ -164,7 +164,7 @@ function Play({ bulb, settings, setSettings }) {
                     loadReset ? <span className="loader" style={{ width: "1rem", height: "1rem" }} />
                     : text[settings.language].confirm[1]
                 }</button>
-                <button onClick={() => modal.current.close()}>{text[settings.language].confirm[2]}</button>
+                <button onClick={() => closeModal(modal)}>{text[settings.language].confirm[2]}</button>
             </dialog>
             <h2 id="counter">{settings.bulbCount || 0}</h2>
             <a onClick={() => navigate("/")}>{text[settings.language].back}</a>

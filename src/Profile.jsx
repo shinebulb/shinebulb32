@@ -123,7 +123,7 @@ function Profile({ settings, bulb }) {
                     </div>
                 </div>
                 <hr />
-                <div onClick={() => copyModal.current.close()} className="close-copy">{text[settings.language].close}</div>
+                <div onClick={() => closeModal(copyModal)} className="close-copy">{text[settings.language].close}</div>
             </dialog>
         </motion.div>
     )

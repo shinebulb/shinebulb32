@@ -6,6 +6,7 @@ import ThemeConstructor from './ThemeConstructor';
 import More from './More';
 import ToggleInfo from './ToggleInfo';
 import themes from './assets/themes';
+import closeModal from './assets/closeModal';
 import text from './assets/json/text.json';
 import modes from './assets/json/modes.json';
 import languages from './assets/json/languages.json';
@@ -51,7 +52,7 @@ function Settings({ settings, setSettings }) {
                 constructorClosed = false;
             }
             else {
-                constructorRef.current.close();
+                closeModal(constructorRef);
                 constructorClosed = true;
             }
         }

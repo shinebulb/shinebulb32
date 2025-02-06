@@ -98,7 +98,7 @@ function ThemeConstructor({ constructor, settings, setSettings, width }) {
             let font;
             
             setSettings({ ...settings, theme: 3 });
-            constructor.current.close();
+            closeModal(constructor);
 
             setLoadApply(false);
 
@@ -134,7 +134,7 @@ function ThemeConstructor({ constructor, settings, setSettings, width }) {
             setSaveStatus(Number(response.data.status));
             alertRef.current.showModal();
             setTimeout(() => {
-                if (alertRef.current) alertRef.current.close();
+                if (alertRef.current) closeModal(alertRef);
             }, 2000);
         });
     }
@@ -208,7 +208,7 @@ function ThemeConstructor({ constructor, settings, setSettings, width }) {
                         : <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d={paths.apply} stroke={inverted || seeInverted ? localBg : localFont} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>}
                     </button>
                     <button
-                        onClick={() => constructor.current.close()}
+                        onClick={() => closeModal(constructor)}
                         style={{backgroundColor: "transparent", border: `${inverted || seeInverted ? localBg : localFont} 3px solid`}}
                         title={text[settings.language].themeControls[1] + (width >= 600 ? " (c)" : "")}
                     >
@@ -241,7 +241,7 @@ function ThemeConstructor({ constructor, settings, setSettings, width }) {
                             {text[settings.language].savedStatus[saveStatus][1]}
                         </span>!
                     </p>
-                    <button onClick={() => alertRef.current.close()}>
+                    <button onClick={() => closeModal(alertRef)}>
                         <svg viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"><g id="Page-1" stroke="none" strokeWidth="1" fill={`var(--dark-${saveStatus ? "green" : "red"})`} fillRule="evenodd"><g id="work-case" transform="translate(91.520000, 91.520000)"><polygon id="Close" points={paths.cancel} /></g></g></svg>
                     </button>
                 </div>

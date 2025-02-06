@@ -42,7 +42,7 @@ function ThemeCard({ id, index, bg, font, title, savedList, setSavedList, settin
             setSavedList(savedList.map(theme => 
                 theme.id === id ? { ...theme, title: response.data } : theme
             ));
-            renameRef.current.close();
+            closeModal(renameRef);
             setLoadRename(false);
         });
     }
@@ -98,7 +98,7 @@ function ThemeCard({ id, index, bg, font, title, savedList, setSavedList, settin
         ).then(response => {
             setSavedList(savedList.filter(theme => theme.id !== Number(response.data)));
             localStorage.removeItem(`selected${index}`);
-            deleteRef.current.close();
+            closeModal(deleteRef);
             setLoadDelete(false);
         });
     }
@@ -144,7 +144,7 @@ function ThemeCard({ id, index, bg, font, title, savedList, setSavedList, settin
                         loadRename ? <span className="loader" style={{ width: "1rem", height: "1rem" }} />
                         : text[settings.language].themeControls[0]
                     }</button>
-                    <button onClick={() => renameRef.current.close()}>{text[settings.language].themeControls[1]}</button>
+                    <button onClick={() => closeModal(renameRef)}>{text[settings.language].themeControls[1]}</button>
                 </dialog>
                 <dialog ref={deleteRef} disabled={loadDelete} className="confirm">
                     <p>{text[settings.language].savedDialogs[1]}</p>
@@ -152,7 +152,7 @@ function ThemeCard({ id, index, bg, font, title, savedList, setSavedList, settin
                         loadDelete ? <span className="loader" style={{ width: "1rem", height: "1rem" }} />
                         : text[settings.language].confirm[1]
                     }</button>
-                    <button onClick={() => deleteRef.current.close()}>{text[settings.language].confirm[2]}</button>
+                    <button onClick={() => closeModal(deleteRef)}>{text[settings.language].confirm[2]}</button>
                 </dialog>
             </div> :
             <div className="reload-to-access" style={{...buttonStyles, color: inverted ? bg : font}}>

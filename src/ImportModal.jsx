@@ -117,7 +117,7 @@ function ImportModal({ importModal, settings, savedList, setSavedList }) {
                 </div>
             </div>
             <hr />
-            <button id="close-export-modal" onClick={importModal => closeModal(importModal)}>{text[settings.language].close}</button>
+            <button id="close-export-modal" onClick={() => closeModal(importModal)}>{text[settings.language].close}</button>
         </dialog>
     )
 }
