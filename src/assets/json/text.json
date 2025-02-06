@@ -83,6 +83,7 @@
             "for custom themes, since there are only two colors, the colors switch places directly."
         ],
         "fontSettings": "font settings",
+        "fontFamily": "font family",
         "exportModal": ["choose themes to export:", "download", "copy", "copied!"],
         "navigationButtons": ["to the start", "previous", "next", "to the end"],
         "themes": "themes",
@@ -183,6 +184,7 @@
             "у пользовательских тем, так цветов всего два, цвета меняются местами напрямую."
         ],
         "fontSettings": "настройки шрифта",
+        "fontFamily": "шрифт",
         "exportModal": ["выберите темы для экспорта:", "скачать", "копировать", "скопировано!"],
         "navigationButtons": ["в начало", "назад", "вперёд", "в конец"],
         "themes": "темы",

@@ -31,9 +31,9 @@ function FontSettings({ settings, setSettings }) {
             transition={{duration: 0.5}}
         >
             <div style={{ height: "3rem" }} />
-            <h2>font settings</h2>
+            <h2>{text[settings.language].fontSettings}</h2>
             <div className="container">
-                <label className="settingName" style={{textAlign: "left"}}>font family</label>
+                <label className="settingName" style={{textAlign: "left"}}>{text[settings.language].fontFamily}</label>
                 <div>
                     <select style={{fontFamily: "var(--font-family)"}} value={settings.font} onChange={fontChange}>
                         <option style={{fontFamily: "Roboto Slab"}} value="Roboto Slab">roboto slab</option>
