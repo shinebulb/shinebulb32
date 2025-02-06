@@ -38,6 +38,7 @@ function FontSettings({ settings, setSettings }) {
                     <select style={{fontFamily: "var(--font-family)"}} value={settings.font} onChange={fontChange}>
                         <option style={{fontFamily: "Roboto Slab"}} value="Roboto Slab">roboto slab</option>
                         <option style={{fontFamily: "Consolas"}} value="Consolas">consolas</option>
+                        <option style={{fontFamily: "Trebuchet MS"}} value="Trebuchet MS">trebuchet ms</option>
                     </select>
                 </div>
             </div>

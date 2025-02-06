@@ -1248,7 +1248,6 @@ hr {
 }
 
 .complete-import span {
-    font-family: 'Trebuchet MS', Arial, sans-serif;
     font-size: 1.3rem;
     color: var(--font);
     font-weight: bold;
