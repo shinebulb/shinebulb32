@@ -39,6 +39,7 @@ function FontSettings({ settings, setSettings }) {
                         <option style={{fontFamily: "Roboto Slab"}} value="Roboto Slab">roboto slab</option>
                         <option style={{fontFamily: "Consolas"}} value="Consolas">consolas</option>
                         <option style={{fontFamily: "Trebuchet MS"}} value="Trebuchet MS">trebuchet ms</option>
+                        <option style={{fontFamily: "Reggae One"}} value="Reggae One">reggae one</option>
                     </select>
                 </div>
             </div>
