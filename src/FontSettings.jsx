@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import text from './assets/json/text.json';
 import { motion } from 'framer-motion';
 
 function FontSettings({ settings, setSettings }) {
+
+    const [font, setFont] = useState("Roboto Slab");
+
+    function fontChange(event) {
+        document.documentElement.style.setProperty("--font-family", event.target.value);
+        setFont(event.target.value);
+    }
+
     return (
         <motion.div
             className='settings'
@@ -17,9 +25,9 @@ function FontSettings({ settings, setSettings }) {
             <div className="container">
                 <label>font family</label>
                 <div>
-                    <select style={{fontFamily: "var(--font-family)"}}>
-                        <option style={{fontFamily: "Roboto Slab"}} value="roboto slab">roboto slab</option>
-                        <option style={{fontFamily: "consolas"}} value="consolas">consolas</option>
+                    <select style={{fontFamily: "var(--font-family)"}} value={font} onChange={fontChange}>
+                        <option style={{fontFamily: "Roboto Slab"}} value="Roboto Slab">roboto slab</option>
+                        <option style={{fontFamily: "Consolas"}} value="Consolas">consolas</option>
                     </select>
                 </div>
             </div>
