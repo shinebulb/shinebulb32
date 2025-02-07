@@ -1374,20 +1374,67 @@ hr {
     margin: 0.5rem auto;
 }
 
+input[type=radio] {
+    cursor: pointer;
+}
+
 .font-option-name {
     text-align: left;
     font-size: 1.2rem;
     font-weight: bold;
+    cursor: pointer;
+}
+
+.font-option-name input {
+    margin: auto 1rem;
+}
+
+.radio-container div {
+    display: flex;
+    align-items: center;
+}
+
+.radio-container div div {
+    width: 230px;
 }
 
 .radio-container div div select {
-    width: 90%;
+    width: 100%;
     font-size: 1rem;
     background-color: var(--modal-bg);
     color: var(--font);
     border: var(--border-thick);
     border-radius: 15px;
     padding: 0.5rem;
+}
+
+.custom-font-container {
+    display: flex;
+    flex-direction: column;
+}
+
+label[for=custom-font-input], label[for=custom-font-input] a {
+    font-size: 0.9rem;
+    text-align: left;
+    font-style: italic;
+    cursor: pointer;
+}
+
+label[for=custom-font-input] a {
+    text-decoration: underline;
+    margin: 0;
+}
+
+.custom-font-container input[type=text] {
+    font-family: var(--font-family);
+    width: calc(100% - 0.4rem);
+    font-size: 1rem;
+    background-color: var(--modal-button-bg);
+    color: var(--button-font);
+    border: var(--border-thick);
+    border-radius: 10px;
+    padding: 0.1rem 0.2rem;
+    margin-top: 0.7rem;
 }
 
 .no-page-text {

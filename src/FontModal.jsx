@@ -54,9 +54,9 @@ function FontModal({ modal, settings, setSettings }) {
                         <input type="radio" name="font-option" value="custom" checked={preferred === 'custom'} onChange={handleOptionChange}/>
                         custom
                     </label>
-                    <div style={{opacity: preferred === 'custom' ? 1 : 0.5, pointerEvents: preferred === 'custom' ? 'auto' : 'none'}}>
+                    <div className="custom-font-container" style={{opacity: preferred === 'custom' ? 1 : 0.5, pointerEvents: preferred === 'custom' ? 'auto' : 'none'}}>
                         <label htmlFor="custom-font-input">
-                            paste a link to google fonts here:
+                            you can import a custom font by pasting its '@import' link from <a href="https://fonts.google.com/">google fonts</a>:
                         </label>
                         <input type="text" id="custom-font-input" value={link} onChange={(e) => setLink(e.target.value)} disabled={preferred !== 'custom'}/>
                     </div>
