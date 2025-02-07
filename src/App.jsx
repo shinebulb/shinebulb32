@@ -15,6 +15,7 @@ import SignUp from './SignUp';
 import Profile from './Profile';
 import ChangePassword from './ChangePassword';
 import NoPage from './NoPage';
+import DynamicFontLoader from './DynamicFontLoader';
 import themes from './assets/themes';
 import defaultLang from './assets/defaultLang';
 import getFontFamily from './assets/getFontFamily';
@@ -106,6 +107,7 @@ function App() {
             <BrowserRouter>
                 {loadApp ? <span className="app-loader" />
                 : <>
+                    {settings.font.startsWith("https://fonts.googleapis.com") && <DynamicFontLoader settings={settings} />}
                     <div className="navbar">
                     <div className="navbar-links">
                         <Link to="/" style={{ marginLeft: "calc(var(--navbar-margin) * 2)" }}>{text[settings.language || 0 || 0].home}</Link>
