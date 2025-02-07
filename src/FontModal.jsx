@@ -19,14 +19,22 @@ function FontModal({ modal, settings, setSettings }) {
         setPreferred(event.target.value);
     };
 
-    function fontChange(event) {
+    function fontChange() {
+
+        let selectedFont;
+
+        if (preferred == "default") {
+            selectedFont = font;
+        }
+
         axios.put(
             `${import.meta.env.VITE_API_KEY}/users/changeFont`,
-            { font: event.target.value, id: authState.id },
+            { font: selectedFont, id: authState.id },
             { headers: { accessToken: localStorage.getItem("accessToken") } }
         ).then(response => {
             document.documentElement.style.setProperty("--font-family", response.data);
             setSettings({...settings, font: response.data});
+            closeModal(modal);
         });
     }
 
@@ -65,7 +73,7 @@ function FontModal({ modal, settings, setSettings }) {
             </div>
             <hr />
             <div className="font-option-actions">
-                <button id="apply-font" onClick={() => {}}>
+                <button id="apply-font" onClick={fontChange}>
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d={paths.apply} stroke="var(--button-font)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
                 </button>
                 <button onClick={() => closeModal(modal)}>

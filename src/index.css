@@ -1916,15 +1916,14 @@ label[for=custom-font-input] a {
         height: 2rem;
         margin: 0 0.9rem;
     }
-    .theme-info {
-        width: 300px;
+    .explore-fonts {
+        font-size: 1.2rem;
+        border-radius: 15px;
+        padding: 0.5rem 0.7rem;
     }
-    .theme-info span {
-        font-size: 1rem;
-    }
-    .shadow-realm {
-        width: calc(86vw - 2rem);
-        margin: 2rem auto;
+    .explore-fonts svg {
+        height: 1.8rem;
+        margin-right: 0.5rem;
     }
     .font-modal h2 {
         font-size: 1.2rem;
