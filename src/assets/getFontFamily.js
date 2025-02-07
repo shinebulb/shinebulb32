@@ -1,4 +1,4 @@
-function getFontFamily(url) {
+export default function getFontFamily(url) {
     try {
         const urlObj = new URL(url);
         const params = new URLSearchParams(urlObj.search);

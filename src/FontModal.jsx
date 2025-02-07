@@ -31,7 +31,7 @@ function FontModal({ modal, settings, setSettings }) {
                 setSettings({...settings, font: response.data});
             }
             else {
-                document.documentElement.style.setProperty("--font-family", response.data);
+                document.documentElement.style.setProperty("--font-family", getFontFamily(response.data));
                 setSettings({...settings, font: response.data});
             }
             closeModal(modal);

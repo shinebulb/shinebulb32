@@ -17,6 +17,7 @@ import ChangePassword from './ChangePassword';
 import NoPage from './NoPage';
 import themes from './assets/themes';
 import defaultLang from './assets/defaultLang';
+import getFontFamily from './assets/getFontFamily';
 import text from './assets/json/text.json';
 
 function App() {
@@ -28,7 +29,7 @@ function App() {
         language: localStorage.getItem("language") === null ? defaultLang() : localStorage.getItem("language"),
         theme: parseInt(localStorage.getItem("theme")) || 0,
         invertTheme: parseInt(localStorage.getItem("invertTheme")) || 0,
-        font: localStorage.getItem("font") || "Roboto Slab"
+        font: "Roboto Slab"
     });
     const [savedList, setSavedList] = useState([]);
 
@@ -36,7 +37,7 @@ function App() {
 
     useEffect(() => {
         themes[parseInt(localStorage.getItem("theme")) || 0]();
-        document.documentElement.style.setProperty("--font-family", localStorage.getItem("font") || "Roboto Slab");
+        document.documentElement.style.setProperty("--font-family", "Roboto Slab");
         let id = 0;
         axios.get(
             `${import.meta.env.VITE_API_KEY}/users/auth`,
@@ -71,7 +72,10 @@ function App() {
                 });
                 setLoadApp(false);
                 themes[response.data.theme === null ? settings.theme : response.data.theme]();
-                document.documentElement.style.setProperty("--font-family", response.data.font);
+                document.documentElement.style.setProperty(
+                    "--font-family",
+                    response.data.font.startsWith("https://fonts.googleapis.com") ? getFontFamily(response.data.font) : response.data.font || "Roboto Slab"
+                );
                 if ((response.data.bulbStatus === "on") && (bulb.current)) bulb.current.classList.add("on");
             }
         });
@@ -94,7 +98,7 @@ function App() {
         setSavedList([]);
         localStorage.removeItem("accessToken");
         themes[parseInt(localStorage.getItem("theme")) || 0]();
-        document.documentElement.style.setProperty("--font-family", localStorage.getItem("font") || "Roboto Slab");
+        document.documentElement.style.setProperty("--font-family", "Roboto Slab");
     }
 
     return (
