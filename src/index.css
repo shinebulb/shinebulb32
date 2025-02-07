@@ -792,6 +792,7 @@ a:hover {
     margin: 6px;
 }
 
+.font-option-actions button:hover,
 .toggle-info-modal button:hover,
 .export-options button:hover,
 #close-export-modal:hover,
@@ -1378,10 +1379,6 @@ hr {
     margin: 0.5rem auto;
 }
 
-.radio-container div {
-    margin: 0.5rem auto;
-}
-
 input[type=radio] {
     cursor: pointer;
 }
@@ -1400,6 +1397,7 @@ input[type=radio] {
 .radio-container div {
     display: flex;
     align-items: center;
+    margin: 0.6rem auto;
 }
 
 .radio-container div div {
@@ -1443,6 +1441,24 @@ label[for=custom-font-input] a {
     border-radius: 10px;
     padding: 0.2rem 0.3rem;
     margin-top: 0.7rem;
+}
+
+.font-option-actions button {
+    width: 50%;
+    height: 2.6rem;
+    background-color: var(--modal-button-bg);
+    color: var(--button-font);
+    border: none;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.font-option-actions button svg {
+    height: 2rem;
+}
+
+#apply-font {
+    border-right: 3px solid var(--button-font);
 }
 
 .no-page-text {

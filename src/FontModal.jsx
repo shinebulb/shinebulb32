@@ -3,6 +3,7 @@ import axios from 'axios';
 import { AuthContext } from './assets/AuthContext';
 import closeModal from './assets/closeModal';
 import text from './assets/json/text.json';
+import paths from './assets/json/svg-paths.json';
 
 function FontModal({ modal, settings, setSettings }) {
 
@@ -63,7 +64,14 @@ function FontModal({ modal, settings, setSettings }) {
                 </div>
             </div>
             <hr />
-            <button id="close-export-modal" onClick={() => closeModal(modal)}>{text[settings.language].close}</button>
+            <div className="font-option-actions">
+                <button id="apply-font" onClick={() => {}}>
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d={paths.apply} stroke="var(--button-font)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                </button>
+                <button onClick={() => closeModal(modal)}>
+                    <svg viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"><g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd"><g id="work-case" fill="var(--button-font)" transform="translate(91.520000, 91.520000)"><polygon id="Close" points={paths.cancel} /></g></g></svg>
+                </button>
+            </div>
         </dialog>
     )
 }
