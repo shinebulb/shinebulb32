@@ -600,7 +600,15 @@ h2 {
 }
 
 .explore-fonts {
-    padding: 0.3rem 1rem;
+    display: flex;
+    align-items: center;
+    border-radius: 18px;
+    padding: 0.5rem 1rem;
+}
+
+.explore-fonts svg {
+    height: 2rem;
+    margin-right: 0.7rem;
 }
 
 #toggle-info {
@@ -1433,7 +1441,7 @@ label[for=custom-font-input] a {
     color: var(--button-font);
     border: var(--border-thick);
     border-radius: 10px;
-    padding: 0.1rem 0.2rem;
+    padding: 0.2rem 0.3rem;
     margin-top: 0.7rem;
 }
 

@@ -26,7 +26,7 @@ function FontModal({ modal, settings, setSettings }) {
         ).then(response => {
             document.documentElement.style.setProperty("--font-family", response.data);
             setSettings({...settings, font: response.data});
-        })
+        });
     }
 
     return (
@@ -58,7 +58,7 @@ function FontModal({ modal, settings, setSettings }) {
                         <label htmlFor="custom-font-input">
                             you can import a custom font by pasting its '@import' link from <a href="https://fonts.google.com/">google fonts</a>:
                         </label>
-                        <input type="text" id="custom-font-input" value={link} onChange={(e) => setLink(e.target.value)} disabled={preferred !== 'custom'}/>
+                        <input type="text" id="custom-font-input" placeholder="paste your link here..." value={link} onChange={(e) => setLink(e.target.value)} disabled={preferred !== 'custom'}/>
                     </div>
                 </div>
             </div>
