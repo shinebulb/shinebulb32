@@ -587,7 +587,9 @@ h2 {
     transition: background-color 0.1s ease;
 }
 
-.container select {
+.container select,
+.container button {
+    font-family: var(--font-family);
     background-color: var(--button-bg);
     font-size: 1.5rem;
     color: var(--button-font);
@@ -596,6 +598,10 @@ h2 {
     padding: 5px 10px;
     transition: background-color 0.1s ease;
     cursor: pointer;
+}
+
+.container button {
+    padding: 0.3rem 1rem;
 }
 
 #toggle-info {
@@ -649,6 +655,7 @@ h2 {
 .signup-form button:hover,
 .login-form button:hover,
 .container select:hover,
+.container button:hover,
 .controls button:hover,
 .change-password:hover,
 #toggle-info {

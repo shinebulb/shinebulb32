@@ -164,7 +164,7 @@ function Settings({ settings, setSettings }) {
                 <label>{text[settings.language].settings[1]}</label>
                 <div>
                     {loadLang && <span className="loader" style={loaderStyles} />}
-                    <select onChange={languageChange} value={languages[settings.language]} style={{fontFamily: "var(--font-family"}}>
+                    <select onChange={languageChange} value={languages[settings.language]}>
                         <option value="en">english</option>
                         <option value="ru">русский</option>
                     </select>
@@ -175,7 +175,7 @@ function Settings({ settings, setSettings }) {
                 <label className="settingName">{text[settings.language].settings[0]}</label>
                 <div>
                     {loadTheme && <span className="loader" style={loaderStyles} />}
-                    <select onChange={themeChange} value={modes[settings.theme]} style={{fontFamily: "var(--font-family"}}>
+                    <select onChange={themeChange} value={modes[settings.theme]}>
                         <option value="system">{text[settings.language].mode[0]}</option>
                         <option value="light">{text[settings.language].mode[1]}</option>
                         <option value="dark">{text[settings.language].mode[2]}</option>

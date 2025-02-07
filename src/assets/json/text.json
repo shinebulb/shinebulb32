@@ -97,7 +97,8 @@
             "imported",
             "import completed!",
             "see import log"
-        ]
+        ],
+        "explore": "explore"
     },
 
     {
@@ -198,6 +199,7 @@
             "импортировано",
             "импорт завершён!",
             "посмотреть детали"
-        ]
+        ],
+        "explore": "посмотреть"
     }
 ]

@@ -34,14 +34,7 @@ function FontSettings({ settings, setSettings }) {
             <h2>{text[settings.language].fontSettings}</h2>
             <div className="container">
                 <label className="settingName" style={{textAlign: "left"}}>{text[settings.language].fontFamily}</label>
-                <div>
-                    <select style={{fontFamily: "var(--font-family)"}} value={settings.font} onChange={fontChange}>
-                        <option style={{fontFamily: "Roboto Slab"}} value="Roboto Slab">roboto slab</option>
-                        <option style={{fontFamily: "Consolas"}} value="Consolas">consolas</option>
-                        <option style={{fontFamily: "Trebuchet MS"}} value="Trebuchet MS">trebuchet ms</option>
-                        <option style={{fontFamily: "Reggae One"}} value="Reggae One">reggae one</option>
-                    </select>
-                </div>
+                <button>{text[settings.language].explore}...</button>
             </div>
             <div style={{ height: "4rem" }} />
             <a onClick={() => navigate("/settings")}>{text[settings.language].back}</a>
