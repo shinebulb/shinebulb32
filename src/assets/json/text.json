@@ -98,7 +98,12 @@
             "import completed!",
             "see import log"
         ],
-        "explore": "explore"
+        "explore": "explore",
+        "fontOptions": ["select font option", "default", "custom"],
+        "customFont": [
+            "you can import a custom font by pasting its '@import' link from",
+            "paste your link here..."
+        ]
     },
 
     {
@@ -200,6 +205,11 @@
             "импорт завершён!",
             "посмотреть детали"
         ],
-        "explore": "посмотреть"
+        "explore": "посмотреть",
+        "fontOptions": ["выберите тип шрифта", "базовый", "свой"],
+        "customFont": [
+            "вы можете импортировать свой шрифт, вставив его '@import'-ссылку из",
+            "вставьте ссылку здесь..."
+        ]
     }
 ]

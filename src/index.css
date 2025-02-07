@@ -1384,6 +1384,7 @@ input[type=radio] {
 }
 
 .font-option-name {
+    width: 150px;
     text-align: left;
     font-size: 1.2rem;
     font-weight: bold;
