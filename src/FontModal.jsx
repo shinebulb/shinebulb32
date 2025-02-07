@@ -10,9 +10,9 @@ function FontModal({ modal, settings, setSettings }) {
 
     const { authState } = useContext(AuthContext);
 
-    const [preferred, setPreferred] = useState("default");
-    const [font, setFont] = useState("Arial");
-    const [link, setLink] = useState("");
+    const [preferred, setPreferred] = useState(settings.font.startsWith("https://fonts.googleapis.com") ? "custom" : "default");
+    const [font, setFont] = useState("roboto slab");
+    const [link, setLink] = useState(settings.font.startsWith("https://fonts.googleapis.com") ? settings.font : "");
 
     const fonts = ["roboto slab", "consolas", "trebuchet ms", "helvetica", "verdana", "georgia", "palatino", "garamond"];
     
