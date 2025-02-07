@@ -1926,6 +1926,33 @@ label[for=custom-font-input] a {
         width: calc(86vw - 2rem);
         margin: 2rem auto;
     }
+    .font-modal h2 {
+        font-size: 1.2rem;
+        margin: 0.3rem auto;
+    }
+    .font-option-name {
+        font-size: 1.1rem;
+    }
+    .radio-container div {
+        flex-direction: column;
+        margin: 0.5rem auto;
+    }
+    .radio-container div div {
+        width: 86%;
+    }
+    .radio-container div div select {
+        font-size: 0.9rem;
+    }
+    .custom-font-container input[type=text] {
+        width: calc(100% - 0.8rem);
+        font-size: 0.9rem;
+    }
+    .font-option-actions button {
+        height: 2.2rem;
+    }
+    .font-option-actions button svg {
+        height: 1.6rem;
+    }
     .no-page-text {
         display: flex;
         flex-direction: column;
