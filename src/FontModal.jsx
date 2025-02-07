@@ -8,29 +8,15 @@ function FontModal({ modal, settings, setSettings }) {
 
     const { authState } = useContext(AuthContext);
 
-    const [selectedOption, setSelectedOption] = useState('default');
-    const [selectedFont, setSelectedFont] = useState('Arial');
-    const [customLink, setCustomLink] = useState('');
+    const [preferred, setPreferred] = useState("default");
+    const [font, setFont] = useState("Arial");
+    const [link, setLink] = useState("");
 
-    const fonts = [
-        'Arial',
-        'Helvetica',
-        'Times New Roman',
-        'Courier New',
-        'Verdana',
-        'Georgia',
-        'Palatino',
-        'Garamond',
-        'Comic Sans MS',
-        'Trebuchet MS',
-        // add more fonts as needed...
-    ];
+    const fonts = ["roboto slab", "consolas", "trebuchet ms", "helvetica", "verdana", "georgia", "palatino", "garamond"];
     
     const handleOptionChange = (event) => {
-        setSelectedOption(event.target.value);
+        setPreferred(event.target.value);
     };
-    
-
 
     function fontChange(event) {
         axios.put(
@@ -49,14 +35,14 @@ function FontModal({ modal, settings, setSettings }) {
             <hr />
             <div className="radio-container">
                 <div>
-                    <label>
-                        <input type="radio" name="font-option" value="default" checked={selectedOption === 'default'} onChange={handleOptionChange} />
+                    <label className="font-option-name">
+                        <input type="radio" name="font-option" value="default" checked={preferred === 'default'} onChange={handleOptionChange} />
                         default
                     </label>
-                    <div style={{opacity: selectedOption === 'default' ? 1 : 0.5, pointerEvents: selectedOption === 'default' ? 'auto' : 'none'}}>
-                        <select value={selectedFont} onChange={(e) => setSelectedFont(e.target.value)} disabled={selectedOption !== 'default'} size={Math.min(fonts.length, 5)}>
+                    <div style={{opacity: preferred === 'default' ? 1 : 0.5, pointerEvents: preferred === 'default' ? 'auto' : 'none'}}>
+                        <select value={font} onChange={(e) => setFont(e.target.value)} disabled={preferred !== 'default'} size={Math.min(fonts.length, 3)}>
                             {fonts.map((font, index) => (
-                                <option key={index} value={font}>
+                                <option key={index} value={font} style={{fontFamily: font}}>
                                     {font}
                                 </option>
                             ))}
@@ -64,15 +50,15 @@ function FontModal({ modal, settings, setSettings }) {
                     </div>
                 </div>
                 <div>
-                    <label>
-                        <input type="radio" name="font-option" value="custom" checked={selectedOption === 'custom'} onChange={handleOptionChange}/>
+                    <label className="font-option-name">
+                        <input type="radio" name="font-option" value="custom" checked={preferred === 'custom'} onChange={handleOptionChange}/>
                         custom
                     </label>
-                    <div style={{opacity: selectedOption === 'custom' ? 1 : 0.5, pointerEvents: selectedOption === 'custom' ? 'auto' : 'none'}}>
+                    <div style={{opacity: preferred === 'custom' ? 1 : 0.5, pointerEvents: preferred === 'custom' ? 'auto' : 'none'}}>
                         <label htmlFor="custom-font-input">
                             paste a link to google fonts here:
                         </label>
-                        <input type="text" id="custom-font-input" value={customLink} onChange={(e) => setCustomLink(e.target.value)} disabled={selectedOption !== 'custom'}/>
+                        <input type="text" id="custom-font-input" value={link} onChange={(e) => setLink(e.target.value)} disabled={preferred !== 'custom'}/>
                     </div>
                 </div>
             </div>

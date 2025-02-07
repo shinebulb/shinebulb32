@@ -587,7 +587,7 @@ h2 {
 }
 
 .container select,
-.container button {
+.explore-fonts {
     font-family: var(--font-family);
     background-color: var(--button-bg);
     font-size: 1.5rem;
@@ -599,7 +599,7 @@ h2 {
     cursor: pointer;
 }
 
-.container button {
+.explore-fonts {
     padding: 0.3rem 1rem;
 }
 
@@ -654,7 +654,7 @@ h2 {
 .signup-form button:hover,
 .login-form button:hover,
 .container select:hover,
-.container button:hover,
+.explore-fonts:hover,
 .controls button:hover,
 .change-password:hover,
 #toggle-info {
@@ -1374,7 +1374,21 @@ hr {
     margin: 0.5rem auto;
 }
 
+.font-option-name {
+    text-align: left;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
 
+.radio-container div div select {
+    width: 90%;
+    font-size: 1rem;
+    background-color: var(--modal-bg);
+    color: var(--font);
+    border: var(--border-thick);
+    border-radius: 15px;
+    padding: 0.5rem;
+}
 
 .no-page-text {
     display: grid;

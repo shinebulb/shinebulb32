@@ -22,7 +22,7 @@ function FontSettings({ settings, setSettings }) {
             <h2>{text[settings.language].fontSettings}</h2>
             <div className="container">
                 <label className="settingName" style={{textAlign: "left"}}>{text[settings.language].fontFamily}</label>
-                <button onClick={() => modal.current.showModal()}>{text[settings.language].explore}...</button>
+                <button className="explore-fonts" onClick={() => modal.current.showModal()}>{text[settings.language].explore}...</button>
             </div>
             <div style={{ height: "4rem" }} />
             <a onClick={() => navigate("/settings")}>{text[settings.language].back}</a>
