@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import { AuthContext } from './assets/AuthContext';
 import closeModal from './assets/closeModal';
+import getFontFamily from './assets/getFontFamily';
 import text from './assets/json/text.json';
 import paths from './assets/json/svg-paths.json';
 
@@ -20,20 +21,19 @@ function FontModal({ modal, settings, setSettings }) {
     };
 
     function fontChange() {
-
-        let selectedFont;
-
-        if (preferred == "default") {
-            selectedFont = font;
-        }
-
         axios.put(
             `${import.meta.env.VITE_API_KEY}/users/changeFont`,
-            { font: selectedFont, id: authState.id },
+            { font: preferred == "default" ? font : link, id: authState.id },
             { headers: { accessToken: localStorage.getItem("accessToken") } }
         ).then(response => {
-            document.documentElement.style.setProperty("--font-family", response.data);
-            setSettings({...settings, font: response.data});
+            if (preferred == "default") {
+                document.documentElement.style.setProperty("--font-family", response.data);
+                setSettings({...settings, font: response.data});
+            }
+            else {
+                document.documentElement.style.setProperty("--font-family", response.data);
+                setSettings({...settings, font: response.data});
+            }
             closeModal(modal);
         });
     }
