@@ -53,7 +53,7 @@ function Profile({ settings, bulb }) {
     return (
         <motion.div
             className='profile'
-            style={{fontFamily: userFont, backgroundColor: (!loadUser && userTheme[bg][user?.theme || 0]), border: (!loadUser && `${userTheme[font][user?.theme || 0]} 3px solid`)}}
+            style={{backgroundColor: (!loadUser && userTheme[bg][user?.theme || 0]), border: (!loadUser && `${userTheme[font][user?.theme || 0]} 3px solid`)}}
             initial={{opacity: 0}}
             animate={{opacity: 1}}
             exit={{opacity: 0}}
@@ -68,7 +68,7 @@ function Profile({ settings, bulb }) {
                     <div className="play">
                         <img ref={bulb} className={user.bulbStatus} src={user.bulbStatus == "on" ? on : off} />
                     </div>
-                    <div className="user-info">
+                    <div className="user-info" style={{fontFamily: userFont}}>
                         <h1 style={{color: userTheme[font][user?.theme || 0]}}>{username}</h1>
                         <h2 className="joined" style={{color: userTheme[font][user?.theme || 0]}}>{
                             `${text[settings.language].joined} ${
