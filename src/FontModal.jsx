@@ -21,21 +21,35 @@ function FontModal({ modal, settings, setSettings }) {
     };
 
     function fontChange() {
-        axios.put(
-            `${import.meta.env.VITE_API_KEY}/users/changeFont`,
-            { font: preferred == "default" ? font : link, id: authState.id },
-            { headers: { accessToken: localStorage.getItem("accessToken") } }
-        ).then(response => {
+        if (!authState.status) {
+            localStorage.setItem("font", preferred == "default" ? font : link);
             if (preferred == "default") {
-                document.documentElement.style.setProperty("--font-family", response.data);
-                setSettings({...settings, font: response.data});
+                document.documentElement.style.setProperty("--font-family", font);
+                setSettings({...settings, font: font});
             }
             else {
-                document.documentElement.style.setProperty("--font-family", getFontFamily(response.data));
-                setSettings({...settings, font: response.data});
+                document.documentElement.style.setProperty("--font-family", getFontFamily(link));
+                setSettings({...settings, font: link});
             }
             closeModal(modal);
-        });
+        }
+        else {
+            axios.put(
+                `${import.meta.env.VITE_API_KEY}/users/changeFont`,
+                { font: preferred == "default" ? font : link, id: authState.id },
+                { headers: { accessToken: localStorage.getItem("accessToken") } }
+            ).then(response => {
+                if (preferred == "default") {
+                    document.documentElement.style.setProperty("--font-family", response.data);
+                    setSettings({...settings, font: response.data});
+                }
+                else {
+                    document.documentElement.style.setProperty("--font-family", getFontFamily(response.data));
+                    setSettings({...settings, font: response.data});
+                }
+                closeModal(modal);
+            });
+        }
     }
 
     return (

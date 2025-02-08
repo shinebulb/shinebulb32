@@ -29,7 +29,7 @@ function App() {
         language: localStorage.getItem("language") === null ? defaultLang() : localStorage.getItem("language"),
         theme: parseInt(localStorage.getItem("theme")) || 0,
         invertTheme: parseInt(localStorage.getItem("invertTheme")) || 0,
-        font: "Roboto Slab"
+        font: localStorage.getItem("font") || "Roboto Slab"
     });
     const [savedList, setSavedList] = useState([]);
 
@@ -37,7 +37,7 @@ function App() {
 
     useEffect(() => {
         themes[parseInt(localStorage.getItem("theme")) || 0]();
-        document.documentElement.style.setProperty("--font-family", "Roboto Slab");
+        document.documentElement.style.setProperty("--font-family", localStorage.getItem("font")?.startsWith("https://fonts.googleapis.com") ? getFontFamily(localStorage.getItem("font")) : localStorage.getItem("font") || "Roboto Slab");
         let id = 0;
         axios.get(
             `${import.meta.env.VITE_API_KEY}/users/auth`,
@@ -98,7 +98,7 @@ function App() {
         setSavedList([]);
         localStorage.removeItem("accessToken");
         themes[parseInt(localStorage.getItem("theme")) || 0]();
-        document.documentElement.style.setProperty("--font-family", "Roboto Slab");
+        document.documentElement.style.setProperty("--font-family", localStorage.getItem("font")?.startsWith("https://fonts.googleapis.com") ? getFontFamily(localStorage.getItem("font")) : localStorage.getItem("font") || "Roboto Slab");
     }
 
     return (
