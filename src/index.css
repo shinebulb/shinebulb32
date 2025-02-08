@@ -1460,8 +1460,8 @@ label[for=custom-font-input] a {
     height: 2rem;
 }
 
-#apply-font {
-    border-right: 3px solid var(--button-font);
+#close-font-modal {
+    border-left: 3px solid var(--button-font);
 }
 
 .no-page-text {
