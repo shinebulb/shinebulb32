@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef, useContext } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { AuthContext } from './assets/AuthContext';
+import ProfileFontLoader from './ProfileFontLoader';
 import closeModal from './assets/closeModal';
+import getFontFamily from './assets/getFontFamily';
 import axios from 'axios';
 import text from './assets/json/text.json';
 import paths from './assets/json/svg-paths.json';
@@ -36,6 +38,8 @@ function Profile({ settings, bulb }) {
         });
     }, [username]);
 
+    const userFont = user.font && user.font.startsWith("https://fonts.googleapis.com") ? getFontFamily(user.font) : user.font || settings.font;
+
     const bg = Number(user.invertTheme) || 0;
     const font = Number(!user.invertTheme) || 0;
 
@@ -49,7 +53,7 @@ function Profile({ settings, bulb }) {
     return (
         <motion.div
             className='profile'
-            style={{backgroundColor: (!loadUser && userTheme[bg][user?.theme || 0]), border: (!loadUser && `${userTheme[font][user?.theme || 0]} 3px solid`)}}
+            style={{fontFamily: userFont, backgroundColor: (!loadUser && userTheme[bg][user?.theme || 0]), border: (!loadUser && `${userTheme[font][user?.theme || 0]} 3px solid`)}}
             initial={{opacity: 0}}
             animate={{opacity: 1}}
             exit={{opacity: 0}}
@@ -59,6 +63,7 @@ function Profile({ settings, bulb }) {
             : <>{
                 user === null ? navigate("/page-not-found")
                 : <>
+                    {user.font && user.font.startsWith("https://fonts.googleapis.com") && <ProfileFontLoader profileFont={user.font} />}
                     {user?.theme == 3 && <svg onClick={() => copyModal.current.showModal()} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><title>{text[settings.language].copyColors}</title><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"><path d={paths.copy[0]} fill={userTheme[font][user?.theme || 0]}></path><path d={paths.copy[1]} fill={userTheme[font][user?.theme || 0]}></path></g></svg>}
                     <div className="play">
                         <img ref={bulb} className={user.bulbStatus} src={user.bulbStatus == "on" ? on : off} />
