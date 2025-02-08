@@ -73,7 +73,7 @@ function FontModal({ modal, settings, setSettings }) {
             </div>
             <hr />
             <div className="font-option-actions">
-                <button id="apply-font" onClick={fontChange}>
+                <button id="apply-font" onClick={fontChange} disabled={preferred == "custom" && link == ""} style={{opacity: preferred == "custom" && link == "" ? 0.5 : 1, cursor: preferred == "custom" && link == "" ? "not-allowed" : "pointer"}}>
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d={paths.apply} stroke="var(--button-font)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
                 </button>
                 <button onClick={() => closeModal(modal)}>
