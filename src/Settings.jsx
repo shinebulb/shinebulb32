@@ -3,11 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext } from './assets/AuthContext';
 import axios from 'axios';
 import ThemeConstructor from './ThemeConstructor';
+import FontModal from './FontModal';
 import More from './More';
 import ToggleInfo from './ToggleInfo';
 import themes from './assets/themes';
 import closeModal from './assets/closeModal';
 import text from './assets/json/text.json';
+import paths from './assets/json/svg-paths.json';
 import modes from './assets/json/modes.json';
 import languages from './assets/json/languages.json';
 import {motion} from 'framer-motion';
@@ -34,6 +36,7 @@ function Settings({ settings, setSettings }) {
     }, []);
 
     const constructorRef = useRef(null);
+    const fontRef = useRef(null);
     const moreRef = useRef(null);
     const infoRef = useRef(null);
 
@@ -158,7 +161,7 @@ function Settings({ settings, setSettings }) {
             exit={{opacity: 0}}
             transition={{duration: 0.5}}
         >
-            <div style={{ height: "3rem" }} />
+            <div style={{ height: "5rem" }} />
             <h2>{text[settings.language].headings[1]}</h2>
             <div className="container">
                 <label>{text[settings.language].settings[1]}</label>
@@ -188,6 +191,14 @@ function Settings({ settings, setSettings }) {
             </div>
             <div style={{ height: "3rem" }} />
             <div className="container">
+                <label className="settingName" style={{textAlign: "left"}}>{text[settings.language].fontFamily}</label>
+                <button className="explore-fonts" onClick={() => fontRef.current.showModal()}>
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="var(--button-font)" stroke="none" strokeWidth="0.36"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"><path d={paths.explore[0]}/><path fill="none" d={paths.explore[1]}/></g></svg>
+                    {text[settings.language].explore}...
+                </button>
+            </div>
+            <div style={{height: "3rem"}} />
+            <div className="container">
                 <label style={{fontStyle: "italic", fontSize: "1.1rem", width: "18ch", textAlign: "left"}}>
                     {text[settings.language].invertTheme}
                     <button id="toggle-info" onClick={() => infoRef.current.showModal()}>i</button>
@@ -205,6 +216,7 @@ function Settings({ settings, setSettings }) {
                 setSettings={setSettings}
                 width={width}
             />
+            <FontModal modal={fontRef} settings={settings} setSettings={setSettings} />
             <More more={moreRef} settings={settings} />
             <ToggleInfo info={infoRef} settings={settings} />
         </motion.div>

@@ -8,7 +8,6 @@ import Settings from './Settings';
 import About from './About';
 import Support from './Support';
 import DevPage from './DevPage';
-import FontSettings from './FontSettings';
 import SavedThemes from './SavedThemes';
 import LogIn from './LogIn';
 import SignUp from './SignUp';
@@ -129,7 +128,6 @@ function App() {
                         <Route path="/about" element={<About settings={settings} />} />
                         <Route path="/support" element={<Support settings={settings} />} />
                         <Route path="/development" element={<DevPage settings={settings} />} />
-                        <Route path="/fonts" element={<FontSettings settings={settings} setSettings={setSettings} />} />
                         <Route path="/saved" element={<SavedThemes settings={settings} setSettings={setSettings} savedList={savedList} setSavedList={setSavedList} />} />
                         <Route path="/login" element={<LogIn bulb={bulb} settings={settings} setSettings={setSettings} setSavedList={setSavedList} />} />
                         <Route path="/signup" element={<SignUp settings={settings} />} />

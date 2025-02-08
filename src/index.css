@@ -602,13 +602,14 @@ h2 {
 .explore-fonts {
     display: flex;
     align-items: center;
-    border-radius: 18px;
-    padding: 0.5rem 1rem;
+    font-size: 1.35rem;
+    border-radius: 15px;
+    padding: 0.4rem 0.8rem;
 }
 
 .explore-fonts svg {
-    height: 2rem;
-    margin-right: 0.7rem;
+    height: 1.8rem;
+    margin-right: 0.5rem;
 }
 
 #toggle-info {
@@ -1145,7 +1146,8 @@ hr {
     cursor: pointer;
 }
 
-.export-options button:disabled {
+.export-options button:disabled,
+#apply-font:disabled {
     background-color: var(--modal-button-bg);
 }
 
@@ -1919,12 +1921,12 @@ label[for=custom-font-input] a {
     }
     .explore-fonts {
         font-size: 1.2rem;
-        border-radius: 15px;
+        border-radius: 12px;
         padding: 0.5rem 0.7rem;
     }
     .explore-fonts svg {
-        height: 1.8rem;
-        margin-right: 0.5rem;
+        height: 1.6rem;
+        margin-right: 0.4rem;
     }
     .font-modal h2 {
         font-size: 1.2rem;
