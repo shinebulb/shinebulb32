@@ -83,7 +83,7 @@
             "for custom themes, since there are only two colors, the colors switch places directly."
         ],
         "fontSettings": "font settings",
-        "fontFamily": "font family",
+        "fontFamily": "font",
         "exportModal": ["choose themes to export:", "download", "copy", "copied!"],
         "navigationButtons": ["to the start", "previous", "next", "to the end"],
         "themes": "themes",
