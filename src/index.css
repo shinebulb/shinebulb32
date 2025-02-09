@@ -613,7 +613,7 @@ h2 {
 }
 
 #toggle-info {
-    font-family: var(--font-family);
+    font-family: "Roboto Slab";
     width: 1.5rem;
     height: 1.5rem;
     background-color: var(--button-bg);
@@ -632,6 +632,7 @@ h2 {
 }
 
 .container .toggle label {
+    font-family: "Roboto Slab";
     width: 75px;
     height: 37.5px;
     background: var(--font);
@@ -1405,6 +1406,20 @@ input[type=radio] {
 
 .radio-container div div {
     width: 230px;
+}
+
+.radio-container input[type=radio] {
+    appearance: none;
+    background-color: var(--modal-button-bg);
+    border: var(--border-thick);
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 50%;
+    transform: translateY(0.2rem);
+}
+
+.radio-container input[type=radio]:checked {
+    background-color: var(--font);
 }
 
 .radio-container div div select {
