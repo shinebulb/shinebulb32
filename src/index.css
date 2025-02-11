@@ -1382,10 +1382,6 @@ hr {
     margin: 0.5rem auto;
 }
 
-input[type=radio] {
-    cursor: pointer;
-}
-
 .font-option-name {
     width: 150px;
     text-align: left;
@@ -1395,7 +1391,21 @@ input[type=radio] {
 }
 
 .font-option-name input {
-    margin: auto 1rem;
+    margin: auto 0.9rem;
+}
+
+.font-option-name svg {
+    position: absolute;
+    width: 1rem;
+    left: 16px;
+}
+
+#default-check-mark {
+    top: 108px;
+}
+
+#custom-check-mark {
+    top: 232px;
 }
 
 .radio-container div {
@@ -1416,6 +1426,7 @@ input[type=radio] {
     height: 1.2rem;
     border-radius: 50%;
     transform: translateY(0.2rem);
+    cursor: pointer;
 }
 
 .radio-container input[type=radio]:checked {
@@ -1949,6 +1960,15 @@ label[for=custom-font-input] a {
     }
     .font-option-name {
         font-size: 1.1rem;
+    }
+    .font-option-name svg {
+        left: 91.5px;
+    }
+    #default-check-mark {
+        top: 49px;
+    }
+    #custom-check-mark {
+        top: 187px;
     }
     .radio-container div {
         flex-direction: column;
