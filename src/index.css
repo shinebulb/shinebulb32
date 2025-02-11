@@ -1391,30 +1391,16 @@ hr {
 }
 
 .font-option-name input {
-    margin: auto 0.9rem;
+    margin: auto 1rem;
 }
 
-.font-option-name svg {
-    position: absolute;
-    width: 1rem;
-    left: 16px;
-}
-
-#default-check-mark {
-    top: 108px;
-}
-
-#custom-check-mark {
-    top: 232px;
-}
-
-.radio-container div {
+.option-container {
     display: flex;
     align-items: center;
-    margin: 0.6rem auto;
+    margin: 1.2rem auto;
 }
 
-.radio-container div div {
+.font-editor, .custom-font-container {
     width: 230px;
 }
 
@@ -1427,6 +1413,20 @@ hr {
     border-radius: 50%;
     transform: translateY(0.2rem);
     cursor: pointer;
+}
+
+.radio-input {
+    position: relative;
+    display: inline-block;
+}
+
+.font-option-name svg {
+    width: 1rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
 }
 
 .radio-container input[type=radio]:checked {
@@ -1960,21 +1960,13 @@ label[for=custom-font-input] a {
     }
     .font-option-name {
         font-size: 1.1rem;
+        margin-bottom: 0.5rem;
     }
-    .font-option-name svg {
-        left: 91.5px;
-    }
-    #default-check-mark {
-        top: 49px;
-    }
-    #custom-check-mark {
-        top: 187px;
-    }
-    .radio-container div {
+    .option-container {
         flex-direction: column;
-        margin: 0.5rem auto;
+        margin: 0.9rem auto;
     }
-    .radio-container div div {
+    .font-editor, .custom-font-container {
         width: 86%;
     }
     .radio-container div div select {

@@ -57,13 +57,15 @@ function FontModal({ modal, settings, setSettings }) {
             <h2>{text[settings.language].fontOptions[0]}</h2>
             <hr />
             <div className="radio-container">
-                <div>
+                <div className="option-container">
                     <label className="font-option-name">
-                        <input type="radio" name="font-option" value="default" checked={preferred === 'default'} onChange={handleOptionChange} />
-                        <svg id="default-check-mark" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d={paths.apply} stroke="var(--modal-button-bg)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                        <div className="radio-input">
+                            <input type="radio" name="font-option" value="default" checked={preferred === 'default'} onChange={handleOptionChange} />
+                            <svg id="default-check-mark" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d={paths.apply} stroke="var(--modal-button-bg)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                        </div>
                         {text[settings.language].fontOptions[1]}
                     </label>
-                    <div style={{opacity: preferred === 'default' ? 1 : 0.5, pointerEvents: preferred === 'default' ? 'auto' : 'none'}}>
+                    <div className="font-editor" style={{opacity: preferred === 'default' ? 1 : 0.5, pointerEvents: preferred === 'default' ? 'auto' : 'none'}}>
                         <select value={font} onChange={(e) => setFont(e.target.value)} disabled={preferred !== 'default'} size={Math.min(fonts.length, 3)}>
                             {fonts.map((font, index) => (
                                 <option key={index} value={font} style={{fontFamily: font}}>
@@ -73,10 +75,12 @@ function FontModal({ modal, settings, setSettings }) {
                         </select>
                     </div>
                 </div>
-                <div>
+                <div className="option-container">
                     <label className="font-option-name">
-                        <input type="radio" name="font-option" value="custom" checked={preferred === 'custom'} onChange={handleOptionChange}/>
-                        <svg id="custom-check-mark" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d={paths.apply} stroke="var(--modal-button-bg)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                        <div className="radio-input">
+                            <input type="radio" name="font-option" value="custom" checked={preferred === 'custom'} onChange={handleOptionChange}/>
+                            <svg id="custom-check-mark" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d={paths.apply} stroke="var(--modal-button-bg)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                        </div>
                         {text[settings.language].fontOptions[2]}
                     </label>
                     <div className="custom-font-container" style={{opacity: preferred === 'custom' ? 1 : 0.5, pointerEvents: preferred === 'custom' ? 'auto' : 'none'}}>
