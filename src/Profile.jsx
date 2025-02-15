@@ -22,6 +22,7 @@ function Profile({ settings, bulb }) {
     const [loadUser, setLoadUser] = useState(false);
 
     const [bgCopied, setBgCopied] = useState(false);
+    const [strokeCopied, setStrokeCopied] = useState(false);
     const [fontCopied, setFontCopied] = useState(false);
 
     const copyModal = useRef(null);
@@ -38,7 +39,8 @@ function Profile({ settings, bulb }) {
         });
     }, [username]);
 
-    const userFont = user.font && user.font.startsWith("https://fonts.googleapis.com") ? getFontFamily(user.font) : user.font || settings.font;
+    const customFont = user.font && user.font.startsWith("https://fonts.googleapis.com");
+    const userFont = customFont ? getFontFamily(user.font) : user.font || settings.font;
 
     const bg = Number(user.invertTheme) || 0;
     const font = Number(!user.invertTheme) || 0;
@@ -63,8 +65,8 @@ function Profile({ settings, bulb }) {
             : <>{
                 user === null ? navigate("/page-not-found")
                 : <>
-                    {user.font && user.font.startsWith("https://fonts.googleapis.com") && <ProfileFontLoader profileFont={user.font} />}
-                    {user?.theme == 3 && <svg onClick={() => copyModal.current.showModal()} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"><path d={paths.copy[0]} fill={userTheme[font][user?.theme || 0]}></path><path d={paths.copy[1]} fill={userTheme[font][user?.theme || 0]}></path></g></svg>}
+                    {customFont && <ProfileFontLoader profileFont={user.font} />}
+                    {user?.theme == 3 && <svg onClick={() => copyModal.current.showModal()} id="open-copy-modal" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"><path d={paths.copy[0]} fill={userTheme[font][user?.theme || 0]}></path><path d={paths.copy[1]} fill={userTheme[font][user?.theme || 0]}></path></g></svg>}
                     <div className="play">
                         <img ref={bulb} className={user.bulbStatus} src={user.bulbStatus == "on" ? on : off} />
                     </div>
@@ -102,10 +104,9 @@ function Profile({ settings, bulb }) {
                         .then(() => setBgCopied(true));
                     }}
                 >
-                    <div className="color-display" style={{backgroundColor: userTheme[bg][user?.theme || 0]}}>
-                        <span>{bgCopied ? "✓" : ""}</span>
-                    </div>
+                    <div className="color-display" style={{backgroundColor: userTheme[bg][user?.theme || 0]}} />
                     <div>
+                        <svg style={{display: bgCopied ? "block" : "none"}} className="asset-copied" id="bg-copied" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d={paths.apply} stroke="var(--button-font)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
                         <p style={{fontWeight: "bold"}}>{userTheme[bg][user?.theme || 0]}</p>
                         <p style={{fontStyle: "italic"}}>{text[settings.language].pickCopyColors[1]}</p>
                     </div>
@@ -116,15 +117,30 @@ function Profile({ settings, bulb }) {
                     style={{color: userTheme[bg][user?.theme || 0]}}
                     onClick={() => {
                         navigator.clipboard.writeText(userTheme[font][user?.theme || 0])
-                        .then(() => setFontCopied(true));
+                        .then(() => setStrokeCopied(true));
                     }}
                 >
-                    <div className="color-display" style={{backgroundColor: userTheme[font][user?.theme || 0]}}>
-                        <span>{fontCopied ? "✓" : ""}</span>
-                    </div>
+                    <div className="color-display" style={{backgroundColor: userTheme[font][user?.theme || 0]}} />
                     <div>
+                        <svg style={{display: strokeCopied ? "block" : "none"}} className="asset-copied" id="stroke-copied" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d={paths.apply} stroke="var(--button-font)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
                         <p style={{fontWeight: "bold"}}>{userTheme[font][user?.theme || 0]}</p>
                         <p style={{fontStyle: "italic"}}>{text[settings.language].pickCopyColors[2]}</p>
+                    </div>
+                </div>
+                <hr />
+                <div
+                    className="copy-section"
+                    style={{color: "var(--button-font)"}}
+                    onClick={() => {
+                        if (customFont) navigator.clipboard.writeText(user.font).then(() => setFontCopied(true))
+                    }}
+                >
+                    <div className="color-display" style={{backgroundColor: "var(--modal-button-bg)"}}>
+                        <span style={{fontFamily: userFont}}>{userFont.toLowerCase()}</span>
+                    </div>
+                    <div>
+                        <svg style={{display: fontCopied ? "block" : "none"}} className="asset-copied" id="font-copied" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d={paths.apply} stroke="var(--button-font)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                        <p style={{fontStyle: "italic"}}>{customFont ? "user's font url" : "user has a default font"}</p>
                     </div>
                 </div>
                 <hr />

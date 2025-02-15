@@ -397,7 +397,7 @@ body {
     margin-left: -2rem;
 }
 
-.profile svg {
+#open-copy-modal {
     position: absolute;
     top: 1rem;
     right: 1rem;
@@ -467,21 +467,43 @@ body {
 }
 
 .color-display {
-    width: 5rem;
-    height: 5em;
+    display: flex;
+    width: 10rem;
+    height: 4em;
+    align-items: center;
+    text-align: center;
     box-shadow: 2px 0 0 0 var(--button-font);
     margin-right: 0.9rem;
 }
 
 .color-display span {
-    font-size: 3.5rem;
+    font-size: 1.2rem;
+    margin: auto;
 }
 
 .copy-modal p {
     color: var(--button-font);
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     text-align: left;
     margin: 0;
+}
+
+.asset-copied {
+    position: absolute;
+    right: 1rem;
+    height: 2rem;
+}
+
+#bg-copied {
+    top: 70px;
+}
+
+#stroke-copied {
+    top: 137px
+}
+
+#font-copied {
+    top: 204px;
 }
 
 .close-copy {
