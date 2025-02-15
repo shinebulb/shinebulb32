@@ -40,6 +40,8 @@ function Profile({ settings, bulb }) {
     }, [username]);
 
     const customFont = user.font && user.font.startsWith("https://fonts.googleapis.com");
+    const userMatch = authState.username === username;
+
     const userFont = customFont ? getFontFamily(user.font) : user.font || settings.font;
 
     const bg = Number(user.invertTheme) || 0;
@@ -87,7 +89,7 @@ function Profile({ settings, bulb }) {
                             <span style={{fontStyle: "italic"}}>{user.bulbCount || 0}</span>
                         </h2>
                     </div>
-                    {authState.username === username &&
+                    {userMatch &&
                     <button className="change-password" onClick={() => navigate("/changepassword")}>
                         {text[settings.language].changePassword[0]}
                     </button>}
@@ -140,7 +142,9 @@ function Profile({ settings, bulb }) {
                     </div>
                     <div>
                         <svg style={{display: fontCopied ? "block" : "none"}} className="asset-copied" id="font-copied" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d={paths.apply} stroke="var(--button-font)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                        <p style={{fontStyle: "italic"}}>{text[settings.language].userFontStatus[Number(customFont)]}</p>
+                        <p style={{fontStyle: "italic"}}>
+                            {userMatch ? text[settings.language].yourFontStatus[Number(customFont)] : text[settings.language].userFontStatus[Number(customFont)]}
+                        </p>
                     </div>
                 </div>
                 <hr />

@@ -65,7 +65,8 @@
         "pickCopyColors": [
             "choose the asset to copy", "background color", "stroke color"
         ],
-        "userFontStatus": ["user has a default font", "user's font url"],
+        "userFontStatus": ["(user has a default font)", "user's font url"],
+        "yourFontStatus": ["(you have a default font)", "your font url"],
         "close": "close",
         "bulbMuteUnmute": [
             "mute bulb", "unmute bulb"
@@ -173,6 +174,7 @@
             "скопируйте части темы", "цвет фона", "цвет линий"
         ],
         "userFontStatus": ["у пользователя базовый шрифт", "ссылка на шрифт пользователя"],
+        "yourFontStatus": ["у вас базовый шрифт", "ссылка на ваш шрифт"],
         "close": "закрыть",
         "bulbMuteUnmute": [
             "выключить звуки лампочки", "включить звуки лампочки"
