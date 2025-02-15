@@ -64,7 +64,7 @@ function Profile({ settings, bulb }) {
                 user === null ? navigate("/page-not-found")
                 : <>
                     {user.font && user.font.startsWith("https://fonts.googleapis.com") && <ProfileFontLoader profileFont={user.font} />}
-                    {user?.theme == 3 && <svg onClick={() => copyModal.current.showModal()} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><title>{text[settings.language].copyColors}</title><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"><path d={paths.copy[0]} fill={userTheme[font][user?.theme || 0]}></path><path d={paths.copy[1]} fill={userTheme[font][user?.theme || 0]}></path></g></svg>}
+                    {user?.theme == 3 && <svg onClick={() => copyModal.current.showModal()} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"><path d={paths.copy[0]} fill={userTheme[font][user?.theme || 0]}></path><path d={paths.copy[1]} fill={userTheme[font][user?.theme || 0]}></path></g></svg>}
                     <div className="play">
                         <img ref={bulb} className={user.bulbStatus} src={user.bulbStatus == "on" ? on : off} />
                     </div>
