@@ -65,6 +65,7 @@
         "pickCopyColors": [
             "choose the asset to copy", "background color", "stroke color"
         ],
+        "userFontStatus": ["user has a default font", "user's font url"],
         "close": "close",
         "bulbMuteUnmute": [
             "mute bulb", "unmute bulb"
@@ -169,8 +170,9 @@
         "themeInstructions": "ПОДСКАЗКА: вы можете изменить цвет вручную, нажав на его hex-код!",
         "bulbCount": "счёт лампочки",
         "pickCopyColors": [
-            "скопируйте элементы темы", "цвет фона", "цвет линий"
+            "скопируйте части темы", "цвет фона", "цвет линий"
         ],
+        "userFontStatus": ["у пользователя базовый шрифт", "ссылка на шрифт пользователя"],
         "close": "закрыть",
         "bulbMuteUnmute": [
             "выключить звуки лампочки", "включить звуки лампочки"

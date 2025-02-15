@@ -468,7 +468,7 @@ body {
 
 .color-display {
     display: flex;
-    width: 10rem;
+    width: 160px;
     height: 4em;
     align-items: center;
     text-align: center;
@@ -483,6 +483,7 @@ body {
 
 .copy-modal p {
     color: var(--button-font);
+    width: 240px;
     font-size: 1.1rem;
     text-align: left;
     margin: 0;
@@ -1679,8 +1680,12 @@ label[for=custom-font-input] a {
     .copy-modal h2 {
         margin: 0.7rem;
     }
+    .copy-modal p {
+        width: 188px;
+        font-size: 0.9rem;
+    }
     .color-display {
-        width: 7rem;
+        width: 112px;
         height: 3.5em;
         margin-right: 0.5rem;
     }

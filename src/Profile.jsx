@@ -140,7 +140,7 @@ function Profile({ settings, bulb }) {
                     </div>
                     <div>
                         <svg style={{display: fontCopied ? "block" : "none"}} className="asset-copied" id="font-copied" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d={paths.apply} stroke="var(--button-font)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                        <p style={{fontStyle: "italic"}}>{customFont ? "user's font url" : "user has a default font"}</p>
+                        <p style={{fontStyle: "italic"}}>{text[settings.language].userFontStatus[Number(customFont)]}</p>
                     </div>
                 </div>
                 <hr />
