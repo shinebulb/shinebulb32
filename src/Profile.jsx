@@ -85,12 +85,12 @@ function Profile({ settings, bulb }) {
                             <span style={{fontStyle: "italic"}}>{user.bulbCount || 0}</span>
                         </h2>
                     </div>
+                    {authState.username === username &&
+                    <button className="change-password" onClick={() => navigate("/changepassword")}>
+                        {text[settings.language].changePassword[0]}
+                    </button>}
                 </>
             }</>}
-            {authState.username === username &&
-            <button className="change-password" onClick={() => navigate("/changepassword")}>
-                {text[settings.language].changePassword[0]}
-            </button>}
             <dialog ref={copyModal} className="copy-modal">
                 <h2>{text[settings.language].pickCopyColors[0]}</h2>
                 <hr />
