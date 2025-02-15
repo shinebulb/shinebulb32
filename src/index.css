@@ -1680,15 +1680,25 @@ label[for=custom-font-input] a {
         margin: 0.7rem;
     }
     .color-display {
-        width: 4.5rem;
-        height: 4.5em;
+        width: 7rem;
+        height: 3.5em;
         margin-right: 0.5rem;
     }
     .color-display span {
-        font-size: 3rem;
+        font-size: 0.9rem;
     }
-    .copy-modal p {
-        font-size: 1.2rem;
+    .asset-copied {
+        right: 0.5rem;
+        height: 1.5rem;
+    }
+    #bg-copied {
+        top: 65px;
+    }
+    #stroke-copied {
+        top: 124px
+    }
+    #font-copied {
+        top: 183px;
     }
     .container {
         width: 80vw;
