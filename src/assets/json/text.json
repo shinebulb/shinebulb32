@@ -62,9 +62,8 @@
         "devSides": ["github repositories:", "and earlier", "client", "server"],
         "themeInstructions": "HINT: you can edit a color manually by clicking on its marked hex value!",
         "bulbCount": "bulb count",
-        "copyColors": "copy user's theme colors",
         "pickCopyColors": [
-            "choose the color to copy", "background", "strokes"
+            "choose the asset to copy", "background color", "stroke color"
         ],
         "close": "close",
         "bulbMuteUnmute": [
@@ -169,9 +168,8 @@
         "devSides": ["репозитории на github:", "и раньше", "клиент", "сервер"],
         "themeInstructions": "ПОДСКАЗКА: вы можете изменить цвет вручную, нажав на его hex-код!",
         "bulbCount": "счёт лампочки",
-        "copyColors": "скопировать цвета темы пользователя",
         "pickCopyColors": [
-            "выберите цвет темы", "фон", "линии"
+            "скопируйте элементы темы", "цвет фона", "цвет линий"
         ],
         "close": "закрыть",
         "bulbMuteUnmute": [
