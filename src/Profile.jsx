@@ -25,18 +25,25 @@ function Profile({ settings, bulb }) {
     const [strokeCopied, setStrokeCopied] = useState(false);
     const [fontCopied, setFontCopied] = useState(false);
 
+    const [width, setWidth] = useState(window.innerWidth);
+
     const copyModal = useRef(null);
 
     const { username } = useParams();
     
     useEffect(() => {
+
         setLoadUser(true);
         document.title = username;
+        window.addEventListener("resize", () => setWidth(window.innerWidth));
+
         axios.get(`${import.meta.env.VITE_API_KEY}/users/userinfo/${username}`)
         .then(response => {
             setUser(response.data);
             setLoadUser(false);
         });
+
+        return () =>  window.removeEventListener("resize", () => setWidth(window.innerWidth))
     }, [username]);
 
     const customFont = user.font && user.font.startsWith("https://fonts.googleapis.com");
@@ -125,7 +132,6 @@ function Profile({ settings, bulb }) {
                         </p>}
                     </div>
                 </div>
-                <hr />
                 <div
                     className="copy-section"
                     style={{color: userTheme[bg][user?.theme || 0]}}
@@ -134,7 +140,14 @@ function Profile({ settings, bulb }) {
                         .then(() => setStrokeCopied(true));
                     }}
                 >
-                    <div className="color-display" style={{backgroundColor: userTheme[font][user?.theme || 0]}} />
+                    <div className="color-display" style={
+                        user?.theme == 3 ?
+                        {backgroundColor: userTheme[font][user?.theme || 0]} :
+                        {
+                            background: `repeating-conic-gradient(${userTheme[width >= 600 ? bg : font][user?.theme || 0]} 0deg 90deg, ${userTheme[width >= 600 ? font : bg][user?.theme || 0]} 90deg 180deg)`,
+                            backgroundSize: `16px 16px`
+                        }
+                    } />
                     <div>
                         <svg style={{display: strokeCopied ? "block" : "none"}} className="asset-copied" id="stroke-copied" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d={paths.apply} stroke="var(--button-font)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
                         {user?.theme == 3 ? <>
