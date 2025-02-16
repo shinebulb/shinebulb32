@@ -1686,7 +1686,7 @@ label[for=custom-font-input] a {
     }
     .color-display {
         width: 112px;
-        height: 3.5em;
+        height: 64px;
         margin-right: 0.5rem;
     }
     .color-display span {
@@ -1697,13 +1697,13 @@ label[for=custom-font-input] a {
         height: 1.5rem;
     }
     #bg-copied {
-        top: 65px;
+        top: 69px;
     }
     #stroke-copied {
-        top: 124px
+        top: 132px
     }
     #font-copied {
-        top: 183px;
+        top: 199px;
     }
     .container {
         width: 80vw;

@@ -144,7 +144,7 @@ function Profile({ settings, bulb }) {
                         user?.theme == 3 ?
                         {backgroundColor: userTheme[font][user?.theme || 0]} :
                         {
-                            background: `repeating-conic-gradient(${userTheme[width >= 600 ? bg : font][user?.theme || 0]} 0deg 90deg, ${userTheme[width >= 600 ? font : bg][user?.theme || 0]} 90deg 180deg)`,
+                            background: `repeating-conic-gradient(${userTheme[bg][user?.theme || 0]} 0deg 90deg, ${userTheme[font][user?.theme || 0]} 90deg 180deg)`,
                             backgroundSize: `16px 16px`
                         }
                     } />
