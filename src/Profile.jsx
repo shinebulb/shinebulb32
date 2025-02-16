@@ -106,7 +106,14 @@ function Profile({ settings, bulb }) {
                         .then(() => setBgCopied(true));
                     }}
                 >
-                    <div className="color-display" style={{backgroundColor: userTheme[bg][user?.theme || 0]}} />
+                    <div className="color-display" style={
+                        user?.theme == 3 ?
+                        {backgroundColor: userTheme[bg][user?.theme || 0]} :
+                        {
+                            background: `repeating-conic-gradient(${userTheme[bg][user?.theme || 0]} 0deg 90deg, ${userTheme[font][user?.theme || 0]} 90deg 180deg)`,
+                            backgroundSize: `16px 16px`
+                        }
+                    }/>
                     <div>
                         <svg style={{display: bgCopied ? "block" : "none"}} className="asset-copied" id="bg-copied" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d={paths.apply} stroke="var(--button-font)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
                         {user?.theme == 3 ? <>
