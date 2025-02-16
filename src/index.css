@@ -264,6 +264,11 @@ body {
     cursor: pointer;
 }
 
+.signup-form button:disabled, .login-form button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
 .login-form div, .signup-form div {
     display: flex;
     align-items: center;

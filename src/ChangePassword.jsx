@@ -82,8 +82,8 @@ function ChangePassword({ settings }) {
                 <button
                     type="submit"
                     onClick={changePassword}
-                    disabled={loadLogIn}
-                    style={{minWidth: "15rem", minHeight: "3rem"}}
+                    disabled={loadLogIn || oldPassword == "" || newPassword == "" || oldPassword == newPassword}
+                    style={{minWidth: "15rem", minHeight: "3rem", alignItems: "center"}}
                 >{
                     loadLogIn ? <span className="loader" style={{ width: "1.6rem", height: "1.6rem" }} />
                     : text[settings.language].changePassword[0]
