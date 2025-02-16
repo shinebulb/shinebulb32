@@ -23,13 +23,16 @@ function DevPage({ settings }) {
             <p className="p3" style={{fontSize: "1.3rem"}}>{text[settings.language].version}: {version}</p>
             <p className="p3" style={{margin: "1rem 0", fontWeight: "bold"}}>{text[settings.language].devSides[0]}</p>
             <a className="devpage-link" target="_blank" href="https://github.com/shinebulb/shinebulb">
-                shinebulb-2 {text[settings.language].devSides[1]}
+                shinebulb 2 {text[settings.language].devSides[1]}
             </a>
             <a className="devpage-link" target="_blank" href="https://github.com/shinebulb/shinebulb-client">
-                shinebulb-3 {text[settings.language].devSides[2]}
+                shinebulb 3 {text[settings.language].devSides[2]}
+            </a>
+            <a className="devpage-link" target="_blank" href="https://github.com/aldortheold/shinebulb-3-1">
+                shinebulb 3.1 {text[settings.language].devSides[2]}
             </a>
             <a className="devpage-link" target="_blank" href="https://github.com/shinebulb/shinebulb-server">
-                shinebulb-3 {text[settings.language].devSides[3]}
+                shinebulb 3+ {text[settings.language].devSides[3]}
             </a>
             <div style={{height: "2rem"}}/>
             <a onClick={() => navigate("/")}>{text[settings.language].back}</a>
