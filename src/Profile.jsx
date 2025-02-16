@@ -68,7 +68,7 @@ function Profile({ settings, bulb }) {
                 user === null ? navigate("/page-not-found")
                 : <>
                     {customFont && <ProfileFontLoader profileFont={user.font} />}
-                    {user?.theme == 3 && <svg onClick={() => copyModal.current.showModal()} id="open-copy-modal" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"><path d={paths.copy[0]} fill={userTheme[font][user?.theme || 0]}></path><path d={paths.copy[1]} fill={userTheme[font][user?.theme || 0]}></path></g></svg>}
+                    {(user?.theme == 3 || user.font) && <svg onClick={() => copyModal.current.showModal()} id="open-copy-modal" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"><path d={paths.copy[0]} fill={userTheme[font][user?.theme || 0]}></path><path d={paths.copy[1]} fill={userTheme[font][user?.theme || 0]}></path></g></svg>}
                     <div className="play">
                         <img ref={bulb} className={user.bulbStatus} src={user.bulbStatus == "on" ? on : off} />
                     </div>
@@ -109,8 +109,13 @@ function Profile({ settings, bulb }) {
                     <div className="color-display" style={{backgroundColor: userTheme[bg][user?.theme || 0]}} />
                     <div>
                         <svg style={{display: bgCopied ? "block" : "none"}} className="asset-copied" id="bg-copied" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d={paths.apply} stroke="var(--button-font)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                        <p style={{fontWeight: "bold"}}>{userTheme[bg][user?.theme || 0]}</p>
-                        <p style={{fontStyle: "italic"}}>{text[settings.language].pickCopyColors[1]}</p>
+                        {user?.theme == 3 ? <>
+                            <p style={{fontWeight: "bold"}}>{userTheme[bg][user?.theme || 0]}</p>
+                            <p style={{fontStyle: "italic"}}>{text[settings.language].pickCopyColors[1]}</p>
+                        </> :
+                        <p style={{fontStyle: "italic"}}>
+                            {text[settings.language].userThemeStatus[Number(userMatch)]}
+                        </p>}
                     </div>
                 </div>
                 <hr />
@@ -125,8 +130,13 @@ function Profile({ settings, bulb }) {
                     <div className="color-display" style={{backgroundColor: userTheme[font][user?.theme || 0]}} />
                     <div>
                         <svg style={{display: strokeCopied ? "block" : "none"}} className="asset-copied" id="stroke-copied" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d={paths.apply} stroke="var(--button-font)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                        <p style={{fontWeight: "bold"}}>{userTheme[font][user?.theme || 0]}</p>
-                        <p style={{fontStyle: "italic"}}>{text[settings.language].pickCopyColors[2]}</p>
+                        {user?.theme == 3 ? <>
+                            <p style={{fontWeight: "bold"}}>{userTheme[font][user?.theme || 0]}</p>
+                            <p style={{fontStyle: "italic"}}>{text[settings.language].pickCopyColors[2]}</p>
+                        </> :
+                        <p style={{fontStyle: "italic"}}>
+                            {text[settings.language].userThemeStatus[Number(userMatch)]}
+                        </p>}
                     </div>
                 </div>
                 <hr />

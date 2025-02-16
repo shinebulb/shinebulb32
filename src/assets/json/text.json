@@ -67,6 +67,7 @@
         ],
         "userFontStatus": ["(user has a default font)", "user's font url"],
         "yourFontStatus": ["(you have a default font)", "your font url"],
+        "userThemeStatus": ["(user has a default theme)", "(you have a default theme)"],
         "close": "close",
         "bulbMuteUnmute": [
             "mute bulb", "unmute bulb"
@@ -173,8 +174,9 @@
         "pickCopyColors": [
             "скопируйте части темы", "цвет фона", "цвет линий"
         ],
-        "userFontStatus": ["у пользователя базовый шрифт", "ссылка на шрифт пользователя"],
-        "yourFontStatus": ["у вас базовый шрифт", "ссылка на ваш шрифт"],
+        "userFontStatus": ["(у пользователя базовый шрифт)", "ссылка на шрифт пользователя"],
+        "yourFontStatus": ["(у вас базовый шрифт)", "ссылка на ваш шрифт"],
+        "userThemeStatus": ["(у пользователя базовая тема)", "(у вас базовая тема)"],
         "close": "закрыть",
         "bulbMuteUnmute": [
             "выключить звуки лампочки", "включить звуки лампочки"
