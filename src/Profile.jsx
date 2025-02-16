@@ -25,25 +25,21 @@ function Profile({ settings, bulb }) {
     const [strokeCopied, setStrokeCopied] = useState(false);
     const [fontCopied, setFontCopied] = useState(false);
 
-    const [width, setWidth] = useState(window.innerWidth);
-
     const copyModal = useRef(null);
 
     const { username } = useParams();
     
     useEffect(() => {
-
         setLoadUser(true);
+        setBgCopied(false);
+        setStrokeCopied(false);
+        setFontCopied(false);
         document.title = username;
-        window.addEventListener("resize", () => setWidth(window.innerWidth));
-
         axios.get(`${import.meta.env.VITE_API_KEY}/users/userinfo/${username}`)
         .then(response => {
             setUser(response.data);
             setLoadUser(false);
         });
-
-        return () =>  window.removeEventListener("resize", () => setWidth(window.innerWidth))
     }, [username]);
 
     const customFont = user.font && user.font.startsWith("https://fonts.googleapis.com");
