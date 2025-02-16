@@ -44,8 +44,8 @@ function Profile({ settings, bulb }) {
 
     const userFont = customFont ? getFontFamily(user.font) : user.font || settings.font;
 
-    const bg = Number(user.invertTheme) || 0;
-    const font = Number(!user.invertTheme) || 0;
+    const bg = Number(user.invertTheme && user.bulbStatus == "on") || 0;
+    const font = Number(!user.invertTheme || user.bulbStatus != "on") || 0;
 
     const userTheme = [
         ["transparent", "#f4f0e8", "#171717", user?.lastBg],
