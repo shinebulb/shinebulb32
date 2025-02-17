@@ -41,12 +41,14 @@ function SignUp({ settings }) {
     });
 
     function createUser(data) {
-        setLoadSignUp(true);
-        axios.post(`${import.meta.env.VITE_API_KEY}/users`, data)
-        .then(() => {
-            navigate("/login");
-            setLoadSignUp(false);
-        });
+        if (data.username != "" && data.password != "") {
+            setLoadSignUp(true);
+            axios.post(`${import.meta.env.VITE_API_KEY}/users`, data)
+            .then(() => {
+                navigate("/login");
+                setLoadSignUp(false);
+            });
+        }
     }
 
     return (

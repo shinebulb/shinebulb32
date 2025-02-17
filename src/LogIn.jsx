@@ -79,7 +79,7 @@ function LogIn({ bulb, settings, setSettings, setSavedList }) {
                 themes[response.data.theme === null ? settings.theme : response.data.theme]();
                 document.documentElement.style.setProperty(
                     "--font-family",
-                    response.data.font.startsWith("https://fonts.googleapis.com") ? getFontFamily(response.data.font) : response.data.font || "Roboto Slab"
+                    response.data.font && response.data.font.startsWith("https://fonts.googleapis.com") ? getFontFamily(response.data.font) : response.data.font || "Roboto Slab"
                 );
                 if ((response.data.bulbStatus === "on") && (bulb.current)) bulb.current.classList.add("on");
                 return axios.get(`${import.meta.env.VITE_API_KEY}/savedthemes/byUser/${response.data.id}`);
@@ -138,7 +138,7 @@ function LogIn({ bulb, settings, setSettings, setSavedList }) {
                         value={password}
                         placeholder={text[settings.language].login[2]}
                     />
-                    <button type="submit" onClick={login} disabled={loadLogIn}>{
+                    <button type="submit" onClick={login} disabled={loadLogIn || password == "" || username == ""}>{
                         loadLogIn ? <span className="loader" style={{ width: "1.6rem", height: "1.6rem" }} />
                         : text[settings.language].auth[0]
                     }</button>

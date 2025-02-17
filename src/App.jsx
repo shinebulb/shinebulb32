@@ -74,7 +74,7 @@ function App() {
                 themes[response.data.theme === null ? settings.theme : response.data.theme]();
                 document.documentElement.style.setProperty(
                     "--font-family",
-                    response.data.font.startsWith("https://fonts.googleapis.com") ? getFontFamily(response.data.font) : response.data.font || "Roboto Slab"
+                    response.data.font && response.data.font.startsWith("https://fonts.googleapis.com") ? getFontFamily(response.data.font) : response.data.font || "Roboto Slab"
                 );
                 if ((response.data.bulbStatus === "on") && (bulb.current)) bulb.current.classList.add("on");
             }
