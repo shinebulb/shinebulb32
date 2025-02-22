@@ -7,6 +7,8 @@ const systemTheme = () => {
 }
 
 const lightTheme = () => {
+    document.body.classList.remove("dark");
+    document.body.classList.add("light");
     axios.get(
         `${import.meta.env.VITE_API_KEY}/users/changeTheme`,
         { headers: { accessToken: localStorage.getItem("accessToken") } }
@@ -24,6 +26,8 @@ const lightTheme = () => {
 }
 
 const darkTheme = () => {
+    document.body.classList.remove("light");
+    document.body.classList.add("dark");
     axios.get(
         `${import.meta.env.VITE_API_KEY}/users/changeTheme`,
         { headers: { accessToken: localStorage.getItem("accessToken") } }
