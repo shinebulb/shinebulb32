@@ -94,7 +94,7 @@ function Settings({ settings, setSettings }) {
             constructorRef.current.showModal();
         }
         else if (mode === 4) {
-            moreRef.current.showModal();
+            navigate("/saved");
         }
     }
 
@@ -184,7 +184,7 @@ function Settings({ settings, setSettings }) {
                         <option value="dark">{text[settings.language].mode[2]}</option>
                         {authState.status && <>
                             <option value="custom">{text[settings.language].mode[3]}{width >= 600 && " (c)"}</option>
-                            <option value="more...">{text[settings.language].mode[4]}</option>
+                            <option value="saved">{text[settings.language].mode[4]}</option>
                         </>}
                     </select>
                 </div>
