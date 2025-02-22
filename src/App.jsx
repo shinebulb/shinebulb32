@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { AuthContext } from './assets/AuthContext';
+import AppLoader from './AppLoader';
 import Home from './Home';
 import Play from './Play';
 import Settings from './Settings';
@@ -104,7 +105,7 @@ function App() {
     return (
         <AuthContext.Provider value={{ authState, setAuthState }}>
             <BrowserRouter>
-                {loadApp ? <span className="app-loader" />
+                {loadApp ? <AppLoader />
                 : <>
                     {settings.font.startsWith("https://fonts.googleapis.com") && <DynamicFontLoader settings={settings} />}
                     <div className="navbar">
