@@ -138,21 +138,21 @@ function ThemeCard({ id, index, bg, font, title, savedList, setSavedList, settin
                     <svg fill={inverted ? bg : font} version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 482.428 482.429" xmlSpace="preserve"><g><g><path d={paths.delete[0]}/><path d={paths.delete[1]}/><path d={paths.delete[2]}/><path d={paths.delete[3]}/></g></g></svg>
                 </button>
                 
-                <dialog ref={renameRef} className="confirm">
-                    <input type="text" ref={inputRef} placeholder={text[settings.language].savedDialogs[0]}/>
-                    <button onClick={renameTheme} disabled={loadRename}>{
+                <dialog ref={renameRef} className="confirm" style={buttonStyles}>
+                    <input type="text" ref={inputRef} placeholder={text[settings.language].savedDialogs[0]} style={{...buttonStyles, color: inverted ? bg : font}} />
+                    <button onClick={renameTheme} disabled={loadRename} style={{...buttonStyles, color: inverted ? bg : font}}>{
                         loadRename ? <span className="loader" style={{ width: "1rem", height: "1rem" }} />
                         : text[settings.language].themeControls[0]
                     }</button>
-                    <button onClick={() => closeModal(renameRef)}>{text[settings.language].themeControls[1]}</button>
+                    <button onClick={() => closeModal(renameRef)} style={{...buttonStyles, color: inverted ? bg : font}}>{text[settings.language].themeControls[1]}</button>
                 </dialog>
-                <dialog ref={deleteRef} disabled={loadDelete} className="confirm">
-                    <p>{text[settings.language].savedDialogs[1]}</p>
-                    <button onClick={deleteTheme}>{
+                <dialog ref={deleteRef} disabled={loadDelete} className="confirm" style={buttonStyles}>
+                    <p style={{color: inverted ? bg : font}}>{text[settings.language].savedDialogs[1]}</p>
+                    <button onClick={deleteTheme} style={{...buttonStyles, color: inverted ? bg : font}}>{
                         loadDelete ? <span className="loader" style={{ width: "1rem", height: "1rem" }} />
                         : text[settings.language].confirm[1]
                     }</button>
-                    <button onClick={() => closeModal(deleteRef)}>{text[settings.language].confirm[2]}</button>
+                    <button onClick={() => closeModal(deleteRef)} style={{...buttonStyles, color: inverted ? bg : font}}>{text[settings.language].confirm[2]}</button>
                 </dialog>
             </div> :
             <div className="reload-to-access" style={{...buttonStyles, color: inverted ? bg : font}}>
