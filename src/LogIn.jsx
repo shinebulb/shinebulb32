@@ -26,17 +26,10 @@ function LogIn({ bulb, settings, setSettings, setSavedList }) {
 
     const [fieldType, setFieldType] = useState("password");
 
-    const [warningDisplay, setWaringDisplay] = useState(localStorage.getItem("warningDisplay") || "flex");
-
     const [errorText, setErrorText] = useState(0);
     const [loadLogIn, setLoadLogIn] = useState(false);
 
     const alertRef = useRef(null);
-
-    function hideWarning(permanent) {
-        if (permanent) localStorage.setItem("warningDisplay", "none");
-        setWaringDisplay("none");
-    }
 
     function login() {
         let id = 0;
@@ -113,13 +106,6 @@ function LogIn({ bulb, settings, setSettings, setSavedList }) {
             <>
                 <div style={{height: "3rem"}}/>
                 <h2 style={{width: "80vw"}}>{text[settings.language].login[0]}</h2>
-                <div className="login-warning" style={{display: warningDisplay}}>
-                    <p>{text[settings.language].logInWarning[0]}</p>
-                    <div>
-                        <button onClick={() => hideWarning(false)}>{text[settings.language].logInWarning[1]}</button>
-                        <button onClick={() => hideWarning(true)}>{text[settings.language].logInWarning[2]}</button>
-                    </div>
-                </div>
                 <div className="login-form">
                     <label>{text[settings.language].signup[1]}:</label>
                     <input
