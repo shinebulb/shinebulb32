@@ -99,7 +99,6 @@ function ThemeCard({ id, index, bg, font, title, savedList, setSavedList, settin
         ).then(response => {
             setSavedList(savedList.filter(theme => theme.id !== Number(response.data)));
             localStorage.removeItem(`selected${index}`);
-            closeModal(deleteRef);
             setLoadDelete(false);
         });
     }
@@ -142,7 +141,7 @@ function ThemeCard({ id, index, bg, font, title, savedList, setSavedList, settin
                 <dialog ref={renameRef} className="confirm" style={buttonStyles}>
                     <input type="text" placeholder={text[settings.language].savedDialogs[0]} style={{...buttonStyles, color: inverted ? bg : font}} value={themeName} onChange={event => setThemeName(event.target.value)} />
                     <button onClick={renameTheme} disabled={loadRename} style={{...buttonStyles, color: inverted ? bg : font}}>{
-                        loadRename ? <span className="loader" style={{ width: "1rem", height: "1rem" }} />
+                        loadRename ? <span className="loader" style={{ width: "1rem", height: "1rem", borderColor: inverted ? bg : font, borderBottomColor: "transparent" }} />
                         : text[settings.language].themeControls[0]
                     }</button>
                     <button onClick={() => closeModal(renameRef)} style={{...buttonStyles, color: inverted ? bg : font}}>{text[settings.language].themeControls[1]}</button>
@@ -150,7 +149,7 @@ function ThemeCard({ id, index, bg, font, title, savedList, setSavedList, settin
                 <dialog ref={deleteRef} disabled={loadDelete} className="confirm" style={buttonStyles}>
                     <p style={{color: inverted ? bg : font}}>{text[settings.language].savedDialogs[1]}</p>
                     <button onClick={deleteTheme} style={{...buttonStyles, color: inverted ? bg : font}}>{
-                        loadDelete ? <span className="loader" style={{ width: "1rem", height: "1rem" }} />
+                        loadDelete ? <span className="loader" style={{ width: "1rem", height: "1rem", borderColor: inverted ? bg : font, borderBottomColor: "transparent" }} />
                         : text[settings.language].confirm[1]
                     }</button>
                     <button onClick={() => closeModal(deleteRef)} style={{...buttonStyles, color: inverted ? bg : font}}>{text[settings.language].confirm[2]}</button>
