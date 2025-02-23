@@ -137,7 +137,7 @@ function Settings({ settings, setSettings }) {
             setTimeout(() => {
                 document.body.classList.remove('theme-transition');
             }, 500);
-            themes[settings.theme]();
+            themes[settings.theme](0);
         }
         else {
             axios.put(
