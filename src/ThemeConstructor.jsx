@@ -81,46 +81,48 @@ function ThemeConstructor({ constructor, settings, setSettings, width }) {
     }
 
     function applyTheme() {
-        setLoadApply(true);
-        axios.put(
-            `${import.meta.env.VITE_API_KEY}/users/theme`,
-            { theme: 3, id: authState.id },
-            { headers: { accessToken: localStorage.getItem("accessToken") } }
-        ).then(() => {
-            return axios.put(
-                `${import.meta.env.VITE_API_KEY}/users/lastTheme`,
-                { lastBg: localBg, lastFont: localFont, id: authState.id },
+        if (authState.status) {
+            setLoadApply(true);
+            axios.put(
+                `${import.meta.env.VITE_API_KEY}/users/theme`,
+                { theme: 3, id: authState.id },
                 { headers: { accessToken: localStorage.getItem("accessToken") } }
-            );
-        }).then(response => {
-
-            let bg;
-            let font;
-            
-            setSettings({ ...settings, theme: 3 });
-            closeModal(constructor);
-
-            setLoadApply(false);
-
-            document.body.classList.remove("dark");
-            document.body.classList.remove("light");
-            document.body.classList.add('theme-transition');
-            setTimeout(() => document.body.classList.remove('theme-transition'), 500);
-
-            if (inverted) {
-                bg = response.data.lastFont;
-                font = response.data.lastBg;
-            }
-            else {
-                bg = response.data.lastBg;
-                font = response.data.lastFont;
-            }
-
-            const customProperties = [bg, font, bg, bg, bg, bg, `${font} 3px solid`, `${font} 1px solid`, bg, font, font, font]
-            for (let i = 0; i < customProperties.length; i++) {
-                document.documentElement.style.setProperty(custom[i], customProperties[i]);
-            }
-        });
+            ).then(() => {
+                return axios.put(
+                    `${import.meta.env.VITE_API_KEY}/users/lastTheme`,
+                    { lastBg: localBg, lastFont: localFont, id: authState.id },
+                    { headers: { accessToken: localStorage.getItem("accessToken") } }
+                );
+            }).then(response => {
+    
+                let bg;
+                let font;
+                
+                setSettings({ ...settings, theme: 3 });
+                closeModal(constructor);
+    
+                setLoadApply(false);
+    
+                document.body.classList.remove("dark");
+                document.body.classList.remove("light");
+                document.body.classList.add('theme-transition');
+                setTimeout(() => document.body.classList.remove('theme-transition'), 500);
+    
+                if (inverted) {
+                    bg = response.data.lastFont;
+                    font = response.data.lastBg;
+                }
+                else {
+                    bg = response.data.lastBg;
+                    font = response.data.lastFont;
+                }
+    
+                const customProperties = [bg, font, bg, bg, bg, bg, `${font} 3px solid`, `${font} 1px solid`, bg, font, font, font]
+                for (let i = 0; i < customProperties.length; i++) {
+                    document.documentElement.style.setProperty(custom[i], customProperties[i]);
+                }
+            });
+        }
     }
 
     function saveTheme() {
@@ -201,7 +203,7 @@ function ThemeConstructor({ constructor, settings, setSettings, width }) {
                     <button
                         onClick={applyTheme}
                         disabled={loadApply}
-                        style={{backgroundColor: "transparent", border: `${inverted || seeInverted ? localBg : localFont} 3px solid`}}
+                        style={{width: authState.status ? "25%" : "40%", backgroundColor: "transparent", border: `${inverted || seeInverted ? localBg : localFont} 3px solid`}}
                         title={text[settings.language].themeControls[0]}
                     >
                         {loadApply ? <span className="loader" style={loaderStyles} />
@@ -209,12 +211,12 @@ function ThemeConstructor({ constructor, settings, setSettings, width }) {
                     </button>
                     <button
                         onClick={() => closeModal(constructor)}
-                        style={{backgroundColor: "transparent", border: `${inverted || seeInverted ? localBg : localFont} 3px solid`}}
+                        style={{width: authState.status ? "25%" : "40%", backgroundColor: "transparent", border: `${inverted || seeInverted ? localBg : localFont} 3px solid`}}
                         title={text[settings.language].themeControls[1] + (width >= 600 ? " (c)" : "")}
                     >
                         <svg viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"><g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd"><g id="work-case" fill={inverted || seeInverted ? localBg : localFont} transform="translate(91.520000, 91.520000)"><polygon id="Close" points={paths.cancel} /></g></g></svg>
                     </button>
-                    <button
+                    {authState.status && <button
                         onClick={saveTheme}
                         disabled={loadSave}
                         style={{backgroundColor: "transparent", border: `${inverted || seeInverted ? localBg : localFont} 3px solid`}}
@@ -222,7 +224,7 @@ function ThemeConstructor({ constructor, settings, setSettings, width }) {
                     >
                         {loadSave ? <span className="loader" style={loaderStyles} />
                         : <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d={paths.save} stroke={inverted || seeInverted ? localBg : localFont} strokeWidth="2" strokeLinejoin="round"/></svg>}
-                    </button>
+                    </button>}
                 </div>
             </div>
 

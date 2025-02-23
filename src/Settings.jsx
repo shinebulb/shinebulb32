@@ -186,10 +186,8 @@ function Settings({ settings, setSettings }) {
                         <option value="system">{text[settings.language].mode[0]}</option>
                         <option value="light">{text[settings.language].mode[1]}</option>
                         <option value="dark">{text[settings.language].mode[2]}</option>
-                        {authState.status && <>
-                            <option value="custom">{text[settings.language].mode[3]}{width >= 600 && " (c)"}</option>
-                            <option value="saved">{text[settings.language].mode[4]}{width >= 600 && " (s)"}</option>
-                        </>}
+                        <option value="custom">{text[settings.language].mode[3]}{width >= 600 && " (c)"}</option>
+                        {authState.status && <option value="saved">{text[settings.language].mode[4]}{width >= 600 && " (s)"}</option>}
                     </select>
                 </div>
             </div>

@@ -909,7 +909,6 @@ a:hover {
 
 .sample button {
     font-family: var(--font-family);
-    width: 25%;
     height: 3rem;
     color: var(--button-font);
     background-color: var(--modal-button-bg);
