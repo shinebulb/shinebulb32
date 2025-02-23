@@ -16,10 +16,13 @@ function SavedThemes({ settings, setSettings, savedList, setSavedList }) {
 
     useEffect(() => {
         document.title = text[settings.language].links[5];
+        document.addEventListener("keydown", event => {if (event.key.toLowerCase() == "s" || event.key.toLowerCase() == "ы") navigate("/settings")});
         axios.get(`${import.meta.env.VITE_API_KEY}/savedthemes/byUser/${authState.id}`)
         .then(response => {
             if (response !== undefined) setSavedList(response.data);
         });
+
+        return () => document.removeEventListener("keydown", event => {if (event.key.toLowerCase() == "s" || event.key.toLowerCase() == "ы") navigate("/saved")});
     }, []);
 
     const navigate = useNavigate();

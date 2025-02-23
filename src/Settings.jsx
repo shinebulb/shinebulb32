@@ -4,7 +4,6 @@ import { AuthContext } from './assets/AuthContext';
 import axios from 'axios';
 import ThemeConstructor from './ThemeConstructor';
 import FontModal from './FontModal';
-import More from './More';
 import ToggleInfo from './ToggleInfo';
 import themes from './assets/themes';
 import closeModal from './assets/closeModal';
@@ -29,10 +28,15 @@ function Settings({ settings, setSettings }) {
 
     useEffect(() => {
         document.title = text[settings.language].links[1];
-        document.addEventListener("keydown", event => openConstructor(event.key.toLowerCase()), true);
+        document.addEventListener("keydown", event => openConstructor(event.key.toLowerCase()));
+        document.addEventListener("keydown", event => {if (event.key.toLowerCase() == "s" || event.key.toLowerCase() == "ы") navigate("/saved")});
         window.addEventListener("resize", () => setWidth(window.innerWidth));
 
-        return () =>  window.removeEventListener("resize", () => setWidth(window.innerWidth))
+        return () =>  {
+            window.removeEventListener("resize", () => setWidth(window.innerWidth));
+            document.removeEventListener("keydown", event => openConstructor(event.key.toLowerCase()));
+            document.removeEventListener("keydown", event => {if (event.key.toLowerCase() == "s" || event.key.toLowerCase() == "ы") navigate("/saved")});
+        }
     }, []);
 
     const constructorRef = useRef(null);
@@ -184,7 +188,7 @@ function Settings({ settings, setSettings }) {
                         <option value="dark">{text[settings.language].mode[2]}</option>
                         {authState.status && <>
                             <option value="custom">{text[settings.language].mode[3]}{width >= 600 && " (c)"}</option>
-                            <option value="saved">{text[settings.language].mode[4]}</option>
+                            <option value="saved">{text[settings.language].mode[4]}{width >= 600 && " (s)"}</option>
                         </>}
                     </select>
                 </div>
@@ -217,7 +221,6 @@ function Settings({ settings, setSettings }) {
                 width={width}
             />
             <FontModal modal={fontRef} settings={settings} setSettings={setSettings} />
-            <More more={moreRef} settings={settings} />
             <ToggleInfo info={infoRef} settings={settings} />
         </motion.div>
     );
