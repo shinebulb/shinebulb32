@@ -19,7 +19,7 @@ function Support({ settings }) {
             exit={{opacity: 0}}
             transition={{duration: 0.5}}
         >
-            <a className="donate-button" href="https://nowpayments.io/donation?api_key=YT62CT1-1NG4AQ3-HARDAGH-5VMQT4A" target="_blank" rel="noreferrer noopener">
+            <a className="donate-button" href={`https://nowpayments.io/donation?api_key=${import.meta.env.VITE_DONATION_API_KEY}`} target="_blank" rel="noreferrer noopener">
                 <span>{text[settings.language].donate}</span>
                 <img src="img/donate.svg"/>
             </a>
