@@ -37,7 +37,7 @@ function App() {
     const [loadApp, setLoadApp] = useState(true);
 
     useEffect(() => {
-        themes[parseInt(localStorage.getItem("theme")) || 0]();
+        themes[parseInt(localStorage.getItem("theme")) || 0](0);
         document.documentElement.style.setProperty("--font-family", localStorage.getItem("font")?.startsWith("https://fonts.googleapis.com") ? getFontFamily(localStorage.getItem("font")) : localStorage.getItem("font") || "Roboto Slab");
         let id = 0;
         axios.get(
@@ -98,7 +98,7 @@ function App() {
         });
         setSavedList([]);
         localStorage.removeItem("accessToken");
-        themes[parseInt(localStorage.getItem("theme")) || 0]();
+        themes[parseInt(localStorage.getItem("theme")) || 0](0);
         document.documentElement.style.setProperty("--font-family", localStorage.getItem("font")?.startsWith("https://fonts.googleapis.com") ? getFontFamily(localStorage.getItem("font")) : localStorage.getItem("font") || "Roboto Slab");
     }
 

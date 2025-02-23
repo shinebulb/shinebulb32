@@ -44,7 +44,7 @@ const darkTheme = () => {
     });
 }
 
-const customTheme = () => {
+const customTheme = (loggedIn = 1) => {
     axios.get(
         `${import.meta.env.VITE_API_KEY}/users/changeTheme`,
         { headers: { accessToken: localStorage.getItem("accessToken") } }
@@ -58,18 +58,38 @@ const customTheme = () => {
         document.body.classList.add('theme-transition');
         setTimeout(() => document.body.classList.remove('theme-transition'), 500);
 
-        if (response.data.invertTheme && response.data.bulbStatus == "on") {
-            bg = response.data.lastFont;
-            font = response.data.lastBg;
+        if (loggedIn) {
+
+            if (response.data.invertTheme && response.data.bulbStatus == "on") {
+                bg = response.data.lastFont;
+                font = response.data.lastBg;
+            }
+            else {
+                bg = response.data.lastBg;
+                font = response.data.lastFont;
+            }
+    
+            const customProperties = [bg, font, bg, bg, bg, bg, `${font} 3px solid`, `${font} 1px solid`, bg, font, font, font]
+            for (let i = 0; i < customProperties.length; i++) {
+                document.documentElement.style.setProperty(custom[i], customProperties[i]);
+            }
         }
         else {
-            bg = response.data.lastBg;
-            font = response.data.lastFont;
-        }
+            
+            if (parseInt(localStorage.getItem("invertTheme")) && localStorage.getItem("bulbStatus") == "on") {
+                bg = localStorage.getItem("stroke");;
+                font = localStorage.getItem("bg");
+            }
+            else {
+                bg = localStorage.getItem("bg");
+                font = localStorage.getItem("stroke");;
+            }
 
-        const customProperties = [bg, font, bg, bg, bg, bg, `${font} 3px solid`, `${font} 1px solid`, bg, font, font, font]
-        for (let i = 0; i < customProperties.length; i++) {
-            document.documentElement.style.setProperty(custom[i], customProperties[i]);
+            const customProperties = [bg, font, bg, bg, bg, bg, `${font} 3px solid`, `${font} 1px solid`, bg, font, font, font]
+
+            for (let i = 0; i < customProperties.length; i++) {
+                document.documentElement.style.setProperty(custom[i], customProperties[i]);
+            }
         }
     });
 }

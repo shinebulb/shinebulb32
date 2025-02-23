@@ -81,6 +81,10 @@ function ThemeConstructor({ constructor, settings, setSettings, width }) {
     }
 
     function applyTheme() {
+
+        let bg;
+        let font;
+
         if (authState.status) {
             setLoadApply(true);
             axios.put(
@@ -94,9 +98,6 @@ function ThemeConstructor({ constructor, settings, setSettings, width }) {
                     { headers: { accessToken: localStorage.getItem("accessToken") } }
                 );
             }).then(response => {
-    
-                let bg;
-                let font;
                 
                 setSettings({ ...settings, theme: 3 });
                 closeModal(constructor);
@@ -122,6 +123,31 @@ function ThemeConstructor({ constructor, settings, setSettings, width }) {
                     document.documentElement.style.setProperty(custom[i], customProperties[i]);
                 }
             });
+        }
+        else {
+            document.body.classList.remove("dark");
+            document.body.classList.remove("light");
+            document.body.classList.add('theme-transition');
+            setTimeout(() => document.body.classList.remove('theme-transition'), 500);
+            setSettings({ ...settings, theme: 3 });
+            closeModal(constructor);
+            localStorage.setItem("theme", 3);
+            localStorage.setItem("bg", localBg);
+            localStorage.setItem("stroke", localFont);
+
+            if (inverted) {
+                bg = localFont;
+                font = localBg;
+            }
+            else {
+                bg = localBg;
+                font = localFont;
+            }
+
+            const customProperties = [bg, font, bg, bg, bg, bg, `${font} 3px solid`, `${font} 1px solid`, bg, font, font, font]
+            for (let i = 0; i < customProperties.length; i++) {
+                document.documentElement.style.setProperty(custom[i], customProperties[i]);
+            }
         }
     }
 
@@ -219,7 +245,7 @@ function ThemeConstructor({ constructor, settings, setSettings, width }) {
                     {authState.status && <button
                         onClick={saveTheme}
                         disabled={loadSave}
-                        style={{backgroundColor: "transparent", border: `${inverted || seeInverted ? localBg : localFont} 3px solid`}}
+                        style={{width: authState.status ? "25%" : "40%", backgroundColor: "transparent", border: `${inverted || seeInverted ? localBg : localFont} 3px solid`}}
                         title={text[settings.language].themeControls[2]}
                     >
                         {loadSave ? <span className="loader" style={loaderStyles} />
