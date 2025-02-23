@@ -14,8 +14,9 @@ function ThemeCard({ id, index, bg, font, title, savedList, setSavedList, settin
     const [loadApply, setLoadApply] = useState(false);
     const [loadDelete, setLoadDelete] = useState(false);
 
+    const [themeName, setThemeName] = useState(title || "");
+
     const renameRef = useRef(null);
-    const inputRef = useRef(null);
     const deleteRef = useRef(null);
 
     const inverted = settings.invertTheme && settings.bulbStatus == "on"
@@ -36,7 +37,7 @@ function ThemeCard({ id, index, bg, font, title, savedList, setSavedList, settin
         setLoadRename(true);
         axios.put(
             `${import.meta.env.VITE_API_KEY}/savedthemes/title`,
-            { title: inputRef.current.value, id: id },
+            { title: themeName, id: id },
             { headers: { accessToken: localStorage.getItem("accessToken") } }
         ).then(response => {
             setSavedList(savedList.map(theme => 
@@ -139,7 +140,7 @@ function ThemeCard({ id, index, bg, font, title, savedList, setSavedList, settin
                 </button>
                 
                 <dialog ref={renameRef} className="confirm" style={buttonStyles}>
-                    <input type="text" ref={inputRef} placeholder={text[settings.language].savedDialogs[0]} style={{...buttonStyles, color: inverted ? bg : font}} />
+                    <input type="text" placeholder={text[settings.language].savedDialogs[0]} style={{...buttonStyles, color: inverted ? bg : font}} value={themeName} onChange={event => setThemeName(event.target.value)} />
                     <button onClick={renameTheme} disabled={loadRename} style={{...buttonStyles, color: inverted ? bg : font}}>{
                         loadRename ? <span className="loader" style={{ width: "1rem", height: "1rem" }} />
                         : text[settings.language].themeControls[0]
