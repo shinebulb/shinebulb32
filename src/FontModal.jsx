@@ -67,9 +67,9 @@ function FontModal({ modal, settings, setSettings }) {
                     </label>
                     <div className="font-editor" style={{opacity: preferred === 'default' ? 1 : 0.5, pointerEvents: preferred === 'default' ? 'auto' : 'none'}}>
                         <select value={font} onChange={(e) => setFont(e.target.value)} disabled={preferred !== 'default'} size={Math.min(fonts.length, 3)}>
-                            {fonts.map((font, index) => (
-                                <option key={index} value={font} style={{fontFamily: font}}>
-                                    {font}
+                            {fonts.map((value, index) => (
+                                <option key={index} value={value} style={{fontFamily: value, backgroundColor: value == font ? "var(--font)" : "transparent", color: value == font ? "var(--modal-bg)" : "var(--font)"}}>
+                                    {value}
                                 </option>
                             ))}
                         </select>
