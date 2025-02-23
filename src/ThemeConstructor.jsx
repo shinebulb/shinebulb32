@@ -16,11 +16,11 @@ function ThemeConstructor({ constructor, settings, setSettings, width }) {
 
     const [saveStatus, setSaveStatus] = useState(0);
 
-    const [localBg, setLocalBg] = useState("#2e5a97");
-    const [localFont, setLocalFont] = useState("#f1f1f1");
+    const [localBg, setLocalBg] = useState(localStorage.getItem("bg") || "#2e5a97");
+    const [localFont, setLocalFont] = useState(localStorage.getItem("stroke") || "#f1f1f1");
 
-    const [bgText, setBgText] = useState("#2e5a97");
-    const [fontText, setFontText] = useState("#f1f1f1");
+    const [bgText, setBgText] = useState(localStorage.getItem("bg") || "#2e5a97");
+    const [fontText, setFontText] = useState(localStorage.getItem("stroke") || "f1f1f1");
 
     const [editBgText, setEditBgText] = useState(false);
     const [editFontText, setEditFontText] = useState(false);
@@ -47,15 +47,17 @@ function ThemeConstructor({ constructor, settings, setSettings, width }) {
         document.addEventListener("keydown", event => {
             if ((event.key == "r") || (event.key == "к")) generateTheme();
         }, true);
-        axios.get(
-            `${import.meta.env.VITE_API_KEY}/users/changeTheme`,
-            { headers: { accessToken: localStorage.getItem("accessToken") } }
-        ).then(response => {
-            setLocalBg(response.data.lastBg || "#2e5a97");
-            setLocalFont(response.data.lastFont || "#f1f1f1");
-            setBgText(response.data.lastBg || "#2e5a97");
-            setFontText(response.data.lastFont || "#f1f1f1");
-        });
+        if (authState.status) {
+            axios.get(
+                `${import.meta.env.VITE_API_KEY}/users/changeTheme`,
+                { headers: { accessToken: localStorage.getItem("accessToken") } }
+            ).then(response => {
+                setLocalBg(response.data.lastBg || "#2e5a97");
+                setLocalFont(response.data.lastFont || "#f1f1f1");
+                setBgText(response.data.lastBg || "#2e5a97");
+                setFontText(response.data.lastFont || "#f1f1f1");
+            });
+        }
     }, []);
 
     function inputBg(color) {
