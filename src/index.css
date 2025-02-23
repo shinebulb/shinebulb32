@@ -127,7 +127,6 @@ body {
 .auth h2 {
     font-size: 1.9rem;
     margin-bottom: 1rem;
-    width: 80%;
     margin: auto;
 }
 
@@ -140,7 +139,6 @@ body {
 .signup-form, .login-form {
     display: flex;
     flex-direction: column;
-    width: 35ch;
     margin: 0 auto;
     color: var(--font);
 }
@@ -201,7 +199,6 @@ body {
 
 .login-form svg, .signup-form svg {
     height: 2rem;
-    margin-right: -1.5rem;
     transition: fill 0.3s ease;
     cursor: pointer;
 }
