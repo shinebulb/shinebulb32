@@ -269,9 +269,9 @@ body {
 
 .background-bulb {
     position: absolute;
-    top: calc(50% - 150px);
-    left: calc(50% - 150px);
-    width: 300px;
+    top: calc(50% - 225px);
+    left: calc(50% - 225px);
+    width: 450px;
     opacity: 0.2;
     object-fit: cover;
     transform: rotate(-5deg);
@@ -306,8 +306,7 @@ body {
 }
 
 .log-in-to-view button:hover {
-    background-color: var(--dark-yellow);
-    color: var(--light-yellow);
+    background-color: var(--select-hover);
 }
 
 .devpage {
@@ -1555,6 +1554,11 @@ label[for=custom-font-input] a {
         height: 2.4rem;
         font-size: 1rem;
         margin-top: 0.5rem;
+    }
+    .background-bulb {
+        width: 300px;
+        top: calc(50% - 150px);
+        left: calc(50% - 150px);
     }
     .log-in-to-view {
         width: 300px;
