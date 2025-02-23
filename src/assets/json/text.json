@@ -45,7 +45,7 @@
         "auth": ["log in", "sign up", "log out"],
         "signup": ["welcome to shinebulb!", "username", "think of a username!", "password", "create a strong password!"],
         "login": ["log in to shinebulb!", "enter username...", "enter password..."],
-        "logInToView": "to save themes, have synchronized settings and bulb count across multiple devices, log in or create an account! it's free and requires no personal information!",
+        "logInToView": "to access saved themes, you'll need to log in or create an account! it's free and will also let you access all of your preferences on any of your devices!",
         "authErrors": ["username length must be between 3 and 15 characters!", "username is a required field!", "password length must be between 4 and 20 characters!", "password is a required field!", "you are already logged in!", "you already have an account and are logged in!"],
         "joined": "joined",
         "error": "error",
@@ -53,10 +53,6 @@
             "unexpected error occurred!",
             "user not found!",
             "wrong password!"
-        ],
-        "logInWarning": [
-            "warning! make sure to carefully check your username and password before logging in. inputting an incorrect combination may cause unexpected errors!",
-            "hide", "don't show again"
         ],
         "version": "current version",
         "devSides": ["github repositories:", "and earlier", "client", "server"],
@@ -154,7 +150,7 @@
         "auth": ["войти", "регистрация", "выйти"],
         "signup": ["создайте аккаунт на shinebulb!", "имя пользователя", "назовите свой аккаунт!", "пароль", "придумайте надёжный пароль!"],
         "login": ["войдите на shinebulb!", "ваше имя пользователя...", "ваш пароль..."],
-        "logInToView": "войдите или создайте аккаунт, чтобы сохранять темы, иметь синхронизированные настройки и счёт лампочки на нескольких устройствах! это бесплатно и не требует вашей личной информации!",
+        "logInToView": "чтобы сохранять и использовать темы, вам нужно войти или создать аккаунт! это бесплатно и позволит вам также пользоваться всеми своими настройками на любом устройстве!",
         "authErrors": ["длина имени пользователя — от 3 до 15 символов!", "имя пользователя — обязательное поле!", "длина пароля — от 4 до 20 символов!", "пароль — обязательное поле!", "вы уже вошли в аккаунт!", "у вас уже есть аккаунт и вы вошли в него!"],
         "joined": "дата регистрации:",
         "error": "ошибка",
@@ -162,10 +158,6 @@
             "произошла неожиданная ошибка!",
             "пользователь не найден!",
             "неверный пароль!"
-        ],
-        "logInWarning": [
-            "предупреждение! внимательно проверьте имя пользователя и пароль перед входом в аккаунт. введение неверной комбинации может привести к неожиданным ошибкам!",
-            "скрыть", "больше не показывать"
         ],
         "version": "текущая версия",
         "devSides": ["репозитории на github:", "и раньше", "клиент", "сервер"],

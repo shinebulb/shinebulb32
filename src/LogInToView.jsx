@@ -7,11 +7,14 @@ function LogInToView({ settings }) {
     const navigate = useNavigate();
 
     return (
-        <div className="log-in-to-view">
-            <p>{text[settings.language].logInToView}</p>
-            <button onClick={() => navigate("/login")}>{text[settings.language].auth[0]}</button>
-            <button onClick={() => navigate("/signup")}>{text[settings.language].auth[1]}</button>
-        </div>
+        <>
+            <img src="img/off.svg" className="background-bulb" />
+            <div className="log-in-to-view">
+                <p>{text[settings.language].logInToView}</p>
+                <button onClick={() => navigate("/signup")}>{text[settings.language].auth[1]}</button>
+                <button onClick={() => navigate("/login")}>{text[settings.language].auth[0]}</button>
+            </div>
+        </>
     )
 }
 

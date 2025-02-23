@@ -265,15 +265,24 @@ body {
     100% {
         transform: rotate(360deg);
     }
-} 
+}
+
+.background-bulb {
+    position: absolute;
+    top: calc(50% - 150px);
+    left: calc(50% - 150px);
+    width: 300px;
+    opacity: 0.2;
+    object-fit: cover;
+    transform: rotate(-5deg);
+    z-index: -1;
+}
 
 .log-in-to-view {
+    position: relative;
     width: 420px;
-    background-color: var(--light-yellow);
-    color: var(--dark-yellow);
-    border: var(--dark-yellow) 3px solid;
-    border-radius: 30px;
-    padding: 2rem;
+    color: var(--font);
+    z-index: 1;
 }
 
 .log-in-to-view p {
@@ -285,13 +294,13 @@ body {
 .log-in-to-view button {
     font-family: var(--font-family);
     font-size: 1.4rem;
-    width: 48%;
-    background-color: var(--light-yellow);
-    color: var(--dark-yellow);
-    border: var(--dark-yellow) 3px solid;
+    width: 46%;
+    background-color: var(--button-bg);
+    color: var(--button-font);
+    border: var(--border-thick);
     border-radius: 15px;
     padding: 0.5rem 0;
-    margin: auto 1%;
+    margin: auto 2%;
     transition: all 0.3s ease;
     cursor: pointer;
 }
@@ -1548,17 +1557,14 @@ label[for=custom-font-input] a {
         margin-top: 0.5rem;
     }
     .log-in-to-view {
-        width: 280px;
-        border-radius: 25px;
-        padding: 1.2rem;
+        width: 300px;
     }
     .log-in-to-view p {
         font-size: 1.1rem;
-        margin: 0 0 1.2rem;
+        margin: 0 0 1.3rem;
     }
     .log-in-to-view button {
-        font-size: 1.2rem;
-        width: 48%;
+        font-size: 1.1rem;
         border-radius: 12px;
         padding: 0.3rem 0;
     }
