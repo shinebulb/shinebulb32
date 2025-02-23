@@ -29,13 +29,13 @@ function Settings({ settings, setSettings }) {
     useEffect(() => {
         document.title = text[settings.language].links[1];
         document.addEventListener("keydown", event => openConstructor(event.key.toLowerCase()));
-        document.addEventListener("keydown", event => {if (event.key.toLowerCase() == "s" || event.key.toLowerCase() == "ы") navigate("/saved")});
+        document.addEventListener("keydown", event => {if (constructorRef.current && (event.key.toLowerCase() == "s" || event.key.toLowerCase() == "ы")) navigate("/saved")});
         window.addEventListener("resize", () => setWidth(window.innerWidth));
 
         return () =>  {
             window.removeEventListener("resize", () => setWidth(window.innerWidth));
             document.removeEventListener("keydown", event => openConstructor(event.key.toLowerCase()));
-            document.removeEventListener("keydown", event => {if (event.key.toLowerCase() == "s" || event.key.toLowerCase() == "ы") navigate("/saved")});
+            document.removeEventListener("keydown", event => {if (constructorRef.current && (event.key.toLowerCase() == "s" || event.key.toLowerCase() == "ы")) navigate("/saved")});
         }
     }, []);
 

@@ -16,13 +16,13 @@ function SavedThemes({ settings, setSettings, savedList, setSavedList }) {
 
     useEffect(() => {
         document.title = text[settings.language].links[5];
-        document.addEventListener("keydown", event => {if (event.key.toLowerCase() == "s" || event.key.toLowerCase() == "ы") navigate("/settings")});
+        document.addEventListener("keydown", event => {if (importModal.current && (event.key.toLowerCase() == "s" || event.key.toLowerCase() == "ы")) navigate("/settings")});
         axios.get(`${import.meta.env.VITE_API_KEY}/savedthemes/byUser/${authState.id}`)
         .then(response => {
             if (response !== undefined) setSavedList(response.data);
         });
 
-        return () => document.removeEventListener("keydown", event => {if (event.key.toLowerCase() == "s" || event.key.toLowerCase() == "ы") navigate("/saved")});
+        return () => document.removeEventListener("keydown", event => {if (importModal.current && (event.key.toLowerCase() == "s" || event.key.toLowerCase() == "ы")) navigate("/saved")});
     }, []);
 
     const navigate = useNavigate();
@@ -41,7 +41,7 @@ function SavedThemes({ settings, setSettings, savedList, setSavedList }) {
             transition={{duration: 0.5}}
         >{!authState.status ? <LogInToView settings={settings} />
             : <>
-                <h2 style={{fontSize: "1.7rem", marginTop: "6rem"}}>{text[settings.language].savedThemes[0]}</h2>
+                <h2 style={{fontSize: "1.9rem", marginTop: "6rem"}}>{text[settings.language].savedThemes[0]}</h2>
                 <h3 style={{color: "var(--font)", fontStyle: "italic", marginBottom: "2rem"}}>
                     {savedList.length} {text[settings.language].savedThemes[1]}
                 </h3>
