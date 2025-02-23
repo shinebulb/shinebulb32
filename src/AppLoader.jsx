@@ -1,5 +1,5 @@
 import React from 'react';
-import './ImageTransition.css';
+import './assets/css/ImageTransition.css';
 
 function AppLoader() {
     return (
