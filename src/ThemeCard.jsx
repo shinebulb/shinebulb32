@@ -93,6 +93,7 @@ function ThemeCard({ id, index, bg, font, title, savedList, setSavedList, settin
 
     function deleteTheme() {
         setLoadDelete(true);
+        closeModal(deleteRef);
         axios.delete(
             `${import.meta.env.VITE_API_KEY}/savedthemes/${id}`,
             { headers: { accessToken: localStorage.getItem("accessToken") } }
