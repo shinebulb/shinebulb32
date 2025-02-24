@@ -56,7 +56,7 @@ function ChangePassword({ settings }) {
             transition={{duration: 0.5}}
         >
             <div style={{height: "3rem"}}/>
-            <h2 style={{width: "80vw"}}>{text[settings.language].changePassword[1]}</h2>
+            <h2>{text[settings.language].changePassword[1]}</h2>
             <div style={{height: "1rem"}}/>
             <div className="login-form">
                 <div>
