@@ -151,6 +151,7 @@ body {
 }
 
 .signup-form span {
+    width: 30ch;
     color: hsl(0, 100%, 68%);
     text-align: left;
     font-style: italic;
@@ -1521,7 +1522,6 @@ label[for=custom-font-input] a {
     .signup-input, .login-form input {
         font-size: 1.1rem;
         font-style: "italic";
-        width: 30ch;
         padding: 0.2rem 0.3rem;
         border-radius: 12px;
     }
