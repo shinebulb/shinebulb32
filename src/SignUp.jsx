@@ -95,7 +95,7 @@ function SignUp({ settings }) {
                             placeholder={text[settings.language].signup[5]}
                         />
                         <ErrorMessage name="password" component="span" />
-                        <button type="submit" disabled={loadSignUp || validationSchema.validate(initialValues).then(() => false).catch(() => true)}>{
+                        <button type="submit" disabled={loadSignUp}>{
                             loadSignUp ? <span className="loader" style={{ width: "1.6rem", height: "1.6rem" }} />
                             : text[settings.language].auth[1]
                         }</button>
