@@ -28,10 +28,6 @@ function SignUp({ settings }) {
     };
 
     const validationSchema = Yup.object().shape({
-        email: Yup
-            .string()
-            .required(text[settings.language].authErrors[7])
-            .email(text[settings.language].authErrors[6]),
         username: Yup
             .string()
             .min(3, text[settings.language].authErrors[0])
@@ -45,12 +41,14 @@ function SignUp({ settings }) {
     });
 
     function createUser(data) {
-        setLoadSignUp(true);
-        axios.post(`${import.meta.env.VITE_API_KEY}/users`, data)
-        .then(() => {
-            navigate("/login");
-            setLoadSignUp(false);
-        });
+        if (data.username != "" && data.password != "") {
+            setLoadSignUp(true);
+            axios.post(`${import.meta.env.VITE_API_KEY}/users`, data)
+            .then(() => {
+                navigate("/login");
+                setLoadSignUp(false);
+            });
+        }
     }
 
     return (
@@ -64,35 +62,29 @@ function SignUp({ settings }) {
             {!authState.status ?
             <>
                 <div style={{height: "3rem"}}/>
+                <h2>{text[settings.language].signup[0]}</h2>
                 <Formik
                     initialValues={initialValues}
                     onSubmit={createUser}
                     validationSchema={validationSchema}
                 >
                     <Form className="signup-form">
-                        <label>{text[settings.language].signup[0]}:</label>
-                        <Field
-                            className="signup-input"
-                            name="email"
-                            placeholder={text[settings.language].signup[1]}
-                        />
-                        <ErrorMessage name="email" component="span" />
-                        <label>{text[settings.language].signup[2]}:</label>
+                        <label>{text[settings.language].signup[1]}:</label>
                         <Field
                             className="signup-input"
                             name="username"
-                            placeholder={text[settings.language].signup[3]}
+                            placeholder={text[settings.language].signup[2]}
                         />
                         <ErrorMessage name="username" component="span" />
                         <div>
-                            <label style={{margin: "0"}}>{text[settings.language].signup[4]}:</label>
+                            <label style={{margin: "0"}}>{text[settings.language].signup[3]}:</label>
                             <svg onClick={() => setFieldType(fieldType === "password" ? "text" : "password")} fill={`var(--intermediate-${fieldType === "password" ? "green" : "red"})`} viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d={paths.hide[0]}/><path d={paths.hide[1]}/></svg>
                         </div>
                         <Field
                             className="signup-input"
                             type={fieldType}
                             name="password"
-                            placeholder={text[settings.language].signup[5]}
+                            placeholder={text[settings.language].signup[4]}
                         />
                         <ErrorMessage name="password" component="span" />
                         <button type="submit" disabled={loadSignUp}>{
