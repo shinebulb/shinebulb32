@@ -44,7 +44,7 @@
         "home": "home",
         "auth": ["log in", "sign up", "log out"],
         "signup": ["email", "enter your email!", "username", "think of a username!", "password", "create a strong password!"],
-        "login": ["email or username", "your email or username...", "your password..."],
+        "login": ["username your email", "your username or email...", "your password..."],
         "logInToView": "to access saved themes, you'll need to log in or create an account! it's free and will also let you access all of your preferences on any of your devices!",
         "authErrors": [
             "username length must be between 3 and 15 characters!",
