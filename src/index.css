@@ -1140,7 +1140,7 @@ hr {
     color: var(--font);
     text-align: left;
     font-style: italic;
-    margin: 1rem 0.3rem 1.2rem 1.5rem;
+    margin: 1rem 1.5rem 1.2rem;
 }
 
 .export-modal textarea {
@@ -1837,7 +1837,7 @@ label[for=custom-font-input] a {
     }
     .export-instructions {
         font-size: 1rem;
-        margin: 0.8rem 0.3rem 1rem 1.3rem;
+        margin: 0.8rem 0.5rem 1rem 1.3rem;
     }
     .export-modal textarea {
         width: 240px;
