@@ -96,6 +96,8 @@
             "import completed!",
             "see import log"
         ],
+        "importLog": ["themes logged", "themes imported", "invalid themes", "existing themes"],
+        "closeImportLog": "close import log",
         "explore": "explore",
         "fontOptions": ["select font option", "default", "custom"],
         "customFont": [
@@ -201,6 +203,8 @@
             "импорт завершён!",
             "посмотреть детали"
         ],
+        "importLog": ["всего тем", "импортировано", "некорректных", "существующих"],
+        "closeImportLog": "скрыть детали",
         "explore": "посмотреть",
         "fontOptions": ["выберите тип шрифта", "базовый", "свой"],
         "customFont": [
