@@ -11,6 +11,9 @@
     --light-yellow: hsl(64, 100%, 80%);
     --dark-yellow: hsl(33, 100%, 30%);
     --load-orange: hsl(39, 100%, 65%);
+    --stats-red: rgb(254, 108, 108);
+    --stats-green: rgb(39, 186, 71);
+    --stats-yellow: rgb(255, 218, 86);
     --navbar-margin: 1.2rem;
 }
 
@@ -1156,6 +1159,35 @@ hr {
     resize: none;
 }
 
+.import-content {
+    height: 343px;
+}
+
+.import-table {
+    display: grid;
+    grid-template-columns: 38% 14% 42% 6%;
+    text-align: left;
+    color: var(--font);
+    margin: 1.2rem 5% 0;
+}
+
+.import-table p {
+    font-weight: bold;
+    margin: 0;
+}
+
+.import-log button {
+    font-family: var(--font-family);
+    background-color: transparent;
+    color: var(--font);
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-decoration: underline;
+    border: none;
+    margin: 1rem auto;
+    cursor: pointer;
+}
+
 .import-options {
     display: flex;
     align-items: center;
@@ -1865,6 +1897,9 @@ label[for=custom-font-input] a {
     .complete-import span {
         font-size: 1rem;
         margin-left: 0.3rem;
+    }
+    .import-content {
+        height: 267px;
     }
     .import-status {
         max-width: calc(100% - 5.8rem);
