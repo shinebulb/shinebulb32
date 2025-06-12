@@ -1,6 +1,13 @@
+import React, { useState, useEffect } from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
 
 function ImportGraph({ pending, imported, invalid }) {
+
+    const [width, setWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+        window.addEventListener("resize", () => setWidth(window.innerWidth));
+    })
 
     const data = [
         { name: 'imported', value: imported },
@@ -11,7 +18,7 @@ function ImportGraph({ pending, imported, invalid }) {
     const COLORS = ["var(--stats-green)", "var(--stats-red)", "var(--stats-yellow)"];
 
     return (
-        <ResponsiveContainer height={220}>
+        <ResponsiveContainer height={width >= 600 ? 220 : 132}>
             <PieChart>
                 <Pie
                     data={data}
@@ -19,7 +26,7 @@ function ImportGraph({ pending, imported, invalid }) {
                     nameKey="name"
                     cx="50%"
                     cy="50%"
-                    outerRadius={100}
+                    outerRadius={width >= 600 ? 100 : 60}
                     isAnimationActive={false}
                     stroke="var(--font)"
                     strokeWidth="2"

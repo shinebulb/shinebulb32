@@ -1899,7 +1899,18 @@ label[for=custom-font-input] a {
         margin-left: 0.3rem;
     }
     .import-content {
-        height: 267px;
+        height: 275px;
+    }
+    .import-table {
+        width: 80%;
+        grid-template-columns: 85% 5%;
+        justify-content: center;
+        font-size: 1rem;
+        margin: 0.6rem auto 0;
+    }
+    .import-log button {
+        font-size: 1rem;
+        margin: 0.5rem auto;
     }
     .import-status {
         max-width: calc(100% - 5.8rem);
