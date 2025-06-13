@@ -460,7 +460,7 @@ body {
     background-color: var(--button-bg);
     color: var(--button-font);
     border: var(--border-thick);
-    min-width: 7rem;
+    min-width: 8.2rem;
     min-height: 2.5rem;
     font-size: 1.1rem;
     border-radius: 8px;
@@ -478,6 +478,7 @@ body {
 .play-heading {
     display: flex;
     align-items: center;
+    justify-content: space-evenly;
 }
 
 .play svg {
