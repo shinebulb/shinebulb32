@@ -29,7 +29,7 @@ function DevPage({ settings }) {
                 shinebulb 3 {text[settings.language].devSides[2]}
             </a>
             <a className="devpage-link" target="_blank" href="https://github.com/aldortheold/shinebulb-3-1">
-                shinebulb 3.1 {text[settings.language].devSides[2]}
+                shinebulb 3.1+ {text[settings.language].devSides[2]}
             </a>
             <a className="devpage-link" target="_blank" href="https://github.com/shinebulb/shinebulb-server">
                 shinebulb 3+ {text[settings.language].devSides[3]}
