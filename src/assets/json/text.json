@@ -54,7 +54,7 @@
             "user not found!",
             "wrong password!"
         ],
-        "devSides": ["github repositories:", "and earlier", "client", "server"],
+        "devSides": ["github repositories:", "client", "server"],
         "themeInstructions": "HINT: you can edit a color manually by clicking its marked hex value!",
         "bulbCount": "bulb count",
         "pickCopyColors": [
@@ -160,7 +160,7 @@
             "пользователь не найден!",
             "неверный пароль!"
         ],
-        "devSides": ["репозитории на github:", "и раньше", "клиент", "сервер"],
+        "devSides": ["репозитории на github:", "клиент", "сервер"],
         "themeInstructions": "ПОДСКАЗКА: вы можете изменить цвет вручную, нажав на его hex-код!",
         "bulbCount": "счёт лампочки",
         "pickCopyColors": [

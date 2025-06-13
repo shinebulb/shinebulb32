@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
+import text from './assets/json/text.json';
 
-function RepoMenu() {
-    const [activeTab, setActiveTab] = useState('client');
+function RepoMenu({ settings }) {
+
+    const [activeTab, setActiveTab] = useState("client");
 
     const tabs = [
-        { id: 'client', label: 'client' },
-        { id: 'server', label: 'server' },
+        { id: "client", label: text[settings.language].devSides[1] },
+        { id: "server", label: text[settings.language].devSides[2] },
     ];
 
     const content = {
