@@ -314,6 +314,10 @@ body {
     flex-direction: column;
 }
 
+.devpage .p3 {
+    font-size: 2rem;
+}
+
 .version {
     width: 250px;
     color: var(--font);
@@ -336,11 +340,11 @@ body {
     font-family: var(--font-family);
     background-color: transparent;
     color: var(--font);
-    font-size: 1.5rem;
-    width: 7rem;
+    font-size: 1.7rem;
+    width: 9rem;
     border: none;
     border-bottom: var(--border-thick);
-    padding-bottom: 0.2rem;
+    padding-bottom: 0.3rem;
     cursor: pointer;
 }
 
@@ -348,17 +352,17 @@ body {
     display: flex;
     flex-direction: column;
     text-align: center;
-    min-height: 170px;
+    min-height: 180px;
 }
 
 .repos a {
-    width: 220px;
-    font-size: 1.35rem;
+    width: 270px;
+    font-size: 1.4rem;
     font-weight: normal;
     background-color: var(--button-bg);
     border: var(--border-thick);
-    border-radius: 15px;
-    padding: 0.3rem 0;
+    border-radius: 18px;
+    padding: 0.4rem 0;
     margin: 1rem auto 0;
     transition: background-color 0.3s ease;
 }
@@ -1975,6 +1979,29 @@ label[for=custom-font-input] a {
         width: 11.5rem;
         margin: 0.2rem auto 0.1rem;
         font-size: 0.9rem;
+    }
+    .version {
+        width: 220px;
+        font-size: 1.8rem;
+        padding: 0.9rem 0;
+        margin-bottom: 1.8rem;
+    }
+    .devpage .p3 {
+        font-size: 1.7rem;
+    }
+    .tabs button {
+        font-size: 1.5rem;
+        width: 7rem;
+        padding-bottom: 0.2rem;
+    }
+    .repos div {
+        min-height: 170px;
+    }
+    .repos a {
+        width: 220px;
+        font-size: 1.35rem;
+        border-radius: 15px;
+        padding: 0.3rem 0;
     }
     .no-themes {
         width: 80vw;
