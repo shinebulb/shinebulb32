@@ -27,7 +27,9 @@ function ImportGraph({ pending, imported, invalid }) {
                     cx="50%"
                     cy="50%"
                     outerRadius={width >= 600 ? 100 : 60}
-                    isAnimationActive={false}
+                    animationBegin={0}
+                    animationEasing='linear'
+                    animationDuration={300}
                     stroke="var(--font)"
                     strokeWidth="2"
                 >

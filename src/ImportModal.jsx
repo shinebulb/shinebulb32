@@ -128,7 +128,7 @@ function ImportModal({ importModal, settings, savedList, setSavedList }) {
                 <div className="complete-import">
                     <svg  preserveAspectRatio="none" fill="var(--font)" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 511.964 511.964" xmlSpace="preserve"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round" stroke="var(--font)" strokeWidth="36.9"></g><g id="SVGRepo_iconCarrier"><g><g><g><path d={paths.mountains[0]}/><path d={paths.mountains[1]}/><path d={paths.mountains[2]}/><path d={paths.mountains[3]}/><path d={paths.mountains[4]}/><path d={paths.mountains[5]}/></g></g></g></g></svg>
                     <div className="import-status">
-                        <span onClick={importThemes} style={{textDecoration: importStatus == defaultStatus ? "underline" : "none", margin: "auto"}}>
+                        <span onClick={() => { if (importStatus != text[settings.language].importText[6]) importThemes() }} style={{textDecoration: importStatus == defaultStatus ? "underline" : "none", margin: "auto"}}>
                             {importStatus}
                         </span>
                         {importStatus != text[settings.language].importText[6] ? <progress className="import-progress" value={progressValue} style={{visibility: progressVisibility}} />
