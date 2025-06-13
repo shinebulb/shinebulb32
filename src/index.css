@@ -361,6 +361,7 @@ body {
     font-size: 1.4rem;
     font-weight: normal;
     background-color: var(--button-bg);
+    color: var(--button-font);
     border: var(--border-thick);
     border-radius: 18px;
     padding: 0.4rem 0;
@@ -370,6 +371,7 @@ body {
 
 .repos a:hover {
     background-color: var(--select-hover);
+    color: var(--button-font);
     text-decoration: none;
 }
 
