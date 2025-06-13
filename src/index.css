@@ -323,6 +323,7 @@ body {
     color: var(--font);
     font-size: 2rem;
     background-color: var(--modal-bg);
+    box-shadow: 0 0 10px 0px var(--font);
     border: var(--border-thick);
     border-radius: 20px;
     padding: 1rem 0;
