@@ -56,7 +56,7 @@
         ],
         "version": "current version",
         "devSides": ["github repositories:", "and earlier", "client", "server"],
-        "themeInstructions": "HINT: you can edit a color manually by clicking on its marked hex value!",
+        "themeInstructions": "HINT: you can edit a color manually by clicking its marked hex value!",
         "bulbCount": "bulb count",
         "pickCopyColors": [
             "choose the asset to copy", "background color", "stroke color"
