@@ -28,14 +28,14 @@ function Settings({ settings, setSettings }) {
 
     useEffect(() => {
         document.title = text[settings.language].links[1];
-        document.addEventListener("keydown", event => openConstructor(event.key.toLowerCase()));
-        document.addEventListener("keydown", event => {if (constructorRef.current && (event.key.toLowerCase() == "s" || event.key.toLowerCase() == "ы")) navigate("/saved")});
+        document.addEventListener("keydown", event => openConstructor(event));
+        document.addEventListener("keydown", event => navigateSaved(event));
         window.addEventListener("resize", () => setWidth(window.innerWidth));
 
         return () =>  {
             window.removeEventListener("resize", () => setWidth(window.innerWidth));
-            document.removeEventListener("keydown", event => openConstructor(event.key.toLowerCase()));
-            document.removeEventListener("keydown", event => {if (constructorRef.current && (event.key.toLowerCase() == "s" || event.key.toLowerCase() == "ы")) navigate("/saved")});
+            document.removeEventListener("keydown", event => openConstructor(event));
+            document.removeEventListener("keydown", event => navigateSaved(event));
         }
     }, []);
 
@@ -52,8 +52,26 @@ function Settings({ settings, setSettings }) {
         marginRight: "0.7rem"
     };
 
-    function openConstructor(key) {
-        if (constructorRef.current && (key == "c" || key == "с")) {
+    function editingField(target) {
+        if (target.isContentEditable) return true;
+        if (target.tagName === "TEXTAREA") return true;
+        if (target.tagName === "INPUT") {
+            const textTypes = [
+                "text", "password", "email", "search", "url", 
+                "tel", "number", "date", "datetime-local"
+            ];
+            return textTypes.includes(target.type);
+        }
+        return false;
+    }
+
+    function openConstructor(event) {
+
+        const key = event.key.toLowerCase();
+
+        if (editingField(event.target)) return;
+    
+        else if (constructorRef.current && (key == "c" || key == "с")) {
             if (constructorClosed) {
                 constructorRef.current.showModal();
                 constructorClosed = false;
@@ -63,6 +81,12 @@ function Settings({ settings, setSettings }) {
                 constructorClosed = true;
             }
         }
+    }
+
+    function navigateSaved(event) {
+        const key = event.key.toLowerCase();
+        if (editingField(event.target)) return;
+        if (key == "s" || key == "ы") navigate("/saved")
     }
 
     function themeChange(event) {
