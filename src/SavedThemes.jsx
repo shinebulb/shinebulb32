@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { AuthContext } from './assets/AuthContext';
 import text from './assets/json/text.json';
+import editingField from './assets/editingField';
 import { motion } from 'framer-motion';
 import NoThemes from './NoThemes';
 import ThemeCard from './ThemeCard';
@@ -16,13 +17,13 @@ function SavedThemes({ settings, setSettings, savedList, setSavedList }) {
 
     useEffect(() => {
         document.title = text[settings.language].links[5];
-        document.addEventListener("keydown", event => {if (importModal.current && (event.key.toLowerCase() == "s" || event.key.toLowerCase() == "ы")) navigate("/settings")});
+        document.addEventListener("keydown", navigateSettings);
         axios.get(`${import.meta.env.VITE_API_KEY}/savedthemes/byUser/${authState.id}`)
         .then(response => {
             if (response !== undefined) setSavedList(response.data);
         });
 
-        return () => document.removeEventListener("keydown", event => {if (importModal.current && (event.key.toLowerCase() == "s" || event.key.toLowerCase() == "ы")) navigate("/saved")});
+        return () => document.removeEventListener("keydown", navigateSettings);
     }, []);
 
     const navigate = useNavigate();
@@ -31,6 +32,12 @@ function SavedThemes({ settings, setSettings, savedList, setSavedList }) {
     const importModal = useRef(null);
 
     const inverted = settings.invertTheme && settings.bulbStatus == "on";
+
+    function navigateSettings(event) {
+        const key = event.key.toLowerCase();
+        if (editingField(event.target)) return;
+        if (key == "s" || key == "ы") navigate("/settings");
+    }
     
     return (
         <motion.div

@@ -7,6 +7,7 @@ import FontModal from './FontModal';
 import ToggleInfo from './ToggleInfo';
 import themes from './assets/themes';
 import closeModal from './assets/closeModal';
+import editingField from './assets/editingField';
 import text from './assets/json/text.json';
 import paths from './assets/json/svg-paths.json';
 import modes from './assets/json/modes.json';
@@ -28,14 +29,14 @@ function Settings({ settings, setSettings }) {
 
     useEffect(() => {
         document.title = text[settings.language].links[1];
-        document.addEventListener("keydown", event => openConstructor(event));
-        document.addEventListener("keydown", event => navigateSaved(event));
+        document.addEventListener("keydown", openConstructor);
+        document.addEventListener("keydown", navigateSaved);
         window.addEventListener("resize", () => setWidth(window.innerWidth));
 
         return () =>  {
             window.removeEventListener("resize", () => setWidth(window.innerWidth));
-            document.removeEventListener("keydown", event => openConstructor(event));
-            document.removeEventListener("keydown", event => navigateSaved(event));
+            document.removeEventListener("keydown", openConstructor);
+            document.removeEventListener("keydown", navigateSaved);
         }
     }, []);
 
@@ -51,19 +52,6 @@ function Settings({ settings, setSettings }) {
         borderBottomColor: "transparent",
         marginRight: "0.7rem"
     };
-
-    function editingField(target) {
-        if (target.isContentEditable) return true;
-        if (target.tagName === "TEXTAREA") return true;
-        if (target.tagName === "INPUT") {
-            const textTypes = [
-                "text", "password", "email", "search", "url", 
-                "tel", "number", "date", "datetime-local"
-            ];
-            return textTypes.includes(target.type);
-        }
-        return false;
-    }
 
     function openConstructor(event) {
 
