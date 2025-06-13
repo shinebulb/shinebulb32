@@ -314,9 +314,58 @@ body {
     flex-direction: column;
 }
 
-.devpage-link {
+.version {
+    width: 250px;
+    color: var(--font);
+    font-size: 2rem;
+    background-color: var(--modal-bg);
+    border: var(--border-thick);
+    border-radius: 20px;
+    padding: 1rem 0;
+    margin: auto;
+    margin-bottom: 2rem;
+    cursor: pointer;
+}
+
+.repo-menu {
+    width: 300px;
+    margin: 1rem auto;
+}
+
+.tabs button {
+    font-family: var(--font-family);
+    background-color: transparent;
+    color: var(--font);
+    font-size: 1.5rem;
+    width: 7rem;
+    border: none;
+    border-bottom: var(--border-thick);
+    padding-bottom: 0.2rem;
+    cursor: pointer;
+}
+
+.repos div {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    min-height: 170px;
+}
+
+.repos a {
+    width: 220px;
+    font-size: 1.35rem;
     font-weight: normal;
-    text-decoration: underline;
+    background-color: var(--button-bg);
+    border: var(--border-thick);
+    border-radius: 15px;
+    padding: 0.3rem 0;
+    margin: 1rem auto 0;
+    transition: background-color 0.3s ease;
+}
+
+.repos a:hover {
+    background-color: var(--select-hover);
+    text-decoration: none;
 }
 
 .profile {
