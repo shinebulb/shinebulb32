@@ -61,8 +61,9 @@ function SignUp({ settings }) {
         >
             {!authState.status ?
             <>
-                <div style={{height: "3rem"}}/>
+                <div style={{height: "2rem"}}/>
                 <h2>{text[settings.language].signup[0]}</h2>
+                <div style={{height: "1rem"}}/>
                 <Formik
                     initialValues={initialValues}
                     onSubmit={createUser}

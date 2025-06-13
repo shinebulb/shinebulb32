@@ -104,8 +104,9 @@ function LogIn({ bulb, settings, setSettings, setSavedList }) {
         >
             {!authState.status ?
             <>
-                <div style={{height: "3rem"}}/>
+                <div style={{height: "2rem"}}/>
                 <h2>{text[settings.language].login[0]}</h2>
+                <div style={{height: "1rem"}}/>
                 <div className="login-form">
                     <label>{text[settings.language].signup[1]}:</label>
                     <input
