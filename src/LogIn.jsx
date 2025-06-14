@@ -104,11 +104,9 @@ function LogIn({ bulb, settings, setSettings, setSavedList }) {
         >
             {!authState.status ?
             <>
-                <div style={{height: "2rem"}}/>
-                <h2>{text[settings.language].login[0]}</h2>
-                <div style={{height: "1rem"}}/>
+                <div style={{height: "3rem"}}/>
                 <div className="login-form">
-                    <label>{text[settings.language].signup[1]}:</label>
+                    <label>{text[settings.language].login[0]}:</label>
                     <input
                         type="text"
                         onChange={event => setUsername(event.target.value)}
@@ -116,7 +114,7 @@ function LogIn({ bulb, settings, setSettings, setSavedList }) {
                         placeholder={text[settings.language].login[1]}
                     />
                     <div>
-                        <label style={{margin: "0"}}>{text[settings.language].signup[3]}:</label>
+                        <label style={{margin: "0"}}>{text[settings.language].signup[4]}:</label>
                         <svg onClick={() => setFieldType(fieldType === "password" ? "text" : "password")} fill={`var(--intermediate-${fieldType === "password" ? "green" : "red"})`} viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d={paths.hide[0]}/><path d={paths.hide[1]}/></svg>
                     </div>
                     <input
