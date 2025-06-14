@@ -23,6 +23,7 @@ function SignUp({ settings }) {
     const navigate = useNavigate();
 
     const initialValues = {
+        email: "",
         username: "",
         password: ""
     };
