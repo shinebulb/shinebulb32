@@ -1216,10 +1216,6 @@ hr {
     resize: none;
 }
 
-.import-content {
-    height: 343px;
-}
-
 .import-table {
     display: grid;
     grid-template-columns: 38% 14% 42% 6%;
@@ -1241,7 +1237,7 @@ hr {
     font-weight: bold;
     text-decoration: underline;
     border: none;
-    margin: 1rem auto;
+    margin: 1.4rem auto 1.16rem;
     cursor: pointer;
 }
 
@@ -1967,7 +1963,7 @@ label[for=custom-font-input] a {
     }
     .import-log button {
         font-size: 1rem;
-        margin: 0.5rem auto;
+        margin: 0.7rem auto 0.3rem;
     }
     .import-status {
         max-width: calc(100% - 5.8rem);
