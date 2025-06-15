@@ -21,7 +21,7 @@ function LogIn({ bulb, settings, setSettings, setSavedList }) {
     }, []);
 
 
-    const [username, setUsername] = useState("");
+    const [loginValue, setLoginValue] = useState("");
     const [password, setPassword] = useState("");
 
     const [fieldType, setFieldType] = useState("password");
@@ -35,7 +35,7 @@ function LogIn({ bulb, settings, setSettings, setSavedList }) {
         let id = 0;
         setLoadLogIn(true);
         axios.post(`${import.meta.env.VITE_API_KEY}/users/login`, {
-            username: username,
+            loginValue: loginValue,
             password: password
         })
         .then(response => {
@@ -109,8 +109,8 @@ function LogIn({ bulb, settings, setSettings, setSavedList }) {
                     <label>{text[settings.language].login[0]}:</label>
                     <input
                         type="text"
-                        onChange={event => setUsername(event.target.value)}
-                        value={username}
+                        onChange={event => setLoginValue(event.target.value)}
+                        value={loginValue}
                         placeholder={text[settings.language].login[1]}
                     />
                     <div>
@@ -123,7 +123,7 @@ function LogIn({ bulb, settings, setSettings, setSavedList }) {
                         value={password}
                         placeholder={text[settings.language].login[2]}
                     />
-                    <button type="submit" onClick={login} disabled={loadLogIn || password == "" || username == ""}>{
+                    <button type="submit" onClick={login} disabled={loadLogIn || password == "" || loginValue == ""}>{
                         loadLogIn ? <span className="loader" style={{ width: "1.6rem", height: "1.6rem" }} />
                         : text[settings.language].auth[0]
                     }</button>
