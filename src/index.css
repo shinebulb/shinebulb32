@@ -519,7 +519,7 @@ body {
     min-width: 8.2rem;
     min-height: 2.5rem;
     font-size: 1.1rem;
-    border-radius: 8px;
+    border-radius: 10px;
     margin: 0.5rem 0.3rem;
     padding: 0.3rem 1.5rem;
     transition: background-color 0.1s ease;
@@ -1654,6 +1654,17 @@ label[for=custom-font-input] a {
         font-size: 1.1rem;
         border-radius: 12px;
         padding: 0.3rem 0;
+    }
+    .play img {
+        width: 230px;
+        height: 230px;
+    }
+    .controls button {
+        min-width: 7.2rem;
+        min-height: 2.2rem;
+        font-size: 1.1rem;
+        margin: 0.5rem 0.3rem;
+        padding: 0.4rem 1rem;
     }
     .profile {
         flex-direction: column;
