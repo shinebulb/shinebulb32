@@ -22,8 +22,6 @@
         #0000ff 80%,
         #8a00ff 100%
     );
-    --no-user-undefined: rgb(255, 150, 150);
-    --no-user-undefined-font: rgb(70, 0, 0);
     --navbar-margin: 1.2rem;
 }
 

@@ -16,7 +16,7 @@ function NoUser({ settings }) {
     return (
         <motion.div
             className='profile'
-            style={{height: settings.language === 1 ? "420px" : "380px", background: "var(--no-user-bg)", border: "white 3px solid", textShadow: `-1.2px -1.2px 0 #000, 1.2px -1.2px 0 #000, -1.2px  1.2px 0 #000, 1.2px 1.2px 0 #000`}}
+            style={{height: width >= 600 ? "260px" : (settings.language === 1 ? "420px" : "380px"), background: "var(--no-user-bg)", textShadow: "0 0 4px black"}}
             initial={{opacity: 0}}
             animate={{opacity: 1}}
             exit={{opacity: 0}}
@@ -42,10 +42,11 @@ function NoUser({ settings }) {
                         textWrap: "nowrap",
                         textShadow: "none",
                         fontSize: width >= 600 ? "1.1rem" : "1rem",
-                        backgroundColor: "var(--no-user-undefined)",
-                        color: "var(--no-user-undefined-font)",
-                        border: "var(--no-user-undefined-font) 2px solid",
+                        backgroundColor: "var(--bg)",
+                        color: "var(--font)",
+                        border: "var(--font) 2px solid",
                         borderRadius: "5px",
+                        opacity: "70%",
                         padding: "0.2rem 0.5rem",
                         cursor: "not-allowed"
                     }}>
