@@ -22,9 +22,9 @@ function NoUser({ settings }) {
             exit={{opacity: 0}}
             transition={{duration: 0.5}}
         >
-            <img src="../img/psycho-bulb.png" style={{ height: "100%", transform: "rotate(-5deg)", marginRight: width >= 600 ? "1rem" : "0" }} />
-            <div className="user-info" style={{ color: "var(--font)", fontFamily: "trebuchet ms" }}>
-                <h1>unknown</h1>
+            <img src="../img/psycho-bulb.png" style={{ height: width >= 600 ? "100%" : "220px", transform: "rotate(-5deg)", marginRight: width >= 600 ? "1rem" : "0" }} />
+            <div className="user-info" style={{ color: "var(--font)", fontFamily: "var(--font-family)" }}>
+                <h1>{text[settings.language].nouser[0]}</h1>
                 <h2 className="joined">{
                         `${text[settings.language].joined} ${
                         new Date("2024-08-30")
@@ -39,6 +39,7 @@ function NoUser({ settings }) {
                     <span>{text[settings.language].bulbCount}: </span>
                     <span style={{
                         fontFamily: "consolas",
+                        textWrap: "nowrap",
                         fontSize: width >= 600 ? "1.1rem" : "1rem",
                         border: "var(--border-thin)",
                         borderRadius: "5px",
@@ -46,7 +47,7 @@ function NoUser({ settings }) {
                         opacity: "70%",
                         cursor: "not-allowed"
                     }}>
-                        undefined
+                        {text[settings.language].nouser[1]}
                     </span>
                 </h2>
             </div>

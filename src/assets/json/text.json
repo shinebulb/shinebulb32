@@ -57,6 +57,7 @@
             "email is a required field!"
         ],
         "joined": "joined",
+        "nouser": ["unknown", "undefined"],
         "error": "error",
         "authNotifications": [
             "unexpected error occurred!",
@@ -171,6 +172,7 @@
             "адрес эл. почты — обязательное поле!"
         ],
         "joined": "дата регистрации:",
+        "nouser": ["неизвестный", "не определён"],
         "error": "ошибка",
         "authNotifications": [
             "произошла неожиданная ошибка!",
