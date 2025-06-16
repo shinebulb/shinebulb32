@@ -14,6 +14,7 @@ import LogIn from './LogIn';
 import SignUp from './SignUp';
 import Profile from './Profile';
 import ChangePassword from './ChangePassword';
+import NoUser from './NoUser';
 import NoPage from './NoPage';
 import DynamicFontLoader from './DynamicFontLoader';
 import themes from './assets/themes';
@@ -134,6 +135,7 @@ function App() {
                         <Route path="/signup" element={<SignUp settings={settings} />} />
                         <Route path="/user/:username" element={<Profile settings={settings} bulb={bulb} />} />
                         <Route path="/changepassword" element={<ChangePassword settings={settings} />} />
+                        <Route path="/nouser" element={<NoUser settings={settings} />} />
                         <Route path="*" element={<NoPage settings={settings} />} />
                     </Routes>
                 </>}

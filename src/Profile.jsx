@@ -37,8 +37,13 @@ function Profile({ settings, bulb }) {
         document.title = username;
         axios.get(`${import.meta.env.VITE_API_KEY}/users/userinfo/${username}`)
         .then(response => {
-            setUser(response.data);
-            setLoadUser(false);
+            if (response.data) {
+                setUser(response.data);
+                setLoadUser(false);
+            }
+            else {
+                navigate("/nouser");
+            }
         });
     }, [username]);
 
@@ -69,37 +74,34 @@ function Profile({ settings, bulb }) {
             transition={{duration: 0.5}}
         >
             {loadUser ? <span className="loader" style={{width: "5rem", height: "5rem", borderWidth: "7px", margin: "auto"}} />
-            : <>{
-                user === null ? navigate("/page-not-found")
-                : <>
-                    {customFont && <ProfileFontLoader profileFont={user.font} />}
-                    {(customTheme || user.font) && <svg onClick={() => copyModal.current.showModal()} id="open-copy-modal" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"><path d={paths.copy[0]} fill={userTheme[font][user?.theme || 0]}></path><path d={paths.copy[1]} fill={userTheme[font][user?.theme || 0]}></path></g></svg>}
-                    <div className="play">
-                        <img ref={bulb} className={user.bulbStatus} src={user.bulbStatus == "on" ? on : off} />
-                    </div>
-                    <div className="user-info" style={{fontFamily: userFont}}>
-                        <h1 style={{color: userTheme[font][user?.theme || 0]}}>{username}</h1>
-                        <h2 className="joined" style={{color: userTheme[font][user?.theme || 0]}}>{
-                            `${text[settings.language].joined} ${
-                            new Date(user.createdAt)
-                            .toLocaleDateString(locales[settings.language], {
-                                year: "numeric",
-                                month: "long",
-                                day: "numeric"
-                            })
-                            .toLowerCase()
-                        }`}</h2>
-                        <h2 id="counter" style={{color: userTheme[font][user?.theme || 0]}}>
-                            <span style={{fontWeight: "normal"}}>{text[settings.language].bulbCount}: </span>
-                            <span style={{fontStyle: "italic"}}>{user.bulbCount || 0}</span>
-                        </h2>
-                    </div>
-                    {userMatch &&
-                    <button className="change-password" onClick={() => navigate("/changepassword")}>
-                        {text[settings.language].changePassword[0]}
-                    </button>}
-                </>
-            }</>}
+            : <>
+                {customFont && <ProfileFontLoader profileFont={user.font} />}
+                {(customTheme || user.font) && <svg onClick={() => copyModal.current.showModal()} id="open-copy-modal" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"><path d={paths.copy[0]} fill={userTheme[font][user?.theme || 0]}></path><path d={paths.copy[1]} fill={userTheme[font][user?.theme || 0]}></path></g></svg>}
+                <div className="play">
+                    <img ref={bulb} className={user.bulbStatus} src={user.bulbStatus == "on" ? on : off} />
+                </div>
+                <div className="user-info" style={{fontFamily: userFont}}>
+                    <h1 style={{color: userTheme[font][user?.theme || 0]}}>{username}</h1>
+                    <h2 className="joined" style={{color: userTheme[font][user?.theme || 0]}}>{
+                        `${text[settings.language].joined} ${
+                        new Date(user.createdAt)
+                        .toLocaleDateString(locales[settings.language], {
+                            year: "numeric",
+                            month: "long",
+                            day: "numeric"
+                        })
+                        .toLowerCase()
+                    }`}</h2>
+                    <h2 id="counter" style={{color: userTheme[font][user?.theme || 0]}}>
+                        <span style={{fontWeight: "normal"}}>{text[settings.language].bulbCount}: </span>
+                        <span style={{fontStyle: "italic"}}>{user.bulbCount || 0}</span>
+                    </h2>
+                </div>
+                {userMatch &&
+                <button className="change-password" onClick={() => navigate("/changepassword")}>
+                    {text[settings.language].changePassword[0]}
+                </button>}
+            </>}
             <dialog ref={copyModal} className="copy-modal">
                 <h2>{text[settings.language].pickCopyColors[0]}</h2>
                 <hr />

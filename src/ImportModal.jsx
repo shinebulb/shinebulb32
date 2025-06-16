@@ -141,7 +141,7 @@ function ImportModal({ importModal, settings, savedList, setSavedList }) {
                     <p>{text[settings.language].importLog[0]}</p><p>{pending}</p>
                     <p style={{ color: "var(--stats-green)" }}>{text[settings.language].importLog[1]}</p><p style={{ color: "var(--stats-green)" }}>{imported}</p>
                     <p style={{ color: "var(--stats-red)" }}>{text[settings.language].importLog[2]}</p><p style={{ color: "var(--stats-red)" }}>{invalid}</p>
-                    <p style={{ color: "var(--stats-yellow)"}}>{text[settings.language].importLog[3]}</p><p style={{ color: "var(--stats-yellow)"}}>{pending - imported - invalid}</p>
+                    <p style={{ color: "var(--stats-yellow)"}}>{text[settings.language].importLog[3]}</p><p style={{ color: "var(--stats-yellow)" }}>{pending - imported - invalid}</p>
                 </div>
                 <button onClick={() => setOpenLog(false)}>{text[settings.language].closeImportLog}</button>
             </div>}
