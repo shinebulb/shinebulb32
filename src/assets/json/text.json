@@ -84,7 +84,7 @@
         "seeInverted": ["click to see regular colors", "click to see inverted colors"],
         "toggleInfo": [
             "with this setting on, your theme colors will exchange places once you switch the bulb on.",
-            "for default themes, not the theme colors switch, but the theme itself. so dark theme becomes light and vise versa.",
+            "for default themes, not the theme colors switch, but the theme itself. so dark theme becomes light and vice versa.",
             "for custom themes, since there are only two colors, the colors switch places directly."
         ],
         "fontSettings": "font settings",
