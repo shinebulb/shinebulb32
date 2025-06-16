@@ -16,7 +16,7 @@ function NoUser({ settings }) {
     return (
         <motion.div
             className='profile'
-            style={{background: "var(--no-user-bg)", border: "white 3px solid", textShadow: `-1.2px -1.2px 0 #000, 1.2px -1.2px 0 #000, -1.2px  1.2px 0 #000, 1.2px 1.2px 0 #000`}}
+            style={{height: settings.language === 1 ? "420px" : "380px", background: "var(--no-user-bg)", border: "white 3px solid", textShadow: `-1.2px -1.2px 0 #000, 1.2px -1.2px 0 #000, -1.2px  1.2px 0 #000, 1.2px 1.2px 0 #000`}}
             initial={{opacity: 0}}
             animate={{opacity: 1}}
             exit={{opacity: 0}}
