@@ -16,16 +16,16 @@ function NoUser({ settings }) {
     return (
         <motion.div
             className='profile'
-            style={{backgroundColor: "var(--bg)", border: "var(--border-thick)"}}
+            style={{background: "var(--no-user-bg)", border: "white 3px solid", textShadow: `-1.2px -1.2px 0 #000, 1.2px -1.2px 0 #000, -1.2px  1.2px 0 #000, 1.2px 1.2px 0 #000`}}
             initial={{opacity: 0}}
             animate={{opacity: 1}}
             exit={{opacity: 0}}
             transition={{duration: 0.5}}
         >
             <img src="../img/psycho-bulb.png" style={{ height: width >= 600 ? "100%" : "220px", transform: "rotate(-5deg)", marginRight: width >= 600 ? "1rem" : "0" }} />
-            <div className="user-info" style={{ color: "var(--font)", fontFamily: "var(--font-family)" }}>
-                <h1>{text[settings.language].nouser[0]}</h1>
-                <h2 className="joined">{
+            <div className="user-info" style={{ color: "white", fontFamily: "var(--font-family)" }}>
+                <h1 style={{ color: "white" }}>{text[settings.language].nouser[0]}</h1>
+                <h2 style={{ color: "white" }} className="joined">{
                         `${text[settings.language].joined} ${
                         new Date("2024-08-30")
                         .toLocaleDateString(locales[settings.language], {
@@ -35,16 +35,18 @@ function NoUser({ settings }) {
                         })
                         .toLowerCase()
                     }`}</h2>
-                <h2 id="counter" style={{ fontWeight: "normal" }}>
+                <h2 id="counter" style={{ color: "white", fontWeight: "normal" }}>
                     <span>{text[settings.language].bulbCount}: </span>
                     <span style={{
                         fontFamily: "consolas",
                         textWrap: "nowrap",
+                        textShadow: "none",
                         fontSize: width >= 600 ? "1.1rem" : "1rem",
-                        border: "var(--border-thin)",
+                        backgroundColor: "var(--no-user-undefined)",
+                        color: "var(--no-user-undefined-font)",
+                        border: "var(--no-user-undefined-font) 2px solid",
                         borderRadius: "5px",
                         padding: "0.2rem 0.5rem",
-                        opacity: "70%",
                         cursor: "not-allowed"
                     }}>
                         {text[settings.language].nouser[1]}

@@ -14,6 +14,16 @@
     --stats-red: rgb(254, 108, 108);
     --stats-green: rgb(39, 186, 71);
     --stats-yellow: rgb(255, 218, 86);
+    --no-user-bg: linear-gradient(135deg, 
+        #ff00ff 0%,
+        #ff6600 20%,
+        #ffff00 40%,
+        #00ffff 60%,
+        #0000ff 80%,
+        #8a00ff 100%
+    );
+    --no-user-undefined: rgb(255, 150, 150);
+    --no-user-undefined-font: rgb(70, 0, 0);
     --navbar-margin: 1.2rem;
 }
 
