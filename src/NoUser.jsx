@@ -9,6 +9,7 @@ function NoUser({ settings }) {
     const locales = ["en-us", "ru-ru"];
 
     useEffect(() => {
+        document.title = text[settings.language].nouser[0]
         window.addEventListener("resize", () => setWidth(window.innerWidth));
         return () =>  { window.removeEventListener("resize", () => setWidth(window.innerWidth)) }
     }, []);
@@ -16,14 +17,14 @@ function NoUser({ settings }) {
     return (
         <motion.div
             className='profile'
-            style={{height: width >= 600 ? "260px" : (settings.language === 1 ? "420px" : "380px"), background: "var(--no-user-bg)", textShadow: "0 0 4px black"}}
+            style={{height: width >= 600 ? "260px" : (settings.language === 1 ? "420px" : "380px"), background: "var(--no-user-bg)", textShadow: "1px 1px 3px black"}}
             initial={{opacity: 0}}
             animate={{opacity: 1}}
             exit={{opacity: 0}}
             transition={{duration: 0.5}}
         >
             <img src="../img/psycho-bulb.png" style={{ height: width >= 600 ? "100%" : "220px", transform: "rotate(-5deg)", marginRight: width >= 600 ? "1rem" : "0" }} />
-            <div className="user-info" style={{ color: "white", fontFamily: "var(--font-family)" }}>
+            <div className="user-info" style={{ color: "white", fontFamily: "roboto slab" }}>
                 <h1 style={{ color: "white" }}>{text[settings.language].nouser[0]}</h1>
                 <h2 style={{ color: "white" }} className="joined">{
                         `${text[settings.language].joined} ${
@@ -42,11 +43,10 @@ function NoUser({ settings }) {
                         textWrap: "nowrap",
                         textShadow: "none",
                         fontSize: width >= 600 ? "1.1rem" : "1rem",
-                        backgroundColor: "var(--bg)",
-                        color: "var(--font)",
-                        border: "var(--font) 2px solid",
+                        backgroundColor: "#1f1f1f",
+                        color: "#cccccc",
                         borderRadius: "5px",
-                        opacity: "70%",
+                        opacity: "80%",
                         padding: "0.2rem 0.5rem",
                         cursor: "not-allowed"
                     }}>
