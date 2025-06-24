@@ -1,9 +1,10 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from './assets/AuthContext';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
+import closeModal from './assets/closeModal';
 import text from './assets/json/text.json';
 import paths from './assets/json/svg-paths.json';
 import { motion } from 'framer-motion';
@@ -13,6 +14,7 @@ function SignUp({ settings }) {
     const { authState } = useContext(AuthContext);
 
     const [fieldType, setFieldType] = useState("password");
+    const [errorText, setErrorText] = useState(0);
     
     const [loadSignUp, setLoadSignUp] = useState(false);
 
@@ -21,6 +23,8 @@ function SignUp({ settings }) {
     }, []);
 
     const navigate = useNavigate();
+
+    const alertRef = useRef(null);
 
     const initialValues = {
         email: "",
@@ -48,8 +52,16 @@ function SignUp({ settings }) {
     function createUser(data) {
         setLoadSignUp(true);
         axios.post(`${import.meta.env.VITE_API_KEY}/users`, data)
-        .then(() => {
-            navigate("/login");
+        .then(response => {
+            if (response.data.error) {
+                console.log(response.data.error);
+                setErrorText(Number(response.data.error));
+                alertRef.current.showModal();
+                setTimeout(() => closeModal(alertRef), 1500);
+            }
+            else {
+                navigate("/login");
+            }
             setLoadSignUp(false);
         });
     }
@@ -102,6 +114,22 @@ function SignUp({ settings }) {
                         }</button>
                     </Form>
                 </Formik>
+                <dialog
+                    className="save-alert"
+                    ref={alertRef}
+                    style={{
+                        backgroundColor: "var(--light-red)",
+                        color: "var(--dark-red)",
+                        marginTop: "5rem"
+                    }}
+                >
+                    <div>
+                        <p>{text[settings.language].signupNotifications[errorText]}</p>
+                        <button onClick={() => closeModal(alertRef)}>
+                            <svg viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"><g id="Page-1" stroke="none" strokeWidth="1" fill="var(--dark-red)" fillRule="evenodd"><g id="work-case" transform="translate(91.520000, 91.520000)"><polygon id="Close" points={paths.cancel} /></g></g></svg>
+                        </button>
+                    </div>
+                </dialog>
             </>
             : <div className="loggedIn">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d={paths.loggedIn}/></svg>
