@@ -146,7 +146,7 @@ function LogIn({ bulb, settings, setSettings, setSavedList }) {
                     </div>
                 </dialog>
             </>
-            : <div className="loggedIn">
+            : <div className="logged-in">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d={paths.loggedIn}/></svg>
                 <h2 style={{width: "100%"}}>{text[settings.language].authErrors[4]}</h2>
             </div>}
