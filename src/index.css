@@ -1097,6 +1097,12 @@ hr {
     margin: 1rem 1.2rem 1rem 0;
 }
 
+.saved-display > *:last-child:nth-child(2n+1) {
+    width: 50%;
+    grid-column: 1 / -1;
+    justify-self: center;
+}
+
 .theme-card {
     width: 100%;
     padding-top: 0.1rem;
@@ -1886,6 +1892,9 @@ label[for=custom-font-input] a {
     .saved-display {
         display: inline;
         margin: 0;
+    }
+    .saved-display > *:last-child:nth-child(2n+1) {
+        width: 100%;
     }
     .theme-card {
         width: 86vw;
