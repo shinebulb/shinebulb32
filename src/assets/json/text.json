@@ -62,7 +62,7 @@
         "authNotifications": [
             "unexpected error occurred!",
             "user not found!",
-            "wrong password!"
+            "password is incorrect!"
         ],
         "signupNotifications": [
             "unexpected error occurred!",
