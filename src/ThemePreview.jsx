@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import text from './assets/json/text.json';
 import paths from './assets/json/svg-paths.json';
 
-function ThemePreview({ theme, savedList, settings, themeExport, setThemeExport, setCopied, allSelected }) {
+function ThemePreview({ theme, savedList, settings, themeExport, setThemeExport, setCopied, setDownloaded, allSelected }) {
 
     const [selected, setSelected] = useState(parseInt(localStorage.getItem(`selected${savedList.indexOf(theme)}`)) || 0);
 
@@ -21,6 +21,7 @@ function ThemePreview({ theme, savedList, settings, themeExport, setThemeExport,
             ]);
         }
         setCopied(false);
+        setDownloaded(false);
     }     
 
     return (
