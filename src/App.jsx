@@ -12,6 +12,7 @@ import DevPage from './DevPage';
 import SavedThemes from './SavedThemes';
 import LogIn from './LogIn';
 import SignUp from './SignUp';
+import Verify from './Verify';
 import Profile from './Profile';
 import ChangePassword from './ChangePassword';
 import NoUser from './NoUser';
@@ -133,6 +134,7 @@ function App() {
                         <Route path="/saved" element={<SavedThemes settings={settings} setSettings={setSettings} savedList={savedList} setSavedList={setSavedList} />} />
                         <Route path="/login" element={<LogIn bulb={bulb} settings={settings} setSettings={setSettings} setSavedList={setSavedList} />} />
                         <Route path="/signup" element={<SignUp settings={settings} />} />
+                        <Route path="/verify" element={<Verify settings={settings} />} />
                         <Route path="/user/:username" element={<Profile settings={settings} bulb={bulb} />} />
                         <Route path="/changepassword" element={<ChangePassword settings={settings} />} />
                         <Route path="/nouser" element={<NoUser settings={settings} />} />
