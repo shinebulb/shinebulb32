@@ -16,7 +16,7 @@ function SavedThemes({ settings, setSettings, savedList, setSavedList }) {
     const { authState } = useContext(AuthContext);
 
     useEffect(() => {
-        document.title = text[settings.language].links[5];
+        document.title = text[settings.language].savedThemes[0];
         document.addEventListener("keydown", navigateSettings);
         axios.get(`${import.meta.env.VITE_API_KEY}/savedthemes/byUser/${authState.id}`)
         .then(response => {
