@@ -23,6 +23,7 @@
         #8a00ff 100%
     );
     --navbar-margin: 1.2rem;
+    --verification-required-height: 0;
 }
 
 .light {
@@ -118,10 +119,31 @@ body {
 
 .navbar {
     position: fixed;
-    top: 0;
+    top: var(--verification-required-height);
     left: 0;
     width: 100vw;
     background-color: var(--modal-bg);
+}
+
+.verification-required {
+    font-family: "Trebuchet MS";
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+    background-color: var(--light-yellow);
+    color: var(--dark-yellow);
+    font-weight: bold;
+    height: var(--verification-required-height);
+}
+
+.verification-required svg {
+    height: 2.2rem;
+    margin-right: 0.7rem;
 }
 
 .navbar-links {

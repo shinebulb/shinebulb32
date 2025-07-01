@@ -9,7 +9,7 @@ import text from './assets/json/text.json';
 import paths from './assets/json/svg-paths.json';
 import { motion } from 'framer-motion';
 
-function SignUp({ settings }) {
+function SignUp({ settings, setVerificationRequired }) {
 
     const { authState } = useContext(AuthContext);
 
@@ -60,6 +60,9 @@ function SignUp({ settings }) {
                 setTimeout(() => closeModal(alertRef), 1500);
             }
             else {
+                document.documentElement.style.setProperty("--verification-required-height", "3.2rem");
+                setVerificationRequired(true);
+                localStorage.setItem("verificationRequired", "1");
                 navigate("/login");
             }
             setLoadSignUp(false);

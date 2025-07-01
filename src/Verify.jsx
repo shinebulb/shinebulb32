@@ -4,7 +4,7 @@ import axios from 'axios';
 import text from './assets/json/text.json';
 import { motion } from 'framer-motion';
 
-function Verify({ settings }) {
+function Verify({ settings, setVerificationRequired }) {
 
     const { search } = useLocation();
     const navigate = useNavigate();
@@ -20,7 +20,14 @@ function Verify({ settings }) {
         }
 
         axios.get(`${import.meta.env.VITE_API_KEY}/users/verify?token=${token}`)
-        .then(response => setStatus(Number(response.data.status)))
+        .then(response => {
+            setStatus(Number(response.data.status))
+            if (Number(response.data.status) == 3) {
+                document.documentElement.style.setProperty("--verification-required-height", "0");
+                setVerificationRequired(false);
+                localStorage.removeItem("verificationRequired");
+            }
+        })
         .catch(() => setStatus(2));
     }, [search, navigate]);
 
@@ -35,10 +42,10 @@ function Verify({ settings }) {
             <p>{text[settings.language].verifyStatus[status]}</p>
             {status === 1 || status === 2 ?
             <button onClick={() => window.location.reload()}>
-                retry
+                {text[settings.language].verifyActions[0]}
             </button> :
-            <button onClick={() => navigate("/")}>
-                exit
+            <button onClick={() => navigate("/login")}>
+                {text[settings.language].verifyActions[1]}
             </button>}
         </motion.div>
     );
