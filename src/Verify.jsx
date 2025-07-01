@@ -6,25 +6,28 @@ function Verify({ settings }) {
 
     const { search } = useLocation();
     const navigate = useNavigate();
-    const [status, setStatus] = useState('Verifying your account...');
+    const [status, setStatus] = useState('verifying your account...');
 
     useEffect(() => {
         const params = new URLSearchParams(search);
         const token = params.get('token');
 
         if (!token) {
-            setStatus('Invalid or missing verification token.');
+            setStatus('invalid or missing verification token.');
             return;
         }
 
-        axios.get(`${import.meta.VITE_API_KEY}/verify?token=${token}`)
+        axios.get(`${import.meta.env.VITE_API_KEY}/users/verify?token=${token}`)
         .then(response => {
             if (!response.data.error) {
-                setStatus('Email verified successfully!');
+                setStatus('email verified successfully!');
+            }
+            else {
+                setStatus('verification failed or link expired. please try again.');
             }
         })
         .catch(() => {
-            setStatus('Verification failed or link expired. Please try again.');
+            setStatus('verification failed or link expired. please try again.');
         });
     }, [search, navigate]);
 
