@@ -206,6 +206,26 @@ body {
     cursor: not-allowed;
 }
 
+.verify p {
+    color: var(--font);
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.verify button {
+    font-family: var(--font-family);
+    background-color: var(--button-bg);
+    color: var(--font);
+    border: var(--border-thick);
+    font-size: 1.2rem;
+    border-radius: 15px;
+    margin: 1.5rem 0 0;
+    padding: 0.3rem 2rem;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
 .login-form div, .signup-form div {
     display: flex;
     align-items: center;
@@ -696,6 +716,7 @@ h2 {
 .explore-fonts:hover,
 .controls button:hover,
 .change-password:hover,
+.verify button:hover,
 #toggle-info {
     background-color: var(--select-hover);
 }

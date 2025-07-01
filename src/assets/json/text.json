@@ -56,6 +56,12 @@
             "email is not valid!",
             "email is a required field!"
         ],
+        "verifyStatus": [
+            "verifying your email...",
+            "verification token is invalid or missing!",
+            "verification failed!",
+            "email verified successfully!"
+        ],
         "joined": "joined",
         "nouser": ["unknown", "undefined"],
         "error": "error",
@@ -175,6 +181,12 @@
             "у вас уже есть аккаунт и вы вошли в него!",
             "неверный адрес эл. почты!",
             "адрес эл. почты — обязательное поле!"
+        ],
+        "verifyStatus": [
+            "подтверждаем вашу почту...",
+            "токен подтверждения неверен или отсутствует!",
+            "подтверждение не удалось!",
+            "эл. почта подтверждена!"
         ],
         "joined": "дата регистрации:",
         "nouser": ["неизвестный", "не определён"],
