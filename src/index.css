@@ -15,12 +15,12 @@
     --stats-green: rgb(39, 186, 71);
     --stats-yellow: rgb(255, 218, 86);
     --no-user-bg: linear-gradient(135deg, 
-        #ff00ff 0%,
-        #ff6600 20%,
-        #ffff00 40%,
-        #00ffff 60%,
-        #0000ff 80%,
-        #8a00ff 100%
+        hsl(300, 100%, 70%) 0%,
+        hsl(24, 100%, 70%) 20%,
+        hsl(60, 100%, 70%) 40%,
+        hsl(180, 100%, 70%) 60%,
+        hsl(240, 100%, 70%) 80%,
+        hsl(272, 100%, 70%) 100%
     );
     --navbar-margin: 1.2rem;
     --verification-required-height: 0;

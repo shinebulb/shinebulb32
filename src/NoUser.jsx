@@ -17,16 +17,16 @@ function NoUser({ settings }) {
     return (
         <motion.div
             className='profile'
-            style={{height: width >= 600 ? "260px" : (settings.language === 1 ? "420px" : "380px"), background: "var(--no-user-bg)", textShadow: "1px 1px 3px black"}}
+            style={{height: width >= 600 ? "260px" : (settings.language === 1 ? "420px" : "380px"), background: "var(--no-user-bg)" }}
             initial={{opacity: 0}}
             animate={{opacity: 1}}
             exit={{opacity: 0}}
             transition={{duration: 0.5}}
         >
             <img src="../img/psycho-bulb.png" style={{ height: width >= 600 ? "100%" : "220px", transform: "rotate(-5deg)", marginRight: width >= 600 ? "1rem" : "0" }} />
-            <div className="user-info" style={{ color: "white", fontFamily: "roboto slab" }}>
-                <h1 style={{ color: "white" }}>{text[settings.language].nouser[0]}</h1>
-                <h2 style={{ color: "white" }} className="joined">{
+            <div className="user-info" style={{ color: "#111111", fontFamily: "consolas" }}>
+                <h1 style={{ color: "#111111" }}>{text[settings.language].nouser[0]}</h1>
+                <h2 style={{ color: "#111111" }} className="joined">{
                         `${text[settings.language].joined} ${
                         new Date("2024-08-30")
                         .toLocaleDateString(locales[settings.language], {
@@ -36,7 +36,7 @@ function NoUser({ settings }) {
                         })
                         .toLowerCase()
                     }`}</h2>
-                <h2 id="counter" style={{ color: "white", fontWeight: "normal" }}>
+                <h2 id="counter" style={{ color: "#111111", fontWeight: "normal" }}>
                     <span>{text[settings.language].bulbCount}: </span>
                     <span style={{
                         fontFamily: "consolas",
