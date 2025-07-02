@@ -40,9 +40,6 @@ function LogIn({ bulb, settings, setSettings, setSavedList, setVerificationRequi
         })
         .then(response => {
             if (response.data.error) {
-                setVerificationRequired(true);
-                localStorage.setItem("verificationRequired", "1");
-                document.documentElement.style.setProperty("--verification-required-height", "3.2rem");
                 setLoadLogIn(false);
                 setErrorText(Number(response.data.error));
                 alertRef.current.showModal();

@@ -143,7 +143,7 @@ body {
 
 .verification-required svg {
     height: 2.2rem;
-    margin-right: 0.7rem;
+    margin: 0 0.7rem;
 }
 
 .navbar-links {
