@@ -1649,6 +1649,10 @@ label[for=custom-font-input] a {
     :root {
         --navbar-margin: 0.6rem;
     }
+    .verification-required span {
+        width: 80%;
+        font-size: 1.1rem;
+    }
     .navbar a {
         font-size: 1.2rem;
     }

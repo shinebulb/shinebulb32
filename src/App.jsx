@@ -101,6 +101,11 @@ function App() {
             font: localStorage.getItem("font") || "Roboto Slab"
         });
         setSavedList([]);
+        if (localStorage.getItem("verificationRequired") === "") {
+            localStorage.setItem("verificationRequired", "1");
+            setVerificationRequired(true);
+            document.documentElement.style.setProperty("--verification-required-height", "3.2rem");
+        }
         localStorage.removeItem("accessToken");
         themes[parseInt(localStorage.getItem("theme")) || 0](0);
         document.documentElement.style.setProperty("--font-family", localStorage.getItem("font")?.startsWith("https://fonts.googleapis.com") ? getFontFamily(localStorage.getItem("font")) : localStorage.getItem("font") || "Roboto Slab");

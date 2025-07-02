@@ -49,6 +49,11 @@ function LogIn({ bulb, settings, setSettings, setSavedList, setVerificationRequi
                 setTimeout(() => closeModal(alertRef), 1500);
             }
             else {
+                if (localStorage.getItem("verificationRequired") === "1") {
+                    localStorage.setItem("verificationRequired", "");
+                    setVerificationRequired(false);
+                    document.documentElement.style.setProperty("--verification-required-height", "0");
+                }
                 localStorage.setItem("accessToken", response.data.token);
                 setAuthState({
                     username: response.data.username,
