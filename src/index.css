@@ -211,6 +211,7 @@ body {
     font-family: var(--font-family);
     display: flex;
     min-width: 7rem;
+    min-height: 3rem;
     justify-content: center;
     background-color: var(--button-bg);
     color: var(--font);
