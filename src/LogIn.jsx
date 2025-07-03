@@ -134,7 +134,7 @@ function LogIn({ bulb, settings, setSettings, setSavedList, setVerificationRequi
                     }</button>
                 </div>
 
-                <dialog
+                <dialog closedby="any"
                     className="save-alert"
                     ref={alertRef}
                     style={{

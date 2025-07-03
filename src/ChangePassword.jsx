@@ -87,7 +87,7 @@ function ChangePassword({ settings }) {
                     : text[settings.language].changePassword[0]
                 }</button>
             </div>
-            <dialog
+            <dialog closedby="any"
                 className="save-alert"
                 ref={alertRef}
                 style={{

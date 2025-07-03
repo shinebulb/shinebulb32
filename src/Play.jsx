@@ -158,7 +158,7 @@ function Play({ bulb, settings, setSettings }) {
                 }</button>
                 <button onClick={() => modal.current.showModal()}>{text[settings.language].controls[1]}</button>
             </div>
-            <dialog ref={modal} className="confirm">
+            <dialog closedby="any" ref={modal} className="confirm">
                 <p>{text[settings.language].confirm[0]}</p>
                 <button onClick={resetCount} disabled={loadReset}>{
                     loadReset ? <span className="loader" style={{ width: "1rem", height: "1rem" }} />

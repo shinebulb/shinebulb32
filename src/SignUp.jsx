@@ -117,7 +117,7 @@ function SignUp({ settings, setVerificationRequired }) {
                         }</button>
                     </Form>
                 </Formik>
-                <dialog
+                <dialog closedby="any"
                     className="save-alert"
                     ref={alertRef}
                     style={{

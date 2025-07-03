@@ -170,7 +170,7 @@ function ThemeConstructor({ constructor, settings, setSettings, width }) {
     }
 
     return (
-        <dialog className="theme" ref={constructor}>
+        <dialog closedby="any" className="theme" ref={constructor}>
             <div className="instructions" style={{display: themeInstructionsDisplay}}>
                 <p>{text[settings.language].themeInstructions}</p>
                 <svg onClick={() => {localStorage.setItem("themeInstructionsDisplay", "none"); setThemeInstructionsDisplay("none")}} viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"><g id="Page-1" stroke="none" strokeWidth="1" fillRule="evenodd"><g id="work-case" transform="translate(91.520000, 91.520000)"><polygon id="Close" points={paths.cancel} /></g></g></svg>
@@ -256,7 +256,7 @@ function ThemeConstructor({ constructor, settings, setSettings, width }) {
                 </div>
             </div>
 
-            <dialog
+            <dialog closedby="any"
                 className="save-alert"
                 ref={alertRef}
                 style={{

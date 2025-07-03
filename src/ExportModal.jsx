@@ -55,7 +55,7 @@ function ExportModal({ exportModal, settings, savedList }) {
     }
 
     return (
-        <dialog ref={exportModal} className="export-modal">
+        <dialog closedby="any" ref={exportModal} className="export-modal">
             <p className="export-title">{text[settings.language].exportModal[0]}</p>
             <hr style={{marginBottom: "0.7rem"}} />
             <button onClick={selectAll} style={{marginBottom: "0.5rem"}} className="select-all">{text[settings.language].selectAll[Number(allSelected)]}</button>

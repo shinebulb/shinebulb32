@@ -53,7 +53,7 @@ function FontModal({ modal, settings, setSettings }) {
     }
 
     return (
-        <dialog ref={modal} className="font-modal">
+        <dialog closedby="any" ref={modal} className="font-modal">
             <h2>{text[settings.language].fontOptions[0]}</h2>
             <hr />
             <div className="radio-container">

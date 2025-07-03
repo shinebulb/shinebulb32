@@ -102,7 +102,7 @@ function Profile({ settings, bulb }) {
                     {text[settings.language].changePassword[0]}
                 </button>}
             </>}
-            <dialog ref={copyModal} className="copy-modal">
+            <dialog closedby="any" ref={copyModal} className="copy-modal">
                 <h2>{text[settings.language].pickCopyColors[0]}</h2>
                 <hr />
                 <div
