@@ -130,8 +130,8 @@ body {
 .reset-session button {
     font-family: var(--font-family);
     font-size: 1.1rem;
+    color: var(--font);
     background-color: transparent;
-    color: hsl(240, 100%, 60%);
     border: none;
     text-decoration: underline;
     cursor: pointer;
