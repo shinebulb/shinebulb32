@@ -93,6 +93,7 @@ function App() {
 
     function resetSession() {
         localStorage.removeItem("accessToken");
+        setStuckHere(false);
         window.location.reload();
     }
 
@@ -126,8 +127,8 @@ function App() {
                 <>
                     <AppLoader />
                     <div className="reset-session">
-                        <span>{test[settings.language].stuckHere[0]}</span>
-                        <button onClick={resetSession}>{test[settings.language].stuckHere[1]}</button>
+                        <span>{text[settings.language].stuckHere[0]}</span>
+                        <button onClick={resetSession}>{text[settings.language].stuckHere[1]}</button>
                     </div>
                 </>
                 : <>
