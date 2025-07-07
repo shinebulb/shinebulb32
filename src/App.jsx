@@ -39,6 +39,7 @@ function App() {
     const [verificationRequired, setVerificationRequired] = useState(Boolean(localStorage.getItem("verificationRequired")));
 
     const [loadApp, setLoadApp] = useState(true);
+    const [stuckHere, setStuckHere] = useState(false);
 
     useEffect(() => {
         themes[parseInt(localStorage.getItem("theme")) || 0](0);
@@ -49,6 +50,7 @@ function App() {
             `${import.meta.env.VITE_API_KEY}/users/auth`,
             { headers: { accessToken: localStorage.getItem("accessToken") } }
         ).then(response => {
+            setTimeout(() => { if (loadApp) setStuckHere(true) }, 2500);
             setAuthState(response.data.error ?
             { ...authState, status: false }
             : {
@@ -89,6 +91,11 @@ function App() {
     
     const bulb = useRef(null);
 
+    function resetSession() {
+        localStorage.removeItem("accessToken");
+        window.location.reload();
+    }
+
     function logout() {
         document.body.classList.add('theme-transition');
         setTimeout(() => document.body.classList.remove('theme-transition'), 500);
@@ -115,7 +122,14 @@ function App() {
     return (
         <AuthContext.Provider value={{ authState, setAuthState }}>
             <BrowserRouter>
-                {loadApp ? <AppLoader />
+                {loadApp ?
+                <>
+                    <AppLoader />
+                    <div className="reset-session">
+                        <span>{test[settings.language].stuckHere[0]}</span>
+                        <button onClick={resetSession}>{test[settings.language].stuckHere[1]}</button>
+                    </div>
+                </>
                 : <>
                     {settings.font.startsWith("https://fonts.googleapis.com") && <DynamicFontLoader settings={settings} />}
                     {verificationRequired &&
