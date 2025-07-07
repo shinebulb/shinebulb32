@@ -51,7 +51,7 @@ function SignUp({ settings, setVerificationRequired }) {
 
     function createUser(data) {
         setLoadSignUp(true);
-        axios.post(`${import.meta.env.VITE_API_KEY}/users`, data)
+        axios.post(`${import.meta.env.VITE_API_KEY}/users?lang=${settings.language}`, data)
         .then(response => {
             if (response.data.error) {
                 console.log(response.data.error);
