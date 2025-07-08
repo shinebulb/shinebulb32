@@ -9,9 +9,14 @@ import text from './assets/json/text.json';
 import { motion } from 'framer-motion';
 
 function Play({ bulb, settings, setSettings }) {
+
     const { authState } = useContext(AuthContext);
+    
+    const navigate = useNavigate();
+
     const [loadSwitch, setLoadSwitch] = useState(false);
     const [loadReset, setLoadReset] = useState(false);
+
     const [bulbMuted, setBulbMuted] = useState(parseInt(localStorage.getItem("bulbMuted")) || 0);
 
     useEffect(() => {
@@ -20,7 +25,6 @@ function Play({ bulb, settings, setSettings }) {
     }, []);
 
     const bulbStates = ["off", "on"];
-    const navigate = useNavigate();
     const modal = useRef(null);
 
     function updateCount() {

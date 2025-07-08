@@ -1819,6 +1819,12 @@ label[for=custom-font-input] a {
     .container {
         width: 80vw;
     }
+    .container label {
+        font-size: 1.3rem;
+    }
+    .container select {
+        font-size: 1.3rem;
+    }
     .p1, a, h2 {
         font-size: 1.35rem;
     }
@@ -2139,8 +2145,8 @@ label[for=custom-font-input] a {
         padding: 0.5rem 0.7rem;
     }
     .explore-fonts svg {
-        height: 1.6rem;
-        margin-right: 0.4rem;
+        height: 1.3rem;
+        margin-right: 0.5rem;
     }
     .font-modal h2 {
         font-size: 1.2rem;
