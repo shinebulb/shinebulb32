@@ -153,9 +153,35 @@ function Play({ bulb, settings, setSettings }) {
             exit={{opacity: 0}}
             transition={{duration: 0.5}}
         >
-            {/* ... rest of your JSX remains the same ... */}
+            <div className="play-heading">
+                <svg viewBox="-0.5 0 25 25" fill="none" />
+                <h2>{text[settings.language].headings[0]}</h2>
+                {bulbMuted ? <svg onClick={() => {setBulbMuted(0); localStorage.setItem("bulbMuted", 0)}} viewBox="-0.5 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg"><title>{text[settings.language].bulbMuteUnmute[1]}</title><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"/><g id="SVGRepo_iconCarrier"><path d={paths.soundOff[0]} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/><path d={paths.soundOff[1]} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/><path d={paths.soundOff[2]} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></g></svg>
+                : <svg onClick={() => {setBulbMuted(1); localStorage.setItem("bulbMuted", 1)}} viewBox="-0.5 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg"><title>{text[settings.language].bulbMuteUnmute[0]}</title><g id="SVGRepo_bgCarrier" strokeWidth="0"/><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"/><g id="SVGRepo_iconCarrier"><path d={paths.soundOn[0]} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/><path d={paths.soundOn[1]} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/><path d={paths.soundOn[2]} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></g></svg>}
+            </div>
+            <p className="p1" id="text">{text[settings.language].text[bulbStates.indexOf(settings.bulbStatus)]}</p>
+            <label htmlFor="switch">
+                <img ref={bulb} src={`img/${settings.bulbStatus}.svg`} alt="the lightbulb" />
+            </label>
+            <div className="controls">
+                <button onClick={updateCount} disabled={loadSwitch} id="switch">{
+                    loadSwitch ? <span className="loader" style={{ width: "1rem", height: "1rem" }} />
+                    : text[settings.language].controls[0]
+                }</button>
+                <button onClick={() => modal.current.showModal()}>{text[settings.language].controls[1]}</button>
+            </div>
+            <dialog closedby="any" ref={modal} className="confirm">
+                <p>{text[settings.language].confirm[0]}</p>
+                <button onClick={resetCount} disabled={loadReset}>{
+                    loadReset ? <span className="loader" style={{ width: "1rem", height: "1rem" }} />
+                    : text[settings.language].confirm[1]
+                }</button>
+                <button onClick={() => closeModal(modal)}>{text[settings.language].confirm[2]}</button>
+            </dialog>
+            <h2 id="counter">{settings.bulbCount || 0}</h2>
+            <a onClick={() => navigate("/")}>{text[settings.language].back}</a>
         </motion.div>
     )
 }
 
-export default Play;
+export default Play
