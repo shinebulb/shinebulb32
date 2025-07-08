@@ -1,42 +1,42 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400&display=swap');
 
 @font-face {
-    font-family: 'Consolas';
+    font-family: consolas;
     src: url('./assets/fonts/Consolas.ttf')  format('tff');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'Trebuchet MS';
+    font-family: 'trebuchet ms';
     src: url('./assets/fonts/TrebuchetMS.ttf')  format('tff');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'Verdana';
+    font-family: verdana;
     src: url('./assets/fonts/Verdana.ttf')  format('tff');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'Georgia';
+    font-family: georgia;
     src: url('./assets/fonts/Georgia.ttf')  format('tff');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'Palatino';
+    font-family: palatino;
     src: url('./assets/fonts/Palatino.ttf')  format('tff');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'Garamond';
+    font-family: garamond;
     src: url('./assets/fonts/Garamond.ttf')  format('tff');
     font-weight: normal;
     font-style: normal;
