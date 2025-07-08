@@ -13,19 +13,6 @@ function Play({ bulb, settings, setSettings }) {
     const [loadSwitch, setLoadSwitch] = useState(false);
     const [loadReset, setLoadReset] = useState(false);
     const [bulbMuted, setBulbMuted] = useState(parseInt(localStorage.getItem("bulbMuted")) || 0);
-    const lastMilestonePlayed = useRef(null);
-
-    function playMilestoneSound(count) {
-        if (!bulbMuted) {
-            // Check if this is a milestone count and we haven't played it yet
-            if ((count === 100 || count === 1000 || count === 10000) && 
-                lastMilestonePlayed.current !== count) {
-                
-                new Audio(`audio/${count}.mp3`).play();
-                lastMilestonePlayed.current = count; // Remember we played this milestone
-            }
-        }
-    }
 
     useEffect(() => {
         document.title = text[settings.language].links[0].toLowerCase();
@@ -68,9 +55,6 @@ function Play({ bulb, settings, setSettings }) {
                     bulbCount: count.data,
                     bulbStatus: status.data
                 });
-                if (newStatus === "on") {
-                    playMilestoneSound(newCount);
-                }
                 playMilestoneSound(count.data);
                 if (!bulbMuted) new Audio(`audio/${status.data}.mp3`).play();
                 bulb.current.classList.toggle("on");
@@ -91,9 +75,7 @@ function Play({ bulb, settings, setSettings }) {
                 bulbCount: newCount,
                 bulbStatus: settings.bulbStatus === "off" ? "on" : "off"
             });
-            if (newStatus === "on") {
-                    playMilestoneSound(newCount);
-                }
+            playMilestoneSound(newCount);
             if (!bulbMuted) new Audio(`audio/${settings.bulbStatus === "off" ? "on" : "off"}.mp3`).play();
             bulb.current.classList.toggle("on");
             localStorage.setItem("bulbCount", newCount);
@@ -128,6 +110,7 @@ function Play({ bulb, settings, setSettings }) {
                     bulbCount: count.data,
                     bulbStatus: status.data
                 });
+                playMilestoneSound(count.data);
                 if (!bulbMuted) new Audio(`audio/off.mp3`).play();
                 bulb.current.classList.remove("on");
                 closeModal(modal);
@@ -138,7 +121,6 @@ function Play({ bulb, settings, setSettings }) {
                     }, 200);
                     themes[settings.theme]();
                 }
-                lastMilestonePlayed.current = null;
             }));
         }
         else {
@@ -147,7 +129,7 @@ function Play({ bulb, settings, setSettings }) {
                 bulbCount: 0,
                 bulbStatus: "off"
             });
-            lastMilestonePlayed.current = null;
+            playMilestoneSound(0);
             localStorage.removeItem("bulbCount");
             localStorage.removeItem("bulbStatus");
             if (!bulbMuted) new Audio(`audio/off.mp3`).play();
