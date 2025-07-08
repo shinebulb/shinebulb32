@@ -111,7 +111,6 @@ body {
     justify-content: center;
     align-items: center;
     background-color: var(--bg);
-    overflow: hidden;
 }
 
 .theme-transition {
