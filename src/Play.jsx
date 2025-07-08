@@ -23,18 +23,6 @@ function Play({ bulb, settings, setSettings }) {
     const navigate = useNavigate();
     const modal = useRef(null);
 
-    function playMilestoneSound(count) {
-        if (!bulbMuted) {
-            if (count === 100) {
-                new Audio('audio/100.mp3').play();
-            } else if (count === 1000) {
-                new Audio('audio/1000.mp3').play();
-            } else if (count === 10000) {
-                new Audio('audio/10000.mp3').play();
-            }
-        }
-    }
-
     function updateCount() {
         if (authState.status) {
             setLoadSwitch(true);
@@ -55,8 +43,10 @@ function Play({ bulb, settings, setSettings }) {
                     bulbCount: count.data,
                     bulbStatus: status.data
                 });
-                playMilestoneSound(count.data);
-                if (!bulbMuted) new Audio(`audio/${status.data}.mp3`).play();
+                if (!bulbMuted) {
+                    new Audio(`audio/${status.data}.mp3`).play();
+                    if (status.data === "on") new Audio(`audio/${count.data}.mp3`).play();
+                }
                 bulb.current.classList.toggle("on");
                 setLoadSwitch(false);
                 if (settings.invertTheme) {
@@ -69,17 +59,20 @@ function Play({ bulb, settings, setSettings }) {
             }));
         }
         else {
-            const newCount = settings.bulbStatus === "off" ? settings.bulbCount + 1 : settings.bulbCount;
+            const curCount = settings.bulbStatus === "off" ? settings.bulbCount + 1 : settings.bulbCount;
+            const curStatus = settings.bulbStatus === "off" ? "on" : "off"
             setSettings({
                 ...settings,
-                bulbCount: newCount,
-                bulbStatus: settings.bulbStatus === "off" ? "on" : "off"
+                bulbCount: curCount,
+                bulbStatus: curStatus
             });
-            playMilestoneSound(newCount);
-            if (!bulbMuted) new Audio(`audio/${settings.bulbStatus === "off" ? "on" : "off"}.mp3`).play();
+            if (!bulbMuted) {
+                new Audio(`audio/${curStatus}.mp3`).play();
+                if (curStatus === "on") new Audio(`audio/${curCount}.mp3`).play();
+            }
             bulb.current.classList.toggle("on");
-            localStorage.setItem("bulbCount", newCount);
-            localStorage.setItem("bulbStatus", settings.bulbStatus === "off" ? "on" : "off");
+            localStorage.setItem("bulbCount", curCount);
+            localStorage.setItem("bulbStatus", curStatus);
             if (settings.invertTheme) {
                 document.body.classList.add('theme-transition');
                 setTimeout(() => {
@@ -110,7 +103,6 @@ function Play({ bulb, settings, setSettings }) {
                     bulbCount: count.data,
                     bulbStatus: status.data
                 });
-                playMilestoneSound(count.data);
                 if (!bulbMuted) new Audio(`audio/off.mp3`).play();
                 bulb.current.classList.remove("on");
                 closeModal(modal);
@@ -129,7 +121,6 @@ function Play({ bulb, settings, setSettings }) {
                 bulbCount: 0,
                 bulbStatus: "off"
             });
-            playMilestoneSound(0);
             localStorage.removeItem("bulbCount");
             localStorage.removeItem("bulbStatus");
             if (!bulbMuted) new Audio(`audio/off.mp3`).play();
