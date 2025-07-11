@@ -14,7 +14,7 @@ function FontModal({ modal, settings, setSettings }) {
     const [font, setFont] = useState(settings.font.startsWith("https://fonts.googleapis.com") ? "roboto slab" : settings.font);
     const [link, setLink] = useState(settings.font.startsWith("https://fonts.googleapis.com") ? settings.font : "");
 
-    const fonts = ["roboto slab", "consolas", "trebuchet ms", "helvetica", "verdana", "georgia", "palatino", "garamond"];
+    const fonts = ["roboto slab", "source code pro", "karla", "roboto", "open sans", "crimson text", "eb garamond"];
     
     const handleOptionChange = (event) => {
         setPreferred(event.target.value);
