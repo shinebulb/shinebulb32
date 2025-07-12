@@ -706,8 +706,8 @@ h2 {
 
 #toggle-info {
     font-family: "Roboto Slab";
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 1.4rem;
+    height: 1.4rem;
     background-color: var(--button-bg);
     color: var(--button-font);
     border: var(--border-thin);
@@ -2143,10 +2143,10 @@ label[for=custom-font-input] a {
     .explore-fonts {
         font-size: 1.2rem;
         border-radius: 12px;
-        padding: 0.5rem 0.9rem;
+        padding: 0.4rem 0.7rem;
     }
     .explore-fonts svg {
-        height: 1.3rem;
+        height: 1.1rem;
     }
     .font-modal h2 {
         font-size: 1.2rem;
