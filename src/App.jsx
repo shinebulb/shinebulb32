@@ -45,12 +45,12 @@ function App() {
         themes[parseInt(localStorage.getItem("theme")) || 0](0);
         document.documentElement.style.setProperty("--font-family", localStorage.getItem("font")?.startsWith("https://fonts.googleapis.com") ? getFontFamily(localStorage.getItem("font")) : localStorage.getItem("font") || "Roboto Slab");
         document.documentElement.style.setProperty("--verification-required-height", verificationRequired ? "3.2rem" : "0");
+        setTimeout(() => { if (loadApp) setStuckHere(true) }, 2500);
         let id = 0;
         axios.get(
             `${import.meta.env.VITE_API_KEY}/users/auth`,
             { headers: { accessToken: localStorage.getItem("accessToken") } }
         ).then(response => {
-            setTimeout(() => { if (loadApp) setStuckHere(true) }, 2500);
             setAuthState(response.data.error ?
             { ...authState, status: false }
             : {
@@ -126,7 +126,7 @@ function App() {
                 {loadApp ?
                 <>
                     <AppLoader />
-                    <div className="reset-session">
+                    <div className="reset-session" style={{ visibility: stuckHere ? "visible" : "hidden"}}>
                         <span>{text[settings.language].stuckHere[0]}</span>
                         <button onClick={resetSession}>{text[settings.language].stuckHere[1]}</button>
                     </div>

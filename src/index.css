@@ -118,22 +118,24 @@ body {
 }
 
 .reset-session {
-    margin-top: 1rem;
+    margin-top: 2rem;
 }
 
 .reset-session span {
     color: var(--font);
-    font-size: 1.1rem;
-    margin-right: 0.5rem;
+    font-size: 1.3rem;
+    margin-right: 1.3rem;
 }
 
 .reset-session button {
     font-family: var(--font-family);
-    font-size: 1.1rem;
-    color: var(--font);
-    background-color: transparent;
-    border: none;
-    text-decoration: underline;
+    font-size: 1.2rem;
+    color: var(--button-font);
+    background-color: var(--button-bg);
+    border: var(--border-thick);
+    border-radius: 15px;
+    padding: 0.5rem 1.2rem;
+    transition: 0.3s background-color ease;
     cursor: pointer;
 }
 
@@ -884,6 +886,7 @@ a:hover {
 .font-option-actions button:hover,
 .toggle-info-modal button:hover,
 .export-options button:hover,
+.reset-session button:hover,
 #close-export-modal:hover,
 .confirm button:hover,
 .confirm button:hover,
@@ -1670,6 +1673,22 @@ label[for=custom-font-input] a {
 @media only screen and (max-width: 600px) {
     :root {
         --navbar-margin: 0.6rem;
+    }
+    .reset-session {
+        display: flex;
+        flex-direction: column;
+        margin-top: 1.5rem;
+    }
+    .reset-session span {
+        font-size: 1.2rem;
+        margin: 0 0 0.7rem;
+    }
+    .reset-session button {
+        width: 10rem;
+        font-size: 1.1rem;
+        border-radius: 15px;
+        padding: 0.4rem 0;
+        margin: auto;
     }
     .verification-required span {
         width: 80%;
