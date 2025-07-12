@@ -23,7 +23,7 @@ function RepoMenu({ settings }) {
                     <a className="devpage-link" target="_blank" href="https://github.com/shinebulb/shinebulb-client">
                         shinebulb 3
                     </a>
-                    <a className="devpage-link" target="_blank" href="https://github.com/aldortheold/shinebulb-3-1">
+                    <a className="devpage-link" target="_blank" href="https://github.com/shinebulb/shinebulb32">
                         shinebulb ≥3.1
                     </a>
                 </div> :
