@@ -8,6 +8,7 @@ import ToggleInfo from './ToggleInfo';
 import themes from './assets/themes';
 import closeModal from './assets/closeModal';
 import editingField from './assets/editingField';
+import getFontFamily from './assets/getFontFamily';
 import text from './assets/json/text.json';
 import paths from './assets/json/svg-paths.json';
 import modes from './assets/json/modes.json';
@@ -52,6 +53,8 @@ function Settings({ settings, setSettings }) {
         borderBottomColor: "transparent",
         marginRight: "0.7rem"
     };
+
+    const fontDisplay = settings.font.startsWith("https://fonts.googleapis.com") ? getFontFamily(settings.font) : settings.font;
 
     function openConstructor(event) {
 
@@ -208,7 +211,7 @@ function Settings({ settings, setSettings }) {
                 <label className="settingName" style={{textAlign: "left"}}>{text[settings.language].fontFamily}</label>
                 <button className="explore-fonts" onClick={() => fontRef.current.showModal()}>
                     <svg fill="var(--button-font)" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d={paths.rename[0]}/><path fillRule="evenodd" clipRule="evenodd" d={paths.rename[1]}/></svg>
-                    {settings.font}
+                    <span>{fontDisplay.toLowerCase()}</span>
                 </button>
             </div>
             <div style={{height: "3rem"}} />
