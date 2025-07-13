@@ -216,7 +216,7 @@ function Settings({ settings, setSettings }) {
             </div>
             <div style={{height: "3rem"}} />
             <div className="container">
-                <label style={{fontStyle: "italic", fontSize: "1rem", width: "18ch", textAlign: "left"}}>
+                <label style={{fontStyle: "italic", fontSize: "1rem", width: "20ch", textAlign: "left"}}>
                     {text[settings.language].invertTheme}
                     <button id="toggle-info" onClick={() => infoRef.current.showModal()}>i</button>
                 </label>
