@@ -6,7 +6,7 @@ import getFontFamily from './assets/getFontFamily';
 import text from './assets/json/text.json';
 import paths from './assets/json/svg-paths.json';
 
-function FontModal({ modal, settings, setSettings }) {
+function FontModal({ modal, settings, setSettings, width }) {
 
     const { authState } = useContext(AuthContext);
 
@@ -98,7 +98,7 @@ function FontModal({ modal, settings, setSettings }) {
             <hr />
             <div className="font-option-actions">
                 <button id="apply-font" onClick={fontChange} disabled={preferred == "custom" && link == ""} style={{opacity: preferred == "custom" && link == "" ? 0.5 : 1, cursor: preferred == "custom" && link == "" ? "not-allowed" : "pointer"}}>
-                    {loadFont ? <span className="loader" style={{ margin: "0.2rem 0", width: "1.2rem", height: "1.2rem" }} />
+                    {loadFont ? <span className="loader" style={{ margin: width >= 600 ? "0.4rem 0" : "0.2rem 0", width: "1.2rem", height: "1.2rem" }} />
                     : <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d={paths.apply} stroke="var(--button-font)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>}
                 </button>
                 <button id="close-font-modal" onClick={() => closeModal(modal)}>

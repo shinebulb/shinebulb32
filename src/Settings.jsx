@@ -239,7 +239,7 @@ function Settings({ settings, setSettings }) {
                 setSettings={setSettings}
                 width={width}
             />
-            <FontModal modal={fontRef} settings={settings} setSettings={setSettings} />
+            <FontModal modal={fontRef} settings={settings} setSettings={setSettings} width={width} />
             <ToggleInfo info={infoRef} settings={settings} />
         </motion.div>
     );
