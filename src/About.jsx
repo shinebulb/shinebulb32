@@ -19,6 +19,7 @@ function About({ settings }) {
             exit={{opacity: 0}}
             transition={{duration: 0.5}}
         >
+            <div style={{ height: "3rem" }} />
             <h2>{text[settings.language].headings[2]}</h2>
             <p className="p1">{text[settings.language].about[0]}</p>
             <div style={{height: "1rem"}} />
