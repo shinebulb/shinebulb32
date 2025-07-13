@@ -594,8 +594,8 @@ body {
     background-color: var(--button-bg);
     color: var(--button-font);
     border: var(--border-thick);
-    min-width: 8.2rem;
-    min-height: 2.5rem;
+    width: 8.2rem;
+    height: 2.5rem;
     font-size: 1.1rem;
     border-radius: 10px;
     margin: 0.5rem 0.3rem;
@@ -1774,8 +1774,8 @@ label[for=custom-font-input] a {
         height: 230px;
     }
     .controls button {
-        min-width: 7.2rem;
-        min-height: 2.2rem;
+        width: 7.2rem;
+        height: 2.2rem;
         font-size: 1.1rem;
         margin: 0.5rem 0.3rem;
         padding: 0.4rem 1rem;

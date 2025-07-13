@@ -160,7 +160,7 @@ function Play({ bulb, settings, setSettings }) {
             </label>
             <div className="controls">
                 <button onClick={updateCount} disabled={loadSwitch} id="switch">{
-                    loadSwitch ? <span className="loader" style={{ width: "1rem", height: "1rem" }} />
+                    loadSwitch ? <span className="loader" style={{ width: "0.9rem", height: "0.9rem" }} />
                     : text[settings.language].controls[0]
                 }</button>
                 <button onClick={() => modal.current.showModal()}>{text[settings.language].controls[1]}</button>
