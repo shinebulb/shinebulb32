@@ -14,6 +14,8 @@ function FontModal({ modal, settings, setSettings }) {
     const [font, setFont] = useState(settings.font.startsWith("https://fonts.googleapis.com") ? "roboto slab" : settings.font);
     const [link, setLink] = useState(settings.font.startsWith("https://fonts.googleapis.com") ? settings.font : "");
 
+    const [loadFont, setLoadFont] = useState(false);
+
     const fonts = ["roboto slab", "source code pro", "open sans", "shantell sans", "roboto", "eb garamond"];
     
     const handleOptionChange = (event) => {
@@ -34,6 +36,7 @@ function FontModal({ modal, settings, setSettings }) {
             closeModal(modal);
         }
         else {
+            setLoadFont(true);
             axios.put(
                 `${import.meta.env.VITE_API_KEY}/users/changeFont`,
                 { font: preferred == "default" ? font : link, id: authState.id },
@@ -47,6 +50,7 @@ function FontModal({ modal, settings, setSettings }) {
                     document.documentElement.style.setProperty("--font-family", getFontFamily(response.data));
                     setSettings({...settings, font: response.data});
                 }
+                setLoadFont(false);
                 closeModal(modal);
             });
         }
@@ -94,7 +98,8 @@ function FontModal({ modal, settings, setSettings }) {
             <hr />
             <div className="font-option-actions">
                 <button id="apply-font" onClick={fontChange} disabled={preferred == "custom" && link == ""} style={{opacity: preferred == "custom" && link == "" ? 0.5 : 1, cursor: preferred == "custom" && link == "" ? "not-allowed" : "pointer"}}>
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d={paths.apply} stroke="var(--button-font)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                    {loadFont ? <span className="loader" style={{ margin: "0.2rem 0", width: "1.2rem", height: "1.2rem" }} />
+                    : <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d={paths.apply} stroke="var(--button-font)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>}
                 </button>
                 <button id="close-font-modal" onClick={() => closeModal(modal)}>
                     <svg viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"><g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd"><g id="work-case" fill="var(--button-font)" transform="translate(91.520000, 91.520000)"><polygon id="Close" points={paths.cancel} /></g></g></svg>

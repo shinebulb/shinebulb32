@@ -21,6 +21,7 @@ function Settings({ settings, setSettings }) {
 
     const [loadLang, setLoadLang] = useState(false);
     const [loadTheme, setLoadTheme] = useState(false);
+    const [loadToggle, setLoadToggle] = useState(false);
     
     const [width, setWidth] = useState(window.innerWidth);
     
@@ -155,6 +156,7 @@ function Settings({ settings, setSettings }) {
             themes[settings.theme](0);
         }
         else {
+            setLoadToggle(true);
             axios.put(
                 `${import.meta.env.VITE_API_KEY}/users/invertTheme`,
                 { invertTheme: invert, id: authState.id },
@@ -163,6 +165,7 @@ function Settings({ settings, setSettings }) {
                 setSettings(
                     { ...settings, invertTheme: response.data || invert }
                 );
+                setLoadToggle(false);
                 document.body.classList.add('theme-transition');
                 setTimeout(() => {
                     document.body.classList.remove('theme-transition');
@@ -209,7 +212,7 @@ function Settings({ settings, setSettings }) {
             <div style={{ height: "3rem" }} />
             <div className="container">
                 <label className="settingName" style={{textAlign: "left"}}>{text[settings.language].fontFamily}</label>
-                <button className="explore-fonts" onClick={() => fontRef.current.showModal()}>
+                <button className="explore-fonts" onClick={() => fontRef.current.showModal()} title={fontDisplay.toLowerCase()}>
                     <svg fill="var(--button-font)" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d={paths.rename[0]}/><path fillRule="evenodd" clipRule="evenodd" d={paths.rename[1]}/></svg>
                     <span>{fontDisplay.toLowerCase()}</span>
                 </button>
@@ -220,9 +223,12 @@ function Settings({ settings, setSettings }) {
                     {text[settings.language].invertTheme}
                     <button id="toggle-info" onClick={() => infoRef.current.showModal()}>i</button>
                 </label>
-                <div className="toggle">
+                <div>
+                    {!loadToggle && <span className="loader" style={loaderStyles} />}
+                    <div className="toggle">
                     <input type="checkbox" id="switch" checked={settings.invertTheme} onChange={toggleInvertTheme} />
                     <label htmlFor="switch" />
+                </div>
                 </div>
             </div>
             <div style={{ height: "4rem" }} />
