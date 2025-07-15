@@ -267,7 +267,7 @@ function ThemeConstructor({ constructor, settings, setSettings, width }) {
                 <div>
                     <p>
                         {text[settings.language].savedStatus[saveStatus][0]}
-                        <span onClick={() => navigate("/saved")} style={{textDecoration: "underline", color: "blue", cursor: "pointer"}}>
+                        <span onClick={() => navigate("/savedthemes")} style={{textDecoration: "underline", color: "blue", cursor: "pointer"}}>
                             {text[settings.language].savedStatus[saveStatus][1]}
                         </span>!
                     </p>

@@ -10,6 +10,7 @@ import About from './About';
 import Support from './Support';
 import DevPage from './DevPage';
 import SavedThemes from './SavedThemes';
+import SavedFonts from './SavedFonts';
 import LogIn from './LogIn';
 import SignUp from './SignUp';
 import Verify from './Verify';
@@ -164,7 +165,8 @@ function App() {
                         <Route path="/about" element={<About settings={settings} />} />
                         <Route path="/support" element={<Support settings={settings} />} />
                         <Route path="/development" element={<DevPage settings={settings} />} />
-                        <Route path="/saved" element={<SavedThemes settings={settings} setSettings={setSettings} savedList={savedList} setSavedList={setSavedList} />} />
+                        <Route path="/savedthemes" element={<SavedThemes settings={settings} setSettings={setSettings} savedList={savedList} setSavedList={setSavedList} />} />
+                        <Route path="/savedfonts" element={<SavedFonts settings={settings} setSettings={setSettings} />} />
                         <Route path="/login" element={<LogIn bulb={bulb} settings={settings} setSettings={setSettings} setSavedList={setSavedList} setVerificationRequired={setVerificationRequired} />} />
                         <Route path="/signup" element={<SignUp settings={settings} setVerificationRequired={setVerificationRequired} />} />
                         <Route path="/verify" element={<Verify settings={settings} setVerificationRequired={setVerificationRequired} />} />

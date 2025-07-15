@@ -77,7 +77,7 @@ function Settings({ settings, setSettings }) {
     function navigateSaved(event) {
         const key = event.key.toLowerCase();
         if (editingField(event.target)) return;
-        if (key == "s" || key == "ы") navigate("/saved")
+        if (key == "s" || key == "ы") navigate("/savedthemes")
     }
 
     function themeChange(event) {
@@ -113,7 +113,7 @@ function Settings({ settings, setSettings }) {
             constructorRef.current.showModal();
         }
         else if (mode === 4) {
-            navigate("/saved");
+            navigate("/savedthemes");
         }
     }
 
