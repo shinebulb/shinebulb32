@@ -15,12 +15,21 @@ function FontModal({ modal, settings, setSettings, width }) {
     const [link, setLink] = useState(settings.font.startsWith("https://fonts.googleapis.com") ? settings.font : "");
 
     const [loadFont, setLoadFont] = useState(false);
+    const [loadSelect, setLoadSelect] = useState(false);
     const [selected, setSelected] = useState(false);
 
     const fonts = ["roboto slab", "source code pro", "open sans", "shantell sans", "roboto", "eb garamond"];
 
     function saveFont() {
-        setSelected(!selected)
+        setLoadSelect(true);
+        axios.post(
+            `${import.meta.env.VITE_API_KEY}/savedfonts`,
+            { url: link },
+            { headers: { accessToken: localStorage.getItem("accessToken") } }
+        ).then(response => {
+            setLoadSelect(false);
+            setSelected(true);
+        });
     }
 
     function fontChange() {
@@ -94,10 +103,13 @@ function FontModal({ modal, settings, setSettings, width }) {
                         </label>
                         <input type="text" id="custom-font-input" placeholder={text[settings.language].customFont[1]} value={link} onChange={(e) => setLink(e.target.value)} disabled={preferred !== 'custom'}/>
                         <div className="save-font">
-                            <button id="add-to-collection" onClick={saveFont} style={{backgroundColor: selected ? "var(--button-font)" : "var(--modal-button-bg)"}}>
+                            {loadSelect ? <span className="loader" style={{ margin: "0 0.6rem 0 0.1rem", width: "1.2rem", height: "1.2rem" }} />
+                            : <button id="add-to-collection" onClick={saveFont} style={{backgroundColor: selected ? "var(--button-font)" : "var(--modal-button-bg)"}}>
                                 <svg stroke={selected ? "var(--modal-button-bg)" : "transparent"} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d={paths.apply} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                            </button>
-                            <label htmlFor="add-to-collection">add to collection</label>
+                            </button>}
+                            <label htmlFor="add-to-collection">
+                                {selected ? "added to collection" : "add to collection"}
+                            </label>
                         </div>
                     </div>
                 </div>
