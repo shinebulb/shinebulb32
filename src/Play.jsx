@@ -53,13 +53,7 @@ function Play({ bulb, settings, setSettings }) {
                 }
                 bulb.current.classList.toggle("on");
                 setLoadSwitch(false);
-                if (settings.invertTheme) {
-                    document.body.classList.add('theme-transition');
-                    setTimeout(() => {
-                        document.body.classList.remove('theme-transition');
-                    }, 200);
-                    themes[settings.theme]();
-                }
+                if (settings.invertTheme) themes[settings.theme]();
             }));
         }
         else {
@@ -110,13 +104,7 @@ function Play({ bulb, settings, setSettings }) {
                 if (!bulbMuted) new Audio(`audio/off.mp3`).play();
                 bulb.current.classList.remove("on");
                 closeModal(modal);
-                if (settings.invertTheme) {
-                    document.body.classList.add('theme-transition');
-                    setTimeout(() => {
-                        document.body.classList.remove('theme-transition');
-                    }, 200);
-                    themes[settings.theme]();
-                }
+                if (settings.invertTheme) themes[settings.theme]();
             }));
         }
         else {

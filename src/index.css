@@ -458,7 +458,6 @@ body {
     position: relative;
     align-items: center;
     width: 480px;
-    height: 260px;
     border-radius: 20px;
     padding: 1rem 2rem;
 }
@@ -494,7 +493,6 @@ body {
 .change-password {
     font-family: var(--font-family);
     position: absolute;
-    top: calc(50% + 146px);
     left: 0;
     right: 0;
     width: 25rem;
@@ -1783,7 +1781,6 @@ label[for=custom-font-input] a {
     .profile {
         flex-direction: column;
         width: 220px;
-        height: 380px;
     }
     .user-info {
         text-align: center;
@@ -1804,7 +1801,6 @@ label[for=custom-font-input] a {
         margin: 0 0 1.8rem 0;
     }
     .change-password {
-        top: calc(50% + 206px);
         width: 13rem;
         height: 2.8rem;
         border-radius: 0 0 15px 15px;

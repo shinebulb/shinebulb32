@@ -224,11 +224,11 @@ function Settings({ settings, setSettings }) {
                     <button id="toggle-info" onClick={() => infoRef.current.showModal()}>i</button>
                 </label>
                 <div>
-                    {loadToggle && <span className="loader" style={loaderStyles} />}
+                    {width >= 600 && loadToggle && <span className="loader" style={loaderStyles} />}
                     <div className="toggle">
-                    <input type="checkbox" id="switch" checked={settings.invertTheme} onChange={toggleInvertTheme} />
-                    <label htmlFor="switch" />
-                </div>
+                        <input type="checkbox" id="switch" checked={settings.invertTheme} onChange={toggleInvertTheme} />
+                        <label htmlFor="switch" />
+                    </div>
                 </div>
             </div>
             <div style={{ height: "4rem" }} />

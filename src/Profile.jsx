@@ -18,6 +18,8 @@ function Profile({ settings, bulb }) {
     const { authState } = useContext(AuthContext);
 
     const [user, setUser] = useState({});
+
+    const [width, setWidth] = useState(window.innerWidth);
     
     const [loadUser, setLoadUser] = useState(false);
 
@@ -35,6 +37,7 @@ function Profile({ settings, bulb }) {
         setStrokeCopied(false);
         setFontCopied(false);
         document.title = username;
+        window.addEventListener("resize", () => setWidth(window.innerWidth));
         axios.get(`${import.meta.env.VITE_API_KEY}/users/userinfo/${username}`)
         .then(response => {
             if (response.data) {
@@ -45,6 +48,7 @@ function Profile({ settings, bulb }) {
                 navigate("/nouser");
             }
         });
+        return () =>  window.removeEventListener("resize", () => setWidth(window.innerWidth));
     }, [username]);
 
     const customFont = user.font && user.font.startsWith("https://fonts.googleapis.com");
@@ -67,7 +71,11 @@ function Profile({ settings, bulb }) {
     return (
         <motion.div
             className='profile'
-            style={{backgroundColor: (!loadUser && userTheme[bg][user?.theme || 0]), border: (!loadUser && `${userTheme[font][user?.theme || 0]} 3px solid`)}}
+            style={{
+                height: width >= 600 ? "260px" : (settings.language === 1 ? "420px" : "380px"),
+                backgroundColor: (!loadUser && userTheme[bg][user?.theme || 0]),
+                border: (!loadUser && `${userTheme[font][user?.theme || 0]} 3px solid`)
+            }}
             initial={{opacity: 0}}
             animate={{opacity: 1}}
             exit={{opacity: 0}}
@@ -98,7 +106,13 @@ function Profile({ settings, bulb }) {
                     </h2>
                 </div>
                 {userMatch &&
-                <button className="change-password" onClick={() => navigate("/changepassword")}>
+                <button
+                    className="change-password"
+                    style={{
+                        top: width >= 600 ? "calc(50% + 146px)" : (settings.language === 1 ? "calc(50% + 226px)" : "calc(50% + 206px)"),
+                    }}
+                    onClick={() => navigate("/changepassword")}
+                >
                     {text[settings.language].changePassword[0]}
                 </button>}
             </>}
