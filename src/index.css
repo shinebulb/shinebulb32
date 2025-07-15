@@ -1991,7 +1991,7 @@ label[for=custom-font-input] a {
         margin: 0;
     }
     .saved-display > *:last-child:nth-child(2n+1) {
-        width: 100%;
+        width: 86vw;
     }
     .theme-card {
         width: 86vw;
