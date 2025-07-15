@@ -1598,6 +1598,33 @@ label[for=custom-font-input] a {
     margin-top: 0.7rem;
 }
 
+.save-font {
+    display: flex;
+    text-align: left;
+    align-items: center;
+    margin-top: 0.6rem;
+}
+
+.save-font button {
+    width: 1.4rem;
+    height: 1.4rem;
+    border: var(--border-thick);
+    border-radius: 8px;
+    padding: 0;
+    margin: auto 0.5rem auto 0;
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+}
+
+.save-font svg {
+    height: 1.1rem;
+}
+
+.save-font label {
+    font-size: 1.05rem;
+    cursor: pointer;
+}
+
 .font-option-actions button {
     width: 50%;
     height: 2.6rem;

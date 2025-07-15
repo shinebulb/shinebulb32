@@ -15,12 +15,13 @@ function FontModal({ modal, settings, setSettings, width }) {
     const [link, setLink] = useState(settings.font.startsWith("https://fonts.googleapis.com") ? settings.font : "");
 
     const [loadFont, setLoadFont] = useState(false);
+    const [selected, setSelected] = useState(false);
 
     const fonts = ["roboto slab", "source code pro", "open sans", "shantell sans", "roboto", "eb garamond"];
-    
-    const handleOptionChange = (event) => {
-        setPreferred(event.target.value);
-    };
+
+    function saveFont() {
+        setSelected(!selected)
+    }
 
     function fontChange() {
         if (!authState.status) {
@@ -64,13 +65,13 @@ function FontModal({ modal, settings, setSettings, width }) {
                 <div className="option-container">
                     <label className="font-option-name">
                         <div className="radio-input">
-                            <input type="radio" name="font-option" value="default" checked={preferred === 'default'} onChange={handleOptionChange} />
+                            <input type="radio" name="font-option" value="default" checked={preferred === "default"} onChange={() => setPreferred("default")} />
                             <svg id="default-check-mark" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d={paths.apply} stroke="var(--modal-button-bg)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
                         </div>
                         {text[settings.language].fontOptions[1]}
                     </label>
                     <div className="font-editor" style={{opacity: preferred === 'default' ? 1 : 0.5, pointerEvents: preferred === 'default' ? 'auto' : 'none'}}>
-                        <select value={font} onChange={(e) => setFont(e.target.value)} disabled={preferred !== 'default'} size={Math.min(fonts.length, 3)}>
+                        <select value={font} onChange={(e) => setFont(e.target.value)} disabled={preferred !== 'default'} size={Math.min(fonts.length, 4)}>
                             {fonts.map((value, index) => (
                                 <option key={index} value={value} style={{fontFamily: value, backgroundColor: value == font ? "var(--font)" : "transparent", color: value == font ? "var(--modal-bg)" : "var(--font)"}}>
                                     {value}
@@ -82,16 +83,22 @@ function FontModal({ modal, settings, setSettings, width }) {
                 <div className="option-container">
                     <label className="font-option-name">
                         <div className="radio-input">
-                            <input type="radio" name="font-option" value="custom" checked={preferred === 'custom'} onChange={handleOptionChange}/>
+                            <input type="radio" name="font-option" value="custom" checked={preferred === "custom"} onChange={() => setPreferred("custom")}/>
                             <svg id="custom-check-mark" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d={paths.apply} stroke="var(--modal-button-bg)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
                         </div>
                         {text[settings.language].fontOptions[2]}
                     </label>
                     <div className="custom-font-container" style={{opacity: preferred === 'custom' ? 1 : 0.5, pointerEvents: preferred === 'custom' ? 'auto' : 'none'}}>
                         <label htmlFor="custom-font-input">
-                            {text[settings.language].customFont[0]} <a href="https://fonts.google.com/">google fonts</a>:
+                            {text[settings.language].customFont[0]} <a target="_blank" href="https://fonts.google.com/">google fonts</a>:
                         </label>
                         <input type="text" id="custom-font-input" placeholder={text[settings.language].customFont[1]} value={link} onChange={(e) => setLink(e.target.value)} disabled={preferred !== 'custom'}/>
+                        <div className="save-font">
+                            <button id="add-to-collection" onClick={saveFont} style={{backgroundColor: selected ? "var(--button-font)" : "var(--modal-button-bg)"}}>
+                                <svg stroke={selected ? "var(--modal-button-bg)" : "transparent"} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d={paths.apply} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                            </button>
+                            <label htmlFor="add-to-collection">add to collection</label>
+                        </div>
                     </div>
                 </div>
             </div>
