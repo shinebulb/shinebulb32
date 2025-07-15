@@ -182,7 +182,7 @@ function Settings({ settings, setSettings }) {
             exit={{opacity: 0}}
             transition={{duration: 0.5}}
         >
-            <div style={{ height: "5rem" }} />
+            <div style={{ height: "4rem" }} />
             <h2>{text[settings.language].headings[1]}</h2>
             <div className="container">
                 <label>{text[settings.language].settings[1]}</label>
