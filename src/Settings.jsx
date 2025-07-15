@@ -44,7 +44,6 @@ function Settings({ settings, setSettings }) {
 
     const constructorRef = useRef(null);
     const fontRef = useRef(null);
-    const moreRef = useRef(null);
     const infoRef = useRef(null);
 
     const loaderStyles = {
