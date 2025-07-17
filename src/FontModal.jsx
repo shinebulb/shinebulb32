@@ -40,9 +40,9 @@ function FontModal({ modal, settings, setSettings, width }) {
             setLoadSave(false);
             setSaveStatus(Number(response.data.status));
             alertRef.current.showModal();
-            // setTimeout(() => {
-            //     if (alertRef.current) closeModal(alertRef);
-            // }, 2000);
+            setTimeout(() => {
+                if (alertRef.current) closeModal(alertRef);
+            }, 2000);
         });
     }
 
