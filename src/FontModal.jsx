@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useRef, useContext } from 'react';
 import axios from 'axios';
 import { AuthContext } from './assets/AuthContext';
 import closeModal from './assets/closeModal';
@@ -14,21 +14,35 @@ function FontModal({ modal, settings, setSettings, width }) {
     const [font, setFont] = useState(settings.font.startsWith("https://fonts.googleapis.com") ? "roboto slab" : settings.font);
     const [link, setLink] = useState(settings.font.startsWith("https://fonts.googleapis.com") ? settings.font : "");
 
+    const [saveStatus, setSaveStatus] = useState(0);
+
+    const [loadSave, setLoadSave] = useState(false);
     const [loadFont, setLoadFont] = useState(false);
-    const [loadSelect, setLoadSelect] = useState(false);
-    const [selected, setSelected] = useState(false);
+
+    const alertRef = useRef(null);
 
     const fonts = ["roboto slab", "source code pro", "open sans", "shantell sans", "roboto", "eb garamond"];
 
+    const loaderStyles = {
+        width: "1.1rem",
+        height: "1.1rem",
+        borderColor: "var(--button-font)",
+        borderBottomColor: "transparent"
+    }
+
     function saveFont() {
-        setLoadSelect(true);
+        setLoadSave(true);
         axios.post(
             `${import.meta.env.VITE_API_KEY}/savedfonts`,
             { url: link },
             { headers: { accessToken: localStorage.getItem("accessToken") } }
         ).then(response => {
-            setLoadSelect(false);
-            setSelected(true);
+            setLoadSave(false);
+            setSaveStatus(Number(response.data.status));
+            alertRef.current.showModal();
+            // setTimeout(() => {
+            //     if (alertRef.current) closeModal(alertRef);
+            // }, 2000);
         });
     }
 
@@ -101,15 +115,12 @@ function FontModal({ modal, settings, setSettings, width }) {
                         <label htmlFor="custom-font-input">
                             {text[settings.language].customFont[0]} <a target="_blank" href="https://fonts.google.com/">google fonts</a>:
                         </label>
-                        <input type="text" id="custom-font-input" placeholder={text[settings.language].customFont[1]} value={link} onChange={(e) => setLink(e.target.value)} disabled={preferred !== 'custom'}/>
-                        <div className="save-font">
-                            {loadSelect ? <span className="loader" style={{ margin: "0 0.6rem 0 0.1rem", width: "1.2rem", height: "1.2rem" }} />
-                            : <button id="add-to-collection" onClick={saveFont} style={{backgroundColor: selected ? "var(--button-font)" : "var(--modal-button-bg)"}}>
-                                <svg stroke={selected ? "var(--modal-button-bg)" : "transparent"} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d={paths.apply} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                            </button>}
-                            <label htmlFor="add-to-collection">
-                                {selected ? "added to collection" : "add to collection"}
-                            </label>
+                        <div className="font-field">
+                            <input type="text" id="custom-font-input" placeholder={text[settings.language].customFont[1]} value={link} onChange={(e) => setLink(e.target.value)} disabled={preferred !== 'custom'}/>
+                            <button onClick={saveFont} disabled={loadSave} title={text[settings.language].themeControls[2]}>
+                                {loadSave ? <span className="loader" style={loaderStyles} />
+                                : <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d={paths.save} stroke="var(--button-font)" strokeWidth="2" strokeLinejoin="round"/></svg>}
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -124,6 +135,27 @@ function FontModal({ modal, settings, setSettings, width }) {
                     <svg viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"><g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd"><g id="work-case" fill="var(--button-font)" transform="translate(91.520000, 91.520000)"><polygon id="Close" points={paths.cancel} /></g></g></svg>
                 </button>
             </div>
+
+            <dialog closedby="any"
+                className="save-alert"
+                ref={alertRef}
+                style={{
+                    backgroundColor: `var(--light-${saveStatus ? "green" : "red"})`,
+                    color: `var(--dark-${saveStatus ? "green" : "red"})`,
+                    marginTop: width >= 600 ? "35.3rem" : "35.9rem"
+                }}>
+                <div>
+                    <p>
+                        {text[settings.language].fontSavedStatus[saveStatus][0]}
+                        <span onClick={() => navigate("/savedfonts")} style={{textDecoration: "underline", color: "blue", cursor: "pointer"}}>
+                            {text[settings.language].fontSavedStatus[saveStatus][1]}
+                        </span>!
+                    </p>
+                    <button onClick={() => closeModal(alertRef)}>
+                        <svg viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"><g id="Page-1" stroke="none" strokeWidth="1" fill={`var(--dark-${saveStatus ? "green" : "red"})`} fillRule="evenodd"><g id="work-case" transform="translate(91.520000, 91.520000)"><polygon id="Close" points={paths.cancel} /></g></g></svg>
+                    </button>
+                </div>
+            </dialog>
         </dialog>
     )
 }

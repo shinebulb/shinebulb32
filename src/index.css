@@ -893,6 +893,7 @@ a:hover {
 .export-options button:hover,
 .reset-session button:hover,
 #close-export-modal:hover,
+.font-field button:hover,
 .confirm button:hover,
 .confirm button:hover,
 .options button:hover,
@@ -1593,36 +1594,32 @@ label[for=custom-font-input] a {
     background-color: var(--modal-button-bg);
     color: var(--button-font);
     border: var(--border-thick);
-    border-radius: 10px;
+    border-radius: 10px 0 0 10px;
     padding: 0.2rem 0.3rem;
+}
+
+.font-field {
+    display: flex;
+    align-items: center;
     margin-top: 0.7rem;
 }
 
-.save-font {
+.font-field button {
     display: flex;
-    text-align: left;
+    justify-content: center;
     align-items: center;
-    margin-top: 0.6rem;
-}
-
-.save-font button {
-    width: 1.4rem;
-    height: 1.4rem;
+    width: 2.4rem;
+    height: 1.9rem;
+    background-color: var(--modal-button-bg);
     border: var(--border-thick);
-    border-radius: 8px;
-    padding: 0;
-    margin: auto 0.5rem auto 0;
+    border-left: none;
+    border-radius: 0 10px 10px 0;
     transition: background-color 0.2s ease;
     cursor: pointer;
 }
 
-.save-font svg {
-    height: 1.1rem;
-}
-
-.save-font label {
-    font-size: 1.05rem;
-    cursor: pointer;
+.font-field svg {
+    height: 1.2rem;
 }
 
 .font-option-actions button {

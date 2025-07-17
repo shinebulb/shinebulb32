@@ -126,6 +126,10 @@
         "customFont": [
             "you can import a custom font by pasting its '@import' link from",
             "paste your link here..."
+        ],
+        "fontSavedStatus": [
+            ["font is already in the ", "collection"],
+            ["font added to the ", "collection"]
         ]
     },
 
@@ -256,6 +260,10 @@
         "customFont": [
             "вы можете импортировать свой шрифт, вставив его '@import'-ссылку из",
             "вставьте ссылку здесь..."
+        ],
+        "fontSavedStatus": [
+            ["шрифт уже в ", "коллекции"],
+            ["шрифт добавлен в ", "коллекцию"]
         ]
     }
 ]
