@@ -1591,12 +1591,12 @@ label[for=custom-font-input] a {
     font-family: var(--font-family);
     width: calc(100% - 0.4rem);
     height: 2rem;
-    font-size: 1rem;
+    font-size: 1.1rem;
     background-color: var(--modal-button-bg);
     color: var(--button-font);
     border: var(--border-thick);
     border-radius: 10px 0 0 10px;
-    padding: 0 0.3rem;
+    padding: 0 0.5rem;
 }
 
 .font-field {
@@ -2215,7 +2215,7 @@ label[for=custom-font-input] a {
     }
     .custom-font-container input[type=text] {
         width: calc(100% - 0.8rem);
-        font-size: 0.9rem;
+        font-size: 1rem;
     }
     .font-option-actions button {
         height: 2.2rem;
