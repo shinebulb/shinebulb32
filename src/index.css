@@ -1609,7 +1609,7 @@ label[for=custom-font-input] a {
     justify-content: center;
     align-items: center;
     width: 2.4rem;
-    height: 1.9rem;
+    height: 2rem;
     background-color: var(--modal-button-bg);
     border: var(--border-thick);
     border-left: none;
@@ -2215,6 +2215,9 @@ label[for=custom-font-input] a {
     .custom-font-container input[type=text] {
         width: calc(100% - 0.8rem);
         font-size: 0.9rem;
+    }
+    .font-field button {
+        height: 1.9rem;
     }
     .font-option-actions button {
         height: 2.2rem;

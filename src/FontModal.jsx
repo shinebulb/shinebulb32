@@ -2,7 +2,7 @@ import React, { useState, useRef, useContext } from 'react';
 import axios from 'axios';
 import { AuthContext } from './assets/AuthContext';
 import closeModal from './assets/closeModal';
-import getFontFamily from './assets/getFontFamily';
+import fonts from './assets/json/fonts.json';
 import text from './assets/json/text.json';
 import paths from './assets/json/svg-paths.json';
 
@@ -10,9 +10,9 @@ function FontModal({ modal, settings, setSettings, width }) {
 
     const { authState } = useContext(AuthContext);
 
-    const [preferred, setPreferred] = useState(settings.font.startsWith("https://fonts.googleapis.com") ? "custom" : "default");
-    const [font, setFont] = useState(settings.font.startsWith("https://fonts.googleapis.com") ? "roboto slab" : settings.font);
-    const [link, setLink] = useState(settings.font.startsWith("https://fonts.googleapis.com") ? settings.font : "");
+    const [preferred, setPreferred] = useState(!fonts.includes(settings.font) ? "custom" : "default");
+    const [font, setFont] = useState(!fonts.includes(settings.font) ? "roboto slab" : settings.font);
+    const [customFont, setCustomFont] = useState(!fonts.includes(settings.font) ? settings.font : "");
 
     const [saveStatus, setSaveStatus] = useState(0);
 
@@ -20,8 +20,6 @@ function FontModal({ modal, settings, setSettings, width }) {
     const [loadFont, setLoadFont] = useState(false);
 
     const alertRef = useRef(null);
-
-    const fonts = ["roboto slab", "source code pro", "open sans", "shantell sans", "roboto", "eb garamond"];
 
     const loaderStyles = {
         width: "1.1rem",
@@ -34,7 +32,7 @@ function FontModal({ modal, settings, setSettings, width }) {
         setLoadSave(true);
         axios.post(
             `${import.meta.env.VITE_API_KEY}/savedfonts`,
-            { url: link },
+            { url: customFont },
             { headers: { accessToken: localStorage.getItem("accessToken") } }
         ).then(response => {
             setLoadSave(false);
@@ -48,14 +46,14 @@ function FontModal({ modal, settings, setSettings, width }) {
 
     function fontChange() {
         if (!authState.status) {
-            localStorage.setItem("font", preferred == "default" ? font : link);
+            localStorage.setItem("font", preferred == "default" ? font : customFont);
             if (preferred == "default") {
                 document.documentElement.style.setProperty("--font-family", font);
                 setSettings({...settings, font: font});
             }
             else {
-                document.documentElement.style.setProperty("--font-family", getFontFamily(link));
-                setSettings({...settings, font: link});
+                document.documentElement.style.setProperty("--font-family", customFont);
+                setSettings({...settings, font: customFont});
             }
             closeModal(modal);
         }
@@ -63,17 +61,11 @@ function FontModal({ modal, settings, setSettings, width }) {
             setLoadFont(true);
             axios.put(
                 `${import.meta.env.VITE_API_KEY}/users/changeFont`,
-                { font: preferred == "default" ? font : link, id: authState.id },
+                { font: preferred == "default" ? font : customFont, id: authState.id },
                 { headers: { accessToken: localStorage.getItem("accessToken") } }
             ).then(response => {
-                if (preferred == "default") {
-                    document.documentElement.style.setProperty("--font-family", response.data);
-                    setSettings({...settings, font: response.data});
-                }
-                else {
-                    document.documentElement.style.setProperty("--font-family", getFontFamily(response.data));
-                    setSettings({...settings, font: response.data});
-                }
+                document.documentElement.style.setProperty("--font-family", response.data);
+                setSettings({...settings, font: response.data});
                 setLoadFont(false);
                 closeModal(modal);
             });
@@ -113,11 +105,11 @@ function FontModal({ modal, settings, setSettings, width }) {
                     </label>
                     <div className="custom-font-container" style={{opacity: preferred === 'custom' ? 1 : 0.5, pointerEvents: preferred === 'custom' ? 'auto' : 'none'}}>
                         <label htmlFor="custom-font-input">
-                            {text[settings.language].customFont[0]} <a target="_blank" href="https://fonts.google.com/">google fonts</a>:
+                            {text[settings.language].customFont[0]} <a target="_blank" href="https://fonts.google.com/">google fonts</a> {text[settings.language].customFont[1]}:
                         </label>
                         <div className="font-field">
-                            <input type="text" id="custom-font-input" placeholder={text[settings.language].customFont[1]} value={link} onChange={(e) => setLink(e.target.value)} disabled={preferred !== 'custom'}/>
-                            <button onClick={saveFont} disabled={loadSave} title={text[settings.language].themeControls[2]}>
+                            <input type="text" id="custom-font-input" placeholder={text[settings.language].customFont[2]} value={customFont} onChange={(e) => setCustomFont(e.target.value)} disabled={preferred !== 'custom'}/>
+                            <button onClick={saveFont} disabled={loadSave || !customFont} title={text[settings.language].themeControls[2]}>
                                 {loadSave ? <span className="loader" style={loaderStyles} />
                                 : <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d={paths.save} stroke="var(--button-font)" strokeWidth="2" strokeLinejoin="round"/></svg>}
                             </button>
@@ -127,7 +119,7 @@ function FontModal({ modal, settings, setSettings, width }) {
             </div>
             <hr />
             <div className="font-option-actions">
-                <button id="apply-font" onClick={fontChange} disabled={preferred == "custom" && link == ""} style={{opacity: preferred == "custom" && link == "" ? 0.5 : 1, cursor: preferred == "custom" && link == "" ? "not-allowed" : "pointer"}}>
+                <button id="apply-font" onClick={fontChange} disabled={preferred == "custom" && customFont == ""} style={{opacity: preferred == "custom" && customFont == "" ? 0.5 : 1, cursor: preferred == "custom" && customFont == "" ? "not-allowed" : "pointer"}}>
                     {loadFont ? <span className="loader" style={{ margin: width >= 600 ? "0.4rem 0" : "0.2rem 0", width: "1.2rem", height: "1.2rem" }} />
                     : <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d={paths.apply} stroke="var(--button-font)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>}
                 </button>

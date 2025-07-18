@@ -21,7 +21,8 @@ import NoPage from './NoPage';
 import DynamicFontLoader from './DynamicFontLoader';
 import themes from './assets/themes';
 import defaultLang from './assets/defaultLang';
-import getFontFamily from './assets/getFontFamily';
+import getFontUrl from './assets/getFontUrl';
+import fonts from './assets/json/fonts.json';
 import text from './assets/json/text.json';
 import paths from './assets/json/svg-paths.json';
 
@@ -44,7 +45,7 @@ function App() {
 
     useEffect(() => {
         themes[parseInt(localStorage.getItem("theme")) || 0](0);
-        document.documentElement.style.setProperty("--font-family", localStorage.getItem("font")?.startsWith("https://fonts.googleapis.com") ? getFontFamily(localStorage.getItem("font")) : localStorage.getItem("font") || "Roboto Slab");
+        document.documentElement.style.setProperty("--font-family", localStorage.getItem("font") || "Roboto Slab");
         document.documentElement.style.setProperty("--verification-required-height", verificationRequired ? "3.2rem" : "0");
         setTimeout(() => { if (loadApp) setStuckHere(true) }, 2500);
         let id = 0;
@@ -81,10 +82,7 @@ function App() {
                 });
                 setLoadApp(false);
                 themes[response.data.theme === null ? settings.theme : response.data.theme]();
-                document.documentElement.style.setProperty(
-                    "--font-family",
-                    response.data.font && response.data.font.startsWith("https://fonts.googleapis.com") ? getFontFamily(response.data.font) : response.data.font || "Roboto Slab"
-                );
+                document.documentElement.style.setProperty("--font-family", response.data.font || "Roboto Slab");
                 if ((response.data.bulbStatus === "on") && (bulb.current)) bulb.current.classList.add("on");
             }
         });
@@ -118,7 +116,7 @@ function App() {
         }
         localStorage.removeItem("accessToken");
         themes[parseInt(localStorage.getItem("theme")) || 0](0);
-        document.documentElement.style.setProperty("--font-family", localStorage.getItem("font")?.startsWith("https://fonts.googleapis.com") ? getFontFamily(localStorage.getItem("font")) : localStorage.getItem("font") || "Roboto Slab");
+        document.documentElement.style.setProperty("--font-family", localStorage.getItem("font") || "Roboto Slab");
     }
 
     return (
@@ -133,7 +131,7 @@ function App() {
                     </div>
                 </>
                 : <>
-                    {settings.font.startsWith("https://fonts.googleapis.com") && <DynamicFontLoader settings={settings} />}
+                    {!fonts.includes(settings.font) && <DynamicFontLoader settings={settings} />}
                     {verificationRequired &&
                     <div className="verification-required">
                         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"><path d={paths.inbox} stroke="var(--dark-yellow)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path></g></svg>

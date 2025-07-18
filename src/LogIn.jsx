@@ -5,7 +5,6 @@ import axios from 'axios';
 import themes from './assets/themes';
 import closeModal from './assets/closeModal';
 import defaultLang from './assets/defaultLang';
-import getFontFamily from './assets/getFontFamily';
 import text from './assets/json/text.json';
 import paths from './assets/json/svg-paths.json';
 import { motion } from 'framer-motion';
@@ -75,10 +74,7 @@ function LogIn({ bulb, settings, setSettings, setSavedList, setVerificationRequi
                     font: response.data.font || "Roboto Slab"
                 });
                 themes[response.data.theme === null ? settings.theme : response.data.theme]();
-                document.documentElement.style.setProperty(
-                    "--font-family",
-                    response.data.font && response.data.font.startsWith("https://fonts.googleapis.com") ? getFontFamily(response.data.font) : response.data.font || "Roboto Slab"
-                );
+                document.documentElement.style.setProperty("--font-family", response.data.font || "Roboto Slab");
                 if ((response.data.bulbStatus === "on") && (bulb.current)) bulb.current.classList.add("on");
                 return axios.get(`${import.meta.env.VITE_API_KEY}/savedthemes/byUser/${response.data.id}`);
             }

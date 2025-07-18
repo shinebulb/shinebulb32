@@ -3,8 +3,9 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { AuthContext } from './assets/AuthContext';
 import ProfileFontLoader from './ProfileFontLoader';
 import closeModal from './assets/closeModal';
-import getFontFamily from './assets/getFontFamily';
+import getFontUrl from './assets/getFontUrl';
 import axios from 'axios';
+import fonts from './assets/json/fonts.json';
 import text from './assets/json/text.json';
 import paths from './assets/json/svg-paths.json';
 import on from './assets/svg/on.svg';
@@ -51,14 +52,14 @@ function Profile({ settings, bulb }) {
         return () =>  window.removeEventListener("resize", () => setWidth(window.innerWidth));
     }, [username]);
 
-    const customFont = user.font && user.font.startsWith("https://fonts.googleapis.com");
+    const customFont = !fonts.includes(user?.font);
     const customTheme = user?.theme == 3;
 
     const userMatch = authState.username === username;
 
-    const userFont = customFont ? getFontFamily(user.font) : user.font || settings.font;
+    const userFont = user?.font || settings.font;
 
-    const bg = Number(user.invertTheme && user.bulbStatus == "on") || 0;
+    const bg = Number(user?.invertTheme && user?.bulbStatus == "on") || 0;
     const font = Number(!user.invertTheme || user.bulbStatus != "on") || 0;
 
     const userTheme = [
@@ -83,8 +84,8 @@ function Profile({ settings, bulb }) {
         >
             {loadUser ? <span className="loader" style={{width: "5rem", height: "5rem", borderWidth: "7px", margin: "auto"}} />
             : <>
-                {customFont && <ProfileFontLoader profileFont={user.font} />}
-                {(customTheme || user.font) && <svg onClick={() => copyModal.current.showModal()} id="open-copy-modal" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"><path d={paths.copy[0]} fill={userTheme[font][user?.theme || 0]}></path><path d={paths.copy[1]} fill={userTheme[font][user?.theme || 0]}></path></g></svg>}
+                {!fonts.includes(userFont) && <ProfileFontLoader profileFont={getFontUrl(userFont)} />}
+                {(customTheme || userFont) && <svg onClick={() => copyModal.current.showModal()} id="open-copy-modal" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"><path d={paths.copy[0]} fill={userTheme[font][user?.theme || 0]}></path><path d={paths.copy[1]} fill={userTheme[font][user?.theme || 0]}></path></g></svg>}
                 <div className="play">
                     <img ref={bulb} className={user.bulbStatus} src={user.bulbStatus == "on" ? on : off} />
                 </div>
@@ -182,7 +183,7 @@ function Profile({ settings, bulb }) {
                     className="copy-section"
                     style={{color: "var(--button-font)"}}
                     onClick={() => {
-                        if (customFont) navigator.clipboard.writeText(user.font).then(() => setFontCopied(true))
+                        if (customFont) navigator.clipboard.writeText(userFont).then(() => setFontCopied(true))
                     }}
                 >
                     <div className="color-display" style={{backgroundColor: "var(--modal-button-bg)"}}>

@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { AuthContext } from './assets/AuthContext';
-import getFontFamily from './assets/getFontFamily';
 import text from './assets/json/text.json';
 import { motion } from 'framer-motion';
 
@@ -34,7 +33,7 @@ function SavedFonts({ settings, setSettings }) {
             </h3>
             <div>{
                 fontList.map((url, index) => 
-                    <p key={index} style={{ fontFamily: getFontFamily(url), color: "var(--font)" }}>{getFontFamily(url)}</p>
+                    <p key={index} style={{ fontFamily: url, color: "var(--font)" }}>{url}</p>
                 )
             }</div>
         </motion.div>

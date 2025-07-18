@@ -85,8 +85,8 @@
         "pickCopyColors": [
             "choose the asset to copy", "background color", "stroke color"
         ],
-        "userFontStatus": ["(user has a default font)", "user's font url"],
-        "yourFontStatus": ["(you have a default font)", "your font url"],
+        "userFontStatus": ["(user has a default font)", "user's font family"],
+        "yourFontStatus": ["(you have a default font)", "your font family"],
         "userThemeStatus": ["(user has a default theme)", "(you have a default theme)"],
         "close": "close",
         "bulbMuteUnmute": [
@@ -123,10 +123,7 @@
         "closeImportLog": "close import log",
         "explore": "explore",
         "fontOptions": ["select font option", "default", "custom"],
-        "customFont": [
-            "you can import a custom font by pasting its '@import' link from",
-            "paste your link here..."
-        ],
+        "customFont": ["you can import any font from", "by name (font family)", "example: roboto slab..."],
         "fontSavedStatus": [
             ["font is already in the ", "collection"],
             ["font added to the ", "collection"]
@@ -219,8 +216,8 @@
         "pickCopyColors": [
             "скопируйте части темы", "цвет фона", "цвет линий"
         ],
-        "userFontStatus": ["(у пользователя базовый шрифт)", "ссылка на шрифт пользователя"],
-        "yourFontStatus": ["(у вас базовый шрифт)", "ссылка на ваш шрифт"],
+        "userFontStatus": ["(у пользователя базовый шрифт)", "семья шрифта пользователя"],
+        "yourFontStatus": ["(у вас базовый шрифт)", "ваша семья шрифта"],
         "userThemeStatus": ["(у пользователя базовая тема)", "(у вас базовая тема)"],
         "close": "закрыть",
         "bulbMuteUnmute": [
@@ -257,10 +254,7 @@
         "closeImportLog": "скрыть детали",
         "explore": "посмотреть",
         "fontOptions": ["выберите тип шрифта", "базовый", "свой"],
-        "customFont": [
-            "вы можете импортировать свой шрифт, вставив его '@import'-ссылку из",
-            "вставьте ссылку здесь..."
-        ],
+        "customFont": ["импортируйте любой шрифт с", "по названию (семье шрифта)", "пример: roboto slab..."],
         "fontSavedStatus": [
             ["шрифт уже в ", "коллекции"],
             ["шрифт добавлен в ", "коллекцию"]
