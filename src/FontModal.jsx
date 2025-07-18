@@ -1,4 +1,5 @@
 import React, { useState, useRef, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { AuthContext } from './assets/AuthContext';
 import closeModal from './assets/closeModal';
@@ -7,6 +8,8 @@ import text from './assets/json/text.json';
 import paths from './assets/json/svg-paths.json';
 
 function FontModal({ modal, settings, setSettings, width }) {
+
+    const navigate = useNavigate();
 
     const { authState } = useContext(AuthContext);
 
