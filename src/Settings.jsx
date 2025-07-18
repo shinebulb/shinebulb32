@@ -195,21 +195,24 @@ function Settings({ settings, setSettings }) {
             <div className="container">
                 <label className="settingName">{text[settings.language].settings[0]}</label>
                 <div>
-                    {loadTheme && <span className="loader" style={loaderStyles} />}
-                    <select onChange={themeChange} value={modes[settings.theme]}>
-                        <option value="system">{text[settings.language].mode[0]}</option>
-                        <option value="light">{text[settings.language].mode[1]}</option>
-                        <option value="dark">{text[settings.language].mode[2]}</option>
-                        <option value="custom">{text[settings.language].mode[3]}{width >= 600 && " (c)"}</option>
-                        {authState.status && <option value="saved">{text[settings.language].mode[4]}{width >= 600 && " (s)"}</option>}
-                    </select>
+                    {settings.theme === 3 && width <= 600 && <svg xmlns="http://www.w3.org/2000/svg" onClick={() => constructorRef.current.showModal()} style={{height: "1.8rem", marginRight: "0.5rem", cursor: "pointer"}} viewBox="0 -960 960 960" fill="var(--font)"><path d={paths.colorize}/></svg>}
+                    <div>
+                        {loadTheme && <span className="loader" style={loaderStyles} />}
+                        <select onChange={themeChange} value={modes[settings.theme]}>
+                            <option value="system">{text[settings.language].mode[0]}</option>
+                            <option value="light">{text[settings.language].mode[1]}</option>
+                            <option value="dark">{text[settings.language].mode[2]}</option>
+                            <option value="custom">{text[settings.language].mode[3]}{width >= 600 && " (c)"}</option>
+                            {authState.status && <option value="saved">{text[settings.language].mode[4]}{width >= 600 && " (s)"}</option>}
+                        </select>
+                    </div>
                 </div>
             </div>
             <div style={{ height: "3rem" }} />
             <div className="container">
                 <label className="settingName" style={{textAlign: "left"}}>{text[settings.language].fontFamily}</label>
                 <button className="explore-fonts" onClick={() => fontRef.current.showModal()} title={settings.font.toLowerCase()}>
-                    <svg fill="var(--button-font)" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d={paths.rename[0]}/><path fillRule="evenodd" clipRule="evenodd" d={paths.rename[1]}/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="var(--button-font)"><path d={paths.edit}/></svg>
                     <span>{settings.font.toLowerCase()}</span>
                 </button>
             </div>

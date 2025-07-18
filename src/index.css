@@ -700,7 +700,7 @@ h2 {
 }
 
 .explore-fonts svg {
-    height: 1.8rem;
+    height: 1.5rem;
     margin-right: 0.5rem;
 }
 
@@ -2193,7 +2193,7 @@ label[for=custom-font-input] a {
         padding: 0.4rem 0.7rem;
     }
     .explore-fonts svg {
-        height: 1.1rem;
+        height: 1.2rem;
     }
     .font-modal h2 {
         font-size: 1.2rem;
