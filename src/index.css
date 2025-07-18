@@ -1590,12 +1590,13 @@ label[for=custom-font-input] a {
 .custom-font-container input[type=text] {
     font-family: var(--font-family);
     width: calc(100% - 0.4rem);
+    height: 2rem;
     font-size: 1rem;
     background-color: var(--modal-button-bg);
     color: var(--button-font);
     border: var(--border-thick);
     border-radius: 10px 0 0 10px;
-    padding: 0.2rem 0.3rem;
+    padding: 0 0.3rem;
 }
 
 .font-field {
@@ -1609,7 +1610,7 @@ label[for=custom-font-input] a {
     justify-content: center;
     align-items: center;
     width: 2.4rem;
-    height: 2rem;
+    height: 2.3rem;
     background-color: var(--modal-button-bg);
     border: var(--border-thick);
     border-left: none;
@@ -1619,7 +1620,7 @@ label[for=custom-font-input] a {
 }
 
 .font-field svg {
-    height: 1.2rem;
+    height: 1.4rem;
 }
 
 .font-option-actions button {
@@ -2215,9 +2216,6 @@ label[for=custom-font-input] a {
     .custom-font-container input[type=text] {
         width: calc(100% - 0.8rem);
         font-size: 0.9rem;
-    }
-    .font-field button {
-        height: 1.9rem;
     }
     .font-option-actions button {
         height: 2.2rem;

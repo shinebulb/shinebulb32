@@ -111,7 +111,7 @@ function FontModal({ modal, settings, setSettings, width }) {
                             <input type="text" id="custom-font-input" placeholder={text[settings.language].customFont[2]} value={customFont} onChange={(e) => setCustomFont(e.target.value)} disabled={preferred !== 'custom'}/>
                             <button onClick={saveFont} disabled={loadSave || !customFont} title={text[settings.language].themeControls[2]}>
                                 {loadSave ? <span className="loader" style={loaderStyles} />
-                                : <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d={paths.save} stroke="var(--button-font)" strokeWidth="2" strokeLinejoin="round"/></svg>}
+                                : <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d={paths.save} stroke="var(--button-font)" strokeWidth="2.5" strokeLinejoin="round"/></svg>}
                             </button>
                         </div>
                     </div>
