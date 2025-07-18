@@ -32,7 +32,7 @@ function FontModal({ modal, settings, setSettings, width }) {
         setLoadSave(true);
         axios.post(
             `${import.meta.env.VITE_API_KEY}/savedfonts`,
-            { url: customFont },
+            { fontFamily: customFont },
             { headers: { accessToken: localStorage.getItem("accessToken") } }
         ).then(response => {
             setLoadSave(false);
