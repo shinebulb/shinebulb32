@@ -87,6 +87,7 @@
         ],
         "userFontStatus": ["(user has a default font)", "user's font family"],
         "yourFontStatus": ["(you have a default font)", "your font family"],
+        "myShinebulbProfile": "my shinebulb profile",
         "userThemeStatus": ["(user has a default theme)", "(you have a default theme)"],
         "close": "close",
         "bulbMuteUnmute": [
@@ -218,6 +219,7 @@
         ],
         "userFontStatus": ["(у пользователя базовый шрифт)", "семья шрифта пользователя"],
         "yourFontStatus": ["(у вас базовый шрифт)", "ваша семья шрифта"],
+        "myShinebulbProfile": "мой профиль на shinebulb:",
         "userThemeStatus": ["(у пользователя базовая тема)", "(у вас базовая тема)"],
         "close": "закрыть",
         "bulbMuteUnmute": [

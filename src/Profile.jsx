@@ -68,6 +68,24 @@ function Profile({ settings, bulb }) {
     ];
 
     const locales = ["en-us", "ru-ru"];
+
+    async function share() {
+        if (!navigator.share) {
+            navigator.clipboard.writeText(window.location.href);
+            return;
+        }
+
+        try {
+            await navigator.share({
+                title: `${username} – shinebulb`,
+                text: `${text[settings.language].myShinebulbProfile}: ${username}`,
+                url: window.location.href
+            })
+        }
+        catch (err) {
+            navigator.clipboard.writeText(window.location.href);
+        }
+    }
     
     return (
         <motion.div
@@ -85,7 +103,28 @@ function Profile({ settings, bulb }) {
             {loadUser ? <span className="loader" style={{width: "5rem", height: "5rem", borderWidth: "7px", margin: "auto"}} />
             : <>
                 {!fonts.includes(userFont) && <ProfileFontLoader profileFont={getFontUrl(userFont)} />}
-                {(customTheme || userFont) && <svg onClick={() => copyModal.current.showModal()} id="open-copy-modal" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"><path d={paths.copy[0]} fill={userTheme[font][user?.theme || 0]}></path><path d={paths.copy[1]} fill={userTheme[font][user?.theme || 0]}></path></g></svg>}
+                {(customTheme || customFont) && <button
+                    className="user-actions"
+                    onClick={() => copyModal.current.showModal()}
+                    style={{
+                        top: width >= 600 ? "calc(50% - 202px)" : (settings.language === 1 ? "calc(50% - 274px)" : "calc(50% - 254px)"),
+                        left:  width >= 600 ? "calc(50% + 144px)" : "calc(50% + 35px)",
+                        borderRadius: width >= 600 ? "15px 0 0 0" : "12px 0 0 0"
+                    }}
+                >
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"><path d={paths.copy[0]} fill={userTheme[font][user?.theme || 0]}></path><path d={paths.copy[1]} fill={userTheme[font][user?.theme || 0]}></path></g></svg>
+                </button>}
+                <button
+                    className="user-actions"
+                    onClick={share}
+                    style={{
+                        top: width >= 600 ? "calc(50% - 202px)" : (settings.language === 1 ? "calc(50% - 274px)" : "calc(50% - 254px)"),
+                        left:  width >= 600 ? "calc(50% + 200px)" : "calc(50% + 80px)",
+                        borderRadius: customTheme || customFont ? (width >= 600 ? "0 15px 0 0" : "0 12px 0 0") : (width >= 600 ? "15px 15px 0 0" : "12px 12px 0 0")
+                    }}
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill={userTheme[font][user?.theme || 0]}><path d={paths.share}/></svg>
+                </button>
                 <div className="play">
                     <img ref={bulb} className={user.bulbStatus} src={user.bulbStatus == "on" ? on : off} />
                 </div>
