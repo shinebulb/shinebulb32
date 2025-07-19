@@ -1455,11 +1455,12 @@ hr {
 }
 
 .reload-to-access {
+    font-family: var(--font-family);
     display: flex;
     align-items: center;
     justify-content: center;
     width: 90%;
-    height: 2.6rem;
+    height: 2.8rem;
     font-style: italic;
     white-space: nowrap;
     overflow: hidden;
@@ -1468,7 +1469,12 @@ hr {
     border-radius: 15px;
     padding: 0 0.2rem;
     margin: auto;
-    cursor: default;
+    cursor: pointer;
+}
+
+.reload-to-access svg {
+    height: 1.5rem;
+    margin-right: 0.3rem;
 }
 
 .saved-controls dialog {
@@ -2047,13 +2053,10 @@ label[for=custom-font-input] a {
         font-size: 1.4rem;
         margin: 0.6rem 0;
     }
-    .reload-to-access {
-        height: 2.4rem;
-        font-size: 1rem;
-    }
     .export-title {
         font-size: 1.2rem;
-        margin: 0.5rem 0;
+        margin: 0 0 0.8rem;
+        padding: 0.2rem 0;
     }
     .select-all {
         font-size: 1rem;

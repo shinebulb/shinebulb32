@@ -156,9 +156,10 @@ function ThemeCard({ id, index, bg, font, title, savedList, setSavedList, settin
                     <button onClick={() => closeModal(deleteRef)} style={{...buttonStyles, color: inverted ? bg : font}}>{text[settings.language].confirm[2]}</button>
                 </dialog>
             </div> :
-            <div className="reload-to-access" style={{...buttonStyles, color: inverted ? bg : font}}>
-                <span>{text[settings.language].reloadToAccess}</span>
-            </div>}
+            <button className="reload-to-access" onClick={() => window.location.reload()} style={{...buttonStyles, color: inverted ? bg : font}}>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill={inverted ? bg : font}><path d={paths.refresh}/></svg>
+                <span>{text[settings.language].refreshPage}</span>
+            </button>}
         </div>
     )
 }
