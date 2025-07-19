@@ -111,8 +111,13 @@ function FontModal({ modal, settings, setSettings, width }) {
                             {text[settings.language].customFont[0]} <a target="_blank" href="https://fonts.google.com/">google fonts</a> {text[settings.language].customFont[1]}:
                         </label>
                         <div className="font-field">
-                            <input type="text" id="custom-font-input" placeholder={text[settings.language].customFont[2]} value={customFont} onChange={(e) => setCustomFont(e.target.value)} disabled={preferred !== 'custom'}/>
-                            <button onClick={saveFont} disabled={loadSave || !customFont} title={text[settings.language].themeControls[2]}>
+                            <input type="text" id="custom-font-input" placeholder={`${text[settings.language].example}: rampart one`} value={customFont} onChange={(e) => setCustomFont(e.target.value)} disabled={preferred !== 'custom'}/>
+                            <button
+                                title={loadSave || !customFont || fonts.includes(customFont) ? "" : text[settings.language].themeControls[2]}
+                                onClick={saveFont}
+                                disabled={loadSave || !customFont || fonts.includes(customFont)}
+                                style={{ opacity: loadSave || !customFont || fonts.includes(customFont) ? "0.5" : "1", cursor: loadSave || !customFont || fonts.includes(customFont) ? "not-allowed" : "pointer" }}
+                            >
                                 {loadSave ? <span className="loader" style={loaderStyles} />
                                 : <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d={paths.save} stroke="var(--button-font)" strokeWidth="2.5" strokeLinejoin="round"/></svg>}
                             </button>

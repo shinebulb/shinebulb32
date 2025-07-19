@@ -124,11 +124,12 @@
         "closeImportLog": "close import log",
         "explore": "explore",
         "fontOptions": ["select font option", "default", "custom"],
-        "customFont": ["you can import any font from", "by name (font family)", "example: roboto slab..."],
+        "customFont": ["you can import any font from", "by name (font family)"],
         "fontSavedStatus": [
             ["font is already in the ", "collection"],
             ["font added to the ", "collection"]
-        ]
+        ],
+        "example": "example"
     },
 
     {
@@ -256,10 +257,11 @@
         "closeImportLog": "скрыть детали",
         "explore": "посмотреть",
         "fontOptions": ["выберите тип шрифта", "базовый", "свой"],
-        "customFont": ["импортируйте любой шрифт с", "по названию (семье шрифта)", "пример: roboto slab..."],
+        "customFont": ["импортируйте любой шрифт с", "по названию (семье шрифта)"],
         "fontSavedStatus": [
             ["шрифт уже в ", "коллекции"],
             ["шрифт добавлен в ", "коллекцию"]
-        ]
+        ],
+        "example": "пример"
     }
 ]
