@@ -46,7 +46,7 @@
         "auth": ["log in", "sign up", "log out"],
         "signup": ["email", "enter your email!", "username", "think of a username!", "password", "create a strong password!"],
         "login": ["email or username", "your email or username...", "your password..."],
-        "logInToView": "to access saved themes, you'll need to log in or create an account! it's free and will also let you access all of your preferences on any of your devices!",
+        "logInToView": "to access saved themes and fonts, you'll need to log in or create an account! it's free and will also let you access all of your preferences on any of your devices!",
         "authErrors": [
             "username length must be between 3 and 15 characters!",
             "username is a required field!",
@@ -179,7 +179,7 @@
         "auth": ["войти", "регистрация", "выйти"],
         "signup": ["адрес эл. почты", "введите свою эл. почту!", "имя пользователя", "назовите свой аккаунт!", "пароль", "придумайте надёжный пароль!"],
         "login": ["пользователь или эл. почта", "ваш аккаунт или эл. почта...", "ваш пароль..."],
-        "logInToView": "чтобы сохранять и использовать темы, вам нужно войти или создать аккаунт! это бесплатно и позволит вам также пользоваться всеми своими настройками на любом устройстве!",
+        "logInToView": "чтобы сохранять и использовать темы и шрифты, вам нужно войти или создать аккаунт! это бесплатно и позволит вам также пользоваться всеми своими настройками на любом устройстве!",
         "authErrors": [
             "длина имени пользователя — от 3 до 15 символов!",
             "имя пользователя — обязательное поле!",

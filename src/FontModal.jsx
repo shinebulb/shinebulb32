@@ -117,7 +117,7 @@ function FontModal({ modal, settings, setSettings, width }) {
                                 placeholder={`${text[settings.language].example}: rampart one`}
                                 style={{ borderRadius: authState.status ? "10px 0 0 10px" : "10px" }}
                                 value={customFont}
-                                onChange={(e) => setCustomFont(e.target.value)}
+                                onChange={e => setCustomFont(e.target.value)}
                                 disabled={preferred !== "custom"}
                             />
                             {authState.status && <button

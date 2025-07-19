@@ -4,6 +4,7 @@ import axios from 'axios';
 import { AuthContext } from './assets/AuthContext';
 import text from './assets/json/text.json';
 import { motion } from 'framer-motion';
+import LogInToView from './LogInToView';
 
 function SavedFonts({ settings, setSettings }) {
 
@@ -27,15 +28,13 @@ function SavedFonts({ settings, setSettings }) {
             exit={{opacity: 0}}
             transition={{duration: 0.5}}
         >
-            <h2 style={{fontSize: "1.9rem", marginTop: "6rem"}}>saved fonts</h2>
-            <h3 style={{color: "var(--font)", fontStyle: "italic", marginBottom: "2rem"}}>
-                {fontList.length} in the collection
-            </h3>
-            <div>{
-                fontList.map((url, index) => 
-                    <p key={index} style={{ fontFamily: url, color: "var(--font)" }}>{url}</p>
-                )
-            }</div>
+            {!authState.status ? <LogInToView settings={settings} /> 
+            : <>
+                <h2 style={{fontSize: "1.9rem", marginTop: "6rem"}}>saved fonts</h2>
+                <h3 style={{color: "var(--font)", fontStyle: "italic", marginBottom: "2rem"}}>
+                    {fontList.length} {text[settings.language].savedThemes[1]}
+                </h3>
+            </>}
         </motion.div>
     )
 }
