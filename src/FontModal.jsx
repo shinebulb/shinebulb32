@@ -13,9 +13,9 @@ function FontModal({ modal, settings, setSettings, width }) {
 
     const { authState } = useContext(AuthContext);
 
-    const [preferred, setPreferred] = useState(!fonts.includes(settings.font) ? "custom" : "default");
-    const [font, setFont] = useState(!fonts.includes(settings.font) ? "roboto slab" : settings.font);
-    const [customFont, setCustomFont] = useState(!fonts.includes(settings.font) ? settings.font : "");
+    const [preferred, setPreferred] = useState(!fonts.includes(settings.font.toLowerCase()) ? "custom" : "default");
+    const [font, setFont] = useState(!fonts.includes(settings.font.toLowerCase()) ? "roboto slab" : settings.font);
+    const [customFont, setCustomFont] = useState(!fonts.includes(settings.font.toLowerCase()) ? settings.font : "");
 
     const [saveStatus, setSaveStatus] = useState(0);
 
