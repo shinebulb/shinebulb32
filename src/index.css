@@ -148,7 +148,7 @@ body {
 }
 
 .verification-required {
-    font-family: "Trebuchet MS";
+    font-family: "Rubik";
     display: flex;
     position: fixed;
     top: 0;
@@ -512,8 +512,6 @@ body {
     position: absolute;
     width: 3.5rem;
     height: 3.5rem;
-    border: var(--border-thick);
-    background-color: var(--button-bg);
     margin: auto;
     transition: background-color 0.3s ease;
     cursor: pointer;

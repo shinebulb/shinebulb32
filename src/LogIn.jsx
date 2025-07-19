@@ -106,7 +106,7 @@ function LogIn({ bulb, settings, setSettings, setSavedList, setVerificationRequi
             {!authState.status ?
             <>
                 <div style={{height: "3rem"}}/>
-                <div className="login-form">
+                <form className="login-form">
                     <label>{text[settings.language].login[0]}:</label>
                     <input
                         type="text"
@@ -128,7 +128,7 @@ function LogIn({ bulb, settings, setSettings, setSavedList, setVerificationRequi
                         loadLogIn ? <span className="loader" style={{ width: "1.6rem", height: "1.6rem" }} />
                         : text[settings.language].auth[0]
                     }</button>
-                </div>
+                </form>
 
                 <dialog closedby="any"
                     className="save-alert"

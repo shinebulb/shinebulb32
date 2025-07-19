@@ -120,6 +120,8 @@ function Profile({ settings, bulb }) {
                     style={{
                         top: width >= 600 ? "calc(50% - 202px)" : (settings.language === 1 ? "calc(50% - 274px)" : "calc(50% - 254px)"),
                         left:  width >= 600 ? "calc(50% + 200px)" : "calc(50% + 80px)",
+                        backgroundColor: userTheme[bg][user?.theme || 0],
+                        border: `${userTheme[font][user?.theme || 0]} 3px solid`,
                         borderRadius: customTheme || customFont ? (width >= 600 ? "0 15px 0 0" : "0 12px 0 0") : (width >= 600 ? "15px 15px 0 0" : "12px 12px 0 0")
                     }}
                 >

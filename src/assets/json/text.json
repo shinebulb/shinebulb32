@@ -64,7 +64,7 @@
             "email verified successfully!"
         ],
         "verifyActions": ["retry", "log in"],
-        "verificationRequired": "check your inbox to verify your email before logging in!",
+        "verificationRequired": "verification email sent — check your inbox!",
         "joined": "joined",
         "nouser": ["unknown", "undefined"],
         "error": "error",
@@ -196,7 +196,7 @@
             "эл. почта подтверждена!"
         ],
         "verifyActions": ["обновить", "войти"],
-        "verificationRequired": "проверьте ящик и подтвердите свою эл. почту перед входом!",
+        "verificationRequired": "письмо отправлено — проверьте ящик!",
         "joined": "дата регистрации:",
         "nouser": ["неизвестный", "не определён"],
         "error": "ошибка",
