@@ -1614,7 +1614,6 @@ label[for=custom-font-input] a {
     background-color: var(--modal-button-bg);
     color: var(--button-font);
     border: var(--border-thick);
-    border-radius: 10px 0 0 10px;
     padding: 0 0.5rem;
 }
 

@@ -106,13 +106,21 @@ function FontModal({ modal, settings, setSettings, width }) {
                         </div>
                         {text[settings.language].fontOptions[2]}
                     </label>
-                    <div className="custom-font-container" style={{opacity: preferred === 'custom' ? 1 : 0.5, pointerEvents: preferred === 'custom' ? 'auto' : 'none'}}>
+                    <div className="custom-font-container" style={{opacity: preferred === "custom" ? 1 : 0.5, pointerEvents: preferred === 'custom' ? 'auto' : 'none'}}>
                         <label htmlFor="custom-font-input">
                             {text[settings.language].customFont[0]} <a target="_blank" href="https://fonts.google.com/">google fonts</a> {text[settings.language].customFont[1]}:
                         </label>
                         <div className="font-field">
-                            <input type="text" id="custom-font-input" placeholder={`${text[settings.language].example}: rampart one`} value={customFont} onChange={(e) => setCustomFont(e.target.value)} disabled={preferred !== 'custom'}/>
-                            <button
+                            <input
+                                type="text"
+                                id="custom-font-input"
+                                placeholder={`${text[settings.language].example}: rampart one`}
+                                style={{ borderRadius: authState.status ? "10px 0 0 10px" : "10px" }}
+                                value={customFont}
+                                onChange={(e) => setCustomFont(e.target.value)}
+                                disabled={preferred !== "custom"}
+                            />
+                            {authState.status && <button
                                 title={loadSave || !customFont || fonts.includes(customFont) ? "" : text[settings.language].themeControls[2]}
                                 onClick={saveFont}
                                 disabled={loadSave || !customFont || fonts.includes(customFont)}
@@ -120,7 +128,7 @@ function FontModal({ modal, settings, setSettings, width }) {
                             >
                                 {loadSave ? <span className="loader" style={loaderStyles} />
                                 : <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d={paths.save} stroke="var(--button-font)" strokeWidth="2.5" strokeLinejoin="round"/></svg>}
-                            </button>
+                            </button>}
                         </div>
                     </div>
                 </div>
