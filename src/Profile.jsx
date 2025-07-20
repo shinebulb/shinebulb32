@@ -127,7 +127,7 @@ function Profile({ settings, bulb }) {
                         left:  width >= 600 ? "calc(50% + 200px)" : "calc(50% + 80px)",
                         backgroundColor: userTheme[bg][user?.theme || 0],
                         border: `${userTheme[font][user?.theme || 0]} 3px solid`,
-                        borderRadius: customTheme || customFont ? (width >= 600 ? "0 15px 0 0" : "0 12px 0 0") : (width >= 600 ? "15px 15px 0 0" : "12px 12px 0 0")
+                        borderRadius: customTheme || user?.font ? (width >= 600 ? "0 15px 0 0" : "0 12px 0 0") : (width >= 600 ? "15px 15px 0 0" : "12px 12px 0 0")
                     }}
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill={userTheme[font][user?.theme || 0]}><path d={paths.share}/></svg>
