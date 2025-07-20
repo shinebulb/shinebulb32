@@ -69,6 +69,7 @@
         "userActions": ["copy settings", "share profile"],
         "nouser": ["unknown", "undefined"],
         "error": "error",
+        "serverDown": "it looks like our server is down! we're already working on the issue, in the meantime you can enjoy most of shinebulb features locally!",
         "authNotifications": [
             "unexpected error occurred!",
             "user not found!",
@@ -207,6 +208,7 @@
         "userActions": ["скопировать настройки", "поделиться профилем"],
         "nouser": ["неизвестный", "не определён"],
         "error": "ошибка",
+        "serverDown": "похоже, наш сервер отключен! мы уже работаем над проблемой, а вы пока можете наслаждаться большинством функций shinebulb локально!",
         "authNotifications": [
             "произошла неожиданная ошибка!",
             "пользователь не найден!",

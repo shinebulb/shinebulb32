@@ -147,6 +147,11 @@ body {
     background-color: var(--modal-bg);
 }
 
+.server-down {
+    height: 2.5rem;
+    margin: auto calc(var(--navbar-margin) * 2) auto 0;
+}
+
 .verification-required {
     font-family: "Rubik";
     display: flex;
@@ -1741,6 +1746,9 @@ label[for=custom-font-input] a {
     .verification-required span {
         width: 80%;
         font-size: 1.1rem;
+    }
+    .server-down {
+        height: 1.8rem;
     }
     .navbar a {
         font-size: 1.2rem;

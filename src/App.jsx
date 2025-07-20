@@ -21,7 +21,7 @@ import NoPage from './NoPage';
 import DynamicFontLoader from './DynamicFontLoader';
 import themes from './assets/themes';
 import defaultLang from './assets/defaultLang';
-import getFontUrl from './assets/getFontUrl';
+import closeModal from './assets/closeModal';
 import fonts from './assets/json/fonts.json';
 import text from './assets/json/text.json';
 import paths from './assets/json/svg-paths.json';
@@ -42,12 +42,13 @@ function App() {
 
     const [loadApp, setLoadApp] = useState(true);
     const [stuckHere, setStuckHere] = useState(false);
+    const [serverDown, setServerDown] = useState(false);
 
     useEffect(() => {
         themes[parseInt(localStorage.getItem("theme")) || 0](0);
         document.documentElement.style.setProperty("--font-family", localStorage.getItem("font") || "Roboto Slab");
         document.documentElement.style.setProperty("--verification-required-height", verificationRequired ? "3.2rem" : "0");
-        setTimeout(() => { if (loadApp) setStuckHere(true) }, 2500);
+        setTimeout(() => { if (loadApp) setStuckHere(true) }, 5000);
         let id = 0;
         axios.get(
             `${import.meta.env.VITE_API_KEY}/users/auth`,
@@ -85,10 +86,16 @@ function App() {
                 document.documentElement.style.setProperty("--font-family", response.data.font || "Roboto Slab");
                 if ((response.data.bulbStatus === "on") && (bulb.current)) bulb.current.classList.add("on");
             }
+        })
+        .catch(error => {
+            setLoadApp(false);
+            setServerDown(true);
+            setTimeout(() => serverDownAlert.current.showModal(), 1500);
         });
     }, []);
     
     const bulb = useRef(null);
+    const serverDownAlert = useRef(null);
 
     function resetSession() {
         localStorage.removeItem("accessToken");
@@ -146,13 +153,14 @@ function App() {
                         <div className="navbar-links">
                             <Link to="/" style={{ marginLeft: "calc(var(--navbar-margin) * 2)" }}>{text[settings.language || 0 || 0].home}</Link>
                             {authState.status && <Link to={`/user/${authState.username}`} style={{ fontStyle: "italic", fontWeight: "normal" }}>{authState.username}</Link>}
-                            <div className="auth-links">{!authState.status ?
+                            {serverDown ? <svg xmlns="http://www.w3.org/2000/svg" className="server-down" viewBox="0 -960 960 960" fill="var(--font)"><path d={paths.serverDown}/></svg>
+                            : <div className="auth-links">{!authState.status ?
                                 <>
                                     <Link to="/signup" style={{ marginRight: "var(--navbar-margin)" }}>{text[settings.language || 0 || 0].auth[1]}</Link>
                                     <Link to="/login" style={{ marginRight: "calc(var(--navbar-margin) * 2)" }}>{text[settings.language || 0 || 0].auth[0]}</Link>
                                 </>
                                 : <Link to="/" onClick={logout} style={{ marginRight: "calc(var(--navbar-margin) * 2)" }}>{text[settings.language || 0 || 0].auth[2]}</Link>
-                            }</div>
+                            }</div>}
                         </div>
                         <hr />
                     </div>
@@ -173,6 +181,22 @@ function App() {
                         <Route path="/nouser" element={<NoUser settings={settings} />} />
                         <Route path="*" element={<NoPage settings={settings} />} />
                     </Routes>
+                    <dialog closedby="any"
+                        className="save-alert"
+                        ref={serverDownAlert}
+                        style={{
+                            backgroundColor: "var(--light-yellow)",
+                            color: "var(--dark-yellow)",
+                            marginTop: "5rem"
+                        }}
+                    >
+                        <div className="server-down-alert">
+                            <p>{text[settings.language].serverDown}</p>
+                            <button onClick={() => closeModal(serverDownAlert)}>
+                                <svg viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"><g id="Page-1" stroke="none" strokeWidth="1" fill="var(--dark-yellow)" fillRule="evenodd"><g id="work-case" transform="translate(91.520000, 91.520000)"><polygon id="Close" points={paths.cancel} /></g></g></svg>
+                            </button>
+                        </div>
+                    </dialog>
                 </>}
             </BrowserRouter>
         </AuthContext.Provider>
