@@ -66,6 +66,7 @@
         "verifyActions": ["retry", "log in"],
         "verificationRequired": "verification email sent — check your inbox!",
         "joined": "joined",
+        "userActions": ["copy settings", "share profile"],
         "nouser": ["unknown", "undefined"],
         "error": "error",
         "authNotifications": [
@@ -87,7 +88,11 @@
         ],
         "userFontStatus": ["(user has a default font)", "user's font family"],
         "yourFontStatus": ["(you have a default font)", "your font family"],
-        "myShinebulbProfile": "my shinebulb profile",
+        "shinebulbProfile": "shinebulb profile",
+        "shareProfileText": [
+            ["i have", "bulb switches on shinebulb! take a look at my profile:"],
+            ["user has", "bulb switches on shinebulb! take a look at their profile:"]
+        ],
         "userThemeStatus": ["(user has a default theme)", "(you have a default theme)"],
         "close": "close",
         "bulbMuteUnmute": [
@@ -199,6 +204,7 @@
         "verifyActions": ["обновить", "войти"],
         "verificationRequired": "письмо отправлено — проверьте ящик!",
         "joined": "дата регистрации:",
+        "userActions": ["скопировать настройки", "поделиться профилем"],
         "nouser": ["неизвестный", "не определён"],
         "error": "ошибка",
         "authNotifications": [
@@ -220,7 +226,11 @@
         ],
         "userFontStatus": ["(у пользователя базовый шрифт)", "семья шрифта пользователя"],
         "yourFontStatus": ["(у вас базовый шрифт)", "ваша семья шрифта"],
-        "myShinebulbProfile": "мой профиль на shinebulb:",
+        "shinebulbProfile": "профиль shinebulb",
+        "shareProfileText": [
+            ["у меня", "щелчков лампочки на shinebulb! посмотри мой профиль:"],
+            ["у пользователя user", "щелчков лампочки на shinebulb! посмотри профиль:"]
+        ],
         "userThemeStatus": ["(у пользователя базовая тема)", "(у вас базовая тема)"],
         "close": "закрыть",
         "bulbMuteUnmute": [

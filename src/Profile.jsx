@@ -77,10 +77,10 @@ function Profile({ settings, bulb }) {
 
         try {
             await navigator.share({
-                title: `${username} – shinebulb`,
-                text: `${text[settings.language].myShinebulbProfile}: ${username}`,
-                url: window.location.href
-            })
+                title: `💡 ${text[settings.language].shinebulbProfile}: ${username}`,
+                text: `${text[settings.language].shareProfileText[Number(!userMatch)][0].replace("user", username)} ${user?.bulbCount || 0} ${text[settings.language].shareProfileText[Number(!userMatch)][1]}`,
+                url: window.location.href,
+            });
         }
         catch (err) {
             navigator.clipboard.writeText(window.location.href);
@@ -103,12 +103,16 @@ function Profile({ settings, bulb }) {
             {loadUser ? <span className="loader" style={{width: "5rem", height: "5rem", borderWidth: "7px", margin: "auto"}} />
             : <>
                 {!fonts.includes(userFont) && <ProfileFontLoader profileFont={getFontUrl(userFont)} />}
-                {(customTheme || customFont) && <button
+                {(customTheme || user?.font) && <button
                     className="user-actions"
+                    title={text[settings.language].userActions[0]}
                     onClick={() => copyModal.current.showModal()}
                     style={{
                         top: width >= 600 ? "calc(50% - 202px)" : (settings.language === 1 ? "calc(50% - 274px)" : "calc(50% - 254px)"),
                         left:  width >= 600 ? "calc(50% + 144px)" : "calc(50% + 35px)",
+                        backgroundColor: userTheme[bg][user?.theme || 0],
+                        border: `${userTheme[font][user?.theme || 0]} 3px solid`,
+                        borderRight: "none",
                         borderRadius: width >= 600 ? "15px 0 0 0" : "12px 0 0 0"
                     }}
                 >
@@ -116,6 +120,7 @@ function Profile({ settings, bulb }) {
                 </button>}
                 <button
                     className="user-actions"
+                    title={text[settings.language].userActions[1]}
                     onClick={share}
                     style={{
                         top: width >= 600 ? "calc(50% - 202px)" : (settings.language === 1 ? "calc(50% - 274px)" : "calc(50% - 254px)"),
