@@ -134,7 +134,10 @@ function App() {
                     <AppLoader />
                     <div className="reset-session" style={{ visibility: stuckHere ? "visible" : "hidden"}}>
                         <span>{text[settings.language].stuckHere[0]}</span>
-                        <button onClick={resetSession}>{text[settings.language].stuckHere[1]}</button>
+                        <button onClick={resetSession}>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d={paths.refresh}/></svg>
+                            {text[settings.language].stuckHere[1]}
+                        </button>
                     </div>
                 </>
                 : <>

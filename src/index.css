@@ -118,6 +118,8 @@ body {
 }
 
 .reset-session {
+    display: flex;
+    align-items: center;
     margin-top: 2rem;
 }
 
@@ -129,6 +131,8 @@ body {
 
 .reset-session button {
     font-family: var(--font-family);
+    display: flex;
+    align-items: center;
     font-size: 1.2rem;
     color: var(--button-font);
     background-color: var(--button-bg);
@@ -137,6 +141,12 @@ body {
     padding: 0.5rem 1.2rem;
     transition: 0.3s background-color ease;
     cursor: pointer;
+}
+
+.reset-session svg {
+    height: 1.8rem;
+    fill: var(--button-font);
+    margin-right: 0.5rem;
 }
 
 .navbar {
@@ -1728,7 +1738,6 @@ label[for=custom-font-input] a {
         --navbar-margin: 0.6rem;
     }
     .reset-session {
-        display: flex;
         flex-direction: column;
         margin-top: 1.5rem;
     }
@@ -1737,7 +1746,8 @@ label[for=custom-font-input] a {
         margin: 0 0 0.7rem;
     }
     .reset-session button {
-        width: 10rem;
+        width: 14rem;
+        justify-content: center;
         font-size: 1.1rem;
         border-radius: 15px;
         padding: 0.4rem 0;
