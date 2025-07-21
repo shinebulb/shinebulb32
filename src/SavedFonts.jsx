@@ -46,13 +46,13 @@ function SavedFonts({ settings, setSettings }) {
             {!authState.status ? <LogInToView settings={settings} /> 
             : <>
                 {fontList.length > 0 && <SavedFontsLoader fontList={fontList.map(font => getFontUrl(font))} />}
-                <h2 style={{fontSize: "1.9rem", marginTop: "6rem"}}>saved fonts</h2>
+                <h2 style={{fontSize: "1.9rem", marginTop: "6rem"}}>{text[settings.language].links[9]}</h2>
                 <h3 style={{color: "var(--font)", fontStyle: "italic", marginBottom: "2rem"}}>
                     {fontList.length} {text[settings.language].savedThemes[1]}
                 </h3>
                 {fontList.length > 0 && <div className="saved-display">{
                     fontList.map((fontFamily, index) =>
-                        <FontCard  key={index} index={index} fontFamily={fontFamily} settings={settings} />
+                        <FontCard  key={index} index={index} fontFamily={fontFamily} settings={settings} setSettings={setSettings} />
                     )
                 }</div>}
                 <div style={{height: "1.5rem"}}/>

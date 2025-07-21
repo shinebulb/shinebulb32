@@ -1301,6 +1301,15 @@ hr {
     cursor: pointer;
 }
 
+.font-card .loader {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-color: var(--font);
+    border-bottom-color: transparent;
+    margin-right: 1rem;
+    cursor: pointer;
+}
+
 .export-title {
     font-size: 1.5rem;
     color: var(--font);
