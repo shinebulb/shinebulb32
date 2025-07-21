@@ -114,12 +114,7 @@ function Settings({ settings, setSettings }) {
                 });
             }
         }
-        else if (mode === 3) {
-            constructorRef.current.showModal();
-        }
-        else if (mode === 4) {
-            navigate("/savedthemes");
-        }
+        else constructorRef.current.showModal();
     }
 
     function languageChange(event) {
@@ -211,7 +206,6 @@ function Settings({ settings, setSettings }) {
                         <option value="light">{text[settings.language].mode[1]}</option>
                         <option value="dark">{text[settings.language].mode[2]}</option>
                         <option value="custom">{text[settings.language].mode[3]}{width >= 600 && " (c)"}</option>
-                        {authState.status && <option value="saved">{text[settings.language].mode[4]}{width >= 600 && " (s)"}</option>}
                     </select>
                 </div>
             </div>
