@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useContext } from 'react';
+import { useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import SavedFontsLoader from './SavedFontsLoader';
@@ -10,20 +10,18 @@ import { motion } from 'framer-motion';
 import FontCard from './FontCard';
 import LogInToView from './LogInToView';
 
-function SavedFonts({ settings, setSettings }) {
+function SavedFonts({ settings, setSettings, fontList, setFontList }) {
 
     const navigate = useNavigate();
 
     const { authState } = useContext(AuthContext);
-
-    const [fontList, setFontList] = useState([]);
 
     useEffect(() => {
         document.title = text[settings.language].links[9];
         document.addEventListener("keydown", navigateSettings);
         axios.get(`${import.meta.env.VITE_API_KEY}/savedfonts/byUser/${authState.id}`)
         .then(response => {
-            if (response !== undefined) setFontList(response.data.map(obj => obj.fontFamily));
+            if (response !== undefined) setFontList(response.data);
         });
 
         return () => document.removeEventListener("keydown", navigateSettings);
@@ -45,14 +43,22 @@ function SavedFonts({ settings, setSettings }) {
         >
             {!authState.status ? <LogInToView settings={settings} /> 
             : <>
-                {fontList.length > 0 && <SavedFontsLoader fontList={fontList.map(font => getFontUrl(font))} />}
+                {fontList.length > 0 && <SavedFontsLoader fontList={fontList.map(fontObj => getFontUrl(fontObj.fontFamily))} />}
                 <h2 style={{fontSize: "1.9rem", marginTop: "6rem"}}>{text[settings.language].links[9]}</h2>
                 <h3 style={{color: "var(--font)", fontStyle: "italic", marginBottom: "2rem"}}>
                     {fontList.length} {text[settings.language].savedThemes[1]}
                 </h3>
                 {fontList.length > 0 && <div className="saved-display">{
-                    fontList.map((fontFamily, index) =>
-                        <FontCard  key={index} index={index} fontFamily={fontFamily} settings={settings} setSettings={setSettings} />
+                    fontList.map((fontObj, index) =>
+                        <FontCard
+                            key={index}
+                            id={fontObj.id}
+                            fontFamily={fontObj.fontFamily}
+                            settings={settings}
+                            setSettings={setSettings}
+                            fontList={fontList}
+                            setFontList={setFontList}
+                        />
                     )
                 }</div>}
                 <div style={{height: "1.5rem"}}/>

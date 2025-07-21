@@ -38,6 +38,7 @@ function App() {
         font: localStorage.getItem("font") || "Roboto Slab"
     });
     const [savedList, setSavedList] = useState([]);
+    const [fontList, setFontList] = useState([]);
     const [verificationRequired, setVerificationRequired] = useState(Boolean(localStorage.getItem("verificationRequired")));
 
     const [loadApp, setLoadApp] = useState(true);
@@ -116,6 +117,7 @@ function App() {
             font: localStorage.getItem("font") || "Roboto Slab"
         });
         setSavedList([]);
+        setFontList([]);
         if (localStorage.getItem("verificationRequired") === "") {
             localStorage.setItem("verificationRequired", "1");
             setVerificationRequired(true);
@@ -175,7 +177,7 @@ function App() {
                         <Route path="/support" element={<Support settings={settings} />} />
                         <Route path="/development" element={<DevPage settings={settings} />} />
                         <Route path="/savedthemes" element={<SavedThemes settings={settings} setSettings={setSettings} savedList={savedList} setSavedList={setSavedList} />} />
-                        <Route path="/savedfonts" element={<SavedFonts settings={settings} setSettings={setSettings} />} />
+                        <Route path="/savedfonts" element={<SavedFonts settings={settings} setSettings={setSettings} fontList={fontList} setFontList={setFontList} />} />
                         <Route path="/login" element={<LogIn bulb={bulb} settings={settings} setSettings={setSettings} setSavedList={setSavedList} setVerificationRequired={setVerificationRequired} />} />
                         <Route path="/signup" element={<SignUp settings={settings} setVerificationRequired={setVerificationRequired} />} />
                         <Route path="/verify" element={<Verify settings={settings} setVerificationRequired={setVerificationRequired} />} />

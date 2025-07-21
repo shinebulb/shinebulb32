@@ -24,6 +24,7 @@
         "fontCard": ["apply font", "delete font"],
         "refreshPage": "refresh page",
         "savedDialogs": ["enter theme name...", "delete theme permanently?"],
+        "deleteFont": "delete font font permanently?",
         "noThemes": "your themes will be listed here!",
         "collectionActions": ["export themes", "import themes"],
         "optionDescriptions": [
@@ -164,6 +165,7 @@
         "fontCard": ["применить шрифт", "удалить шрифт"],
         "refreshPage": "обновить страницу",
         "savedDialogs": ["название темы...", "безвозвратно удалить тему?"],
+        "deleteFont": "безвозвратно удалить шрифт font?",
         "noThemes": "ваши темы будут размещены здесь!",
         "collectionActions": ["экспорт тем", "импорт тем"],
         "optionDescriptions": [
