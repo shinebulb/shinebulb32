@@ -804,7 +804,7 @@ h2 {
     content: "";
     flex: 1;
     height: 3px;
-    background: var(--font); /* line color */
+    background: var(--font);
 }
 
 .collections {
@@ -816,20 +816,20 @@ h2 {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 45%;
-    font-size: 1.2rem;
+    width: 46%;
+    font-size: 1.3rem;
     background-color: var(--button-bg);
     color: var(--button-font);
     border: var(--border-thick);
-    border-radius: 12px;
-    padding: 0.3rem 0;
-    margin: 0 2.5%;
+    border-radius: 15px;
+    padding: 0.5rem 0;
+    margin: 0 2%;
     transition: background-color 0.2s ease;
     cursor: pointer;
 }
 
 .collections svg {
-    width: 1.5rem;
+    width: 1.8rem;
     margin-right: 0.5rem;
 }
 
@@ -2087,6 +2087,15 @@ label[for=custom-font-input] a {
     .modal-options {
         font-size: 1.1rem;
         padding: 0.6rem 0;
+    }
+    .collections-title {
+        font-size: 1.5rem;
+        gap: 0.6rem;
+    }
+    .collections button {
+        font-size: 1.1rem;
+        border-radius: 12px;
+        padding: 0.3rem 0;
     }
     .modal-options svg {
         height: 1.5rem;

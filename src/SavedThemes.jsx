@@ -36,7 +36,7 @@ function SavedThemes({ settings, setSettings, savedList, setSavedList }) {
     function navigateSettings(event) {
         const key = event.key.toLowerCase();
         if (editingField(event.target)) return;
-        if (key == "s" || key == "ы") navigate("/settings");
+        if (key == "t" || key == "е") navigate("/settings");
     }
     
     return (

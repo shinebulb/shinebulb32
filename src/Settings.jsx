@@ -31,13 +31,15 @@ function Settings({ settings, setSettings }) {
     useEffect(() => {
         document.title = text[settings.language].links[1];
         document.addEventListener("keydown", openConstructor);
-        document.addEventListener("keydown", navigateSaved);
+        document.addEventListener("keydown", navigateThemes);
+        document.addEventListener("keydown", navigateFonts);
         window.addEventListener("resize", () => setWidth(window.innerWidth));
 
         return () =>  {
             window.removeEventListener("resize", () => setWidth(window.innerWidth));
             document.removeEventListener("keydown", openConstructor);
-            document.removeEventListener("keydown", navigateSaved);
+            document.removeEventListener("keydown", navigateThemes);
+            document.removeEventListener("keydown", navigateFonts);
         }
     }, []);
 
@@ -71,10 +73,16 @@ function Settings({ settings, setSettings }) {
         }
     }
 
-    function navigateSaved(event) {
+    function navigateThemes(event) {
         const key = event.key.toLowerCase();
         if (editingField(event.target)) return;
-        if (key == "s" || key == "ы") navigate("/savedthemes")
+        if (key == "t" || key == "е") navigate("/savedthemes")
+    }
+
+    function navigateFonts(event) {
+        const key = event.key.toLowerCase();
+        if (editingField(event.target)) return;
+        if (key == "f" || key == "а") navigate("/savedfonts")
     }
 
     function themeChange(event) {
@@ -234,12 +242,12 @@ function Settings({ settings, setSettings }) {
             <div style={{ height: "1.5rem" }} />
             <div className="collections">
                 <button onClick={() => navigate("/savedthemes")}>
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d={paths.save} stroke="var(--button-font)" strokeWidth="2" strokeLinejoin="round"/></svg>
-                    {text[settings.language].yourCollections[1]}
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="var(--button-font)"><path d={paths.theme}/></svg>
+                    {text[settings.language].yourCollections[1]}{width >= 600 ? " (t)" : ""}
                 </button>
                 <button onClick={() => navigate("/savedfonts")}>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="var(--button-font)"><path d={paths.fonts}/></svg>
-                    {text[settings.language].yourCollections[2]}
+                    {text[settings.language].yourCollections[2]}{width >= 600 ? " (f)" : ""}
                 </button>
             </div>
             <div style={{ height: "4rem" }} />

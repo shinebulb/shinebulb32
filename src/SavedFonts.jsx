@@ -4,6 +4,7 @@ import axios from 'axios';
 import SavedFontsLoader from './SavedFontsLoader';
 import { AuthContext } from './assets/AuthContext';
 import getFontUrl from './assets/getFontUrl';
+import editingField from './assets/editingField';
 import text from './assets/json/text.json';
 import { motion } from 'framer-motion';
 import LogInToView from './LogInToView';
@@ -17,12 +18,21 @@ function SavedFonts({ settings, setSettings }) {
     const [fontList, setFontList] = useState([]);
 
     useEffect(() => {
-        document.title = "saved fonts";
+        document.title = text[settings.language].links[9];
+        document.addEventListener("keydown", navigateSettings);
         axios.get(`${import.meta.env.VITE_API_KEY}/savedfonts/byUser/${authState.id}`)
         .then(response => {
             if (response !== undefined) setFontList(response.data.map(obj => obj.fontFamily));
         });
+
+        return () => document.removeEventListener("keydown", navigateSettings);
     }, []);
+
+    function navigateSettings(event) {
+        const key = event.key.toLowerCase();
+        if (editingField(event.target)) return;
+        if (key == "f" || key == "а") navigate("/settings");
+    }
 
     return (
         <motion.div
