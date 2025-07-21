@@ -1263,6 +1263,44 @@ hr {
     padding: 0 10%;
 }
 
+.font-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border: var(--border-thick);
+    border-radius: 20px;
+}
+
+.font-card p {
+    display: flex;
+    align-items: center;
+    width: calc(100% - 8.3rem);
+    height: 4.5rem;
+    margin: 0 0.3rem 0 1rem;
+}
+
+.font-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 2rem;
+    color: var(--font);
+    display: block;
+}
+
+.font-card div {
+    display: flex;
+    align-items: center;
+}
+
+.font-card svg {
+    height: 3rem;
+    fill: var(--font);
+    margin-right: 0.5rem;
+    cursor: pointer;
+}
+
 .export-title {
     font-size: 1.5rem;
     color: var(--font);
@@ -2115,15 +2153,29 @@ label[for=custom-font-input] a {
     .saved-display > *:last-child:nth-child(2n+1) {
         width: 86vw;
     }
-    .theme-card {
+    .theme-card, .font-card {
         width: 86vw;
         margin: 1rem auto;
-        padding-top: 0.1rem;
         border-radius: 15px;
+    }
+    .theme-card {
+        padding-top: 0.1rem;
     }
     .theme-card p {
         font-size: 1.4rem;
         margin: 0.6rem 0;
+    }
+    .font-card p {
+        width: calc(100% - 6.6rem);
+        height: 3.5rem;
+        margin: 0 0.2rem 0 0.8rem;
+    }
+    .font-text {
+        font-size: 1.5rem;
+    }
+    .font-card svg {
+        height: 2.5rem;
+        margin-right: 0.3rem;
     }
     .export-title {
         font-size: 1.2rem;

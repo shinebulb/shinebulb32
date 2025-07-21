@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useContext } from 'react';
+import { useState, useEffect, useRef, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import SavedFontsLoader from './SavedFontsLoader';
@@ -7,6 +7,7 @@ import getFontUrl from './assets/getFontUrl';
 import editingField from './assets/editingField';
 import text from './assets/json/text.json';
 import { motion } from 'framer-motion';
+import FontCard from './FontCard';
 import LogInToView from './LogInToView';
 
 function SavedFonts({ settings, setSettings }) {
@@ -49,11 +50,9 @@ function SavedFonts({ settings, setSettings }) {
                 <h3 style={{color: "var(--font)", fontStyle: "italic", marginBottom: "2rem"}}>
                     {fontList.length} {text[settings.language].savedThemes[1]}
                 </h3>
-                {fontList.length > 0 && <div>{
-                    fontList.map((fontFamily, index) => 
-                        <p key={index} style={{ fontFamily: fontFamily, color: "var(--font)", fontSize: "1.3rem" }}>
-                            {fontFamily}
-                        </p>
+                {fontList.length > 0 && <div className="saved-display">{
+                    fontList.map((fontFamily, index) =>
+                        <FontCard  key={index} index={index} fontFamily={fontFamily} settings={settings} />
                     )
                 }</div>}
                 <div style={{height: "1.5rem"}}/>
