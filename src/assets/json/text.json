@@ -1,7 +1,7 @@
 [
     {
         "headings": ["the lightbulb", "settings", "about"],
-        "links": ["PLAY", "settings", "about", "support us", "suggestions", "saved", "hidden themes", "page not found!", "shinebulb development"],
+        "links": ["PLAY", "settings", "about", "support us", "suggestions", "saved themes", "hidden themes", "page not found!", "shinebulb development", "saved fonts"],
         "source": "source code",
         "confirm": ["are you sure you want to reset the counter?", "yes", "no"],
         "text": ["sad :(", "happy!"],
@@ -14,6 +14,7 @@
         "generateRandom": "generate a random theme",
         "sample": "this is a sample of your theme",
         "themeControls": ["apply", "cancel", "save"],
+        "yourCollections": ["your collections", "themes", "fonts"],
         "savedStatus": [
             ["theme is already in ", "saved"],
             ["theme added to ", "saved"]
@@ -23,7 +24,6 @@
         "refreshPage": "refresh page",
         "savedDialogs": ["enter theme name...", "delete theme permanently?"],
         "noThemes": "your themes will be listed here!",
-        "saved": "saved themes",
         "collectionActions": ["export themes", "import themes"],
         "optionDescriptions": [
             "the space for any theme that you came up with or generated in the constructor",
@@ -140,7 +140,7 @@
 
     {
         "headings": ["лампочка", "настройки", "о нас"],
-        "links": ["ИГРАТЬ", "настройки", "о нас", "поддержать", "предложения", "сохранённые", "скрытые темы", "страница не найдена!", "разработка shinebulb"],
+        "links": ["ИГРАТЬ", "настройки", "о нас", "поддержать", "предложения", "сохранённые темы", "скрытые темы", "страница не найдена!", "разработка shinebulb", "сохранённые шрифты"],
         "source": "исходный код",
         "confirm": ["вы уверены, что хотите очистить счётчик?", "да", "нет"],
         "text": ["грустная :(", "счастливая!"],
@@ -153,6 +153,7 @@
         "generateRandom": "сгенерировать случайную",
         "sample": "так будет выглядеть ваша тема",
         "themeControls": ["применить", "отменить", "сохранить"],
+        "yourCollections": ["ваши коллекции", "темы", "шрифты"],
         "savedStatus": [
             ["тема уже в ", "сохранённых"],
             ["добавлено в ", "сохранённые"]
@@ -162,7 +163,6 @@
         "refreshPage": "обновить страницу",
         "savedDialogs": ["название темы...", "безвозвратно удалить тему?"],
         "noThemes": "ваши темы будут размещены здесь!",
-        "saved": "сохранённые темы",
         "collectionActions": ["экспорт тем", "импорт тем"],
         "optionDescriptions": [
             "место для всех тем, которые вы придумали или сгенерировали в конструкторе",

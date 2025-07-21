@@ -179,8 +179,9 @@ function Settings({ settings, setSettings }) {
             exit={{opacity: 0}}
             transition={{duration: 0.5}}
         >
-            <div style={{ height: "4rem" }} />
+            <div style={{ height: "8rem" }} />
             <h2>{text[settings.language].headings[1]}</h2>
+            <div style={{ height: "5rem" }} />
             <div className="container">
                 <label>{text[settings.language].settings[1]}</label>
                 <div>
@@ -228,8 +229,22 @@ function Settings({ settings, setSettings }) {
                     </div>
                 </div>
             </div>
+            <div style={{ height: "3rem" }} />
+            <h3 className="collections-title">{text[settings.language].yourCollections[0]}</h3>
+            <div style={{ height: "1.5rem" }} />
+            <div className="collections">
+                <button onClick={() => navigate("/savedthemes")}>
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d={paths.save} stroke="var(--button-font)" strokeWidth="2" strokeLinejoin="round"/></svg>
+                    {text[settings.language].yourCollections[1]}
+                </button>
+                <button onClick={() => navigate("/savedfonts")}>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="var(--button-font)"><path d={paths.fonts}/></svg>
+                    {text[settings.language].yourCollections[2]}
+                </button>
+            </div>
             <div style={{ height: "4rem" }} />
             <a onClick={() => navigate("/")}>{text[settings.language].back}</a>
+            <div style={{ height: "3rem" }} />
             <ThemeConstructor
                 constructor={constructorRef}
                 settings={settings}

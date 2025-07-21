@@ -684,7 +684,7 @@ h2 {
 
 .settings h2 {
     font-size: 2.4rem;
-    margin: 0 0 5rem;
+    margin: 0;
 }
 
 .container {
@@ -788,7 +788,53 @@ h2 {
     transform: translateX(-100%);
 }
 
+.collections-title {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-weight: normal;
+    gap: 1rem;
+    font-size: 1.8rem;
+    color: var(--font);
+    margin: 0;
+}
+
+.collections-title::before,
+.collections-title::after {
+    content: "";
+    flex: 1;
+    height: 3px;
+    background: var(--font); /* line color */
+}
+
+.collections {
+    display: flex;
+}
+
+.collections button {
+    font-family: var(--font-family);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45%;
+    font-size: 1.2rem;
+    background-color: var(--button-bg);
+    color: var(--button-font);
+    border: var(--border-thick);
+    border-radius: 12px;
+    padding: 0.3rem 0;
+    margin: 0 2.5%;
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+}
+
+.collections svg {
+    width: 1.5rem;
+    margin-right: 0.5rem;
+}
+
 .collection-actions button:hover,
+.collections button:hover,
 .signup-form button:hover,
 .login-form button:hover,
 .container select:hover,
