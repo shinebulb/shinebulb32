@@ -10,6 +10,8 @@ import LogInToView from './LogInToView';
 
 function SavedFonts({ settings, setSettings }) {
 
+    const navigate = useNavigate();
+
     const { authState } = useContext(AuthContext);
 
     const [fontList, setFontList] = useState([]);
