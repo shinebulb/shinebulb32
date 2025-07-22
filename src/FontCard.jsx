@@ -46,7 +46,7 @@ function FontCard({ id, fontFamily, settings, setSettings, fontList, setFontList
                 <div>
                     {loadApply ? <span className="loader" />
                     : <svg xmlns="http://www.w3.org/2000/svg" onClick={applyFont} viewBox="0 -960 960 960"><title>{text[settings.language].fontCard[0]}</title><path d={paths.applyFont}/></svg>}
-                    <svg xmlns="http://www.w3.org/2000/svg" onClick={() => deleteRef.current.showModal()} viewBox="0 -960 960 960"><title>{text[settings.language].fontCard[1]}</title><path d={paths.delete}/></svg>
+                    <button onClick={() => deleteRef.current.showModal()}><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><title>{text[settings.language].fontCard[1]}</title><path d={paths.delete}/></svg></button>
                 </div>
 
                 <dialog closedby="any" ref={deleteRef} disabled={loadDelete} className="confirm">

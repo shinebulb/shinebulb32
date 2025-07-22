@@ -1294,6 +1294,12 @@ hr {
     align-items: center;
 }
 
+.font-card div button {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+}
+
 .font-card svg {
     height: 3rem;
     fill: var(--font);
