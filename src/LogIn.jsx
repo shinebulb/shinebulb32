@@ -56,7 +56,8 @@ function LogIn({ bulb, settings, setSettings, setSavedList, setVerificationRequi
                     id: response.data.id,
                     status: true
                 });
-                navigate("/");
+                navigate(localStorage.getItem("currentPage") || "/");
+                localStorage.removeItem("currentPage");
                 id = response.data.id;
                 return axios.get(
                     `${import.meta.env.VITE_API_KEY}/users/settings/${id}`,
