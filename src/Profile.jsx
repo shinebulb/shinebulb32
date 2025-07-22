@@ -77,7 +77,7 @@ function Profile({ settings, bulb }) {
 
         try {
             await navigator.share({
-                title: `💡 ${text[settings.language].shinebulbProfile}: ${username}`,
+                title: `${text[settings.language].shinebulbProfile}: ${username}`,
                 text: `${text[settings.language].shareProfileText[Number(!userMatch)][0].replace("user", username)} ${user?.bulbCount || 0} ${text[settings.language].shareProfileText[Number(!userMatch)][1]}`,
                 url: window.location.href,
             });

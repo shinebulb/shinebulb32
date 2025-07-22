@@ -91,10 +91,10 @@
         ],
         "userFontStatus": ["(user has a default font)", "user's font family"],
         "yourFontStatus": ["(you have a default font)", "your font family"],
-        "shinebulbProfile": "shinebulb profile",
+        "shinebulbProfile": "Shinebulb Profile",
         "shareProfileText": [
-            ["i have", "bulb switches on shinebulb! take a look at my profile:"],
-            ["user has", "bulb switches on shinebulb! take a look at their profile:"]
+            ["💡 I have", "bulb switches on Shinebulb! 💡 Take a look at my profile:"],
+            ["💡 user has", "bulb switches on Shinebulb! 💡 Take a look at their profile:"]
         ],
         "userThemeStatus": ["(user has a default theme)", "(you have a default theme)"],
         "close": "close",
@@ -232,10 +232,10 @@
         ],
         "userFontStatus": ["(у пользователя базовый шрифт)", "семья шрифта пользователя"],
         "yourFontStatus": ["(у вас базовый шрифт)", "ваша семья шрифта"],
-        "shinebulbProfile": "профиль shinebulb",
+        "shinebulbProfile": "Профиль Shinebulb",
         "shareProfileText": [
-            ["у меня", "щелчков лампочки на shinebulb! посмотри мой профиль:"],
-            ["у пользователя user", "щелчков лампочки на shinebulb! посмотри профиль:"]
+            ["💡 У меня", "щелчков лампочки на Shinebulb! 💡 Посмотри мой профиль:"],
+            ["💡 У пользователя user", "щелчков лампочки на Shinebulb! 💡 Посмотри профиль:"]
         ],
         "userThemeStatus": ["(у пользователя базовая тема)", "(у вас базовая тема)"],
         "close": "закрыть",

@@ -231,19 +231,21 @@ function Settings({ settings, setSettings }) {
                     </div>
                 </div>
             </div>
-            <div style={{ height: "3rem" }} />
-            <h3 className="collections-title">{text[settings.language].yourCollections[0]}</h3>
-            <div style={{ height: "1.5rem" }} />
-            <div className="collections">
-                <button onClick={() => navigate("/savedthemes")}>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="var(--button-font)"><path d={paths.theme}/></svg>
-                    {text[settings.language].yourCollections[1]}{width >= 600 ? " (t)" : ""}
-                </button>
-                <button onClick={() => navigate("/savedfonts")}>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="var(--button-font)"><path d={paths.fonts}/></svg>
-                    {text[settings.language].yourCollections[2]}{width >= 600 ? " (f)" : ""}
-                </button>
-            </div>
+            {authState.status && <>
+                <div style={{ height: "3rem" }} />
+                <h3 className="collections-title">{text[settings.language].yourCollections[0]}</h3>
+                <div style={{ height: "1.5rem" }} />
+                <div className="collections">
+                    <button onClick={() => navigate("/savedthemes")}>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="var(--button-font)"><path d={paths.theme}/></svg>
+                        {text[settings.language].yourCollections[1]}{width >= 600 ? " (t)" : ""}
+                    </button>
+                    <button onClick={() => navigate("/savedfonts")}>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="var(--button-font)"><path d={paths.fonts}/></svg>
+                        {text[settings.language].yourCollections[2]}{width >= 600 ? " (f)" : ""}
+                    </button>
+                </div>
+            </>}
             <div style={{ height: "4rem" }} />
             <a onClick={() => navigate("/")}>{text[settings.language].back}</a>
             <div style={{ height: "3rem" }} />
