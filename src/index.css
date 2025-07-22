@@ -1310,6 +1310,25 @@ hr {
     cursor: pointer;
 }
 
+.font-card .confirm {
+    width: 450px;
+    padding: 0.5rem 0;
+}
+
+.font-card .confirm p {
+    width: 100%;
+    font-size: 1.6rem;
+    justify-content: center;
+    margin: 0 0 -0.5rem;
+}
+
+.font-card .confirm button {
+    width: 10rem;
+    padding: 0.3rem 0;
+    border-radius: 15px;
+    margin-bottom: 1rem;
+}
+
 .export-title {
     font-size: 1.5rem;
     color: var(--font);
@@ -2185,6 +2204,20 @@ label[for=custom-font-input] a {
     .font-card svg {
         height: 2.5rem;
         margin-right: 0.3rem;
+    }
+    .font-card .confirm {
+        width: 300px;
+        padding: 0.5rem 0;
+    }
+    .font-card .confirm p {
+        font-size: 1.3rem;
+        margin: 0;
+    }
+    .font-card .confirm button {
+        width: 6rem;
+        font-size: 1.2rem;
+        border-radius: 12px;
+        margin-bottom: 0.5rem;
     }
     .export-title {
         font-size: 1.2rem;
