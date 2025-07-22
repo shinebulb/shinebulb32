@@ -69,7 +69,7 @@
         "verificationRequired": "verification email sent — check your inbox!",
         "joined": "joined",
         "userActions": ["copy settings", "share profile"],
-        "nouser": ["unknown", "undefined"],
+        "nouser": "not_found",
         "error": "error",
         "serverDown": "it looks like our server is down! we're already working on the issue, in the meantime you can enjoy most of shinebulb features locally!",
         "authNotifications": [
@@ -210,7 +210,7 @@
         "verificationRequired": "письмо отправлено — проверьте ящик!",
         "joined": "дата регистрации:",
         "userActions": ["скопировать настройки", "поделиться профилем"],
-        "nouser": ["неизвестный", "не определён"],
+        "nouser": "не_найден",
         "error": "ошибка",
         "serverDown": "похоже, наш сервер отключен! мы уже работаем над проблемой, а вы пока можете наслаждаться большинством функций shinebulb локально!",
         "authNotifications": [
