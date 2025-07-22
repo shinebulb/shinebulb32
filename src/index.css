@@ -1557,8 +1557,9 @@ hr {
     margin: 2rem auto;
 }
 
-.no-themes img {
+.no-themes svg, .no-themes img {
     width: 170px;
+    fill: var(--font);
     border: var(--border-thick);
     border-radius: 50%;
 }
@@ -2356,7 +2357,7 @@ label[for=custom-font-input] a {
         border-radius: 15px;
         padding: 1rem;
     }
-    .no-themes img {
+    .no-themes svg, .no-themes img {
         width: 28vw;
     }
     .no-themes p {

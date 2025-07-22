@@ -1,6 +1,7 @@
 import { useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import NoThemes from './NoThemes';
 import SavedFontsLoader from './SavedFontsLoader';
 import { AuthContext } from './assets/AuthContext';
 import getFontUrl from './assets/getFontUrl';
@@ -48,7 +49,7 @@ function SavedFonts({ settings, setSettings, fontList, setFontList }) {
                 <h3 style={{color: "var(--font)", fontStyle: "italic", marginBottom: "2rem"}}>
                     {fontList.length} {text[settings.language].savedThemes[1]}
                 </h3>
-                {fontList.length > 0 && <div className="saved-display">{
+                {fontList.length > 0 ? <div className="saved-display">{
                     fontList.map((fontObj, index) =>
                         <FontCard
                             key={index}
@@ -60,7 +61,8 @@ function SavedFonts({ settings, setSettings, fontList, setFontList }) {
                             setFontList={setFontList}
                         />
                     )
-                }</div>}
+                }</div>
+                : <NoThemes text={text[settings.language].noFonts} />}
                 <div style={{height: "1.5rem"}}/>
                 <a onClick={() => navigate("/settings")} id="saved-back-link">{text[settings.language].back}</a>
                 <div style={{height: "2rem"}} />

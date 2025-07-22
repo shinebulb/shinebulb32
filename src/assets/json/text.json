@@ -26,6 +26,7 @@
         "savedDialogs": ["enter theme name...", "delete theme permanently?"],
         "deleteFont": "delete font permanently?",
         "noThemes": "your themes will be listed here!",
+        "noFonts": "your fonts will be listed here!",
         "collectionActions": ["export themes", "import themes"],
         "optionDescriptions": [
             "the space for any theme that you came up with or generated in the constructor",
@@ -167,6 +168,7 @@
         "savedDialogs": ["название темы...", "безвозвратно удалить тему?"],
         "deleteFont": "безвозвратно удалить шрифт?",
         "noThemes": "ваши темы будут размещены здесь!",
+        "noFonts": "ваши шрифты будут размещены здесь!",
         "collectionActions": ["экспорт тем", "импорт тем"],
         "optionDescriptions": [
             "место для всех тем, которые вы придумали или сгенерировали в конструкторе",

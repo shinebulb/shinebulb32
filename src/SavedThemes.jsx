@@ -73,7 +73,7 @@ function SavedThemes({ settings, setSettings, savedList, setSavedList }) {
                         />
                     )
                 }</div>
-                : <NoThemes settings={settings} />}
+                : <NoThemes text={text[settings.language].noThemes} />}
                 <div style={{height: "0.5rem"}}/>
                 <div className="collection-actions">
                     <button onClick={() => exportModal.current.showModal()} style={{display: savedList.length > 0 ? "flex" : "none"}}>
