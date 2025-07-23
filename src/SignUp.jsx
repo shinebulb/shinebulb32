@@ -35,19 +35,31 @@ function SignUp({ settings, setVerificationRequired }) {
     const validationSchema = Yup.object().shape({
         email: Yup
             .string()
-            .required(text[settings.language].authErrors[7])
-            .email(text[settings.language].authErrors[6]),
+            .trim()
+            .lowercase()
+            .required(text[settings.language].authErrors[0])
+            .email(text[settings.language].authErrors[1]),
         username: Yup
             .string()
-            .min(3, text[settings.language].authErrors[0])
-            .max(15, text[settings.language].authErrors[0])
-            .required(text[settings.language].authErrors[1]),
+            .trim()
+            .required(text[settings.language].authErrors[2])
+            .min(3, text[settings.language].authErrors[3])
+            .max(15, text[settings.language].authErrors[4])
+            .matches(/^[A-Za-z0-9_]+$/, text[settings.language].authErrors[5]),
         password: Yup
             .string()
-            .min(4, text[settings.language].authErrors[2])
-            .max(30, text[settings.language].authErrors[2])
-            .required(text[settings.language].authErrors[3]),
-    });
+            .required(text[settings.language].authErrors[6])
+            .min(8, text[settings.language].authErrors[7])
+            .max(30, text[settings.language].authErrors[8])
+            .matches(/[A-Z]/, text[settings.language].authErrors[9])
+            .matches(/[a-z]/, text[settings.language].authErrors[10])
+            .matches(/\d/, text[settings.language].authErrors[11])
+            .matches(/[@$!%*?&]/, text[settings.language].authErrors[12]),
+        confirmPassword: Yup
+            .string()
+            .required(text[settings.language].authErrors[13])
+            .oneOf([Yup.ref('password'), null], text[settings.language].authErrors[14]),
+        });
 
     function createUser(data) {
         setLoadSignUp(true);
@@ -111,6 +123,17 @@ function SignUp({ settings, setVerificationRequired }) {
                             placeholder={text[settings.language].signup[5]}
                         />
                         <ErrorMessage name="password" component="span" />
+                        <div>
+                            <label style={{margin: "0"}}>confirm your password:</label>
+                            <svg onClick={() => setFieldType(fieldType === "password" ? "text" : "password")} fill={`var(--intermediate-${fieldType === "password" ? "green" : "red"})`} viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d={paths.hide[0]}/><path d={paths.hide[1]}/></svg>
+                        </div>
+                        <Field
+                            className="signup-input"
+                            type={fieldType}
+                            name="confirmPassword"
+                            placeholder="repeat your password here..."
+                        />
+                        <ErrorMessage name="confirmPassword" component="span" />
                         <button type="submit" disabled={loadSignUp}>{
                             loadSignUp ? <span className="loader" style={{ width: "1.6rem", height: "1.6rem" }} />
                             : text[settings.language].auth[1]
