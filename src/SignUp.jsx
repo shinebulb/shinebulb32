@@ -13,7 +13,8 @@ function SignUp({ settings, setVerificationRequired }) {
 
     const { authState } = useContext(AuthContext);
 
-    const [fieldType, setFieldType] = useState("password");
+    const [passwordFieldType, setPasswordFieldType] = useState("password");
+    const [confirmFieldType, setConfirmFieldType] = useState("password");
     const [errorText, setErrorText] = useState(0);
     
     const [loadSignUp, setLoadSignUp] = useState(false);
@@ -29,7 +30,8 @@ function SignUp({ settings, setVerificationRequired }) {
     const initialValues = {
         email: "",
         username: "",
-        password: ""
+        password: "",
+        confirmPassword: ""
     };
 
     const validationSchema = Yup.object().shape({
@@ -50,15 +52,11 @@ function SignUp({ settings, setVerificationRequired }) {
             .string()
             .required(text[settings.language].authErrors[6])
             .min(8, text[settings.language].authErrors[7])
-            .max(30, text[settings.language].authErrors[8])
-            .matches(/[A-Z]/, text[settings.language].authErrors[9])
-            .matches(/[a-z]/, text[settings.language].authErrors[10])
-            .matches(/\d/, text[settings.language].authErrors[11])
-            .matches(/[@$!%*?&]/, text[settings.language].authErrors[12]),
+            .max(30, text[settings.language].authErrors[8]),
         confirmPassword: Yup
             .string()
-            .required(text[settings.language].authErrors[13])
-            .oneOf([Yup.ref('password'), null], text[settings.language].authErrors[14]),
+            .required(text[settings.language].authErrors[9])
+            .oneOf([Yup.ref("password"), null], text[settings.language].authErrors[10]),
         });
 
     function createUser(data) {
@@ -112,27 +110,31 @@ function SignUp({ settings, setVerificationRequired }) {
                             placeholder={text[settings.language].signup[3]}
                         />
                         <ErrorMessage name="username" component="span" />
-                        <div>
-                            <label style={{margin: "0"}}>{text[settings.language].signup[4]}:</label>
-                            <svg onClick={() => setFieldType(fieldType === "password" ? "text" : "password")} fill={`var(--intermediate-${fieldType === "password" ? "green" : "red"})`} viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d={paths.hide[0]}/><path d={paths.hide[1]}/></svg>
+                        <label>{text[settings.language].signup[4]}:</label>
+                        <div className="password-field">
+                            <Field
+                                className="signup-input"
+                                type={passwordFieldType}
+                                name="password"
+                                placeholder={text[settings.language].signup[5]}
+                            />
+                            {passwordFieldType === "password"
+                            ? <svg onClick={() => setPasswordFieldType("text")} xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d={paths.hide[0]}/></svg>
+                            : <svg onClick={() => setPasswordFieldType("password")} xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d={paths.hide[1]}/></svg>}
                         </div>
-                        <Field
-                            className="signup-input"
-                            type={fieldType}
-                            name="password"
-                            placeholder={text[settings.language].signup[5]}
-                        />
                         <ErrorMessage name="password" component="span" />
-                        <div>
-                            <label style={{margin: "0"}}>confirm your password:</label>
-                            <svg onClick={() => setFieldType(fieldType === "password" ? "text" : "password")} fill={`var(--intermediate-${fieldType === "password" ? "green" : "red"})`} viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d={paths.hide[0]}/><path d={paths.hide[1]}/></svg>
+                        <label>{text[settings.language].signup[6]}:</label>
+                        <div className="password-field">
+                            <Field
+                                className="signup-input"
+                                type={confirmFieldType}
+                                name="confirmPassword"
+                                placeholder={text[settings.language].signup[7]}
+                            />
+                            {confirmFieldType === "password"
+                            ? <svg onClick={() => setConfirmFieldType("text")} xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d={paths.hide[0]}/></svg>
+                            : <svg onClick={() => setConfirmFieldType("password")} xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d={paths.hide[1]}/></svg>}
                         </div>
-                        <Field
-                            className="signup-input"
-                            type={fieldType}
-                            name="confirmPassword"
-                            placeholder="repeat your password here..."
-                        />
                         <ErrorMessage name="confirmPassword" component="span" />
                         <button type="submit" disabled={loadSignUp}>{
                             loadSignUp ? <span className="loader" style={{ width: "1.6rem", height: "1.6rem" }} />

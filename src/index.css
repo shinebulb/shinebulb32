@@ -226,6 +226,7 @@ body {
 }
 
 .signup-form span {
+    width: 35ch;
     color: hsl(0, 100%, 68%);
     text-align: left;
     font-style: italic;
@@ -286,16 +287,30 @@ body {
     cursor: pointer;
 }
 
-.login-form div, .signup-form div {
+.login-form div {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin: 1.7rem 0 0.7rem 0.5rem;
 }
 
+.password-field {
+    position: relative;
+    display: inline-block;
+}
+
+.password-field input {
+    width: calc(30ch - 2.7rem);
+    padding-right: 3.2rem;
+}
+
 .login-form svg, .signup-form svg {
-    height: 2rem;
-    transition: fill 0.3s ease;
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    fill: var(--font);
+    height: 1.6rem;
+    transform: translateY(-60%);
     cursor: pointer;
 }
 
@@ -1893,23 +1908,21 @@ label[for=custom-font-input] a {
         margin: 1.7rem 0 0.7rem 0.3rem;
     }
     .signup-form span {
+        width: 32ch;
         margin-left: 0.3rem;
     }
     .signup-input, .login-form input {
         font-size: 1.1rem;
-        font-style: "italic";
-        width: 30ch;
-        padding: 0.2rem 0.3rem;
         border-radius: 12px;
+        padding: 0.2rem 0.3rem;
     }
     .signup-form button, .login-form button {
         font-size: 1.2rem;
         border-radius: 18px;
         margin: 2.2rem auto 0;
     }
-    .login-form svg, .signup-form svg {
-        height: 1.8rem;
-        margin-right: 0.5rem;
+    .password-field input {
+        padding-right: 3rem;
     }
     .login-warning {
         width: 80vw;

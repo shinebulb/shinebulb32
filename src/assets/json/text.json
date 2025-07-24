@@ -47,7 +47,7 @@
         "home": "home",
         "stuckHere": ["stuck here?", "reset session"],
         "auth": ["log in", "sign up", "log out"],
-        "signup": ["email", "enter your email!", "username", "think of a username!", "password", "create a strong password!"],
+        "signup": ["email", "enter your email!", "username", "think of a username!", "password", "create a strong password!", "confirm your password", "repeat your password here!"],
         "login": ["email or username", "your email or username...", "your password..."],
         "logInToView": "to access saved themes and fonts, you'll need to log in or create an account! it's free and will also let you access all of your preferences on any of your devices!",
         "authErrors": [
@@ -60,10 +60,6 @@
             "password is required!",
             "password must be at least 8 characters!",
             "password must be 30 characters or less!",
-            "password must include at least one uppercase letter!",
-            "password must include at least one lowercase letter!",
-            "password must include at least one number!",
-            "password must include at least one special character (@, $, !, %, *, ?, &)!",
             "you must confirm your password!",
             "passwords must match!"
         ],
@@ -196,7 +192,7 @@
         "home": "главная",
         "stuckHere": ["не идёт загрузка?", "очистить сессию"],
         "auth": ["войти", "регистрация", "выйти"],
-        "signup": ["адрес эл. почты", "введите свою эл. почту!", "имя пользователя", "назовите свой аккаунт!", "пароль", "придумайте надёжный пароль!"],
+        "signup": ["адрес эл. почты", "введите свою эл. почту!", "имя пользователя", "назовите свой аккаунт!", "пароль", "придумайте надёжный пароль!", "подтвердите пароль", "повторите пароль здесь!"],
         "login": ["пользователь или эл. почта", "ваш аккаунт или эл. почта...", "ваш пароль..."],
         "logInToView": "чтобы сохранять и использовать темы и шрифты, вам нужно войти или создать аккаунт! это бесплатно и позволит вам также пользоваться всеми своими настройками на любом устройстве!",
         "authErrors": [
@@ -209,10 +205,6 @@
             "необходимо ввести пароль!",
             "пароль должен составлять минимум 8 символов!",
             "пароль должен составлять 30 символов или меньше!",
-            "пароль должен включать хотя бы одну заглавную букву!",
-            "пароль должен включать хотя бы одну строчную букву!",
-            "пароль должен включать хотя бы одну цифру!",
-            "пароль должен включать хотя бы один специальный символ (@, $, !, %, *, ?, &)!",
             "необходимо подтвердить пароль!",
             "пароли должны совпадать!"
         ],
