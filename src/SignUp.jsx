@@ -97,45 +97,53 @@ function SignUp({ settings, setVerificationRequired }) {
                 >
                     <Form className="signup-form">
                         <label>{text[settings.language].signup[0]}:</label>
-                        <Field
-                            className="signup-input"
-                            name="email"
-                            placeholder={text[settings.language].signup[1]}
-                        />
-                        <ErrorMessage name="email" component="span" />
+                        <div className="signup-field">
+                            <Field
+                                className="signup-input"
+                                name="email"
+                                placeholder={text[settings.language].signup[1]}
+                            />
+                            <ErrorMessage name="email" component="span" />
+                        </div>
                         <label>{text[settings.language].signup[2]}:</label>
-                        <Field
-                            className="signup-input"
-                            name="username"
-                            placeholder={text[settings.language].signup[3]}
-                        />
-                        <ErrorMessage name="username" component="span" />
+                        <div className="signup-field">
+                            <Field
+                                className="signup-input"
+                                name="username"
+                                placeholder={text[settings.language].signup[3]}
+                            />
+                            <ErrorMessage name="username" component="span" />
+                        </div>
                         <label>{text[settings.language].signup[4]}:</label>
-                        <div className="password-field">
-                            <Field
-                                className="signup-input"
-                                type={passwordFieldType}
-                                name="password"
-                                placeholder={text[settings.language].signup[5]}
-                            />
-                            {passwordFieldType === "password"
-                            ? <svg onClick={() => setPasswordFieldType("text")} xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d={paths.hide[0]}/></svg>
-                            : <svg onClick={() => setPasswordFieldType("password")} xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d={paths.hide[1]}/></svg>}
+                        <div className="signup-field">
+                            <div className="password-field">
+                                <Field
+                                    className="signup-input"
+                                    type={passwordFieldType}
+                                    name="password"
+                                    placeholder={text[settings.language].signup[5]}
+                                />
+                                {passwordFieldType === "password"
+                                ? <svg onClick={() => setPasswordFieldType("text")} xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d={paths.hide[0]}/></svg>
+                                : <svg onClick={() => setPasswordFieldType("password")} xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d={paths.hide[1]}/></svg>}
+                            </div>
+                            <ErrorMessage name="password" component="span" />
                         </div>
-                        <ErrorMessage name="password" component="span" />
                         <label>{text[settings.language].signup[6]}:</label>
-                        <div className="password-field">
-                            <Field
-                                className="signup-input"
-                                type={confirmFieldType}
-                                name="confirmPassword"
-                                placeholder={text[settings.language].signup[7]}
-                            />
-                            {confirmFieldType === "password"
-                            ? <svg onClick={() => setConfirmFieldType("text")} xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d={paths.hide[0]}/></svg>
-                            : <svg onClick={() => setConfirmFieldType("password")} xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d={paths.hide[1]}/></svg>}
+                        <div className="signup-field">
+                            <div className="password-field">
+                                <Field
+                                    className="signup-input"
+                                    type={confirmFieldType}
+                                    name="confirmPassword"
+                                    placeholder={text[settings.language].signup[7]}
+                                />
+                                {confirmFieldType === "password"
+                                ? <svg onClick={() => setConfirmFieldType("text")} xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d={paths.hide[0]}/></svg>
+                                : <svg onClick={() => setConfirmFieldType("password")} xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d={paths.hide[1]}/></svg>}
+                            </div>
+                            <ErrorMessage name="confirmPassword" component="span" />
                         </div>
-                        <ErrorMessage name="confirmPassword" component="span" />
                         <button type="submit" disabled={loadSignUp}>{
                             loadSignUp ? <span className="loader" style={{ width: "1.6rem", height: "1.6rem" }} />
                             : text[settings.language].auth[1]
@@ -161,7 +169,7 @@ function SignUp({ settings, setVerificationRequired }) {
             </>
             : <div className="logged-in">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d={paths.loggedIn}/></svg>
-                <h2 style={{width: "100%"}}>{text[settings.language].authErrors[5]}</h2>
+                <h2 style={{width: "100%"}}>{text[settings.language].authErrors[11]}</h2>
             </div>}
         </motion.div>
     )

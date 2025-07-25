@@ -61,7 +61,8 @@
             "password must be at least 8 characters!",
             "password must be 30 characters or less!",
             "you must confirm your password!",
-            "passwords must match!"
+            "passwords must match!",
+            "you are currently logged in!"
         ],
         "verifyStatus": [
             "verifying your email...",
@@ -206,7 +207,8 @@
             "пароль должен составлять минимум 8 символов!",
             "пароль должен составлять 30 символов или меньше!",
             "необходимо подтвердить пароль!",
-            "пароли должны совпадать!"
+            "пароли должны совпадать!",
+            "вы уже вошли в аккаунт!"
         ],
         "verifyStatus": [
             "подтверждаем вашу почту...",

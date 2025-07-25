@@ -211,7 +211,7 @@ body {
     margin-right: 1rem;
 }
 
-.signup-form, .login-form {
+.login-form {
     display: flex;
     flex-direction: column;
     margin: 0 auto;
@@ -239,16 +239,28 @@ body {
     color: var(--font);
     border: var(--border-thick);
     font-size: 1.2rem;
-    width: 30ch;
-    padding: 0.3rem 0.5rem;
     border-radius: 15px;
-    margin-bottom: 0.3rem;
+    padding: 0.3rem 0.5rem;
+}
+
+.password-field input {
+    width: calc(100% - 4.6rem);
+    padding-right: 3rem;
+}
+
+.login-form input {
+    width: 30ch;
+}
+
+.password-field {
+    display: inline-block;
+    position: relative;
 }
 
 .signup-form button, .login-form button {
     font-family: var(--font-family);
     display: flex;
-    min-width: 7rem;
+    min-width: 9rem;
     min-height: 3rem;
     justify-content: center;
     background-color: var(--button-bg);
@@ -265,6 +277,27 @@ body {
 .signup-form button:disabled, .login-form button:disabled {
     opacity: 0.5;
     cursor: not-allowed;
+}
+
+.signup-form {
+    display: grid;
+    grid-template-columns: calc(40% - 1rem) calc(60% - 1rem);
+    gap: 2rem;
+    min-width: 650px;
+    max-width: 45vw;
+    color: var(--font);
+}
+
+.signup-form label {
+    display: flex;
+    align-items: top;
+    justify-content: right;
+    margin: 0;
+}
+
+.signup-field {
+    display: flex;
+    flex-direction: column;
 }
 
 .verify p {
@@ -294,19 +327,9 @@ body {
     margin: 1.7rem 0 0.7rem 0.5rem;
 }
 
-.password-field {
-    position: relative;
-    display: inline-block;
-}
-
-.password-field input {
-    width: calc(30ch - 2.7rem);
-    padding-right: 3.2rem;
-}
-
 .login-form svg, .signup-form svg {
     position: absolute;
-    top: 50%;
+    top: 55%;
     right: 1rem;
     fill: var(--font);
     height: 1.6rem;
@@ -1260,10 +1283,14 @@ hr {
     margin: 1rem 1.2rem 1rem 0;
 }
 
-.saved-display > *:last-child:nth-child(2n+1) {
-    width: 50%;
+.saved-display > *:last-child:nth-child(2n+1),
+.signup-form > *:last-child:nth-child(2n+1) {
     grid-column: 1 / -1;
     justify-self: center;
+}
+
+.saved-display > *:last-child:nth-child(2n+1) {
+    width: 50%;
 }
 
 .theme-card {
@@ -1871,6 +1898,23 @@ label[for=custom-font-input] a {
     :root {
         --navbar-margin: 0.6rem;
     }
+    .signup-form {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        min-width: 100%;
+        max-width: 100%;
+    }
+    .signup-form label {
+        justify-content: left;
+    }
+    .signup-input, .login-form input {
+        width: 28ch;
+        margin-bottom: 0.3rem;
+    }
+    .password-field input {
+        width: calc(100% - 4rem);
+    }
     .reset-session {
         flex-direction: column;
         margin-top: 1.5rem;
@@ -1920,9 +1964,6 @@ label[for=custom-font-input] a {
         font-size: 1.2rem;
         border-radius: 18px;
         margin: 2.2rem auto 0;
-    }
-    .password-field input {
-        padding-right: 3rem;
     }
     .login-warning {
         width: 80vw;
