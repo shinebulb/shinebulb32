@@ -46,7 +46,7 @@ function Profile({ settings, bulb }) {
                 setLoadUser(false);
             }
             else {
-                navigate("/nouser");
+                navigate("/user");
             }
         });
         return () =>  window.removeEventListener("resize", () => setWidth(window.innerWidth));
