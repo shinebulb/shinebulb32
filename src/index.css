@@ -241,6 +241,7 @@ body {
     font-size: 1.2rem;
     border-radius: 15px;
     padding: 0.3rem 0.5rem;
+    margin-bottom: 0.3rem;
 }
 
 .password-field input {
@@ -1910,7 +1911,6 @@ label[for=custom-font-input] a {
     }
     .signup-input, .login-form input {
         width: 28ch;
-        margin-bottom: 0.3rem;
     }
     .password-field input {
         width: calc(100% - 4rem);
@@ -1963,7 +1963,7 @@ label[for=custom-font-input] a {
     .signup-form button, .login-form button {
         font-size: 1.2rem;
         border-radius: 18px;
-        margin: 2.2rem auto 0;
+        margin: 3rem auto 0;
     }
     .login-warning {
         width: 80vw;
