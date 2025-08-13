@@ -186,10 +186,10 @@ function Settings({ settings, setSettings }) {
             <h2>{text[settings.language].headings[1]}</h2>
             <div style={{ height: "5rem" }} />
             <div className="container">
-                <label>{text[settings.language].settings[1]}</label>
+                <label htmlFor="lang-select">{text[settings.language].settings[1]}</label>
                 <div>
                     {loadLang && <span className="loader" style={loaderStyles} />}
-                    <select onChange={languageChange} value={languages[settings.language]}>
+                    <select name="language" id="lang-select" onChange={languageChange} value={languages[settings.language]}>
                         <option value="en">english</option>
                         <option value="ru">русский</option>
                     </select>
@@ -197,11 +197,11 @@ function Settings({ settings, setSettings }) {
             </div>
             <div style={{ height: "3rem" }} />
             <div className="container">
-                <label className="settingName">{text[settings.language].settings[0]}</label>
+                <label htmlFor="theme-select" className="settingName">{text[settings.language].settings[0]}</label>
                 <div>
                     {loadTheme && <span className="loader" style={loaderStyles} />}
                     {settings.theme === 3 && <svg xmlns="http://www.w3.org/2000/svg" onClick={() => constructorRef.current.showModal()} style={{height: "1.8rem", marginRight: "0.5rem", cursor: "pointer"}} viewBox="0 -960 960 960" fill="var(--font)"><path d={paths.colorize}/></svg>}
-                    <select onChange={themeChange} value={modes[settings.theme]}>
+                    <select name="theme" id="theme-select" onChange={themeChange} value={modes[settings.theme]}>
                         <option value="system">{text[settings.language].mode[0]}</option>
                         <option value="light">{text[settings.language].mode[1]}</option>
                         <option value="dark">{text[settings.language].mode[2]}</option>
