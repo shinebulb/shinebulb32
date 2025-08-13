@@ -114,9 +114,7 @@ function Settings({ settings, setSettings }) {
                 });
             }
         }
-        else if (mode === 3) {
-            constructorRef.current.showModal();
-        }
+        else constructorRef.current.showModal();
     }
 
     function languageChange(event) {
