@@ -103,6 +103,21 @@ function Profile({ settings, bulb }) {
             {loadUser ? <span className="loader" style={{width: "5rem", height: "5rem", borderWidth: "7px", margin: "auto"}} />
             : <>
                 {!fonts.includes(userFont) && <ProfileFontLoader profileFont={getFontUrl(userFont)} />}
+                <button
+                    className="user-actions"
+                    title={text[settings.language].userActions[2]}
+                    onClick={() => navigate("/users")}
+                    style={{
+                        top: width >= 600 ? "calc(50% - 202px)" : (settings.language === 1 ? "calc(50% - 274px)" : "calc(50% - 254px)"),
+                        left:  width >= 600 ? "calc(50% + 88px)" : "calc(50% - 10px)",
+                        backgroundColor: userTheme[bg][user?.theme || 0],
+                        border: `${userTheme[font][user?.theme || 0]} 3px solid`,
+                        borderRight: "none",
+                        borderRadius: width >= 600 ? "15px 0 0 0" : "12px 0 0 0"
+                    }}
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill={userTheme[font][user?.theme || 0]}><path d={paths.public} /></svg>
+                </button>
                 {(customTheme || user?.font) && <button
                     className="user-actions"
                     title={text[settings.language].userActions[0]}
@@ -113,7 +128,6 @@ function Profile({ settings, bulb }) {
                         backgroundColor: userTheme[bg][user?.theme || 0],
                         border: `${userTheme[font][user?.theme || 0]} 3px solid`,
                         borderRight: "none",
-                        borderRadius: width >= 600 ? "15px 0 0 0" : "12px 0 0 0"
                     }}
                 >
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"><path d={paths.copy[0]} fill={userTheme[font][user?.theme || 0]}></path><path d={paths.copy[1]} fill={userTheme[font][user?.theme || 0]}></path></g></svg>
