@@ -10,7 +10,7 @@ function Users({ settings }) {
     useEffect(() => {
         axios.get(`${import.meta.env.VITE_API_KEY}/users/all`)
         .then(response => setUserList(response.data));
-    });
+    }, []);
 
     return (
         <motion.div
