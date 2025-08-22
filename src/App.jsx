@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { AuthContext } from './assets/AuthContext';
@@ -15,6 +15,7 @@ import LogIn from './LogIn';
 import SignUp from './SignUp';
 import Verify from './Verify';
 import Profile from './Profile';
+import Users from './Users';
 import ChangePassword from './ChangePassword';
 import NoUser from './NoUser';
 import NoPage from './NoPage';
@@ -181,6 +182,7 @@ function App() {
                         <Route path="/login" element={<LogIn bulb={bulb} settings={settings} setSettings={setSettings} setSavedList={setSavedList} setVerificationRequired={setVerificationRequired} />} />
                         <Route path="/signup" element={<SignUp settings={settings} setVerificationRequired={setVerificationRequired} />} />
                         <Route path="/verify" element={<Verify settings={settings} setVerificationRequired={setVerificationRequired} />} />
+                        <Route path="/users" element={<Users settings={settings} />} />
                         <Route path="/user" element={<NoUser settings={settings} />} />
                         <Route path="/user/:username" element={<Profile settings={settings} bulb={bulb} />} />
                         <Route path="/changepassword" element={<ChangePassword settings={settings} />} />
