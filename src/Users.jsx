@@ -3,14 +3,13 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import UsersCard from './UsersCard';
 import text from './assets/json/text.json';
-import userList from './development/userList.json';
 import { motion } from 'framer-motion';
 
 function Users({ settings, bulb }) {
 
     const { search, state } = useLocation();
     const navigate = useNavigate();
-    // const [userList, setUserList] = useState([]);
+    const [userList, setUserList] = useState([]);
     const [user, setUser] = useState("");
 
     useEffect(() => {
@@ -29,8 +28,8 @@ function Users({ settings, bulb }) {
             }, 0);
         }
     
-        // axios.get(`${import.meta.env.VITE_API_KEY}/users/all`)
-        // .then(response => setUserList(response.data));
+        axios.get(`${import.meta.env.VITE_API_KEY}/users/all`)
+        .then(response => setUserList(response.data));
     }, [search, state, navigate]);
 
     return (
