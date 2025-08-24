@@ -1877,8 +1877,70 @@ label[for=custom-font-input] a {
     margin: 0.1rem 0;
 }
 
-.user-card a {
+.users {
     color: var(--font);
+}
+
+.users h2 {
+    font-size: 2.4rem;
+    margin: 0;
+}
+
+.users-table {
+    min-width: 500px;
+    width: 40vw;
+    border: var(--border-thick);
+    border-radius: 20px;
+    padding: 1rem 0;
+}
+
+.user-card {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.2rem 2rem 1.2rem 2rem;
+}
+
+.name-label {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.name-label svg {
+    height: 2rem;
+}
+
+.name-label span {
+    min-width: 2rem;
+    font-size: 1.6rem;
+    cursor: default;
+}
+
+.name-label a {
+    font-size: 1.4rem;
+    font-weight: normal;
+    margin: 0;
+}
+
+.count-label svg {
+    fill: var(--font);
+    height: 2rem;
+}
+
+.count-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.4rem;
+}
+
+.count-label {
+    transition: all 0.1s ease;
+    cursor: pointer;
+}
+
+.count-label:hover {
+    text-decoration: underline;
 }
 
 #info-button {

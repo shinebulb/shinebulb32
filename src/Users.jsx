@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import UsersCard from './UsersCard';
+import text from './assets/json/text.json';
 import { motion } from 'framer-motion';
 
 function Users({ settings }) {
@@ -20,7 +21,15 @@ function Users({ settings }) {
             exit={{opacity: 0}}
             transition={{duration: 0.5}}
         >
-            {userList.map(user => <UsersCard key={user.id} user={user} />)}
+            <div style={{ height: "6rem" }} />
+            <h2>{text[settings.language].leaderboard}</h2>
+            <div style={{ height: "2rem" }} />
+            <div className="users-table">
+                {userList
+                .sort((a, b) => b.bulbCount - a.bulbCount)
+                .map((obj, index) => <UsersCard key={obj.id} user={obj} place={index + 1} settings={settings} />)}
+            </div>
+            <div style={{ height: "4rem" }} />
         </motion.div>
     )
 }

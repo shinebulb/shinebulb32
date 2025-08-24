@@ -182,7 +182,7 @@ function App() {
                         <Route path="/login" element={<LogIn bulb={bulb} settings={settings} setSettings={setSettings} setSavedList={setSavedList} setVerificationRequired={setVerificationRequired} />} />
                         <Route path="/signup" element={<SignUp settings={settings} setVerificationRequired={setVerificationRequired} />} />
                         <Route path="/verify" element={<Verify settings={settings} setVerificationRequired={setVerificationRequired} />} />
-                        <Route path="/users" element={<Users settings={settings} />} />
+                        <Route path="/leaderboard" element={<Users settings={settings} />} />
                         <Route path="/user" element={<NoUser settings={settings} />} />
                         <Route path="/user/:username" element={<Profile settings={settings} bulb={bulb} />} />
                         <Route path="/changepassword" element={<ChangePassword settings={settings} />} />

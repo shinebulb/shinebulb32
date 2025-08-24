@@ -142,7 +142,8 @@
             ["font is already in the ", "collection"],
             ["font added to the ", "collection"]
         ],
-        "example": "example"
+        "example": "example",
+        "leaderboard": "leaderboard"
     },
 
     {
@@ -288,6 +289,7 @@
             ["шрифт уже в ", "коллекции"],
             ["шрифт добавлен в ", "коллекцию"]
         ],
-        "example": "пример"
+        "example": "пример",
+        "leaderboard": "список лидеров"
     }
 ]

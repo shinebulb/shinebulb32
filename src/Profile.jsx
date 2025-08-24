@@ -106,7 +106,7 @@ function Profile({ settings, bulb }) {
                 <button
                     className="user-actions"
                     title={text[settings.language].userActions[2]}
-                    onClick={() => navigate("/users")}
+                    onClick={() => navigate("/leaderboard")}
                     style={{
                         top: width >= 600 ? "calc(50% - 202px)" : (settings.language === 1 ? "calc(50% - 274px)" : "calc(50% - 254px)"),
                         left:  width >= 600 ? "calc(50% + 88px)" : "calc(50% - 10px)",
