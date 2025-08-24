@@ -2608,6 +2608,37 @@ label[for=custom-font-input] a {
         flex-direction: column;
         width: 70%;
     }
+    .users-table {
+        min-width: 200px;
+        width: 80vw;
+        padding: 0.6rem 0;
+    }
+    .user-card {
+        padding: 0.8rem 1.4rem;
+    }
+    .name-label {
+        gap: 0.8rem;
+    }
+    .name-label svg {
+        height: 1.4rem;
+    }
+    .name-label span {
+        min-width: 1.4rem;
+        font-size: 1.2rem;
+    }
+    .name-label a {
+        font-size: 1.2rem;
+    }
+    .count-label svg {
+        height: 1.4rem;
+    }
+    .count-label {
+        gap: 0.2rem;
+        font-size: 1.2rem;
+    }
+    .user-bio {
+        display: none;
+    }
     #info-title {
         font-size: 1.4rem;
         margin: 0.7rem 0.8rem 0.1rem;
