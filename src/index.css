@@ -1897,7 +1897,7 @@ label[for=custom-font-input] a {
 .user-card {
     display: flex;
     justify-content: space-between;
-    padding: 1.2rem 2rem 1.2rem 2rem;
+    padding: 1.2rem 2rem;
 }
 
 .name-label {
