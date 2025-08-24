@@ -1949,7 +1949,7 @@ label[for=custom-font-input] a {
     border: none;
     border-radius: 15px;
     padding: 0.8rem 1rem;
-    margin: 2rem calc(30vw + 5rem);
+    margin: 2rem calc(min(30vw, calc(50vw - 250px)) + 5rem);
 }
 
 .bio-container {
