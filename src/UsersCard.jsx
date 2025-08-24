@@ -9,7 +9,7 @@ import closeModal from './assets/closeModal';
 
 const trophies = ["#ffd700", "#b0b0b0", "#b87333"]
 
-function UsersCard({ user, place, settings, bulb }) {
+function UsersCard({ user, place, settings, bulb, selected }) {
 
     const navigate = useNavigate();
 
@@ -24,7 +24,12 @@ function UsersCard({ user, place, settings, bulb }) {
     ];
 
     return (
-        <div className="user-card" onMouseLeave={() => closeModal(userBio)}>
+        <div
+            id={selected ? "selected" : ""}
+            className="user-card"
+            onMouseLeave={() => closeModal(userBio)}
+            style={{ backgroundColor: selected ? "var(--font)" : "var(--bg)", color: selected ? "var(--bg)" : "var(--font)" }}
+        >
             <div className="name-label">
                 {place <= 3 ?
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill={trophies[place - 1]}><path d={paths.trophy}/></svg>
@@ -32,12 +37,13 @@ function UsersCard({ user, place, settings, bulb }) {
                 <a
                     onClick={() => navigate(`/user/${user.username}`)}
                     onMouseEnter={() => userBio.current.show()}
+                    style={{ color: selected ? "var(--bg)" : "var(--font)" }}
                 >
                     {user.username}
                 </a>
             </div>
             <div className="count-label" onClick={() => navigate(`/user/${user.username}`)}>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d={paths.bulb}/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" style={{ fill: selected ? "var(--bg)" : "var(--font)" }}><path d={paths.bulb}/></svg>
                 <span>{user.bulbCount || 0}</span>
             </div>
 
@@ -61,7 +67,7 @@ function UsersCard({ user, place, settings, bulb }) {
                             {user.username}
                         </a>
                         <div className="count-label">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill={userTheme[font][user.theme || 0]}><path d={paths.bulb}/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" style={{ fill: userTheme[font][user.theme || 0] }}><path d={paths.bulb}/></svg>
                             <span style={{ color: userTheme[font][user.theme || 0] }}>{user.bulbCount || 0}</span>
                         </div>
                         <span style={{ color: userTheme[font][user.theme || 0] }}>

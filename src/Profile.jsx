@@ -37,7 +37,7 @@ function Profile({ settings, bulb }) {
         setBgCopied(false);
         setStrokeCopied(false);
         setFontCopied(false);
-        document.title = username;
+        document.title = `${username} — shinebulb`;
         window.addEventListener("resize", () => setWidth(window.innerWidth));
         axios.get(`${import.meta.env.VITE_API_KEY}/users/userinfo/${username}`)
         .then(response => {
@@ -106,7 +106,7 @@ function Profile({ settings, bulb }) {
                 <button
                     className="user-actions"
                     title={text[settings.language].userActions[2]}
-                    onClick={() => navigate("/leaderboard")}
+                    onClick={() => navigate(`/leaderboard?user=${username}`, { state: { scrollTo: "selected" } })}
                     style={{
                         top: width >= 600 ? "calc(50% - 202px)" : (settings.language === 1 ? "calc(50% - 274px)" : "calc(50% - 254px)"),
                         left:  width >= 600 ? "calc(50% + 88px)" : "calc(50% - 10px)",

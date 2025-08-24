@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import UsersCard from './UsersCard';
 import text from './assets/json/text.json';
@@ -6,12 +7,30 @@ import { motion } from 'framer-motion';
 
 function Users({ settings, bulb }) {
 
+    const { search, state } = useLocation();
+    const navigate = useNavigate();
     const [userList, setUserList] = useState([]);
+    const [user, setUser] = useState("");
 
     useEffect(() => {
+
+        document.title = text[settings.language].leaderboard;
+
+        const params = new URLSearchParams(search);
+        setUser(params.get('user'));
+
+        if (state?.scrollTo) {
+            setTimeout(() => {
+                const element = document.getElementById(state.scrollTo);
+                if (element) {
+                    element.scrollIntoView({ behavior: "smooth" });
+                }
+            }, 0);
+        }
+    
         axios.get(`${import.meta.env.VITE_API_KEY}/users/all`)
         .then(response => setUserList(response.data));
-    }, []);
+    }, [search, state, navigate]);
 
     return (
         <motion.div
@@ -34,6 +53,7 @@ function Users({ settings, bulb }) {
                         place={index + 1}
                         settings={settings}
                         bulb={bulb}
+                        selected={user === obj.username}
                     />
                 ))}
             </div>
