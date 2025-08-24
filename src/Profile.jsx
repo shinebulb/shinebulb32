@@ -151,8 +151,8 @@ function Profile({ settings, bulb }) {
                 </div>
                 <div className="user-info" style={{fontFamily: userFont}}>
                     <h1 style={{color: userTheme[font][user?.theme || 0]}}>{username}</h1>
-                    <h2 className="joined" style={{color: userTheme[font][user?.theme || 0]}}>{
-                        `${text[settings.language].joined} ${
+                    <h2 className="joined" style={{color: userTheme[font][user?.theme || 0]}}>
+                        {text[settings.language].joined} {
                         new Date(user.createdAt)
                         .toLocaleDateString(locales[settings.language], {
                             year: "numeric",
@@ -160,7 +160,7 @@ function Profile({ settings, bulb }) {
                             day: "numeric"
                         })
                         .toLowerCase()
-                    }`}</h2>
+                    }</h2>
                     <h2 id="counter" style={{color: userTheme[font][user?.theme || 0]}}>
                         <span style={{fontWeight: "normal"}}>{text[settings.language].bulbCount}: </span>
                         <span style={{fontStyle: "italic"}}>{user.bulbCount || 0}</span>

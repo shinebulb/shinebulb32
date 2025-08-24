@@ -1917,6 +1917,7 @@ label[for=custom-font-input] a {
 }
 
 .name-label a {
+    height: 100%;
     font-size: 1.4rem;
     font-weight: normal;
     margin: 0;
@@ -1941,6 +1942,59 @@ label[for=custom-font-input] a {
 
 .count-label:hover {
     text-decoration: underline;
+}
+
+.user-bio {
+    min-width: 300px;
+    border: none;
+    border-radius: 15px;
+    padding: 0.8rem 1rem;
+    margin: 2rem calc(30vw + 5rem);
+}
+
+.bio-container {
+    display: flex;
+    align-items: center;
+}
+
+.bio-container .play img {
+    width: 120px;
+    height: 120px;
+    margin: 0 0 0 -1.5rem;
+}
+
+.bio-description {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.bio-description > a {
+    font-size: 1.8rem;
+    margin: 0 0 0.3rem;
+}
+
+.bio-description > span {
+    font-size: 1.1rem;
+    font-style: italic;
+    margin: 0.5rem 0;
+}
+
+.bio-description > .count-label svg {
+    height: 1.6rem;
+}
+
+.bio-description > .count-label {
+    gap: 0.2rem;
+    font-size: 1.3rem;
+}
+
+.bio-description > .count-label {
+    cursor: default;
+}
+
+.bio-description > .count-label:hover {
+    text-decoration: none;
 }
 
 #info-button {

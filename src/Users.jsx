@@ -4,7 +4,7 @@ import UsersCard from './UsersCard';
 import text from './assets/json/text.json';
 import { motion } from 'framer-motion';
 
-function Users({ settings }) {
+function Users({ settings, bulb }) {
 
     const [userList, setUserList] = useState([]);
 
@@ -27,7 +27,15 @@ function Users({ settings }) {
             <div className="users-table">
                 {userList
                 .sort((a, b) => b.bulbCount - a.bulbCount)
-                .map((obj, index) => <UsersCard key={obj.id} user={obj} place={index + 1} settings={settings} />)}
+                .map((obj, index) => (
+                    <UsersCard
+                        key={obj.id}
+                        user={obj}
+                        place={index + 1}
+                        settings={settings}
+                        bulb={bulb}
+                    />
+                ))}
             </div>
             <div style={{ height: "4rem" }} />
         </motion.div>
