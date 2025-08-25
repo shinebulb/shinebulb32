@@ -36,7 +36,10 @@ function UsersCard({ user, place, settings, bulb, selected }) {
                 : <span>{place}</span>}
                 <a
                     onClick={() => navigate(`/user/${user.username}`)}
-                    onMouseEnter={() => userBio.current.show()}
+                    onMouseEnter={() => {
+                        userBio.current.show();
+                        userBio.current.blur();
+                    }}
                     style={{ color: selected ? "var(--bg)" : "var(--font)" }}
                 >
                     {user.username}
@@ -51,7 +54,6 @@ function UsersCard({ user, place, settings, bulb, selected }) {
                 ref={userBio}
                 closedby="any"
                 className="user-bio"
-                onMouseEnter={() => userBio.current.show()}
                 onMouseLeave={() => closeModal(userBio)}
                 style={{ backgroundColor: userTheme[bg][user.theme || 0] }}
             >
