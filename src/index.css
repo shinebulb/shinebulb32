@@ -889,11 +889,9 @@ h2 {
     display: inline-flex;
 }
 
-.header img {
-    height: 7.4rem;
-    margin-left: -1.1rem;
-    margin-right: -0.7rem;
-    margin-top: 2.2rem;
+.header svg {
+    height: 4.5rem;
+    margin: 3.7rem 0.2rem 0;
 }
 
 .links {

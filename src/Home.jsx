@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import UBulb from './UBulb';
 import text from './assets/json/text.json';
 import { motion } from 'framer-motion';
 
@@ -20,7 +21,7 @@ function Home({ settings }) {
             transition={{duration: 0.5}}
         >
             <div className="header">
-                <p className="p2">shineb</p><img src="img/u-bulb.png"/><p className="p2">lb</p>
+                <p className="p2">shineb</p><UBulb /><p className="p2">lb</p>
             </div>
             <div className="links">
                 <a onClick={() => navigate("/play")}>{text[settings.language].links[0]}</a>
