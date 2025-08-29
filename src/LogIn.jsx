@@ -56,7 +56,8 @@ function LogIn({ bulb, settings, setSettings, setSavedList, setVerificationRequi
                     id: response.data.id,
                     status: true
                 });
-                navigate(localStorage.getItem("currentPage") || "/");
+                if (localStorage.getItem("currentPage") === "/signup") navigate("/");
+                else navigate(localStorage.getItem("currentPage") || "/");
                 localStorage.removeItem("currentPage");
                 id = response.data.id;
                 return axios.get(
@@ -115,16 +116,18 @@ function LogIn({ bulb, settings, setSettings, setSavedList, setVerificationRequi
                         value={loginValue}
                         placeholder={text[settings.language].login[1]}
                     />
-                    <div>
-                        <label style={{margin: "0"}}>{text[settings.language].signup[4]}:</label>
-                        <svg onClick={() => setFieldType(fieldType === "password" ? "text" : "password")} fill={`var(--intermediate-${fieldType === "password" ? "green" : "red"})`} viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d={paths.hide[0]}/><path d={paths.hide[1]}/></svg>
+                    <label>{text[settings.language].signup[4]}:</label>
+                    <div className="password-field">
+                        <input
+                            type={fieldType}
+                            onChange={event => setPassword(event.target.value)}
+                            value={password}
+                            placeholder={text[settings.language].login[2]}
+                        />
+                        {fieldType === "password"
+                        ? <svg onClick={() => setFieldType("text")} xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d={paths.hide[0]}/></svg>
+                        : <svg onClick={() => setFieldType("password")} xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d={paths.hide[1]}/></svg>}
                     </div>
-                    <input
-                        type={fieldType}
-                        onChange={event => setPassword(event.target.value)}
-                        value={password}
-                        placeholder={text[settings.language].login[2]}
-                    />
                     <button type="submit" onClick={login} disabled={loadLogIn || password == "" || loginValue == ""}>{
                         loadLogIn ? <span className="loader" style={{ width: "1.6rem", height: "1.6rem" }} />
                         : text[settings.language].auth[0]
@@ -150,7 +153,7 @@ function LogIn({ bulb, settings, setSettings, setSavedList, setVerificationRequi
             </>
             : <div className="logged-in">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d={paths.loggedIn}/></svg>
-                <h2 style={{width: "100%"}}>{text[settings.language].authErrors[4]}</h2>
+                <h2 style={{width: "100%"}}>{text[settings.language].authErrors[11]}</h2>
             </div>}
         </motion.div>
     )

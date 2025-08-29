@@ -245,12 +245,21 @@ body {
 }
 
 .password-field input {
-    width: calc(100% - 4.6rem);
+    width: calc(100% - 3.9rem);
     padding-right: 3rem;
 }
 
 .login-form input {
     width: 30ch;
+}
+
+.login-form .password-field {
+    margin-top: 0;
+}
+
+.login-form .password-field input {
+    width: calc(30ch - 2.5rem);
+    margin-left: -0.5rem;
 }
 
 .password-field {
