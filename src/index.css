@@ -2087,6 +2087,14 @@ label[for=custom-font-input] a {
         border-radius: 12px;
         padding: 0.2rem 0.3rem;
     }
+    .login-form .password-field input {
+        width: calc(100% - 3rem);
+        padding-right: 3rem;
+    }
+    .login-form svg {
+        top: 1.3rem;
+        right: 0.7rem;
+    }
     .signup-form button, .login-form button {
         font-size: 1.2rem;
         border-radius: 18px;
