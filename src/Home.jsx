@@ -1,12 +1,10 @@
 import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import UBulb from './UBulb';
 import text from './assets/json/text.json';
 import { motion } from 'framer-motion';
 
 function Home({ settings }) {
-
-    const navigate = useNavigate();
 
     useEffect(() => {
         document.title = "shinebulb";
@@ -24,12 +22,12 @@ function Home({ settings }) {
                 <p className="p2">shineb</p><UBulb /><p className="p2">lb</p>
             </div>
             <div className="links">
-                <a onClick={() => navigate("/play")}>{text[settings.language].links[0]}</a>
-                <a onClick={() => navigate("/settings")}>{text[settings.language].links[1]}</a>
-                <a onClick={() => navigate("/about")}>{text[settings.language].links[2]}</a>
-                <a onClick={() => navigate("/support")}>{text[settings.language].links[3]}</a>
+                <Link to="/play">{text[settings.language].links[0]}</Link>
+                <Link to="/settings">{text[settings.language].links[1]}</Link>
+                <Link to="/about">{text[settings.language].links[2]}</Link>
+                <Link to="/support">{text[settings.language].links[3]}</Link>
             </div>
-            <a onClick={() => navigate("/development")} id="source">{text[settings.language].links[8]}</a>
+            <Link to="/development" id="source">{text[settings.language].links[8]}</Link>
         </motion.div>
     )
 }
