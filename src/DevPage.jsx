@@ -1,13 +1,11 @@
-import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import RepoMenu from './RepoMenu';
 import text from './assets/json/text.json';
 import version from './assets/json/version.json';
 import { motion } from 'framer-motion';
 
 function DevPage({ settings }) {
-
-    const navigate = useNavigate();
 
     useEffect(() => {
         document.title = text[settings.language].links[8];
@@ -26,7 +24,7 @@ function DevPage({ settings }) {
             <p className="p3" style={{fontWeight: "bold", margin: "1rem 0"}}>{text[settings.language].devSides[0]}</p>
             <RepoMenu settings={settings} />
             <div style={{height: "2rem"}}/>
-            <a onClick={() => navigate("/")}>{text[settings.language].back}</a>
+            <Link to="/">{text[settings.language].back}</Link>
         </motion.div>
     )
 }

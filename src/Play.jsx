@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState, useEffect, useRef, useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { AuthContext } from './assets/AuthContext';
 import axios from 'axios';
 import themes from './assets/themes';
@@ -11,8 +11,6 @@ import { motion } from 'framer-motion';
 function Play({ bulb, settings, setSettings }) {
 
     const { authState } = useContext(AuthContext);
-    
-    const navigate = useNavigate();
 
     const [loadSwitch, setLoadSwitch] = useState(false);
     const [loadReset, setLoadReset] = useState(false);
@@ -178,7 +176,7 @@ function Play({ bulb, settings, setSettings }) {
                 <button onClick={() => closeModal(modal)}>{text[settings.language].confirm[2]}</button>
             </dialog>
             <h2 id="counter">{settings.bulbCount || 0}</h2>
-            <a onClick={() => navigate("/")}>{text[settings.language].back}</a>
+            <Link to="/">{text[settings.language].back}</Link>
         </motion.div>
     )
 }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import ThemePreview from './ThemePreview';
 import closeModal from './assets/closeModal';
 import text from './assets/json/text.json';

@@ -1,11 +1,9 @@
-import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import text from './assets/json/text.json';
 import { motion } from 'framer-motion';
 
 function NoPage({ settings }) {
-
-    const navigate = useNavigate();
     
     useEffect(() => {
         document.title = text[settings.language].links[7];
@@ -28,11 +26,11 @@ function NoPage({ settings }) {
                         {text[settings.language].pageNotFound[1]}
                     </p>
                     <div className="no-page-links">
-                        <a onClick={() => navigate("/")}>{text[settings.language].home}</a>
-                        <a onClick={() => navigate("/play")}>{text[settings.language].links[0].toLowerCase()}</a>
-                        <a onClick={() => navigate("/settings")}>{text[settings.language].links[1]}</a>
-                        <a onClick={() => navigate("/about")}>{text[settings.language].links[2]}</a>
-                        <a onClick={() => navigate("/support")}>{text[settings.language].links[3]}</a>
+                        <Link to="/">{text[settings.language].home}</Link>
+                        <Link to="/play">{text[settings.language].links[0].toLowerCase()}</Link>
+                        <Link to="/settings">{text[settings.language].links[1]}</Link>
+                        <Link to="/about">{text[settings.language].links[2]}</Link>
+                        <Link to="/support">{text[settings.language].links[3]}</Link>
                     </div>
                 </div>
                 <img title="sauron" src="https://i.pinimg.com/originals/20/bc/ac/20bcacc9571e85a27bef9cbfad961b4a.png" />

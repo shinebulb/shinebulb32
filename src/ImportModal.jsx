@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 import ImportGraph from './ImportGraph';
 import axios from 'axios';
 import closeModal from './assets/closeModal';

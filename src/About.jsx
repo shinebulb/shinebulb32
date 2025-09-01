@@ -1,11 +1,9 @@
-import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import text from './assets/json/text.json';
 import { motion } from 'framer-motion';
 
 function About({ settings }) {
-    
-    const navigate = useNavigate();
 
     useEffect(() => {
         document.title = text[settings.language].links[2];
@@ -34,7 +32,7 @@ function About({ settings }) {
             <div style={{height: "1rem"}} />
             <div className="links">
                 <a href = "mailto:shinebulby@gmail.com?subject=contact">{text[settings.language].contact}</a>
-                <a onClick={() => navigate("/")}>{text[settings.language].back}</a>
+                <Link to="/">{text[settings.language].back}</Link>
             </div>
         </motion.div>
     )

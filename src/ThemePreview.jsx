@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import text from './assets/json/text.json';
 import paths from './assets/json/svg-paths.json';
 

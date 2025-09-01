@@ -1,11 +1,9 @@
-import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import text from './assets/json/text.json';
 import { motion } from 'framer-motion';
 
 function Support({ settings }) {
-
-    const navigate = useNavigate();
     
     useEffect(() => {
         document.title = text[settings.language].links[3];
@@ -24,7 +22,7 @@ function Support({ settings }) {
                 <img src="img/donate.svg"/>
             </a>
             <div style={{height: "1rem"}}/>
-            <a onClick={() => navigate("/")}>{text[settings.language].back}</a>
+            <Link to="/">{text[settings.language].back}</Link>
         </motion.div>
     )
 }
