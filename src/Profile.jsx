@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useContext } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import { AuthContext } from './assets/AuthContext';
 import ProfileFontLoader from './ProfileFontLoader';
 import closeModal from './assets/closeModal';
@@ -167,15 +167,15 @@ function Profile({ settings, bulb }) {
                     </h2>
                 </div>
                 {userMatch &&
-                <button
+                <Link
+                    to="/changepassword"
                     className="change-password"
                     style={{
                         top: width >= 600 ? "calc(50% + 146px)" : (settings.language === 1 ? "calc(50% + 226px)" : "calc(50% + 206px)"),
                     }}
-                    onClick={() => navigate("/changepassword")}
                 >
                     {text[settings.language].changePassword[0]}
-                </button>}
+                </Link>}
             </>}
             <dialog closedby="any" ref={copyModal} className="copy-modal">
                 <h2>{text[settings.language].pickCopyColors[0]}</h2>

@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { AuthContext } from './assets/AuthContext';
 import checkColor from './assets/checkColor';
 import closeModal from './assets/closeModal';
@@ -9,8 +9,6 @@ import paths from './assets/json/svg-paths.json';
 import custom from './assets/json/custom.json';
 
 function ThemeConstructor({ constructor, settings, setSettings, width }) {
-
-    const navigate = useNavigate();
 
     const inverted = settings.invertTheme && settings.bulbStatus == "on"
 
@@ -267,9 +265,9 @@ function ThemeConstructor({ constructor, settings, setSettings, width }) {
                 <div>
                     <p>
                         {text[settings.language].savedStatus[saveStatus][0]}
-                        <span onClick={() => navigate("/savedthemes")} style={{textDecoration: "underline", color: "blue", cursor: "pointer"}}>
+                        <Link to="/savedthemes" style={{textDecoration: "underline", color: "blue", cursor: "pointer"}}>
                             {text[settings.language].savedStatus[saveStatus][1]}
-                        </span>!
+                        </Link>!
                     </p>
                     <button onClick={() => closeModal(alertRef)}>
                         <svg viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"><g id="Page-1" stroke="none" strokeWidth="1" fill={`var(--dark-${saveStatus ? "green" : "red"})`} fillRule="evenodd"><g id="work-case" transform="translate(91.520000, 91.520000)"><polygon id="Close" points={paths.cancel} /></g></g></svg>

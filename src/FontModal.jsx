@@ -1,5 +1,5 @@
 import { useState, useRef, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { AuthContext } from './assets/AuthContext';
 import closeModal from './assets/closeModal';
@@ -8,8 +8,6 @@ import text from './assets/json/text.json';
 import paths from './assets/json/svg-paths.json';
 
 function FontModal({ modal, settings, setSettings, width }) {
-
-    const navigate = useNavigate();
 
     const { authState } = useContext(AuthContext);
 
@@ -155,9 +153,9 @@ function FontModal({ modal, settings, setSettings, width }) {
                 <div>
                     <p>
                         {text[settings.language].fontSavedStatus[saveStatus][0]}
-                        <span onClick={() => navigate("/savedfonts")} style={{textDecoration: "underline", color: "blue", cursor: "pointer"}}>
+                        <Link to="/savedfonts" style={{textDecoration: "underline", color: "blue", cursor: "pointer"}}>
                             {text[settings.language].fontSavedStatus[saveStatus][1]}
-                        </span>!
+                        </Link>!
                     </p>
                     <button onClick={() => closeModal(alertRef)}>
                         <svg viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"><g id="Page-1" stroke="none" strokeWidth="1" fill={`var(--dark-${saveStatus ? "green" : "red"})`} fillRule="evenodd"><g id="work-case" transform="translate(91.520000, 91.520000)"><polygon id="Close" points={paths.cancel} /></g></g></svg>

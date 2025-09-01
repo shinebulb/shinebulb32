@@ -1,5 +1,5 @@
 import { useEffect, useRef, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { AuthContext } from './assets/AuthContext';
 import text from './assets/json/text.json';
@@ -86,7 +86,7 @@ function SavedThemes({ settings, setSettings, savedList, setSavedList }) {
                     </button>
                 </div>
                 <div style={{height: "1.5rem"}}/>
-                <a onClick={() => navigate("/settings")} id="saved-back-link">{text[settings.language].back}</a>
+                <Link to="/settings" id="saved-back-link">{text[settings.language].back}</Link>
                 <div style={{height: "2rem"}} />
 
                 <ExportModal exportModal={exportModal} settings={settings} savedList={savedList} />

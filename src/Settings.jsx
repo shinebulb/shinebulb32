@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from './assets/AuthContext';
 import axios from 'axios';
 import ThemeConstructor from './ThemeConstructor';
@@ -236,18 +236,18 @@ function Settings({ settings, setSettings }) {
                 <h3 className="collections-title">{text[settings.language].yourCollections[0]}</h3>
                 <div style={{ height: "1.5rem" }} />
                 <div className="collections">
-                    <button onClick={() => navigate("/savedthemes")}>
+                    <Link to="/savedthemes">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="var(--button-font)"><path d={paths.theme}/></svg>
                         {text[settings.language].yourCollections[1]}{width >= 600 ? " (t)" : ""}
-                    </button>
-                    <button onClick={() => navigate("/savedfonts")}>
+                    </Link>
+                    <Link to="/savedfonts">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="var(--button-font)"><path d={paths.fonts}/></svg>
                         {text[settings.language].yourCollections[2]}{width >= 600 ? " (f)" : ""}
-                    </button>
+                    </Link>
                 </div>
             </>}
             <div style={{ height: "4rem" }} />
-            <a onClick={() => navigate("/")}>{text[settings.language].back}</a>
+            <Link to="/">{text[settings.language].back}</Link>
             <div style={{ height: "3rem" }} />
             <ThemeConstructor
                 constructor={constructorRef}

@@ -432,21 +432,21 @@ body {
     margin: 0 0 2rem;
 }
 
-.log-in-to-view button {
-    font-family: var(--font-family);
+.log-in-to-view a {
     font-size: 1.4rem;
-    width: 46%;
+    font-weight: normal;
     background-color: var(--button-bg);
     color: var(--button-font);
     border: var(--border-thick);
     border-radius: 15px;
-    padding: 0.5rem 0;
+    padding: 0.5rem 2rem;
     margin: auto 2%;
     transition: all 0.3s ease;
     cursor: pointer;
 }
 
-.log-in-to-view button:hover {
+.log-in-to-view a:hover {
+    text-decoration: none;
     background-color: var(--select-hover);
 }
 
@@ -554,7 +554,9 @@ body {
 }
 
 .change-password {
-    font-family: var(--font-family);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: absolute;
     left: 0;
     right: 0;
@@ -563,12 +565,15 @@ body {
     border: var(--border-thick);
     border-radius: 0 0 15px 15px;
     font-size: 1.3rem;
-    background-color: var(--button-bg);
     color: var(--button-font);
     font-weight: bold;
     margin: auto;
     transition: background-color 0.3s ease;
     cursor: pointer;
+}
+
+.change-password:hover {
+    text-decoration: none;
 }
 
 .user-actions {
@@ -859,13 +864,13 @@ h2 {
     display: flex;
 }
 
-.collections button {
-    font-family: var(--font-family);
+.collections a {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 46%;
     font-size: 1.3rem;
+    font-weight: normal;
     background-color: var(--button-bg);
     color: var(--button-font);
     border: var(--border-thick);
@@ -876,13 +881,17 @@ h2 {
     cursor: pointer;
 }
 
+.collections a:hover {
+    text-decoration: none;
+}
+
 .collections svg {
     width: 1.8rem;
     margin-right: 0.5rem;
 }
 
 .collection-actions button:hover,
-.collections button:hover,
+.collections a:hover,
 .signup-form button:hover,
 .login-form button:hover,
 .container select:hover,
@@ -1248,8 +1257,9 @@ a:hover {
     width: 388px;
 }
 
-.save-alert p {
+.save-alert p, .save-alert a {
     font-size: 1.2rem;
+    font-weight: normal;
     margin: 0;
 }
 
@@ -2143,7 +2153,7 @@ label[for=custom-font-input] a {
         font-size: 1.1rem;
         margin: 0 0 1.3rem;
     }
-    .log-in-to-view button {
+    .log-in-to-view a {
         font-size: 1.1rem;
         border-radius: 12px;
         padding: 0.3rem 0;
@@ -2366,7 +2376,7 @@ label[for=custom-font-input] a {
         font-size: 1.5rem;
         gap: 0.6rem;
     }
-    .collections button {
+    .collections a {
         font-size: 1.1rem;
         border-radius: 12px;
         padding: 0.3rem 0;
