@@ -896,11 +896,23 @@ h2 {
 
 .header {
     display: inline-flex;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.header:hover {
+    text-shadow: 0 0 6px color-mix(in srgb, var(--font) 50%, transparent);
+}
+
+.header:hover > svg {
+    filter: drop-shadow(0 0 3px color-mix(in srgb, var(--font) 50%, transparent));
 }
 
 .header svg {
     height: 4.5rem;
+    border-radius: 20%;
     margin: 3.7rem 0.2rem 0;
+    transition: all 0.3s ease;
 }
 
 .links {
