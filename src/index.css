@@ -1969,10 +1969,6 @@ label[for=custom-font-input] a {
     cursor: pointer;
 }
 
-.count-label:hover {
-    text-decoration: underline;
-}
-
 .user-bio {
     min-width: 300px;
     border: none;
