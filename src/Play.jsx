@@ -8,6 +8,8 @@ import paths from './assets/json/svg-paths.json';
 import text from './assets/json/text.json';
 import { motion } from 'framer-motion';
 
+const milestones = [100, 505, 1000, 10000];
+
 function Play({ bulb, settings, setSettings }) {
 
     const { authState } = useContext(AuthContext);
@@ -72,7 +74,7 @@ function Play({ bulb, settings, setSettings }) {
             });
             if (!bulbMuted) {
                 new Audio(`audio/${curStatus}.mp3`).play();
-                if (curStatus === "on") new Audio(`audio/${curCount}.mp3`).play();
+                if (curStatus === "on" && milestones.includes(curCount)) new Audio(`audio/${curCount}.mp3`).play();
             }
             bulb.current.classList.toggle("on");
             localStorage.setItem("bulbCount", curCount);
